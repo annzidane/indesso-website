@@ -1,6 +1,6 @@
 import type { Locale } from "@/lib/i18n/config"
 import { getAboutPageData } from "@/lib/strapi/about-api"
-import { getFooterData, getNavigation } from "@/lib/strapi/api"
+// import { getFooterData, getNavigation } from "@/lib/strapi/api"
 import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
 import { AboutHero } from "@/components/sections/about/about-hero"

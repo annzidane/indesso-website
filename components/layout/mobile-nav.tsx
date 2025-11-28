@@ -5,15 +5,15 @@ import Link from "next/link"
 import { Menu } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet"
-import type { NavigationItem } from "@/types/strapi"
+import type { HeaderMenu } from "@/types/strapi"
 import type { Locale } from "@/lib/i18n/config"
 
 interface MobileNavProps {
-  navigation: NavigationItem[]
+  menus: HeaderMenu[]
   locale: Locale
 }
 
-export function MobileNav({ navigation, locale }: MobileNavProps) {
+export function MobileNav({ menus, locale }: MobileNavProps) {
   const [open, setOpen] = useState(false)
 
   return (
@@ -27,14 +27,14 @@ export function MobileNav({ navigation, locale }: MobileNavProps) {
       <SheetContent side="right" className="w-[300px] bg-primary">
         <SheetTitle className="text-white">Navigation Menu</SheetTitle>
         <nav className="flex flex-col gap-4 mt-8">
-          {navigation.map((item) => (
+          {menus.map((item) => (
             <Link
               key={item.id}
-              href={`/${locale}${item.href}`}
+              href={`/${locale}${item.path}`}
               onClick={() => setOpen(false)}
               className="text-lg font-medium text-white/90 hover:text-white transition-colors py-2"
             >
-              {item.label}
+              {item.title}
             </Link>
           ))}
         </nav>

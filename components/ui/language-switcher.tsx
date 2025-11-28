@@ -2,37 +2,44 @@
 
 import { usePathname, useRouter } from "next/navigation"
 import { locales, localeNames, type Locale } from "@/lib/i18n/config"
+import type { HeaderLang } from "@/types/strapi"
 import { cn } from "@/lib/utils"
 
 interface LanguageSwitcherProps {
   locale: Locale
+  languages?: HeaderLang[]
 }
 
-export function LanguageSwitcher({ locale }: LanguageSwitcherProps) {
+export function LanguageSwitcher({ locale, languages }: LanguageSwitcherProps) {
   const pathname = usePathname()
   const router = useRouter()
 
-  const switchLocale = (newLocale: Locale) => {
+  const switchLocale = (newLocale: string) => {
     // Remove current locale from pathname and add new locale
     const segments = pathname.split("/")
     segments[1] = newLocale
     router.push(segments.join("/"))
   }
 
+  // Use languages from API if provided, otherwise fallback to config
+  const langList = languages && languages.length > 0 
+    ? languages 
+    : locales.map((loc, index) => ({ id: index + 1, title: localeNames[loc], value: loc }))
+
   return (
     <div className="flex items-center gap-1">
-      {locales.map((loc, index) => (
-        <span key={loc} className="flex items-center">
+      {langList.map((lang, index) => (
+        <span key={lang.id} className="flex items-center">
           <button
-            onClick={() => switchLocale(loc)}
+            onClick={() => switchLocale(lang.value)}
             className={cn(
               "text-sm font-medium transition-colors px-1",
-              locale === loc ? "text-white" : "text-white/60 hover:text-white/80",
+              locale === lang.value ? "text-white" : "text-white/60 hover:text-white/80",
             )}
           >
-            {localeNames[loc]}
+            {lang.title}
           </button>
-          {index < locales.length - 1 && <span className="text-white/40 mx-1">|</span>}
+          {index < langList.length - 1 && <span className="text-white/40 mx-1">|</span>}
         </span>
       ))}
     </div>

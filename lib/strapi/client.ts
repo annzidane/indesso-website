@@ -1,18 +1,28 @@
 const STRAPI_URL = process.env.STRAPI_URL || "http://localhost:1337"
 const STRAPI_API_TOKEN = process.env.STRAPI_API_TOKEN
 
-interface FetchOptions {
+type FetchOptions = {
   locale?: string
-  populate?: string | object
-  filters?: object
+  populate?: string | Record<string, unknown>
+  filters?: Record<string, unknown>
   revalidate?: number
+  query?: Record<string, string | number | boolean>
 }
 
 export async function fetchStrapi<T>(endpoint: string, options: FetchOptions = {}): Promise<T> {
-  const { locale = "en", populate = "*", filters, revalidate = 60 } = options
+  const {
+    locale = "en",
+    populate,
+    filters,
+    revalidate = 60,
+    query,
+  } = options
 
   const params = new URLSearchParams()
-  params.set("locale", locale)
+
+  if (locale) {
+    params.set("locale", locale)
+  }
 
   if (typeof populate === "string") {
     params.set("populate", populate)
@@ -22,6 +32,14 @@ export async function fetchStrapi<T>(endpoint: string, options: FetchOptions = {
 
   if (filters) {
     params.set("filters", JSON.stringify(filters))
+  }
+
+  if (query) {
+    for (const [key, value] of Object.entries(query)) {
+      if (value !== undefined && value !== null) {
+        params.set(key, String(value))
+      }
+    }
   }
 
   const url = `${STRAPI_URL}/api/${endpoint}?${params.toString()}`

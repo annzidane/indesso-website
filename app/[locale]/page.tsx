@@ -4,7 +4,7 @@ import { HeroSection } from "@/components/sections/hero-section"
 import { AboutSection } from "@/components/sections/about-section"
 import { StatsSection } from "@/components/sections/stats-section"
 import { BusinessSection } from "@/components/sections/business-section"
-import { getLandingPageData } from "@/lib/strapi/api"
+import { getHomepageData, getHeaderData, getFooterData, getBanners } from "@/lib/strapi/api"
 import { isValidLocale, type Locale } from "@/lib/i18n/config"
 import { notFound } from "next/navigation"
 
@@ -20,18 +20,23 @@ export default async function HomePage({ params }: PageProps) {
   }
 
   const locale = localeParam as Locale
-  const data = await getLandingPageData(locale)
+  const [homepage, headerData, footerData, banners] = await Promise.all([
+    getHomepageData(locale),
+    getHeaderData(locale),
+    getFooterData(locale),
+    getBanners(),
+  ])
 
   return (
     <>
-      <Header navigation={data.navigation} locale={locale} />
+      <Header data={headerData} locale={locale} />
       <main>
-        <HeroSection data={data.hero} locale={locale} />
-        <AboutSection data={data.about} locale={locale} />
-        <StatsSection data={data.stats} locale={locale} />
-        <BusinessSection data={data.business} locale={locale} />
+        <HeroSection data={homepage.hero} banners={banners} locale={locale} />
+        <AboutSection data={homepage.about} locale={locale} />
+        <StatsSection data={homepage.reason} locale={locale} />
+        <BusinessSection data={homepage.business} locale={locale} />
       </main>
-      <Footer data={data.footer} locale={locale} />
+      <Footer data={footerData} locale={locale} />
     </>
   )
 }

@@ -4,10 +4,27 @@ import { cn } from "@/lib/utils"
 interface SectionLabelProps {
   children: React.ReactNode
   className?: string
-  variant?: "default" | "light"
+  variant?: "default" | "light" | "bubble"
 }
 
 export function SectionLabel({ children, className, variant = "default" }: SectionLabelProps) {
+  if (variant === "bubble") {
+    return (
+      <span
+        className={cn(
+          "inline-flex items-center justify-center text-xs font-semibold tracking-[0.2em] uppercase text-primary h-8 px-4 gap-2.5",
+          className,
+        )}
+        style={{
+          borderRadius: "4px 16px 16px 16px",
+          background: "linear-gradient(274.93deg, rgba(181, 214, 102, 0.1) 0%, rgba(0, 84, 139, 0.1) 100%)",
+        }}
+      >
+        {children}
+      </span>
+    )
+  }
+
   return (
     <span
       className={cn(

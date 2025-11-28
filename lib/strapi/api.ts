@@ -1,290 +1,227 @@
-import { getStrapiMedia } from "./client"
+import { fetchStrapi, getStrapiMedia } from "./client"
+import { 
+  defaultHeaderData, 
+  defaultFooterData,
+  defaultHomepageProps,
+} from "./defaults"
 import type {
-  LandingPageData,
-  HeroSection,
-  AboutSection,
-  StatsSection,
-  BusinessSection,
   FooterData,
-  NavigationItem,
+  FooterApiResponse,
+  HeaderData,
+  HeaderApiResponse,
+  BannerData,
+  BannerApiResponse,
+  HomepageApiResponse,
+  HomepageData,
+  HeroSectionData,
+  AboutUsSectionData,
+  ReasonSectionData,
+  BusinessSectionData,
+  HeroSectionProps,
+  AboutSectionProps,
+  ReasonSectionProps,
+  BusinessSectionProps,
+  StrapiRichText,
+  SeoProps,
 } from "@/types/strapi"
 
-export async function getLandingPageData(locale: string): Promise<LandingPageData> {
-  // In production, these would be actual Strapi API calls
-  // For now, returning mock data structure
-  const [hero, about, stats, business, footer, navigation] = await Promise.all([
-    getHeroSection(locale),
-    getAboutSection(locale),
-    getStatsSection(locale),
-    getBusinessSection(locale),
-    getFooterData(locale),
-    getNavigation(locale),
-  ])
+// ============================================
+// Homepage API
+// ============================================
 
-  return { hero, about, stats, business, footer, navigation }
+export interface HomepageProps {
+  hero: HeroSectionProps
+  about: AboutSectionProps
+  reason: ReasonSectionProps
+  business: BusinessSectionProps
+  seo: SeoProps
 }
 
-export async function getHeroSection(locale: string): Promise<HeroSection> {
-  // Mock data - replace with actual Strapi call
+// Helper to extract text from Strapi Rich Text
+function extractTextFromRichText(richText: StrapiRichText[] | undefined | null): string {
+  if (!richText || !Array.isArray(richText)) {
+    return ""
+  }
+  return richText
+    .map(block => block.children?.map(child => child.text).join("") || "")
+    .filter(text => text.length > 0)
+    .join("\n\n")
+}
+
+// Transform API response to component props
+function transformHomepageData(data: HomepageData): HomepageProps {
+  const sections = data.page_sections
+  
+  // Find each section by component type
+  const heroData = sections.find(s => s.__component === "home-page.hero-section") as HeroSectionData | undefined
+  const aboutData = sections.find(s => s.__component === "home-page.about-us-section") as AboutUsSectionData | undefined
+  const reasonData = sections.find(s => s.__component === "home-page.reason-section") as ReasonSectionData | undefined
+  const businessData = sections.find(s => s.__component === "home-page.business-section") as BusinessSectionData | undefined
+
   return {
-    id: 1,
-    headline: "Crafting Natures Essence for the World",
-    ctaText: "LEARN MORE",
-    ctaLink: "/about",
-    badge: {
-      title: "One of Few Company in The World",
-      description: "Mastering The Entire Clove Derivative Spectrum",
-    },
-    backgroundImage: {
-      id: 1,
-      url: "/green-tea-plantation-mountains.jpg",
-      alternativeText: "Tea plantation",
-      width: 1920,
-      height: 800,
-    },
+    hero: heroData ? {
+      title: heroData.title,
+      ctaText: heroData.button.title,
+      ctaLink: heroData.button.path,
+      badge: {
+        title: heroData.title_badge,
+        description: heroData.description_badge,
+        image: heroData.image_badge,
+      },
+    } : defaultHomepageProps.hero,
+
+    about: aboutData ? {
+      label: aboutData.title,
+      title: aboutData.main_title,
+      description: extractTextFromRichText(aboutData.text),
+      ctaText: aboutData.button.title,
+      ctaLink: aboutData.button.path,
+      featureImage: aboutData.feature_image,
+      backgroundImage: aboutData.background_image,
+      highlight: {
+        prefix: aboutData.card.title,
+        value: String(aboutData.card.number),
+        suffix: aboutData.card.description,
+      },
+    } : defaultHomepageProps.about,
+
+    reason: reasonData ? {
+      label: reasonData.title,
+      title: reasonData.main_title,
+      description: reasonData.description,
+      matric: {
+        employeeTitle: reasonData.matric_card.title_employee,
+        employeeDescription: reasonData.matric_card.description_employee,
+        peopleTitle: reasonData.matric_card.title_people,
+        peopleDescription: reasonData.matric_card.description_people,
+        image: reasonData.matric_card.image,
+      },
+      statistics: reasonData.statistic_card.map(stat => ({
+        id: stat.id,
+        title: stat.title,
+        description: stat.description,
+        image: stat.image,
+      })),
+      impact: {
+        opener: reasonData.impact_card.opener,
+        value: reasonData.impact_card.number,
+        title: reasonData.impact_card.title,
+        description: reasonData.impact_card.description,
+        image: reasonData.impact_card.image,
+      },
+    } : defaultHomepageProps.reason,
+
+    business: businessData ? {
+      label: businessData.title,
+      title: businessData.main_title,
+      cards: businessData.business_card.map(card => ({
+        id: card.id,
+        title: card.title,
+        description: card.description,
+        ctaText: card.title_button,
+        ctaLink: card.path,
+        cardImage: card.card_image,
+        ingredientImage: card.ingredient_image,
+      })),
+    } : defaultHomepageProps.business,
+
+    seo: data.seo ? {
+      metaTitle: data.seo.meta_title,
+      metaDescription: data.seo.meta_description,
+      keywords: data.seo.keywords?.map(k => k.keywords) || [],
+    } : defaultHomepageProps.seo,
   }
 }
 
-export async function getAboutSection(locale: string): Promise<AboutSection> {
-  return {
-    id: 1,
-    label: "ABOUT US",
-    title: "Specialist in Natural Taste & Aroma Ingredients",
-    description:
-      "We create nature based solutions that elevate taste, aroma, and sensory experiences for brands and creators in the food, beverage, and aromatic industries.\n\nWith strong manufacturing expertise rooted in Indonesia and trusted across international markets, we combine scientific excellence with a passion for sustainability to enrich quality of life through the best of nature.",
-    ctaText: "Learn More",
-    ctaLink: "/about",
-    image: {
-      id: 2,
-      url: "/scientist-with-plant-research-laboratory.jpg",
-      alternativeText: "Scientist researching plants",
-      width: 400,
-      height: 500,
-    },
-    highlight: {
-      prefix: "Since",
-      value: "1968",
-      suffix: "Indonesia's most experienced natural ingredients company",
-    },
+export async function getHomepageData(locale: string): Promise<HomepageProps> {
+  try {
+    const response = await fetchStrapi<HomepageApiResponse>("homepage", {
+      locale,
+      query: {
+        // Hero, About, Business sections
+        "populate[page_sections][on][home-page.hero-section][populate]": "*",
+        "populate[page_sections][on][home-page.about-us-section][populate]": "*",
+        // Reason section with nested populates for images
+        "populate[page_sections][on][home-page.reason-section][populate][matric_card][populate]": "*",
+        "populate[page_sections][on][home-page.reason-section][populate][statistic_card][populate]": "*",
+        "populate[page_sections][on][home-page.reason-section][populate][impact_card][populate]": "*",
+        // Business section with nested populates for images
+        "populate[page_sections][on][home-page.business-section][populate][business_card][populate]": "*",
+        // SEO
+        "populate[seo][populate]": "*",
+      },
+    })
+    console.log("Homepage data fetched:", response)
+    return transformHomepageData(response.data)
+  } catch (error) {
+    console.error("Failed to fetch homepage data:", error)
+    return defaultHomepageProps
   }
 }
 
-export async function getStatsSection(locale: string): Promise<StatsSection> {
-  return {
-    id: 1,
-    label: "WHY CHOOSE US",
-    title: "Our Innovation Story in Powerful Numbers",
-    description:
-      "We create nature based solutions that elevate taste, aroma, and sensory experiences for brands and creators in the food, beverage, and aromatic industries.",
-    stats: [
-      {
-        id: 1,
-        value: "700+",
-        label: "Employees",
-        description: "Powering innovation and excellence",
-      },
-      {
-        id: 2,
-        value: "2800+",
-        label: "solar panels across 3 sites",
-        description: "Harnessing renewable energy in our industry",
-      },
-      {
-        id: 3,
-        value: "One",
-        label: "of few companies in the world",
-        description: "Mastering the Entire Clove Derivative Spectrum",
-      },
-      {
-        id: 4,
-        value: "15%",
-        label: "of Our People",
-        description: "Work directly in scientific & technical roles",
-      },
-      {
-        id: 5,
-        value: "150,000",
-        label: "Tonnes of Essential Oils & Aroma",
-        description: "Ingredients produced - shaping the scent and flavor of billions products",
-        image: {
-          id: 3,
-          url: "/essential-oils-bottles-aroma.jpg",
-          alternativeText: "Essential oils",
-          width: 300,
-          height: 200,
-        },
-      },
-      {
-        id: 6,
-        value: "59",
-        label: "Countries Served",
-        description: "Bringing the essence of nature to global industries",
-        image: {
-          id: 4,
-          url: "/spices-herbs-colorful.jpg",
-          alternativeText: "Spices and herbs",
-          width: 300,
-          height: 200,
-        },
-      },
-      {
-        id: 7,
-        value: "100,000",
-        label: "Farmers & Biomass Collectors",
-        description: "for raw material sourcing, touching people's lives and enhancing their livelihoods",
-        image: {
-          id: 5,
-          url: "/farmers-harvesting-crops-field.jpg",
-          alternativeText: "Farmers harvesting",
-          width: 300,
-          height: 200,
-        },
-      },
-    ],
+// ============================================
+// Header API
+// ============================================
+
+export async function getHeaderData(locale: string): Promise<HeaderData> {
+  try {
+    const response = await fetchStrapi<HeaderApiResponse>("header", {
+      locale,
+      populate: "*",
+    })
+    return response.data
+  } catch (error) {
+    console.error("Failed to fetch header data:", error)
+    return defaultHeaderData
   }
 }
 
-export async function getBusinessSection(locale: string): Promise<BusinessSection> {
-  return {
-    id: 1,
-    label: "OUR BUSINESS",
-    title: "Shaping Sensory Journeys for Everyday Life",
-    businessCards: [
-      {
-        id: 1,
-        title: "Natural Aroma Ingredients & Extracts",
-        description:
-          "We transform the best of nature into inspiration for broader product innovations, empowering development in Flavor and Fragrance, Food, and the Pharmaceutical industry while helping creators craft products that enrich everyday life.",
-        ctaText: "Learn More",
-        ctaLink: "/business/natural-aroma",
-        image: {
-          id: 6,
-          url: "/mint-leaves-fresh-herbs-green.jpg",
-          alternativeText: "Natural aroma ingredients",
-          width: 400,
-          height: 300,
-        },
-      },
-      {
-        id: 2,
-        title: "Food & Beverage Solutions",
-        description:
-          "We craft experiences that bring joy to every bite, from savory ingredients, meat extracts, and cheese powders to beverages, desserts, and sauces. More than flavor, we aim to season life with delight.",
-        ctaText: "Learn More",
-        ctaLink: "/business/food-beverage",
-        image: {
-          id: 7,
-          url: "/fresh-vegetables-tomatoes-colorful-food.jpg",
-          alternativeText: "Food and beverage",
-          width: 400,
-          height: 300,
-        },
-      },
-      {
-        id: 3,
-        title: "Taste & Scent",
-        description:
-          "We believe every taste carries a story and every scent stirs a feeling. Through our Taste and Scent solutions, we bring these moments to life, helping brands shape experiences that stay long after the first bite or the first breath.",
-        ctaText: "Learn More",
-        ctaLink: "/business/taste-scent",
-        image: {
-          id: 8,
-          url: "/lemon-citrus-fresh-yellow.jpg",
-          alternativeText: "Taste and scent",
-          width: 400,
-          height: 300,
-        },
-      },
-      {
-        id: 4,
-        title: "Specialty Food Ingredients",
-        description:
-          "Our curated collection of Specialty Ingredients, ranging from natural colors and stevia to stabilizers, dairy ingredients, and nutraceuticals, empowers brands to elevate both product performance and the overall consumer experience.",
-        ctaText: "Learn More",
-        ctaLink: "/business/specialty-food",
-        image: {
-          id: 9,
-          url: "/corn-kernels-yellow-golden-food.jpg",
-          alternativeText: "Specialty food ingredients",
-          width: 400,
-          height: 300,
-        },
-      },
-    ],
-  }
-}
+// ============================================
+// Footer API
+// ============================================
 
 export async function getFooterData(locale: string): Promise<FooterData> {
-  return {
-    id: 1,
-    logo: {
-      id: 10,
-      url: "/indesso-logo-white.jpg",
-      alternativeText: "Indesso Logo",
-      width: 120,
-      height: 40,
-    },
-    description:
-      "A global ingredient and innovation company committed to delivering quality, reliability, and sustainable value for every partner.",
-    contactPhone: "+62 1234567890",
-    contactEmail: "contact@indesso.co.id",
-    columns: [
-      {
-        id: 1,
-        title: "Our Business",
-        links: [
-          { id: 1, label: "Natural Aroma Ingredients & Extracts", href: "/business/natural-aroma" },
-          { id: 2, label: "Taste & Wellness", href: "/business/taste-wellness" },
-          { id: 3, label: "Food & Beverage Solutions", href: "/business/food-beverage" },
-          { id: 4, label: "Specialty Ingredients Distributor", href: "/business/specialty" },
-        ],
+  try {
+    const response = await fetchStrapi<FooterApiResponse>("footer", {
+      locale,
+      query: {
+        "populate[footer_menus][populate][menus]": "*",
+        "populate[contact_phone]": "*",
+        "populate[contact_email]": "*",
+        "populate[logo][populate]": "*",
       },
-      {
-        id: 2,
-        title: "About Indesso",
-        links: [
-          { id: 5, label: "Our Journey", href: "/about/journey" },
-          { id: 6, label: "Meet The Boards", href: "/about/boards" },
-          { id: 7, label: "Research & Innovation", href: "/about/research" },
-          { id: 8, label: "Scientific Mastery", href: "/about/scientific" },
-          { id: 9, label: "Responsible Operation", href: "/about/responsible" },
-        ],
-      },
-      {
-        id: 3,
-        title: "Media",
-        links: [
-          { id: 10, label: "Press Release", href: "/media/press" },
-          { id: 11, label: "Corporate News", href: "/media/news" },
-          { id: 12, label: "Report & Insights", href: "/media/reports" },
-          { id: 13, label: "Product Sheets", href: "/media/products" },
-          { id: 14, label: "Videos", href: "/media/videos" },
-        ],
-      },
-      {
-        id: 4,
-        title: "Careers",
-        links: [
-          { id: 15, label: "Life at Indesso", href: "/careers/life" },
-          { id: 16, label: "Join Our Team", href: "/careers/join" },
-          { id: 17, label: "Voices of Indesso", href: "/careers/voices" },
-          { id: 18, label: "Growing Together", href: "/careers/growing" },
-        ],
-      },
-    ],
-    copyright: "Copyright © 2025 PT Indesso Aroma All Rights Reserved.",
+    })
+    console.log("Footer data fetched:", response)
+    return response.data
+  } catch (error) {
+    console.error("Failed to fetch footer data:", error)
+    return defaultFooterData
   }
 }
 
-export async function getNavigation(locale: string): Promise<NavigationItem[]> {
-  return [
-    { id: 1, label: "Our Business", href: "/business" },
-    { id: 2, label: "About Us", href: "/about-us" },
-    { id: 3, label: "Media", href: "/media" },
-    { id: 4, label: "Career", href: "/career" },
-    { id: 5, label: "Contact Us", href: "/contact" },
-    { id: 6, label: "Sustainability", href: "/sustainability" },
-  ]
+// ============================================
+// Banners API
+// ============================================
+
+export async function getBanners(): Promise<BannerData[]> {
+  try {
+    const response = await fetchStrapi<BannerApiResponse>("banners", {
+      populate: "*",
+    })
+    // Sort by order_number if available
+    return response.data.sort((a, b) => {
+      const orderA = a.order_number ?? 999
+      const orderB = b.order_number ?? 999
+      return orderA - orderB
+    })
+  } catch (error) {
+    console.error("Failed to fetch banners:", error)
+    return []
+  }
 }
+
+// ============================================
+// Exports
+// ============================================
 
 export { getStrapiMedia }
