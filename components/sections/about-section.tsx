@@ -31,7 +31,7 @@ export function AboutSection({ data, locale }: AboutSectionProps) {
           {/* Content */}
           <div className="order-2 lg:order-1">
             <SectionLabel variant="bubble" className="mb-4">{data.label}</SectionLabel>
-            <h2 className="text-about-us-title text-5xl text-primary leading-tight mb-6">
+            <h2 className="font-plus-extrabold text-5xl text-primary leading-tight tracking-tight mb-6">
               {data.title}
             </h2>
             <div className="flex flex-col gap-4 text-muted-foreground mb-8">
@@ -52,8 +52,8 @@ export function AboutSection({ data, locale }: AboutSectionProps) {
 
             {/* Highlight */}
             <div className="mt-12 w-[600px] h-[204px] bg-white p-8">
-              <p className="text-body text-muted-foreground mb-2">{data.highlight.prefix}</p>
-              <p className="text-about-us-title text-6xl lg:text-7xl text-primary font-bold">{data.highlight.value}</p>
+              <p className="font-manrope-regular text-muted-foreground mb-2">{data.highlight.prefix}</p>
+              <p className="font-plus-extrabold text-6xl lg:text-7xl text-primary tracking-tight">{data.highlight.value}</p>
               <p className="color-grey mt-2">{data.highlight.suffix}</p>
             </div>
           </div>

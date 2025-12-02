@@ -109,7 +109,7 @@ export function HeroSection({ data, banners, locale }: HeroSectionProps) {
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 pt-20">
         <div className="max-w-6xl mx-auto text-center">
-          <h1 className="text-hero-title text-white mb-8 text-balance">
+          <h1 className="font-plus-extrabold text-[40px] sm:text-[56px] md:text-[72px] lg:text-[88px] xl:text-[104px] leading-none tracking-tight text-white mb-8 text-balance">
             {data.title}
           </h1>
 
@@ -129,14 +129,7 @@ export function HeroSection({ data, banners, locale }: HeroSectionProps) {
       {/* Badge */}
       {data.badge && (
         <div className="absolute bottom-12 right-4 lg:bottom-16 lg:right-16 z-10">
-          <div 
-            className="w-full max-w-[462px] h-auto min-h-32 p-6 shadow-2xl flex items-center gap-6 shrink-0 rounded-[10px]"
-            style={{
-              backgroundColor: 'rgba(255, 255, 255, 0.12)', 
-              backdropFilter: 'blur(20px)',
-              border: '2px solid rgba(255, 255, 255, 0.2)',
-            }}
-          >
+          <div className="glass w-full max-w-[462px] h-auto min-h-32 p-6 shadow-2xl flex items-center gap-6 shrink-0 rounded-[10px]">
             {data.badge.image ? (
               <Image
                 src={getStrapiMedia(data.badge.image.url) || "/placeholder.png"}

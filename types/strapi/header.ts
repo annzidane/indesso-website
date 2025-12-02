@@ -21,6 +21,7 @@ export interface HeaderData {
   id: number
   documentId: string
   logo: StrapiImage
+  logo_fullcolor: StrapiImage
   menus: HeaderMenu[]
   lang: HeaderLang[]
 }

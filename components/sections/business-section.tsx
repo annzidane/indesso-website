@@ -19,7 +19,7 @@ export function BusinessSection({ data, locale }: BusinessSectionProps) {
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-12">
           <SectionLabel variant="bubble" className="mb-4">{data.label}</SectionLabel>
-          <h2 className="text-about-us-title text-5xl text-center text-primary leading-tight text-balance">
+          <h2 className="font-plus-extrabold text-5xl text-center text-primary leading-tight tracking-tight text-balance">
             {data.title}
           </h2>
         </div>
@@ -89,8 +89,8 @@ function BusinessCard({ card, locale }: BusinessCardProps) {
 
         {/* Right Side - Content */}
         <div className="flex-1 py-10 pr-8 flex flex-col justify-center">
-          <h3 className="text-section-label text-indesso-blue text-[32px] mb-4">{card.title}</h3>
-          <p className="text-body text-[14px] color-grey mb-6 leading-relaxed">{card.description}</p>
+          <h3 className="font-plus-semibold text-indesso-blue text-[32px] mb-4">{card.title}</h3>
+          <p className="font-manrope-regular text-[14px] color-grey mb-6 leading-relaxed">{card.description}</p>
           <Button
             asChild
             className="w-fit h-14 px-6 rounded-sm bg-indesso-blue hover:bg-indesso-blue/90 text-white"

@@ -198,98 +198,102 @@
    ================================ */
 
 @layer utilities {
-  /* Hero Title - Plus Jakarta Sans ExtraBold 102px */
-  .text-hero-title {
+  /* Plus Jakarta Sans Font Weights */
+  .font-plus-regular {
     font-family: var(--font-sans);
-    font-weight: 800;
-    font-size: 102px;
+    font-weight: 400;
     line-height: 100%;
-    letter-spacing: -1px;
-    text-align: center;
   }
-  .text-about-us-title {
+  
+  .font-plus-medium {
+    font-family: var(--font-sans);
+    font-weight: 500;
+    line-height: 100%;
+  }
+  
+  .font-plus-semibold {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    line-height: 32px;
+    letter-spacing: 1px;
+  }
+  
+  .font-plus-bold {
     font-family: var(--font-sans);
     font-weight: 700;
     line-height: 100%;
     letter-spacing: -1px;
   }
+  
+  .font-plus-extrabold {
+    font-family: var(--font-sans);
+    font-weight: 800;
+    line-height: 100%;
+    letter-spacing: -1px;
+  }
 
-  .text-title-section {
+  /* Manrope Font Weights */
+  .font-manrope-regular {
+    font-family: var(--font-heading);
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: 0;
+  }
+  
+  .font-manrope-medium {
+    font-family: var(--font-heading);
+    font-weight: 500;
+    line-height: 28px;
+  }
+  
+  .font-manrope-semibold {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    line-height: 28px;
+  }
+  
+  .font-manrope-bold {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    line-height: 28px;
+  }
+  
+  .font-manrope-extrabold {
     font-family: var(--font-heading);
     font-weight: 800;
     line-height: 32px;
     letter-spacing: 4px;
   }
 
-  /* Section Label - Plus Jakarta Sans SemiBold 16px Uppercase */
-  .text-section-label {
+  /* Watermark/Background Text Style */
+  .font-plus-watermark {
     font-family: var(--font-sans);
-    font-weight: 600;
-    line-height: 32px;
-    letter-spacing: 1px;
-  }
-
-  /* Button/Badge Text - Manrope ExtraBold 14px Uppercase */
-  .text-button {
-    font-family: var(--font-heading);
     font-weight: 800;
-    font-size: 14px;
-    line-height: 18px;
-    letter-spacing: 1px;
+    font-size: 96px;
+    line-height: 100%;
+    letter-spacing: -2px;
+    text-align: right;
     text-transform: uppercase;
+    background: linear-gradient(90deg, rgba(0, 53, 87, 0.04) 0%, rgba(0, 53, 87, 0.06) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
-  /* Card Title - Plus Jakarta Sans Bold 24px */
-  .text-card-title {
-    font-family: var(--font-sans);
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 100%;
-    letter-spacing: -1px;
+  /* Glassmorphism Effect - Reusable */
+  .glass {
+    background-color: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(20px);
+    /* -webkit-backdrop-filter: blur(20px); */
+    border: 2px solid rgba(255, 255, 255, 0.2);
   }
 
-  /* Body Text - Manrope Regular 16px */
-  .text-body {
-    font-family: var(--font-heading);
-    font-weight: 400;
-    line-height: 28px;
-    letter-spacing: 0;
-  }
-
-  /* Responsive Hero Title */
-  .text-hero-title-responsive {
-    font-family: var(--font-sans);
-    font-weight: 800;
-    font-size: 40px;
-    line-height: 100%;
-    letter-spacing: -0.5px;
-    text-align: center;
-  }
-
-  @media (min-width: 640px) {
-    .text-hero-title-responsive {
-      font-size: 56px;
-      letter-spacing: -0.75px;
-    }
-  }
-
-  @media (min-width: 768px) {
-    .text-hero-title-responsive {
-      font-size: 72px;
-      letter-spacing: -1px;
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .text-hero-title-responsive {
-      font-size: 88px;
-    }
-  }
-
-  @media (min-width: 1280px) {
-    .text-hero-title-responsive {
-      font-size: 104px;
-    }
+  .glass-card {
+    background-color: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-top: 2px solid rgba(255, 255, 255, 0.15);
+    border-right: 2px solid rgba(255, 255, 255, 0.08);
   }
 
   /* 1. Wrapper untuk menahan gradient border */

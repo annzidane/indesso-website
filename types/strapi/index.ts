@@ -67,3 +67,23 @@ export type {
   ReasonSectionProps,
   BusinessSectionProps,
 } from "./homepage"
+
+// About Us Page types
+export type {
+  AboutUsApiResponse,
+  AboutUsData,
+  AboutUsSection,
+  AboutUsHeroSectionData,
+  AboutUsStorySectionData,
+  StoryItem,
+  AboutUsBoardSectionData,
+  BoardGroup,
+  BoardMember,
+  AboutUsResearchSectionData,
+  ResearchCard,
+  AboutUsScientificMasterySectionData,
+  ScientificMasteryTab,
+  AboutUsResponsibleOperationsSectionData,
+  AccordionItem,
+  AboutUsPageProps,
+} from "./about-us"

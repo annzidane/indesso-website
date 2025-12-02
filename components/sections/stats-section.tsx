@@ -25,11 +25,11 @@ export function StatsSection({ data, locale }: StatsSectionProps) {
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12">
           <div className="max-w-2xl">
             <SectionLabel variant="bubble" className="mb-4">{data.label}</SectionLabel>
-            <h2 className="text-about-us-title text-5xl text-primary leading-tight">
+            <h2 className="font-plus-extrabold text-5xl text-primary leading-tight tracking-tight">
               {data.title}
             </h2>
           </div>
-          <p className="text-body text-[16px] color-dark-grey max-w-xl lg:text-left">{data.description}</p>
+          <p className="font-manrope-regular text-[16px] color-dark-grey max-w-xl lg:text-left">{data.description}</p>
         </div>
 
         {/* Stats Bento Grid - 4 columns layout */}

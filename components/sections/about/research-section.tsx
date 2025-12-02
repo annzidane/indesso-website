@@ -1,10 +1,12 @@
 import Image from "next/image"
 import { SectionLabel } from "@/components/ui/section-label"
 import { getStrapiMedia } from "@/lib/strapi/api"
-import type { ResearchSection as ResearchSectionType } from "@/types/about"
+import type { AboutUsPageProps } from "@/types/strapi"
+
+export type AboutUsResearchProps = AboutUsPageProps["research"]
 
 interface ResearchSectionProps {
-  data: ResearchSectionType
+  data: AboutUsResearchProps
 }
 
 export function ResearchSection({ data }: ResearchSectionProps) {
@@ -12,44 +14,49 @@ export function ResearchSection({ data }: ResearchSectionProps) {
     <section className="py-16 md:py-24 bg-background">
       <div className="container mx-auto px-4">
         {/* Header */}
-        <div className="text-center mb-12 max-w-3xl mx-auto">
-          <SectionLabel className="mb-4">{data.label}</SectionLabel>
-          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-foreground mb-4">{data.title}</h2>
-          <p className="text-muted-foreground">{data.description}</p>
-        </div>
-
-        {/* Hero Image */}
-        <div className="relative aspect-[21/9] rounded-xl overflow-hidden mb-12">
-          <Image
-            src={
-              getStrapiMedia(data.heroImage.url) ||
-              "/placeholder.svg?height=400&width=1200&query=scientist in laboratory conducting research"
-            }
-            alt={data.heroImage.alternativeText || "Research and Innovation"}
-            fill
-            className="object-cover"
-          />
+        <div className="text-center mb-12 max-w-5xl mx-auto">
+          <SectionLabel variant="bubble" className="mb-4">{data.eyebrow}</SectionLabel>
+          <h2 className="font-plus-bold text-3xl md:text-4xl lg:text-5xl text-foreground mb-4">{data.title}</h2>
+          <p className="font-manrope-regular text-[16px]">{data.description}</p>
         </div>
 
         {/* Feature Cards */}
         <div className="grid md:grid-cols-3 gap-6">
-          {data.features.map((feature) => (
-            <div key={feature.id} className="relative rounded-xl overflow-hidden group">
-              <div className="aspect-[4/3] relative">
-                <Image
-                  src={
-                    getStrapiMedia(feature.image.url) ||
-                    "/placeholder.svg?height=300&width=400&query=scientific research laboratory equipment"
-                  }
-                  alt={feature.image.alternativeText || feature.title}
-                  fill
-                  className="object-cover transition-transform duration-300 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/50 to-transparent" />
-              </div>
-              <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                <h3 className="font-semibold text-lg mb-2">{feature.title}</h3>
-                <p className="text-sm text-white/80 line-clamp-3">{feature.description}</p>
+          {data.cards.map((card) => (
+            <div 
+              key={card.id} 
+              className="relative rounded overflow-hidden group"
+              style={{ width: '392px', height: '480px' }}
+            >
+              {/* Background Image */}
+              <Image
+                src={
+                  getStrapiMedia(card.image?.url ?? null) ||
+                  "/placeholder.svg?height=480&width=392"
+                }
+                alt={card.image?.alternativeText || card.title}
+                fill
+                className="object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+              {/* Gradient Overlay */}
+              <div 
+                className="absolute inset-0"
+                style={{
+                  background: 'linear-gradient(180deg, rgba(0, 53, 87, 0) 25%, #003557 100%)',
+                }}
+              />
+              {/* Content with glassmorphism */}
+              <div 
+                className="absolute bottom-0 left-0 right-0 px-8 py-6 text-white glass-card"
+                style={{
+                  height: '236px',
+                  borderTopRightRadius: '40px',
+                  borderBottomRightRadius: '4px',
+                  borderBottomLeftRadius: '4px',
+                }}
+              >
+                <h3 className="font-plus-extrabold italic text-2xl mb-3">{card.title}</h3>
+                <p className="font-manrope-regular text-sm text-white/90 leading-relaxed">{card.content}</p>
               </div>
             </div>
           ))}
