@@ -8,11 +8,13 @@ import { cn } from "@/lib/utils"
 interface LanguageSwitcherProps {
   locale: Locale
   languages?: HeaderLang[]
+  variant?: "transparent" | "solid"
 }
 
-export function LanguageSwitcher({ locale, languages }: LanguageSwitcherProps) {
+export function LanguageSwitcher({ locale, languages, variant = "transparent" }: LanguageSwitcherProps) {
   const pathname = usePathname()
   const router = useRouter()
+  const isTransparent = variant === "transparent"
 
   const switchLocale = (newLocale: string) => {
     // Remove current locale from pathname and add new locale
@@ -34,12 +36,16 @@ export function LanguageSwitcher({ locale, languages }: LanguageSwitcherProps) {
             onClick={() => switchLocale(lang.value)}
             className={cn(
               "text-sm font-medium transition-colors px-1",
-              locale === lang.value ? "text-white" : "text-white/60 hover:text-white/80",
+              isTransparent
+                ? locale === lang.value ? "text-white" : "text-white/60 hover:text-white/80"
+                : locale === lang.value ? "text-indesso-blue" : "text-indesso-blue/60 hover:text-indesso-blue/80",
             )}
           >
             {lang.title}
           </button>
-          {index < langList.length - 1 && <span className="text-white/40 mx-1">|</span>}
+          {index < langList.length - 1 && (
+            <span className={cn("mx-1", isTransparent ? "text-white/40" : "text-indesso-blue/40")}>|</span>
+          )}
         </span>
       ))}
     </div>

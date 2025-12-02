@@ -63,9 +63,9 @@ export function Header({ data, locale, variant = "transparent" }: HeaderProps) {
           {/* Language Switcher & Mobile Nav */}
           <div className={cn(
             "font-plus-semibold flex items-center gap-4",
-            isTransparent ? "text-[#FFFFFFBF]" : "text-indesso-blue"
+            isTransparent ? "text-[#FFFFFFBF]" : "text-indesso-blue hover:text-indesso-dark-blue"
           )}>
-            <LanguageSwitcher locale={locale} languages={data.lang} />
+            <LanguageSwitcher locale={locale} languages={data.lang} variant={variant} />
             <MobileNav menus={data.menus} locale={locale} />
           </div>
         </div>
