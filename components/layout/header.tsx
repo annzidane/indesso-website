@@ -5,31 +5,39 @@ import { MobileNav } from "@/components/layout/mobile-nav"
 import { getStrapiMedia } from "@/lib/strapi/api"
 import type { HeaderData } from "@/types/strapi"
 import type { Locale } from "@/lib/i18n/config"
+import { cn } from "@/lib/utils"
 
 interface HeaderProps {
   data: HeaderData
   locale: Locale
+  variant?: "transparent" | "solid"
 }
 
-export function Header({ data, locale }: HeaderProps) {
-  const logoUrl = getStrapiMedia(data.logo?.url)
+export function Header({ data, locale, variant = "transparent" }: HeaderProps) {
+  const isTransparent = variant === "transparent"
+  const logo = isTransparent ? data.logo : data.logo_fullcolor
+  const logoUrl = getStrapiMedia(logo?.url)
   
   return (
-    <header className="absolute top-0 left-0 right-0 z-50 h-[88px]"
-      style={{
-          background: 'var(--navbar-background-style)',
-          backdropFilter: 'var(--navbar-backdrop-filter-style)',
-        }}
-      >
+    <header 
+      className={cn(
+        "absolute top-0 left-0 right-0 z-50 h-[88px]",
+        !isTransparent && "bg-white shadow-sm"
+      )}
+      style={isTransparent ? {
+        background: 'var(--navbar-background-style)',
+        backdropFilter: 'var(--navbar-backdrop-filter-style)',
+      } : undefined}
+    >
       <div className="container mx-auto px-4 h-full">
         <div className="flex items-center justify-between h-full">
           {/* Logo */}
           <Link href={`/${locale}`} className="flex items-center">
             <Image 
               src={logoUrl} 
-              alt={data.logo.alternativeText || "Indesso Logo"} 
-              width={data.logo.width} 
-              height={data.logo.height}
+              alt={logo?.alternativeText || "Indesso Logo"} 
+              width={logo?.width || 179} 
+              height={logo?.height || 64}
               className="w-[179px] h-16 object-contain"
               priority
             />
@@ -40,7 +48,12 @@ export function Header({ data, locale }: HeaderProps) {
               <Link
                 key={item.id}
                 href={`/${locale}${item.path}`}
-                className="text-section-label text-sm font-medium text-[#FFFFFFBF] hover:text-white transition-colors"
+                className={cn(
+                  "font-plus-semibold text-sm transition-colors",
+                  isTransparent 
+                    ? "text-[#FFFFFFBF] hover:text-white" 
+                    : "text-indesso-blue hover:text-indesso-dark-blue"
+                )}
               >
                 {item.title}
               </Link>
@@ -48,7 +61,10 @@ export function Header({ data, locale }: HeaderProps) {
           </nav>
 
           {/* Language Switcher & Mobile Nav */}
-          <div className="text-section-label flex items-center gap-4 text-[#FFFFFFBF]">
+          <div className={cn(
+            "font-plus-semibold flex items-center gap-4",
+            isTransparent ? "text-[#FFFFFFBF]" : "text-indesso-blue"
+          )}>
             <LanguageSwitcher locale={locale} languages={data.lang} />
             <MobileNav menus={data.menus} locale={locale} />
           </div>
