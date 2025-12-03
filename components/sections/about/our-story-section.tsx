@@ -77,7 +77,7 @@ export function OurStorySection({ data }: OurStorySectionProps) {
   const sliderItems = getOrderedSliderItems()
 
   return (
-    <section className="relative py-16 md:py-24 overflow-hidden">
+    <section className="relative py-12 md:py-16 lg:py-24 overflow-hidden">
       {/* Background Image - Sky/Clouds */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -91,9 +91,9 @@ export function OurStorySection({ data }: OurStorySectionProps) {
 
       <div className="relative z-10 container mx-auto px-4">
         {/* Header */}
-        <div className="text-center mb-20">
+        <div className="text-center mb-10 md:mb-20">
           <SectionLabel variant="bubble" className="mb-4">{data.eyebrow}</SectionLabel>
-          <h2 className="font-plus-bold text-4xl md:text-5xl lg:text-5xl text-foreground">{data.title}</h2>
+          <h2 className="font-plus-bold text-3xl md:text-4xl lg:text-5xl text-foreground">{data.title}</h2>
         </div>
 
         <div className="max-w-7xl mx-auto">
@@ -102,27 +102,27 @@ export function OurStorySection({ data }: OurStorySectionProps) {
             <Button
               variant="outline"
               size="icon"
-              className="absolute -left-4 md:-left-16 top-1/2 -translate-y-1/2 z-20 bg-white hover:bg-white/90 rounded-full shadow-lg w-12 h-12"
+              className="absolute left-0 md:-left-4 lg:-left-16 top-[200px] md:top-1/2 md:-translate-y-1/2 z-20 bg-white hover:bg-white/90 rounded-full shadow-lg w-10 h-10 md:w-12 md:h-12"
               onClick={handlePrev}
               disabled={isAnimating}
             >
-              <ChevronLeft className="h-5 w-5 text-foreground" />
+              <ChevronLeft className="h-4 w-4 md:h-5 md:w-5 text-foreground" />
             </Button>
 
             {/* Navigation Arrow Right */}
             <Button
               variant="outline"
               size="icon"
-              className="absolute -right-4 md:-right-16 top-1/2 -translate-y-1/2 z-20 bg-white hover:bg-white/90 rounded-full shadow-lg w-12 h-12"
+              className="absolute right-0 md:-right-4 lg:-right-16 top-[200px] md:top-1/2 md:-translate-y-1/2 z-20 bg-white hover:bg-white/90 rounded-full shadow-lg w-10 h-10 md:w-12 md:h-12"
               onClick={handleNext}
               disabled={isAnimating}
             >
-              <ChevronRight className="h-5 w-5 text-foreground" />
+              <ChevronRight className="h-4 w-4 md:h-5 md:w-5 text-foreground" />
             </Button>
 
-            <div className="grid md:grid-cols-2 gap-8 items-start">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-start px-8 md:px-0">
               {/* Large Active Image - Left Side with slide animation */}
-              <div className="relative w-full max-w-[560px] h-[400px] md:h-[560px] overflow-visible">
+              <div className="relative w-full h-[300px] sm:h-[350px] md:h-[450px] lg:h-[560px] overflow-visible">
                 <div 
                   className={cn(
                     "absolute inset-0 rounded-[10px] overflow-hidden shadow-xl",
@@ -145,11 +145,11 @@ export function OurStorySection({ data }: OurStorySectionProps) {
               </div>
 
               {/* Content - Right Side */}
-              <div className="relative flex flex-col pt-4">
-                {/* Watermark - sliderTitle behind title */}
+              <div className="relative flex flex-col pt-0 md:pt-4">
+                {/* Watermark - sliderTitle behind title - Hidden on mobile */}
                 <div 
                   className={cn(
-                    "absolute -top-4 right-0 font-plus-watermark select-none pointer-events-none",
+                    "absolute -top-4 right-0 font-plus-watermark select-none pointer-events-none hidden md:block",
                     slideDirection && "opacity-0",
                     !slideDirection && "opacity-100"
                   )}
@@ -171,27 +171,27 @@ export function OurStorySection({ data }: OurStorySectionProps) {
                     transition: 'all 300ms cubic-bezier(0.4, 0, 0.2, 1)',
                   }}
                 >
-                  <h3 className="font-plus-bold indesso-dark-blue text-2xl md:text-3xl italic mb-9">
+                  <h3 className="font-plus-bold indesso-dark-blue text-xl sm:text-2xl md:text-3xl italic mb-4 md:mb-9">
                     {activeItem.title}
                   </h3>
-                  <div className="font-manrope-regular text-grey text-base md:text-lg leading-relaxed whitespace-pre-line">
+                  <div className="font-manrope-regular text-grey text-sm md:text-base lg:text-lg leading-relaxed whitespace-pre-line">
                     {activeItem.content}
                   </div>
                 </div>
 
-                {/* Thumbnail Slider - Bottom with slide animation, overlapping active image */}
-                <div className="relative z-10 mt-auto pt-8">
+                {/* Thumbnail Slider - Bottom with slide animation */}
+                <div className="relative z-10 mt-6 md:mt-auto pt-4 md:pt-8">
                   <div 
-                    className="relative overflow-visible"
+                    className="relative overflow-x-auto md:overflow-visible scrollbar-hide"
                     style={{
-                      marginLeft: '-112px', // 20% of 560px = 112px overlap
+                      marginLeft: '0',
                     }}
                   >
                     <div 
                       className={cn(
-                        "flex gap-4",
-                        slideDirection === 'left' && "-translate-x-60",
-                        slideDirection === 'right' && "translate-x-60",
+                        "flex gap-3 md:gap-4 md:-ml-[112px]",
+                        slideDirection === 'left' && "md:-translate-x-60",
+                        slideDirection === 'right' && "md:translate-x-60",
                         !slideDirection && "translate-x-0"
                       )}
                       style={{
@@ -221,7 +221,7 @@ export function OurStorySection({ data }: OurStorySectionProps) {
                                 }, 300)
                               }
                             }}
-                            className="relative shrink-0 w-[180px] h-[120px] md:w-[220px] md:h-[150px] rounded-xl overflow-hidden transition-all duration-300 hover:scale-105"
+                            className="relative shrink-0 w-[140px] h-[95px] sm:w-[160px] sm:h-[110px] md:w-[180px] md:h-[120px] lg:w-[220px] lg:h-[150px] rounded-xl overflow-hidden transition-all duration-300 hover:scale-105"
                           >
                             <Image
                               src={thumbUrl || "/placeholder.svg"}
@@ -231,7 +231,7 @@ export function OurStorySection({ data }: OurStorySectionProps) {
                             />
                             {/* Glassmorphism label with sliderTitle */}
                             <div 
-                              className="absolute bottom-0 left-0 px-8 py-3"
+                              className="absolute bottom-0 left-0 px-4 md:px-8 py-2 md:py-3"
                               style={{
                                 borderTopRightRadius: '40px',
                                 borderBottomLeftRadius: '4px',
@@ -242,7 +242,7 @@ export function OurStorySection({ data }: OurStorySectionProps) {
                                 WebkitBackdropFilter: 'blur(50px)',
                               }}
                             >
-                              <span className="font-plus-semibold text-white text-sm uppercase tracking-wide">
+                              <span className="font-plus-semibold text-white text-xs md:text-sm uppercase tracking-wide">
                                 {item.sliderTitle}
                               </span>
                             </div>

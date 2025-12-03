@@ -11,22 +11,21 @@ interface ResearchSectionProps {
 
 export function ResearchSection({ data }: ResearchSectionProps) {
   return (
-    <section className="py-16 md:py-24 bg-background">
+    <section className="py-12 md:py-16 lg:py-24 bg-background">
       <div className="container mx-auto px-4">
         {/* Header */}
-        <div className="text-center mb-12 max-w-5xl mx-auto">
+        <div className="text-center mb-8 md:mb-12 max-w-5xl mx-auto">
           <SectionLabel variant="bubble" className="mb-4">{data.eyebrow}</SectionLabel>
-          <h2 className="font-plus-bold text-3xl md:text-4xl lg:text-5xl text-foreground mb-4">{data.title}</h2>
-          <p className="font-manrope-regular text-[16px]">{data.description}</p>
+          <h2 className="font-plus-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-foreground mb-4">{data.title}</h2>
+          <p className="font-manrope-regular text-sm md:text-[16px]">{data.description}</p>
         </div>
 
         {/* Feature Cards */}
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
           {data.cards.map((card) => (
             <div 
               key={card.id} 
-              className="relative rounded overflow-hidden group"
-              style={{ width: '392px', height: '480px' }}
+              className="relative rounded overflow-hidden group w-full aspect-[392/480]"
             >
               {/* Background Image */}
               <Image
@@ -47,16 +46,16 @@ export function ResearchSection({ data }: ResearchSectionProps) {
               />
               {/* Content with glassmorphism */}
               <div 
-                className="absolute bottom-0 left-0 right-0 px-8 py-6 text-white glass-card"
+                className="absolute bottom-0 left-0 right-0 px-4 sm:px-6 md:px-8 py-4 md:py-6 text-white glass-card"
                 style={{
-                  height: '236px',
+                  minHeight: '40%',
                   borderTopRightRadius: '40px',
                   borderBottomRightRadius: '4px',
                   borderBottomLeftRadius: '4px',
                 }}
               >
-                <h3 className="font-plus-extrabold italic text-2xl mb-3">{card.title}</h3>
-                <p className="font-manrope-regular text-sm text-white/90 leading-relaxed">{card.content}</p>
+                <h3 className="font-plus-extrabold italic text-lg sm:text-xl md:text-2xl mb-2 md:mb-3">{card.title}</h3>
+                <p className="font-manrope-regular text-xs md:text-sm text-white/90 leading-relaxed">{card.content}</p>
               </div>
             </div>
           ))}

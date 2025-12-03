@@ -14,7 +14,7 @@ interface ResponsibleOperationSectionProps {
 
 export function ResponsibleOperationSection({ data }: ResponsibleOperationSectionProps) {
   return (
-    <section className="relative h-[812px] overflow-hidden">
+    <section className="relative min-h-[600px] md:min-h-[700px] lg:h-[812px] overflow-hidden">
       {/* Background Image */}
       {data.backgroundImage && (
         <div className="absolute inset-0 z-0">
@@ -27,35 +27,35 @@ export function ResponsibleOperationSection({ data }: ResponsibleOperationSectio
         </div>
       )}
 
-      {/* Image - Positioned at left with offset */}
+      {/* Image - Positioned at left with offset - Hidden on mobile */}
       {data.image && (
-        <div className="absolute bottom-0 left-32 z-10">
+        <div className="absolute bottom-0 left-4 md:left-16 lg:left-32 z-10 hidden md:block">
           <Image
             src={getStrapiMedia(data.image.url) || ""}
             alt={data.image.alternativeText || "Responsible Operations"}
             width={457}
             height={602}
-            className="object-contain"
+            className="object-contain w-[280px] md:w-[350px] lg:w-[457px] h-auto"
           />
         </div>
       )}
 
       {/* Content */}
-      <div className="relative z-20 container mx-auto px-4 py-16 md:py-24">
+      <div className="relative z-20 container mx-auto px-4 py-12 md:py-16 lg:py-24">
         {/* Header - Centered */}
-        <div className="text-center mb-14">
-          <SectionLabel variant="bubble-light" className="mb-4 font-manrope-extrabold text-[14px]">{data.eyebrow}</SectionLabel>
-          <h2 className="font-plus-bold text-5xl md:text-5xl lg:text-[56px] text-white leading-[1.1]">
+        <div className="text-center mb-8 md:mb-14">
+          <SectionLabel variant="bubble-light" className="mb-4 font-manrope-extrabold text-xs md:text-[14px]">{data.eyebrow}</SectionLabel>
+          <h2 className="font-plus-bold text-3xl sm:text-4xl md:text-5xl lg:text-[56px] text-white leading-[1.1]">
             {data.title}
           </h2>
         </div>
 
-        {/* Accordion - Right Side */}
-        <div className="flex justify-end">
+        {/* Accordion - Full width on mobile, right side on desktop */}
+        <div className="flex justify-center md:justify-end">
           <AccordionGlass 
             items={data.items} 
             defaultOpenIndex={0}
-            className="w-full max-w-[560px]"
+            className="w-full md:max-w-[560px]"
           />
         </div>
       </div>
