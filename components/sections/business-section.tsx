@@ -14,18 +14,18 @@ interface BusinessSectionProps {
 
 export function BusinessSection({ data, locale }: BusinessSectionProps) {
   return (
-    <section className="py-16 lg:py-24 bg-background">
+    <section className="py-12 md:py-16 lg:py-24 bg-background">
       <div className="container mx-auto px-4">
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-12">
+        <div className="text-center max-w-2xl mx-auto mb-8 md:mb-12">
           <SectionLabel variant="bubble" className="mb-4">{data.label}</SectionLabel>
-          <h2 className="font-plus-extrabold text-5xl text-center text-primary leading-tight tracking-tight text-balance">
+          <h2 className="font-plus-extrabold text-3xl md:text-4xl lg:text-5xl text-center text-primary leading-tight tracking-tight text-balance">
             {data.title}
           </h2>
         </div>
 
         {/* Business Cards Grid */}
-        <div className="grid md:grid-cols-2 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-10">
           {data.cards.map((card) => (
             <BusinessCard key={card.id} card={card} locale={locale} />
           ))}
@@ -59,12 +59,12 @@ function BusinessCard({ card, locale }: BusinessCardProps) {
     : null
 
   return (
-    <div className="group w-[600px] h-[360px] bg-white rounded-lg border-2 border-gray-100 shadow-sm hover:shadow-md transition-shadow overflow-visible">
-      <div className="flex flex-row h-full">
+    <div className="group w-full max-w-[600px] mx-auto h-auto min-h-[280px] md:min-h-80 lg:h-[360px] bg-white rounded-lg border-2 border-gray-100 shadow-sm hover:shadow-md transition-shadow overflow-visible">
+      <div className="flex flex-col sm:flex-row h-full">
         {/* Left Side - Images */}
-        <div className="relative w-[200px] shrink-0 overflow-visible">
+        <div className="relative w-full sm:w-40 md:w-[180px] lg:w-[200px] h-[200px] sm:h-full shrink-0 overflow-visible">
           {/* Card Image (Background Layer) */}
-          <div className="relative h-full w-40 overflow-hidden rounded-l-lg">
+          <div className="relative h-full w-full sm:w-32 md:w-36 lg:w-40 overflow-hidden rounded-t-lg sm:rounded-t-none sm:rounded-l-lg">
             <Image
               src={cardImageUrl || "/placeholder.svg"}
               alt={card.cardImage?.alternativeText || card.title}
@@ -74,8 +74,8 @@ function BusinessCard({ card, locale }: BusinessCardProps) {
           </div>
           {/* Ingredient Image (Overlay Layer) */}
           {ingredientImageUrl && (
-            <div className="absolute -top-8 -left-8">
-              <div className="relative w-[220px] h-72">
+            <div className="absolute -top-4 -left-4 sm:-top-6 sm:-left-6 md:-top-8 md:-left-8 hidden sm:block">
+              <div className="relative w-[150px] h-[200px] md:w-[180px] md:h-60 lg:w-[220px] lg:h-72">
                 <Image
                   src={ingredientImageUrl}
                   alt={card.ingredientImage?.alternativeText || "Ingredient"}
@@ -88,12 +88,12 @@ function BusinessCard({ card, locale }: BusinessCardProps) {
         </div>
 
         {/* Right Side - Content */}
-        <div className="flex-1 py-10 pr-8 flex flex-col justify-center">
-          <h3 className="font-plus-semibold text-indesso-blue text-[32px] mb-4">{card.title}</h3>
-          <p className="font-manrope-regular text-[14px] color-grey mb-6 leading-relaxed">{card.description}</p>
+        <div className="flex-1 p-6 sm:py-6 sm:pr-6 md:py-8 md:pr-8 lg:py-10 lg:pr-8 flex flex-col justify-center">
+          <h3 className="font-plus-semibold text-indesso-blue text-xl md:text-2xl lg:text-[32px] mb-3 md:mb-4">{card.title}</h3>
+          <p className="font-manrope-regular text-xs md:text-sm lg:text-[14px] color-grey mb-4 md:mb-6 leading-relaxed">{card.description}</p>
           <Button
             asChild
-            className="w-fit h-14 px-6 rounded-sm bg-indesso-blue hover:bg-indesso-blue/90 text-white"
+            className="w-fit h-10 md:h-12 lg:h-14 px-4 md:px-6 rounded-sm bg-indesso-blue hover:bg-indesso-blue/90 text-white text-sm md:text-base"
           >
             <Link href={`/${locale}${card.ctaLink}`}>
               {card.ctaText}

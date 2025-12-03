@@ -88,10 +88,10 @@ export function HeroSection({ data, banners, locale }: HeroSectionProps) {
               setIsAutoPlaying(false)
               setTimeout(() => setIsAutoPlaying(true), 5000)
             }}
-            className="absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-colors"
+            className="absolute left-2 sm:left-4 lg:left-8 top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-colors"
             aria-label="Previous slide"
           >
-            <ChevronLeft className="h-6 w-6" />
+            <ChevronLeft className="h-5 w-5 md:h-6 md:w-6" />
           </button>
           <button
             onClick={() => {
@@ -99,28 +99,28 @@ export function HeroSection({ data, banners, locale }: HeroSectionProps) {
               setIsAutoPlaying(false)
               setTimeout(() => setIsAutoPlaying(true), 5000)
             }}
-            className="absolute right-4 lg:right-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-colors"
+            className="absolute right-2 sm:right-4 lg:right-8 top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-colors"
             aria-label="Next slide"
           >
-            <ChevronRight className="h-6 w-6" />
+            <ChevronRight className="h-5 w-5 md:h-6 md:w-6" />
           </button>
         </>
       )}
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 pt-20">
+      <div className="relative z-10 container mx-auto px-4 pt-16 md:pt-20">
         <div className="max-w-6xl mx-auto text-center">
-          <h1 className="font-plus-extrabold text-[40px] sm:text-[56px] md:text-[72px] lg:text-[88px] xl:text-[104px] leading-none tracking-tight text-white mb-8 text-balance">
+          <h1 className="font-plus-extrabold text-[32px] sm:text-[40px] md:text-[56px] lg:text-[72px] xl:text-[88px] 2xl:text-[104px] leading-none tracking-tight text-white mb-6 md:mb-8 text-balance">
             {data.title}
           </h1>
 
           {/* CTA Button */}
-          <Link href={`/${locale}${data.ctaLink}`} className="inline-flex items-center gap-3 text-white group">
-            <span className="w-12 h-12 rounded-full border-2 border-white flex items-center justify-center group-hover:bg-white/10 transition-colors">
-              <Play className="h-5 w-5 ml-1" fill="currentColor" />
+          <Link href={`/${locale}${data.ctaLink}`} className="inline-flex items-center gap-2 md:gap-3 text-white group">
+            <span className="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-white flex items-center justify-center group-hover:bg-white/10 transition-colors">
+              <Play className="h-4 w-4 md:h-5 md:w-5 ml-0.5 md:ml-1" fill="currentColor" />
             </span>
-            <span className="text-sm font-medium tracking-wider uppercase flex items-center gap-2">
-              <span className="w-8 h-px bg-white" />
+            <span className="text-xs md:text-sm font-medium tracking-wider uppercase flex items-center gap-2">
+              <span className="w-6 md:w-8 h-px bg-white" />
               {data.ctaText}
             </span>
           </Link>
@@ -129,7 +129,7 @@ export function HeroSection({ data, banners, locale }: HeroSectionProps) {
 
       {/* Badge */}
       {data.badge && (
-        <div className="absolute bottom-12 right-4 lg:bottom-16 lg:right-16 z-10">
+        <div className="absolute bottom-20 sm:bottom-12 right-4 lg:bottom-16 lg:right-16 z-10">
           <BadgeGlass
             title={data.badge.title}
             description={data.badge.description}
@@ -140,14 +140,14 @@ export function HeroSection({ data, banners, locale }: HeroSectionProps) {
 
       {/* Slide Indicators */}
       {slides.length > 1 && (
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2">
+        <div className="absolute bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2">
           {slides.map((_, index) => (
             <button
               key={index}
               onClick={() => goToSlide(index)}
               className={`h-2 rounded-full transition-all duration-300 ${
                 index === currentSlide 
-                  ? "w-8 bg-white" 
+                  ? "w-6 md:w-8 bg-white" 
                   : "w-2 bg-white/50 hover:bg-white/70"
               }`}
               aria-label={`Go to slide ${index + 1}`}
@@ -158,9 +158,9 @@ export function HeroSection({ data, banners, locale }: HeroSectionProps) {
 
       {/* Scroll Indicator - only show if single slide */}
       {slides.length <= 1 && (
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
-          <div className="w-6 h-10 rounded-full border-2 border-white/50 flex items-start justify-center p-1">
-            <div className="w-1.5 h-3 bg-white/70 rounded-full animate-bounce" />
+        <div className="absolute bottom-6 md:bottom-8 left-1/2 -translate-x-1/2">
+          <div className="w-5 h-8 md:w-6 md:h-10 rounded-full border-2 border-white/50 flex items-start justify-center p-1">
+            <div className="w-1 h-2 md:w-1.5 md:h-3 bg-white/70 rounded-full animate-bounce" />
           </div>
         </div>
       )}

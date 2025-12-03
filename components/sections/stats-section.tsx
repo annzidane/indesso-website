@@ -19,24 +19,24 @@ export function StatsSection({ data, locale }: StatsSectionProps) {
   const impactImageUrl = data.impact.image ? getStrapiMedia(data.impact.image.url) : null
   
   return (
-    <section className="py-10 lg:py-24 bg-muted/30">
+    <section className="py-10 md:py-16 lg:py-24 bg-muted/30">
       <div className="container mx-auto px-4">
         {/* Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12">
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 md:gap-6 mb-8 md:mb-12">
           <div className="max-w-2xl">
             <SectionLabel variant="bubble" className="mb-4">{data.label}</SectionLabel>
-            <h2 className="font-plus-extrabold text-5xl text-primary leading-tight tracking-tight">
+            <h2 className="font-plus-extrabold text-3xl md:text-4xl lg:text-5xl text-primary leading-tight tracking-tight">
               {data.title}
             </h2>
           </div>
-          <p className="font-manrope-regular text-[16px] color-dark-grey max-w-xl lg:text-left">{data.description}</p>
+          <p className="font-manrope-regular text-sm md:text-[16px] color-dark-grey max-w-xl lg:text-left">{data.description}</p>
         </div>
 
         {/* Stats Bento Grid - 4 columns layout */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
           {/* Matric Card - Employee & People (spans 2 cols) */}
           <div 
-            className="sm:col-span-2 lg:col-span-2 rounded-lg overflow-hidden text-white relative h-[296px]"
+            className="col-span-1 sm:col-span-2 lg:col-span-2 rounded-lg overflow-hidden text-white relative h-[280px] md:h-[296px]"
             style={{
               background: "linear-gradient(283.33deg, #055D71 0%, rgba(5, 93, 113, 0.8) 100%)",
             }}
@@ -54,16 +54,16 @@ export function StatsSection({ data, locale }: StatsSectionProps) {
                 )}
               </div>
               {/* Right side - content */}
-              <div className="w-1/2 flex flex-col justify-center p-6">
-                <div className="border-b border-white/20 pb-4 mb-4">
-                  <p className="text-3xl lg:text-4xl font-bold">{data.matric.employeeTitle.split(' ')[0]}</p>
-                  <p className="text-lg font-semibold mt-1">{data.matric.employeeTitle.split(' ').slice(1).join(' ')}</p>
-                  <p className="text-sm text-white/70 mt-1">{data.matric.employeeDescription}</p>
+              <div className="w-1/2 flex flex-col justify-center p-4 md:p-6">
+                <div className="border-b border-white/20 pb-3 md:pb-4 mb-3 md:mb-4">
+                  <p className="text-2xl md:text-3xl lg:text-4xl font-bold">{data.matric.employeeTitle.split(' ')[0]}</p>
+                  <p className="text-sm md:text-lg font-semibold mt-1">{data.matric.employeeTitle.split(' ').slice(1).join(' ')}</p>
+                  <p className="text-xs md:text-sm text-white/70 mt-1">{data.matric.employeeDescription}</p>
                 </div>
                 <div>
-                  <p className="text-3xl lg:text-4xl font-bold">{data.matric.peopleTitle.split(' ')[0]}</p>
-                  <p className="text-lg font-semibold mt-1">{data.matric.peopleTitle.split(' ').slice(1).join(' ')}</p>
-                  <p className="text-sm text-white/70 mt-1">{data.matric.peopleDescription}</p>
+                  <p className="text-2xl md:text-3xl lg:text-4xl font-bold">{data.matric.peopleTitle.split(' ')[0]}</p>
+                  <p className="text-sm md:text-lg font-semibold mt-1">{data.matric.peopleTitle.split(' ').slice(1).join(' ')}</p>
+                  <p className="text-xs md:text-sm text-white/70 mt-1">{data.matric.peopleDescription}</p>
                 </div>
               </div>
             </div>
@@ -112,18 +112,18 @@ export function StatsSection({ data, locale }: StatsSectionProps) {
 
           {/* Impact Card (spans 2 cols) */}
           <div 
-            className="sm:col-span-2 lg:col-span-2 rounded-lg overflow-hidden text-white relative h-[296px]"
+            className="col-span-1 sm:col-span-2 lg:col-span-2 rounded-lg overflow-hidden text-white relative h-[280px] md:h-[296px]"
             style={{
               background: "linear-gradient(256.83deg, rgba(24, 129, 81, 0.75) 0%, #188151 100%)",
             }}
           >
             <div className="relative z-10 flex h-full">
               {/* Left side - content */}
-              <div className="w-1/2 flex flex-col justify-center p-6">
+              <div className="w-1/2 flex flex-col justify-center p-4 md:p-6">
                 <p className="text-xs uppercase tracking-wider text-white/80 mb-1">{data.impact.opener}</p>
-                <p className="text-5xl lg:text-6xl font-bold">{data.impact.value.toLocaleString()}</p>
-                <p className="text-lg font-semibold mt-2">{data.impact.title}</p>
-                <p className="text-sm text-white/70 mt-1">{data.impact.description}</p>
+                <p className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold">{data.impact.value.toLocaleString()}</p>
+                <p className="text-sm md:text-lg font-semibold mt-2">{data.impact.title}</p>
+                <p className="text-xs md:text-sm text-white/70 mt-1">{data.impact.description}</p>
               </div>
               {/* Right side - Image */}
               <div className="w-1/2 relative">
@@ -161,7 +161,7 @@ function SmallStatCard({ title, description, image, variant = "teal" }: SmallSta
   
   return (
     <div
-      className="rounded-lg overflow-hidden relative h-[296px] w-full lg:w-[296px] text-white"
+      className="rounded-lg overflow-hidden relative h-[280px] md:h-[296px] w-full text-white"
       style={{
         background: variant === "teal" 
           ? "linear-gradient(135deg, #106EA4 0%, rgba(16, 110, 164, 0.8) 100%)"
@@ -170,7 +170,7 @@ function SmallStatCard({ title, description, image, variant = "teal" }: SmallSta
     >
       {/* Background Image at bottom */}
       {imageUrl && (
-        <div className="absolute bottom-0 left-0 right-0 h-[120px]">
+        <div className="absolute bottom-0 left-0 right-0 h-[100px] md:h-[120px]">
           <Image
             src={imageUrl}
             alt={title}
@@ -180,12 +180,12 @@ function SmallStatCard({ title, description, image, variant = "teal" }: SmallSta
         </div>
       )}
       {/* Content */}
-      <div className="relative z-10 p-5 h-full flex flex-col">
-        <p className="text-4xl lg:text-5xl font-bold leading-tight">{firstWord}</p>
+      <div className="relative z-10 p-4 md:p-5 h-full flex flex-col">
+        <p className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">{firstWord}</p>
         {restOfTitle && (
-          <p className="text-[14px] font-semibold mt-2 leading-tight">{restOfTitle}</p>
+          <p className="text-xs md:text-[14px] font-semibold mt-2 leading-tight">{restOfTitle}</p>
         )}
-        <p className="text-sm text-white/70 mt-2">{description}</p>
+        <p className="text-xs md:text-sm text-white/70 mt-2">{description}</p>
       </div>
     </div>
   )

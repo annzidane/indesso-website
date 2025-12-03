@@ -180,8 +180,8 @@ export interface CareerPageProps {
       position: string
       quoteTitle: string
       quote: string
-      image: StrapiImage
-      profileImage: StrapiImage
+      image?: StrapiImage
+      profileImage?: StrapiImage
     }>
   }
   growingTogether: {

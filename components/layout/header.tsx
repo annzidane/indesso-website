@@ -21,7 +21,7 @@ export function Header({ data, locale, variant = "transparent" }: HeaderProps) {
   return (
     <header 
       className={cn(
-        "absolute top-0 left-0 right-0 z-50 h-[88px]",
+        "absolute top-0 left-0 right-0 z-50 h-16 md:h-20 lg:h-[88px]",
         !isTransparent && "bg-white shadow-sm"
       )}
       style={isTransparent ? {
@@ -38,12 +38,12 @@ export function Header({ data, locale, variant = "transparent" }: HeaderProps) {
               alt={logo?.alternativeText || "Indesso Logo"} 
               width={logo?.width || 179} 
               height={logo?.height || 64}
-              className="w-[179px] h-16 object-contain"
+              className="w-[120px] md:w-[150px] lg:w-[179px] h-10 md:h-12 lg:h-16 object-contain"
               priority
             />
           </Link>
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-12">
+          <nav className="hidden lg:flex items-center gap-6 xl:gap-12">
             {data.menus.map((item) => (
               <Link
                 key={item.id}
@@ -62,7 +62,7 @@ export function Header({ data, locale, variant = "transparent" }: HeaderProps) {
 
           {/* Language Switcher & Mobile Nav */}
           <div className={cn(
-            "font-plus-semibold flex items-center gap-4",
+            "font-plus-semibold flex items-center gap-2 md:gap-4",
             isTransparent ? "text-[#FFFFFFBF]" : "text-indesso-blue hover:text-indesso-dark-blue"
           )}>
             <LanguageSwitcher locale={locale} languages={data.lang} variant={variant} />
