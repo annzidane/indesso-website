@@ -5,6 +5,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { Play, ChevronLeft, ChevronRight } from "lucide-react"
 import { getStrapiMedia } from "@/lib/strapi/api"
+import { BadgeGlass } from "@/components/ui/badge-glass"
 import type { HeroSectionProps as HeroSectionDataProps, BannerData } from "@/types/strapi"
 import type { Locale } from "@/lib/i18n/config"
 
@@ -129,23 +130,11 @@ export function HeroSection({ data, banners, locale }: HeroSectionProps) {
       {/* Badge */}
       {data.badge && (
         <div className="absolute bottom-12 right-4 lg:bottom-16 lg:right-16 z-10">
-          <div className="glass w-full max-w-[462px] h-auto min-h-32 p-6 shadow-2xl flex items-center gap-6 shrink-0 rounded-[10px]">
-            {data.badge.image ? (
-              <Image
-                src={getStrapiMedia(data.badge.image.url) || "/placeholder.png"}
-                alt={data.badge.image.alternativeText || "Badge icon"}
-                width={72}
-                height={72}
-                className="object-contain"
-              />
-            ) : (
-              <div className="w-8 h-8 bg-white/50 rounded-full" />
-            )}
-            <div>
-              <p className="font-bold text-white text-xl">{data.badge.title}</p>
-              <p className="text-sm text-white/80 mt-1">{data.badge.description}</p>
-            </div>
-          </div>
+          <BadgeGlass
+            title={data.badge.title}
+            description={data.badge.description}
+            image={data.badge.image}
+          />
         </div>
       )}
 

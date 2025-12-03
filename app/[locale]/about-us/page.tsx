@@ -3,7 +3,7 @@ import { getAboutPageData } from "@/lib/strapi/about-api"
 import { getFooterData, getHeaderData } from "@/lib/strapi/api"
 import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
-import { AboutHero } from "@/components/sections/about/about-hero"
+import { PageHero } from "@/components/ui/page-hero"
 import { OurStorySection } from "@/components/sections/about/our-story-section"
 import { BoardSection } from "@/components/sections/about/board-section"
 import { ResearchSection } from "@/components/sections/about/research-section"
@@ -37,7 +37,10 @@ export default async function AboutPage({ params }: AboutPageProps) {
     <>
       <Header data={headerData} locale={locale} />
       <main>
-        <AboutHero data={aboutData.hero} />
+        <PageHero 
+          title={aboutData.hero.title} 
+          backgroundImage={aboutData.hero.backgroundImage} 
+        />
         <OurStorySection data={aboutData.story} />
         <BoardSection data={aboutData.boards} />
         <ResearchSection data={aboutData.research} />

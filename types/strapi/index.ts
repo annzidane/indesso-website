@@ -87,3 +87,19 @@ export type {
   AccordionItem,
   AboutUsPageProps,
 } from "./about-us"
+
+// Career Page types
+export type {
+  CareerApiResponse,
+  CareerData,
+  CareerSection,
+  CareerHeroSectionData,
+  CareerLifeAtIndessoSectionData,
+  CareerShowcaseItem,
+  CareerJoinUsSectionData,
+  CareerTestimonialSectionData,
+  TestimonialItem,
+  CareerGrowingTogetherSectionData,
+  GrowingTogetherSlide,
+  CareerPageProps,
+} from "./career"
