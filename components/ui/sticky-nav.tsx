@@ -55,14 +55,14 @@ export function StickyNav({ items, defaultActiveId, className }: StickyNavProps)
 
   return (
     <nav className={cn("sticky top-0 z-50 bg-white border-b-2 border-gray-200 shadow-sm", className)}>
-      <div className="container mx-auto px-4 md:px-6 lg:px-[100px]">
-        <div className="flex items-center justify-start md:justify-center gap-1 md:gap-2.5 overflow-x-auto scrollbar-hide">
+      <div className="container mx-auto px-2 sm:px-4 md:px-6 lg:px-[100px]">
+        <div className="flex items-center justify-center gap-0.5 sm:gap-1 md:gap-2.5">
           {items.map((item) => (
             <button
               key={item.id}
               onClick={() => scrollToSection(item.id)}
               className={cn(
-                "relative shrink-0 min-w-max px-4 md:px-6 lg:w-[310px] h-14 md:h-20 py-3 md:p-4 text-xs md:text-sm lg:text-base transition-colors flex items-center justify-center whitespace-nowrap",
+                "relative flex-1 lg:flex-none lg:w-[310px] h-12 sm:h-14 md:h-20 px-1 sm:px-2 md:px-4 lg:px-6 py-2 md:p-4 text-[10px] sm:text-xs md:text-sm lg:text-base transition-colors flex items-center justify-center text-center",
                 activeSection === item.id 
                   ? "font-plus-extrabold text-indesso-blue" 
                   : "font-plus-medium text-monochrome hover:text-indesso-blue",
