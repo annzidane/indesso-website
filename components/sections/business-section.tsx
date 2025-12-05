@@ -90,7 +90,7 @@ function BusinessCard({ card, locale }: BusinessCardProps) {
         {/* Right Side - Content */}
         <div className="flex-1 p-6 sm:py-6 sm:pr-6 md:py-8 md:pr-8 lg:py-10 lg:pr-8 flex flex-col justify-center">
           <h3 className="font-plus-semibold text-indesso-blue text-xl md:text-2xl lg:text-[32px] mb-3 md:mb-4">{card.title}</h3>
-          <p className="font-manrope-regular text-xs md:text-sm lg:text-[14px] color-grey mb-4 md:mb-6 leading-relaxed">{card.description}</p>
+          <p className="font-manrope-regular text-xs md:text-sm lg:text-[14px] text-indesso-grey mb-4 md:mb-6 leading-relaxed">{card.description}</p>
           <Button
             asChild
             className="w-fit h-10 md:h-12 lg:h-14 px-4 md:px-6 rounded-sm bg-indesso-blue hover:bg-indesso-blue/90 text-white text-sm md:text-base"

@@ -103,3 +103,20 @@ export type {
   GrowingTogetherSlide,
   CareerPageProps,
 } from "./career"
+
+// Sustainability Page types
+export type {
+  SustainabilityApiResponse,
+  SustainabilityData,
+  SustainabilitySection,
+  SustainabilityHeroSectionData,
+  SustainabilityStrategySectionData,
+  SustainabilityInitiativeSectionData,
+  SustainabilityResponsibleOperationsSectionData,
+  SustainabilityCommitmentSectionData,
+  SustainabilityReportSectionData,
+  ReportsApiResponse,
+  ReportData,
+  SustainabilityPageProps,
+  ReportItem,
+} from "./sustainability"

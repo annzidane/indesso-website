@@ -13,6 +13,7 @@
   --dark-grey: #555555;
   --monochrome: #A1A1A1;
   --light-grey: #EAEAEA;
+  --very-dark-grey: #0A0A0A;
 
   /* Custom Indesso brand colors - deep blue primary, teal accent */
   --background: oklch(0.99 0 0);
@@ -95,11 +96,20 @@
   --color-indesso-dark-blue: var(--indesso-dark-blue);
   --color-indesso-blue: var(--indesso-blue);
   --color-indesso-main: var(--indesso-main);
+  --color-indesso-grey: var(--grey);
+  --color-indesso-black: var(--black);
+  --color-indesso-dark-grey: var(--dark-grey);
+  --color-indesso-monochrome: var(--monochrome);
+  --color-indesso-light-grey: var(--light-grey);
+  --color-indesso-very-dark-grey: var(--very-dark-grey);
+  
+  /* Keep original names for backward compatibility */
   --color-grey: var(--grey);
   --color-black: var(--black);
   --color-dark-grey: var(--dark-grey);
   --color-monochrome: var(--monochrome);
   --color-light-grey: var(--light-grey);
+  --color-very-dark-grey: var(--very-dark-grey);
   
   --color-background: var(--background);
   --color-foreground: var(--foreground);

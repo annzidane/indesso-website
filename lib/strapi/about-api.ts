@@ -131,23 +131,7 @@ export async function getAboutPageData(locale: string): Promise<AboutUsPageProps
     const response = await fetchStrapi<AboutUsApiResponse>("about-us", {
       locale,
       query: {
-        // Page info
-        "populate[page_info]": "*",
-        // SEO
-        "populate[seo][populate]": "*",
-        // Hero section
-        "populate[page_sections][on][about-us.hero-section][populate][hero][populate]": "*",
-        // Story section
-        "populate[page_sections][on][about-us.story-section][populate][stories][populate]": "*",
-        // Board section
-        "populate[page_sections][on][about-us.board-section][populate][sections][populate][members][populate][0]": "image",
-        "populate[page_sections][on][about-us.board-section][populate][sections][populate][members][populate][1]": "position",
-        // Research & Innovation section
-        "populate[page_sections][on][about-us.research-innovation-section][populate][card][populate]": "*",
-        // Scientific Mastery section
-        "populate[page_sections][on][about-us.scientific-mastery-section][populate][tabs][populate]": "*",
-        // Responsible Operations section
-        "populate[page_sections][on][about-us.responsible-operations-section][populate]": "*",
+        pLevel: 6,
       },
     })
     

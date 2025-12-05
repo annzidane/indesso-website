@@ -14,13 +14,6 @@ interface PageProps {
   params: Promise<{ locale: Locale }>
 }
 
-const NAV_ITEMS = [
-  { id: "life-at-indesso", label: "Life at Indesso" },
-  { id: "join-us", label: "Join Us" },
-  { id: "testimonial", label: "Testimonial" },
-  { id: "growing-together", label: "Growing Together" },
-]
-
 export async function generateMetadata({ params }: PageProps) {
   const { locale } = await params
   const careerData = await getCareerPageData(locale)
@@ -50,7 +43,7 @@ export default async function CareerPage({ params }: PageProps) {
           title={careerData.hero.title || "Career"} 
           backgroundImage={careerData.hero.backgroundImage}
         />
-        <StickyNav items={NAV_ITEMS} defaultActiveId="life-at-indesso" />
+        <StickyNav items={careerData.navItems} defaultActiveId={careerData.navItems[0]?.id} />
         <LifeAtIndesso data={careerData.lifeAtIndesso} />
         <JoinUs data={careerData.joinUs} locale={locale} />
         <TestimonialSection data={careerData.testimonial} />

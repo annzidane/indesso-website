@@ -4,6 +4,7 @@
  */
 
 import { fetchStrapi } from "./client"
+import { extractTextFromRichText, generateNavItemsFromSections } from "./utils"
 import type {
   CareerApiResponse,
   CareerData,
@@ -12,24 +13,15 @@ import type {
   CareerTestimonialSectionData,
   CareerGrowingTogetherSectionData,
   CareerPageProps,
-  StrapiRichText,
   CareerHeroSectionData,
 } from "@/types/strapi"
-
-// Helper to extract text from Strapi Rich Text
-function extractTextFromRichText(richText: StrapiRichText[] | undefined | null): string {
-  if (!richText || !Array.isArray(richText)) {
-    return ""
-  }
-  return richText
-    .map(block => block.children?.map(child => child.text).join("") || "")
-    .filter(text => text.length > 0)
-    .join("\n\n")
-}
 
 // Transform API response to component props
 function transformCareerData(data: CareerData): CareerPageProps {
   const sections = data.page_sections
+
+  // Generate nav items from sections (excluding hero)
+  const navItems = generateNavItemsFromSections(sections, "hero-section")
 
   // Find each section by component type
   const heroData = sections.find(s => s.__component === "career.hero-section") as CareerHeroSectionData | undefined
@@ -44,6 +36,8 @@ function transformCareerData(data: CareerData): CareerPageProps {
       slug: data.page_info?.slug || "career",
       path: data.page_info?.path || "/career",
     },
+
+    navItems,
 
     hero: {
       title: heroData?.hero?.title || "About Us",
@@ -114,21 +108,7 @@ export async function getCareerPageData(locale: string): Promise<CareerPageProps
     const response = await fetchStrapi<CareerApiResponse>("career", {
       locale,
       query: {
-        // Page info
-        "populate[page_info]": "*",
-        // SEO
-        "populate[seo][populate]": "*",
-        // Hero section
-        "populate[page_sections][on][career.hero-section][populate][hero][populate]": "*",
-        // Life at Indesso section
-        "populate[page_sections][on][career.life-at-indesso][populate][image]": true,
-        "populate[page_sections][on][career.life-at-indesso][populate][career_showcase][populate]": "*",
-        // Join Us section
-        "populate[page_sections][on][career.career-joinus][populate]": "*",
-        // Testimonial section with images
-        "populate[page_sections][on][career.testimonial][populate][testimonials][populate]": "*",
-        // Growing Together section
-        "populate[page_sections][on][career.growing-together][populate][growing_together_slide][populate]": "*",
+        pLevel: 6,
       },
     })
     
@@ -154,6 +134,12 @@ function getDefaultCareerData(): CareerPageProps {
       slug: "career",
       path: "/career",
     },
+    navItems: [
+      { id: "life-at-indesso", label: "Life at Indesso" },
+      { id: "join-us", label: "Join Us" },
+      { id: "testimonial", label: "Testimonial" },
+      { id: "growing-together", label: "Growing Together" },
+    ],
     hero: {
       title: "Career",
     },

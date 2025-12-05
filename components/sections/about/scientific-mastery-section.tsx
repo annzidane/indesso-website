@@ -37,7 +37,7 @@ export function ScientificMasterySection({ data }: ScientificMasterySectionProps
           </div>
           {/* Right Column - Description */}
           <div>
-            <p className="font-manrope-regular text-sm md:text-[16px] text-grey">
+            <p className="font-manrope-regular text-sm md:text-[16px] text-indesso-grey">
               {data.description}
             </p>
           </div>

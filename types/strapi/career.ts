@@ -145,6 +145,10 @@ export interface CareerPageProps {
     slug: string
     path: string
   }
+  navItems: Array<{
+    id: string
+    label: string
+  }>
   hero: {
     title: string
     backgroundImage?: StrapiImage

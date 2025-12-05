@@ -29,7 +29,7 @@ export function StatsSection({ data, locale }: StatsSectionProps) {
               {data.title}
             </h2>
           </div>
-          <p className="font-manrope-regular text-sm md:text-[16px] color-dark-grey max-w-xl lg:text-left">{data.description}</p>
+          <p className="font-manrope-regular text-sm md:text-[16px] text-indesso-dark-grey max-w-xl lg:text-left">{data.description}</p>
         </div>
 
         {/* Stats Bento Grid - 4 columns layout */}

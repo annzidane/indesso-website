@@ -138,17 +138,7 @@ export async function getHomepageData(locale: string): Promise<HomepageProps> {
     const response = await fetchStrapi<HomepageApiResponse>("homepage", {
       locale,
       query: {
-        // Hero, About, Business sections
-        "populate[page_sections][on][home-page.hero-section][populate]": "*",
-        "populate[page_sections][on][home-page.about-us-section][populate]": "*",
-        // Reason section with nested populates for images
-        "populate[page_sections][on][home-page.reason-section][populate][matric_card][populate]": "*",
-        "populate[page_sections][on][home-page.reason-section][populate][statistic_card][populate]": "*",
-        "populate[page_sections][on][home-page.reason-section][populate][impact_card][populate]": "*",
-        // Business section with nested populates for images
-        "populate[page_sections][on][home-page.business-section][populate][business_card][populate]": "*",
-        // SEO
-        "populate[seo][populate]": "*",
+        pLevel: 6,
       },
     })
     console.log("Homepage data fetched:", response)
@@ -185,10 +175,7 @@ export async function getFooterData(locale: string): Promise<FooterData> {
     const response = await fetchStrapi<FooterApiResponse>("footer", {
       locale,
       query: {
-        "populate[footer_menus][populate][menus]": "*",
-        "populate[contact_phone]": "*",
-        "populate[contact_email]": "*",
-        "populate[logo][populate]": "*",
+        pLevel: 5,
       },
     })
     console.log("Footer data fetched:", response)

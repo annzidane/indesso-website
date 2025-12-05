@@ -54,7 +54,7 @@ export function AboutSection({ data, locale }: AboutSectionProps) {
             <div className="mt-8 md:mt-12 w-full max-w-[600px] h-auto md:h-[204px] bg-white p-6 md:p-8">
               <p className="font-manrope-regular text-muted-foreground text-sm md:text-base mb-2">{data.highlight.prefix}</p>
               <p className="font-plus-extrabold text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-primary tracking-tight">{data.highlight.value}</p>
-              <p className="color-grey mt-2 text-sm md:text-base">{data.highlight.suffix}</p>
+              <p className="text-indesso-grey mt-2 text-sm md:text-base">{data.highlight.suffix}</p>
             </div>
           </div>
 

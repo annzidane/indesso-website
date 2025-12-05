@@ -1,6 +1,6 @@
 import Image from "next/image"
 import { getStrapiMedia } from "@/lib/strapi/api"
-import { SectionLabel } from "@/components/ui/section-label"
+import { FeatureSection } from "@/components/ui/feature-section"
 import type { CareerPageProps } from "@/types/strapi"
 
 interface LifeAtIndessoProps {
@@ -9,35 +9,19 @@ interface LifeAtIndessoProps {
 
 export function LifeAtIndesso({ data }: LifeAtIndessoProps) {
   return (
-    <section id="life-at-indesso" className="py-12 md:py-16 lg:py-24 bg-white">
-      <div className="container mx-auto px-4">
-        {/* Main Content Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 mb-12 md:mb-20">
-          {/* Text Content */}
-          <div>
-            <SectionLabel variant="bubble" className="mb-4 md:mb-6">
-              {data.eyebrow}
-            </SectionLabel>
-            <h2 className="font-plus-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-indesso-dark-blue mb-4 md:mb-6 leading-tight">
-              {data.title}
-            </h2>
-            <div className="space-y-4 font-manrope-regular text-grey text-sm md:text-base leading-relaxed whitespace-pre-line">
-              {data.description}
-            </div>
-          </div>
+    <section id="life-at-indesso" className="bg-white">
+      {/* Main Content Grid - dengan background, padding sudah include di dalam */}
+      <FeatureSection
+        eyebrow={data.eyebrow}
+        title={data.title}
+        description={data.description}
+        image={data.image}
+        imagePosition="right"
+        showBg={true}
+      />
 
-          {/* Image */}
-          <div className="relative h-[300px] sm:h-[400px] md:h-[480px] lg:h-[560px] w-full rounded-lg overflow-hidden">
-            <Image
-              src={data.image ? data.image.url : ""}
-              alt="Scientist at work"
-              fill
-              className="object-cover"
-            />
-          </div>
-        </div>
-
-        {/* Values Grid */}
+      {/* Values Grid */}
+      <div className="container mx-auto px-4 pb-12 md:pb-16 lg:pb-24">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
           {data.showcaseItems.map((item) => (
             <div 
