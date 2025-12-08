@@ -2,29 +2,14 @@
 
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { FeatureSection } from "@/components/ui/feature-section"
-import type { StrapiImage } from "@/types/strapi"
-
-interface AccordionItemData {
-  id: number
-  title: string
-  description: string
-}
+import type { SustainabilityPageProps } from "@/types/strapi"
 
 interface StrategySectionProps {
-  eyebrow: string
-  title: string
-  description: string
-  image?: StrapiImage
-  accordionItems: AccordionItemData[]
+  data: SustainabilityPageProps["strategy"]
 }
 
-export function StrategySection({ 
-  eyebrow, 
-  title, 
-  description, 
-  image,
-  accordionItems 
-}: StrategySectionProps) {
+export function StrategySection({ data }: StrategySectionProps) {
+  const { eyebrow, title, description, image, accordionItems } = data
   return (
     <section id="strategy" className="bg-white">
       {/* Header with Image - dengan background, padding sudah include di dalam */}

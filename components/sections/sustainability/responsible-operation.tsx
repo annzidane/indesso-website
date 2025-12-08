@@ -4,32 +4,17 @@ import { useState, useRef } from "react"
 import Image from "next/image"
 import { ChevronLeft, ChevronRight, Play } from "lucide-react"
 import { getStrapiMedia } from "@/lib/strapi/api"
-import type { StrapiImage } from "@/types/strapi"
 import { SectionLabel } from "@/components/ui/section-label"
+import type { SustainabilityPageProps } from "@/types/strapi"
 
-interface PartnerCard {
-  id: number
-  title: string
-  text: string
-  image?: StrapiImage
-  videoUrl?: string
-}
+type PartnerCard = SustainabilityPageProps["responsibleOperations"]["cards"][number]
 
 interface ResponsibleOperationsSectionProps {
-  eyebrow: string
-  title: string
-  description: string
-  ctaText: string
-  cards: PartnerCard[]
+  data: SustainabilityPageProps["responsibleOperations"]
 }
 
-export function ResponsibleOperationsSection({ 
-  eyebrow, 
-  title, 
-  description, 
-  ctaText,
-  cards 
-}: ResponsibleOperationsSectionProps) {
+export function ResponsibleOperationsSection({ data }: ResponsibleOperationsSectionProps) {
+  const { eyebrow, title, description, ctaText, cards } = data
   const [currentSlide, setCurrentSlide] = useState(0)
   const [isPlaying, setIsPlaying] = useState(false)
   const videoRef = useRef<HTMLVideoElement>(null)
@@ -103,16 +88,16 @@ export function ResponsibleOperationsSection({
             {/* Left Arrow */}
             <button
               onClick={prevSlide}
-              className="absolute left-4 md:left-8 lg:left-16 z-20 w-10 h-10 md:w-12 md:h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-colors"
+              className="absolute left-4 md:left-8 lg:left-47 z-20 w-10 h-10 md:w-12 md:h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-colors"
               aria-label="Previous slide"
             >
               <ChevronLeft className="w-5 h-5 md:w-6 md:h-6 text-white" />
             </button>
 
             {/* Cards Container */}
-            <div className="flex items-center justify-center gap-4 md:gap-6 w-full max-w-7xl mx-auto overflow-hidden">
+            <div className="flex items-center justify-center gap-4 md:gap-22 w-full max-w-full mx-auto overflow-hidden">
               {/* Previous Card (Left) - Partially Visible */}
-              <div className="hidden md:block shrink-0 w-[120px] lg:w-[180px] h-[300px] lg:h-[400px] rounded-lg overflow-hidden opacity-60 blur-[1px] transition-all duration-500 relative">
+              <div className="hidden md:block shrink-0 w-[120px] lg:w-[180px] h-[300px] lg:h-[400px] rounded-lg overflow-hidden transition-all duration-500 relative">
                 {prevCard?.image ? (
                   <Image
                     src={getStrapiMedia(prevCard.image.url) || "/placeholder.svg"}
@@ -132,7 +117,7 @@ export function ResponsibleOperationsSection({
               </div>
 
               {/* Current Card (Center) */}
-              <div className="relative shrink-0 w-full max-w-[340px] sm:max-w-[500px] md:max-w-[600px] lg:max-w-[750px] rounded-xl overflow-hidden shadow-2xl transition-all duration-500">
+              <div className="relative shrink-0 w-full max-w-[960px] sm:max-w-[500px] md:max-w-[600px] lg:max-w-[960px] rounded-xl overflow-hidden shadow-2xl transition-all duration-500">
                 {/* Media Container */}
                 <div className="relative aspect-16/10 md:aspect-video">
                   {current.videoUrl ? (
@@ -185,7 +170,7 @@ export function ResponsibleOperationsSection({
                 </div>
 
                 {/* Content Overlay - Glass Effect at Bottom */}
-                <div className="absolute bottom-0 left-0 right-0 bg-indesso-dark-blue/80 backdrop-blur-sm p-4 md:p-6">
+                <div className="absolute bottom-0 left-0 right-0 bg-indesso-dark-blue/80 glass-video p-4 md:p-6">
                   <h3 className="text-lg md:text-xl lg:text-2xl font-plus-bold text-white mb-2">
                     {current.title}
                   </h3>
@@ -199,7 +184,7 @@ export function ResponsibleOperationsSection({
               </div>
 
               {/* Next Card (Right) - Partially Visible */}
-              <div className="hidden md:block shrink-0 w-[120px] lg:w-[180px] h-[300px] lg:h-[400px] rounded-lg overflow-hidden opacity-60 blur-[1px] transition-all duration-500 relative">
+              <div className="hidden md:block shrink-0 w-[120px] lg:w-[180px] h-[300px] lg:h-[400px] rounded-lg overflow-hidden transition-all duration-500 relative">
                 {nextCard?.image ? (
                   <Image
                     src={getStrapiMedia(nextCard.image.url) || "/placeholder.svg"}
@@ -222,7 +207,7 @@ export function ResponsibleOperationsSection({
             {/* Right Arrow */}
             <button
               onClick={nextSlide}
-              className="absolute right-4 md:right-8 lg:right-16 z-20 w-10 h-10 md:w-12 md:h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-colors"
+              className="absolute right-4 md:right-8 lg:right-47 z-20 w-10 h-10 md:w-12 md:h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-colors"
               aria-label="Next slide"
             >
               <ChevronRight className="w-5 h-5 md:w-6 md:h-6 text-white" />

@@ -3,30 +3,18 @@
 import Image from "next/image"
 import { ArrowRight, ChevronLeft, ChevronRight, X } from "lucide-react"
 import { getStrapiMedia } from "@/lib/strapi/api"
-import type { StrapiImage } from "@/types/strapi"
 import { SectionLabel } from "@/components/ui/section-label"
 import { useState, useRef, useCallback, useEffect } from "react"
+import type { SustainabilityPageProps } from "@/types/strapi"
 
-interface InitiativeCard {
-  id: number
-  title: string
-  text: string
-  image?: StrapiImage
-}
+type InitiativeCard = SustainabilityPageProps["initiative"]["cards"][number]
 
 interface InitiativeSectionProps {
-  eyebrow: string
-  title: string
-  description: string
-  cards: InitiativeCard[]
+  data: SustainabilityPageProps["initiative"]
 }
 
-export function InitiativeSection({ 
-  eyebrow, 
-  title, 
-  description, 
-  cards 
-}: InitiativeSectionProps) {
+export function InitiativeSection({ data }: InitiativeSectionProps) {
+  const { eyebrow, title, description, cards } = data
   const [selectedCard, setSelectedCard] = useState<InitiativeCard | null>(null)
   const carouselRef = useRef<HTMLDivElement>(null)
   const isResettingRef = useRef(false)
@@ -34,9 +22,30 @@ export function InitiativeSection({
 
   const duplicatedCards = [...cards, ...cards, ...cards, ...cards, ...cards]
 
-  const cardWidth = 392
-  const gap = 24
-  const cardTotalWidth = cardWidth + gap // 416
+  // Responsive card dimensions
+  const [cardDimensions, setCardDimensions] = useState({ width: 392, gap: 24 })
+  
+  useEffect(() => {
+    const updateDimensions = () => {
+      if (typeof window !== 'undefined') {
+        if (window.innerWidth < 640) {
+          setCardDimensions({ width: 280, gap: 16 })
+        } else if (window.innerWidth < 768) {
+          setCardDimensions({ width: 320, gap: 16 })
+        } else if (window.innerWidth < 1024) {
+          setCardDimensions({ width: 360, gap: 24 })
+        } else {
+          setCardDimensions({ width: 392, gap: 24 })
+        }
+      }
+    }
+    
+    updateDimensions()
+    window.addEventListener('resize', updateDimensions)
+    return () => window.removeEventListener('resize', updateDimensions)
+  }, [])
+
+  const cardTotalWidth = cardDimensions.width + cardDimensions.gap
 
   // Initialize carousel to middle section for infinite scroll
   useEffect(() => {
@@ -169,14 +178,14 @@ export function InitiativeSection({
           {/* Cards Carousel */}
           <div
             ref={carouselRef}
-            className="flex gap-6 overflow-x-auto scrollbar-hide px-4 md:px-16 py-4 snap-x snap-mandatory"
+            className="flex gap-4 md:gap-6 overflow-x-auto scrollbar-hide px-4 md:px-16 py-4 snap-x snap-mandatory"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             {duplicatedCards.map((item, index) => (
               <div
                 key={`${item.id}-${index}`}
                 onClick={() => openModal(item)}
-                className="group relative shrink-0 w-[392px] h-[480px] rounded-b overflow-hidden cursor-pointer snap-center"
+                className="group relative shrink-0 w-[280px] sm:w-[320px] md:w-[360px] lg:w-[392px] h-[380px] sm:h-[420px] md:h-[450px] lg:h-[480px] rounded-b overflow-hidden cursor-pointer snap-center"
               >
                 {/* Background Image */}
                 {item.image && (

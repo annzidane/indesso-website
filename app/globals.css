@@ -298,7 +298,18 @@
   .glass {
     background-color: rgba(255, 255, 255, 0.12);
     backdrop-filter: blur(20px);
-    /* -webkit-backdrop-filter: blur(20px); */
+    border: 2px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .glass-video {
+    background:
+      linear-gradient(
+        228.71deg,
+        rgba(0, 53, 87, 0.5) 0%,
+        rgba(0, 53, 87, 0.4) 100%
+      ),
+      rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(20px);
     border: 2px solid rgba(255, 255, 255, 0.2);
   }
 
@@ -331,7 +342,6 @@
     position: absolute;
     inset: 0;
     
-    /* Background ASLI glassmorphism Anda */
     background-color: rgba(255, 255, 255, 0.12);
     backdrop-filter: blur(20px);
     

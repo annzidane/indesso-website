@@ -4,56 +4,47 @@ import { useState, useRef, useCallback, useEffect } from "react"
 import Image from "next/image"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { getStrapiMedia } from "@/lib/strapi/api"
-import type { StrapiImage } from "@/types/strapi"
 import { SectionLabel } from "@/components/ui/section-label"
-
-interface AssessmentItem {
-  id: number
-  description: string
-  image?: StrapiImage
-}
+import type { SustainabilityPageProps } from "@/types/strapi"
 
 interface CommitmentSectionProps {
-  eyebrow: string
-  title: string
-  description: string
-  assessments: AssessmentItem[]
+  data: SustainabilityPageProps["commitment"]
 }
 
-export function CommitmentSection({ 
-  eyebrow, 
-  title, 
-  description, 
-  assessments 
-}: CommitmentSectionProps) {
+export function CommitmentSection({ data }: CommitmentSectionProps) {
+  const { eyebrow, title, description, assessments } = data
   const [currentIndex, setCurrentIndex] = useState(0)
   const carouselRef = useRef<HTMLDivElement>(null)
   
-  const cardWidth = 400
-  const gap = 32
-  const cardTotalWidth = cardWidth + gap
-
-  // Calculate how many cards are visible
+  // Responsive card dimensions
+  const [cardDimensions, setCardDimensions] = useState({ width: 400, gap: 32 })
   const [visibleCards, setVisibleCards] = useState(3)
 
   useEffect(() => {
-    const updateVisibleCards = () => {
+    const updateDimensions = () => {
       if (typeof window !== 'undefined') {
         if (window.innerWidth < 640) {
+          setCardDimensions({ width: 280, gap: 16 })
+          setVisibleCards(1)
+        } else if (window.innerWidth < 768) {
+          setCardDimensions({ width: 320, gap: 24 })
           setVisibleCards(1)
         } else if (window.innerWidth < 1024) {
+          setCardDimensions({ width: 360, gap: 32 })
           setVisibleCards(2)
         } else {
+          setCardDimensions({ width: 400, gap: 32 })
           setVisibleCards(3)
         }
       }
     }
     
-    updateVisibleCards()
-    window.addEventListener('resize', updateVisibleCards)
-    return () => window.removeEventListener('resize', updateVisibleCards)
+    updateDimensions()
+    window.addEventListener('resize', updateDimensions)
+    return () => window.removeEventListener('resize', updateDimensions)
   }, [])
 
+  const cardTotalWidth = cardDimensions.width + cardDimensions.gap
   const maxIndex = Math.max(0, assessments.length - visibleCards)
   const canScrollLeft = currentIndex > 0
   const canScrollRight = currentIndex < maxIndex
@@ -70,6 +61,25 @@ export function CommitmentSection({
     }
   }, [maxIndex, cardTotalWidth])
 
+  // Sync scroll position with currentIndex (for manual swipe)
+  const handleScroll = useCallback(() => {
+    if (carouselRef.current) {
+      const scrollLeft = carouselRef.current.scrollLeft
+      const newIndex = Math.round(scrollLeft / cardTotalWidth)
+      if (newIndex !== currentIndex && newIndex >= 0 && newIndex <= maxIndex) {
+        setCurrentIndex(newIndex)
+      }
+    }
+  }, [cardTotalWidth, currentIndex, maxIndex])
+
+  useEffect(() => {
+    const carousel = carouselRef.current
+    if (carousel) {
+      carousel.addEventListener('scrollend', handleScroll)
+      return () => carousel.removeEventListener('scrollend', handleScroll)
+    }
+  }, [handleScroll])
+
   const handlePrev = () => {
     if (canScrollLeft) {
       scrollTo(currentIndex - 1)
@@ -83,7 +93,7 @@ export function CommitmentSection({
   }
 
   return (
-    <section id="commitment" className="py-12 md:py-16 lg:py-24 bg-white">
+    <section id="commitment" className="py-12 md:py-16 lg:py-24 bg-white overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6">
         {/* Header */}
         <div className="text-center mb-8 md:mb-12 lg:mb-16">
@@ -97,19 +107,20 @@ export function CommitmentSection({
             </p>
           )}
         </div>
+      </div>
 
-        {/* Cards Carousel */}
-        <div 
-          ref={carouselRef}
-          className="flex gap-8 overflow-x-auto scrollbar-hide pb-4"
-          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-        >
-          {assessments.map((item) => (
-            <div 
-              key={item.id} 
-              className="relative shrink-0 w-[320px] sm:w-[360px] md:w-[400px] h-[340px] sm:h-[360px] md:h-96 rounded p-6 sm:p-7 md:p-8 flex flex-col bg-cover bg-center bg-no-repeat border border-gray-200"
-              style={{ backgroundImage: "url('/card-sustainability-bg.jpg')" }}
-            >
+      {/* Cards Carousel - Full width untuk center snap */}
+      <div 
+        ref={carouselRef}
+        className="flex gap-4 sm:gap-6 md:gap-8 overflow-x-auto scrollbar-hide pb-4 snap-x snap-mandatory scroll-smooth px-[calc(50vw-140px)] sm:px-[calc(50vw-160px)] md:px-4 lg:px-6"
+        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+      >
+        {assessments.map((item) => (
+          <div 
+            key={item.id} 
+            className="relative shrink-0 w-[280px] sm:w-[320px] md:w-[360px] lg:w-[400px] h-80 sm:h-[340px] md:h-[360px] lg:h-96 rounded p-5 sm:p-6 md:p-7 lg:p-8 flex flex-col bg-cover bg-center bg-no-repeat border border-gray-200 snap-center"
+            style={{ backgroundImage: "url('/card-sustainability-bg.jpg')" }}
+          >
               {/* Logo */}
               {item.image && (
                 <div className="relative w-32 h-16 sm:w-36 sm:h-18 md:w-40 md:h-20 mb-4 md:mb-6">
@@ -130,7 +141,8 @@ export function CommitmentSection({
           ))}
         </div>
 
-        {/* Navigation Controls */}
+      {/* Navigation Controls */}
+      <div className="container mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between mt-6 md:mt-8">
           {/* Dots Indicator - Left */}
           <div className="flex items-center gap-2">

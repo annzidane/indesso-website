@@ -5,7 +5,7 @@ import { PageHero } from "@/components/ui/page-hero"
 import { StickyNav } from "@/components/ui/sticky-nav"
 import { StrategySection } from "@/components/sections/sustainability/strategy-section"
 import { InitiativeSection } from "@/components/sections/sustainability/initiative-section"
-import { ResponsibleOperationsSection } from "@/components/sections/sustainability/partnering-section"
+import { ResponsibleOperationsSection } from "@/components/sections/sustainability/responsible-operation"
 import { CommitmentSection } from "@/components/sections/sustainability/commitment-section"
 import { ReportSection } from "@/components/sections/sustainability/report-section"
 import { getSustainabilityPageData, getReportsData } from "@/lib/strapi/sustainability-api"
@@ -46,42 +46,11 @@ export default async function SustainabilityPage({ params }: PageProps) {
           backgroundImage={pageData.hero.backgroundImage}
         />
         <StickyNav items={pageData.navItems} />
-        <StrategySection 
-          eyebrow={pageData.strategy.eyebrow}
-          title={pageData.strategy.title}
-          description={pageData.strategy.description}
-          image={pageData.strategy.image}
-          accordionItems={pageData.strategy.accordionItems}
-        />
-        <InitiativeSection 
-          eyebrow={pageData.initiative.eyebrow}
-          title={pageData.initiative.title}
-          description={pageData.initiative.description}
-          cards={pageData.initiative.cards}
-        />
-        <ResponsibleOperationsSection 
-          eyebrow={pageData.responsibleOperations.eyebrow}
-          title={pageData.responsibleOperations.title}
-          description={pageData.responsibleOperations.description}
-          ctaText={pageData.responsibleOperations.ctaText}
-          cards={pageData.responsibleOperations.cards}
-        />
-        <CommitmentSection 
-          eyebrow={pageData.commitment.eyebrow}
-          title={pageData.commitment.title}
-          description={pageData.commitment.description}
-          assessments={pageData.commitment.assessments}
-        />
-        <ReportSection 
-          eyebrow={pageData.report.eyebrow}
-          title={pageData.report.title}
-          description={pageData.report.description}
-          subTitle={pageData.report.subTitle}
-          buttonText={pageData.report.buttonText}
-          image={pageData.report.image}
-          titleReport={pageData.report.titleReport}
-          reports={reports}
-        />
+        <StrategySection data={pageData.strategy} />
+        <InitiativeSection data={pageData.initiative} />
+        <ResponsibleOperationsSection data={pageData.responsibleOperations} />
+        <CommitmentSection data={pageData.commitment} />
+        <ReportSection data={pageData.report} reports={reports} />
       </main>
       <Footer data={footerData} locale={locale} />
     </>

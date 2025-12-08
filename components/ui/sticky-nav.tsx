@@ -55,7 +55,7 @@ export function StickyNav({ items, defaultActiveId, className }: StickyNavProps)
 
   return (
     <nav className={cn("sticky top-0 z-50 bg-white border-b-2 border-gray-200 shadow-sm", className)}>
-      <div className="container mx-auto px-2 sm:px-4 md:px-6 lg:px-[100px]">
+      <div className="container mx-auto px-2 sm:px-4 md:px-6 lg:px-[50px]">
         {/* Scrollable container for mobile/tablet */}
         <div className="overflow-x-auto scrollbar-hide" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
           <div className="flex items-center justify-start lg:justify-center gap-0 min-w-max lg:min-w-0">
