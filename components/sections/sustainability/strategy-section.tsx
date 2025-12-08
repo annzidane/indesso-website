@@ -2,6 +2,7 @@
 
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { FeatureSection } from "@/components/ui/feature-section"
+import { toSlug } from "@/lib/strapi/utils"
 import type { SustainabilityPageProps } from "@/types/strapi"
 
 interface StrategySectionProps {
@@ -11,7 +12,7 @@ interface StrategySectionProps {
 export function StrategySection({ data }: StrategySectionProps) {
   const { eyebrow, title, description, image, accordionItems } = data
   return (
-    <section id="strategy" className="bg-white">
+    <section id={toSlug(eyebrow)} className="bg-white">
       {/* Header with Image - dengan background, padding sudah include di dalam */}
       <FeatureSection
         eyebrow={eyebrow}

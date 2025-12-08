@@ -2,6 +2,7 @@ import Image from "next/image"
 import { SectionLabel } from "@/components/ui/section-label"
 import { getStrapiMedia } from "@/lib/strapi/api"
 import type { AboutUsPageProps } from "@/types/strapi"
+import { toSlug } from "@/lib/strapi/utils"
 
 export type AboutUsBoardProps = AboutUsPageProps["boards"]
 
@@ -51,7 +52,7 @@ function MemberCard({ member }: { member: BoardMemberProps }) {
 
 export function BoardSection({ data }: BoardSectionProps) {
   return (
-    <section className="py-12 md:py-16 lg:py-24 bg-white">
+    <section id={toSlug(data?.eyebrow || "meet-the-boards")} className="py-12 md:py-16 lg:py-24 bg-white">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="mb-10 md:mb-16">

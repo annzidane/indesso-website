@@ -3,6 +3,7 @@
 import Image from "next/image"
 import { ArrowRight, ChevronLeft, ChevronRight, X } from "lucide-react"
 import { getStrapiMedia } from "@/lib/strapi/api"
+import { toSlug } from "@/lib/strapi/utils"
 import { SectionLabel } from "@/components/ui/section-label"
 import { useState, useRef, useCallback, useEffect } from "react"
 import type { SustainabilityPageProps } from "@/types/strapi"
@@ -142,7 +143,7 @@ export function InitiativeSection({ data }: InitiativeSectionProps) {
 
   return (
     <>
-      <section id="initiative" className="py-12 md:py-16 lg:py-24 bg-white overflow-hidden">
+      <section id={toSlug(eyebrow)} className="py-12 md:py-16 lg:py-24 bg-white overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="text-center mb-8 md:mb-12">
             <SectionLabel variant="bubble" className="mb-4">{eyebrow}</SectionLabel>

@@ -4,6 +4,7 @@ import { useState } from "react"
 import Image from "next/image"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { SectionLabel } from "@/components/ui/section-label"
+import { toSlug } from "@/lib/strapi/utils"
 import type { CareerPageProps } from "@/types/strapi"
 
 interface TestimonialSectionProps {
@@ -30,7 +31,7 @@ export function TestimonialSection({ data }: TestimonialSectionProps) {
   const currentTestimonial = testimonials[currentIndex]
 
   return (
-    <section id="testimonial" className="py-12 md:py-16 lg:py-24 bg-gray-50">
+    <section id={toSlug(data.eyebrow)} className="py-12 md:py-16 lg:py-24 bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
           {/* Content */}

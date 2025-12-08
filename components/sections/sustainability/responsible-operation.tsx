@@ -4,6 +4,7 @@ import { useState, useRef } from "react"
 import Image from "next/image"
 import { ChevronLeft, ChevronRight, Play } from "lucide-react"
 import { getStrapiMedia } from "@/lib/strapi/api"
+import { toSlug } from "@/lib/strapi/utils"
 import { SectionLabel } from "@/components/ui/section-label"
 import type { SustainabilityPageProps } from "@/types/strapi"
 
@@ -56,7 +57,7 @@ export function ResponsibleOperationsSection({ data }: ResponsibleOperationsSect
   }
 
   return (
-    <section id="responsible-operations" className="relative">
+    <section id={toSlug(eyebrow)} className="relative">
       {/* Background Image */}
       <div 
         className="relative min-h-[700px] md:min-h-[800px] lg:min-h-[900px] bg-cover bg-center bg-no-repeat"

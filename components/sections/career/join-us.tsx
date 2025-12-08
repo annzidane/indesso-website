@@ -4,6 +4,7 @@ import { ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { SectionLabel } from "@/components/ui/section-label"
 import { getStrapiMedia } from "@/lib/strapi/api"
+import { toSlug } from "@/lib/strapi/utils"
 import type { CareerPageProps } from "@/types/strapi"
 
 interface JoinUsProps {
@@ -17,7 +18,7 @@ export function JoinUs({ data, locale }: JoinUsProps) {
     : "/hands-planting-seedling-in-soil-close-up-nature.jpg"
 
   return (
-    <section id="join-us" className="py-12 md:py-16 lg:py-24 bg-white">
+    <section id={toSlug(data.eyebrow)} className="py-12 md:py-16 lg:py-24 bg-white">
       <div className="container mx-auto px-4">
         <div className="relative rounded-xl md:rounded-2xl overflow-hidden">
           {/* Background with gradient */}

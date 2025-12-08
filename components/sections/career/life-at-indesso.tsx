@@ -1,5 +1,6 @@
 import Image from "next/image"
 import { getStrapiMedia } from "@/lib/strapi/api"
+import { toSlug } from "@/lib/strapi/utils"
 import { FeatureSection } from "@/components/ui/feature-section"
 import type { CareerPageProps } from "@/types/strapi"
 
@@ -9,7 +10,7 @@ interface LifeAtIndessoProps {
 
 export function LifeAtIndesso({ data }: LifeAtIndessoProps) {
   return (
-    <section id="life-at-indesso" className="bg-white">
+    <section id={toSlug(data.eyebrow)} className="bg-white">
       {/* Main Content Grid - dengan background, padding sudah include di dalam */}
       <FeatureSection
         eyebrow={data.eyebrow}

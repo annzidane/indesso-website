@@ -5,6 +5,7 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Pagination } from "@/components/ui/pagination"
 import { getStrapiMedia } from "@/lib/strapi/api"
+import { toSlug } from "@/lib/strapi/utils"
 import type { StrapiImage, SustainabilityPageProps, ReportItem } from "@/types/strapi"
 import { SectionLabel } from "@/components/ui/section-label"
 
@@ -40,7 +41,7 @@ export function ReportSection({ data, reports = [] }: ReportSectionProps) {
     : subTitle
 
   return (
-    <section id="report" className="py-12 md:py-16 lg:py-24 bg-white">
+    <section id={toSlug(eyebrow)} className="py-12 md:py-16 lg:py-24 bg-white">
       <div className="container mx-auto px-4 sm:px-6 ">
         {/* Main Report Section */}
         <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 md:gap-20 lg:gap-28 items-center mb-12 sm:mb-16 md:mb-20 lg:mb-24">

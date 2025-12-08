@@ -59,6 +59,20 @@ export function componentToSectionId(component: string): string | null {
 }
 
 /**
+ * Convert text to slug format (lowercase, spaces to dashes)
+ * Handles: "LIFE AT INDESSO" -> "life-at-indesso"
+ * Handles: "Our Strategy" -> "our-strategy"
+ */
+export function toSlug(text: string): string {
+  if (!text) return ""
+  
+  return text
+    .toLowerCase()
+    .trim()
+    .replace(/\s+/g, "-")
+}
+
+/**
  * Generic interface for sections with eyebrow
  */
 interface SectionWithEyebrow {
@@ -88,6 +102,7 @@ export function getSectionEyebrow(section: SectionWithEyebrow): string | null {
 /**
  * Generate navigation items from page sections
  * Excludes hero sections and transforms eyebrow to Title Case
+ * ID is generated from eyebrow (lowercase, spaces to dashes)
  */
 export function generateNavItemsFromSections<T extends SectionWithEyebrow>(
   sections: T[],
@@ -96,10 +111,9 @@ export function generateNavItemsFromSections<T extends SectionWithEyebrow>(
   return sections
     .filter(s => !s.__component.includes(heroComponentName))
     .map(s => {
-      const id = componentToSectionId(s.__component)
       const eyebrow = getSectionEyebrow(s)
-      if (id && eyebrow) {
-        return { id, label: toTitleCase(eyebrow) }
+      if (eyebrow) {
+        return { id: toSlug(eyebrow), label: toTitleCase(eyebrow) }
       }
       return null
     })

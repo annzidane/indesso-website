@@ -8,6 +8,7 @@ import { SectionLabel } from "@/components/ui/section-label"
 import { getStrapiMedia } from "@/lib/strapi/api"
 import type { StrapiImage } from "@/types/strapi"
 import { cn } from "@/lib/utils"
+import { toSlug } from "@/lib/strapi/utils"
 
 interface StoryItemData {
   id: number
@@ -77,7 +78,7 @@ export function OurStorySection({ data }: OurStorySectionProps) {
   const sliderItems = getOrderedSliderItems()
 
   return (
-    <section className="relative py-12 md:py-16 lg:py-24 overflow-hidden">
+    <section id={toSlug(data?.eyebrow)} className="relative py-12 md:py-16 lg:py-24 overflow-hidden">
       {/* Background Image - Sky/Clouds */}
       <div className="absolute inset-0 z-0">
         <Image

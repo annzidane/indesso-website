@@ -5,6 +5,7 @@ import { SectionLabel } from "@/components/ui/section-label"
 import { AccordionGlass } from "@/components/ui/accordion-glass"
 import { getStrapiMedia } from "@/lib/strapi/api"
 import type { AboutUsPageProps } from "@/types/strapi"
+import { toSlug } from "@/lib/strapi/utils"
 
 export type AboutUsResponsibleOperationsProps = AboutUsPageProps["responsibleOperations"]
 
@@ -14,7 +15,7 @@ interface ResponsibleOperationSectionProps {
 
 export function ResponsibleOperationSection({ data }: ResponsibleOperationSectionProps) {
   return (
-    <section className="relative min-h-[600px] md:min-h-[700px] lg:h-[812px] overflow-hidden">
+    <section id={toSlug(data?.eyebrow)} className="relative min-h-[600px] md:min-h-[700px] lg:h-[812px] overflow-hidden">
       {/* Background Image */}
       {data.backgroundImage && (
         <div className="absolute inset-0 z-0">

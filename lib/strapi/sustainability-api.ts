@@ -188,11 +188,11 @@ function getDefaultSustainabilityData(): SustainabilityPageProps {
       path: "/sustainability",
     },
     navItems: [
-      { id: "strategy", label: "Sustainability Strategy" },
-      { id: "initiative", label: "Sustainability Initiative" },
+      { id: "sustainability-strategy", label: "Sustainability Strategy test" },
+      { id: "sustainability-initiative", label: "Sustainability Initiative" },
       { id: "responsible-operations", label: "Responsible Operations" },
-      { id: "commitment", label: "Commitment & Assessments" },
-      { id: "report", label: "Sustainability Report" },
+      { id: "commitment-and-assessments", label: "Commitment & Assessments" },
+      { id: "sustainability-report", label: "Sustainability Report" },
     ],
     hero: {
       title: "Sustainability",

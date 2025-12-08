@@ -6,6 +6,7 @@ import { SectionLabel } from "@/components/ui/section-label"
 import { TabsNavigation } from "@/components/ui/tabs-navigation"
 import { getStrapiMedia } from "@/lib/strapi/api"
 import type { AboutUsPageProps } from "@/types/strapi"
+import { toSlug } from "@/lib/strapi/utils"
 
 export type AboutUsScientificMasteryProps = AboutUsPageProps["scientificMastery"]
 
@@ -24,7 +25,7 @@ export function ScientificMasterySection({ data }: ScientificMasterySectionProps
   }))
 
   return (
-    <section className="py-12 md:py-16 lg:py-24 bg-white">
+    <section id={toSlug(data?.eyebrow)} className="py-12 md:py-16 lg:py-24 bg-white">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 items-end mb-8 md:mb-10">
@@ -63,7 +64,7 @@ export function ScientificMasterySection({ data }: ScientificMasterySectionProps
             </div>
           </div>
           {/* Right Column - Image */}
-          <div className="relative w-full aspect-[560/424] rounded overflow-hidden order-1 md:order-2">
+          <div className="relative w-full aspect-560/424 rounded overflow-hidden order-1 md:order-2">
             <Image
               src={
                 getStrapiMedia(activeItem.image?.url ?? null) ||

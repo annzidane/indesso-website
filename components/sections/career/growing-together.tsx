@@ -4,6 +4,7 @@ import { useState } from "react"
 import Image from "next/image"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { SectionLabel } from "@/components/ui/section-label"
+import { toSlug } from "@/lib/strapi/utils"
 import type { CareerPageProps } from "@/types/strapi/career"
 
 interface GrowingTogetherProps {
@@ -27,7 +28,7 @@ export function GrowingTogether({ data }: GrowingTogetherProps) {
   const currentSlide = slides[currentIndex]
 
   return (
-    <section id="growing-together" className="py-12 md:py-16 lg:py-24 bg-[url('/growing-together-bg.png')] bg-cover bg-no-repeat bg-center">
+    <section id={toSlug(data?.eyebrow || "growing-together")} className="py-12 md:py-16 lg:py-24 bg-[url('/growing-together-bg.png')] bg-cover bg-no-repeat bg-center">
       <div className="container mx-auto px-4 md:px-6">
         {/* Header */}
         <div className="text-center mb-8 md:mb-12">

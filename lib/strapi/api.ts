@@ -157,8 +157,11 @@ export async function getHeaderData(locale: string): Promise<HeaderData> {
   try {
     const response = await fetchStrapi<HeaderApiResponse>("header", {
       locale,
-      populate: "*",
+      query: {
+        pLevel: 5,
+      },
     })
+    console.log("Header data fetched:", response)
     return response.data
   } catch (error) {
     console.error("Failed to fetch header data:", error)
