@@ -44,6 +44,15 @@ export function MobileNav({ menus, locale, variant = "transparent", logo }: Mobi
   const handleNavigation = (path: string, sectionSlug: string) => {
     setOpen(false)
     
+    // Check if this is Our Business page - use subpage navigation instead of hash
+    const isOurBusinessPage = path === "/our-business"
+    
+    if (isOurBusinessPage) {
+      // For Our Business, navigate to subpage
+      router.push(`/${locale}${path}/${sectionSlug}`)
+      return
+    }
+    
     const fullPath = `/${locale}${path}`
     const currentPath = window.location.pathname
 

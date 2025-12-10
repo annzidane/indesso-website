@@ -76,6 +76,11 @@ export interface StrapiRichText {
 export interface StrapiRichTextChild {
   type: string
   text: string
+  bold?: boolean
+  italic?: boolean
+  underline?: boolean
+  strikethrough?: boolean
+  code?: boolean
 }
 
 // Navigation types (used globally)

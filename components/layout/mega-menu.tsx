@@ -145,7 +145,7 @@ export function MegaMenu({ menu, locale, isOpen, onClose, isTransparent }: MegaM
                   <h2 className="text-[48px] font-plus-bold text-white mb-4">
                     {menu.title}
                   </h2>
-                  <p className="text-indesso-light-grey text-[16px] text-manrope-regular leading-relaxed mb-6 max-w-md">
+                  <p className="text-indesso-light-grey text-[16px] font-manrope-regular leading-relaxed mb-6 max-w-md">
                     {menu.description}
                   </p>
                   
@@ -184,17 +184,48 @@ export function MegaMenu({ menu, locale, isOpen, onClose, isTransparent }: MegaM
                   {menu.menu_detail?.map((detail) => {
                     // Use slug if provided, otherwise generate from title
                     const sectionSlug = detail.slug || toSlug(detail.title)
+                    
+                    // Check if this is Our Business page - use subpage navigation instead of hash
+                    const isOurBusinessPage = menu.path === "/our-business"
+                    const targetHref = isOurBusinessPage 
+                      ? `/${locale}${menu.path}/${sectionSlug}`
+                      : `/${locale}${menu.path}#${sectionSlug}`
+                    
+                    // For Our Business, use direct Link navigation
+                    if (isOurBusinessPage) {
+                      return (
+                        <Link
+                          key={detail.id}
+                          href={targetHref}
+                          onClick={onClose}
+                          className="group block cursor-pointer"
+                        >
+                          <h3 className="text-lg font-plus-semibold text-indesso-dark-blue mb-2 group-hover:text-indesso-blue transition-colors">
+                            {detail.title}
+                          </h3>
+                          <p className="font-manrope-regular text-[14px] text-indesso-dark-grey mb-3 leading-relaxed">
+                            {detail.description}
+                          </p>
+                          <span className="inline-flex items-center text-indesso-blue font-plus-medium text-sm group-hover:gap-2 transition-all">
+                            {detail.button}
+                            <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                          </span>
+                        </Link>
+                      )
+                    }
+                    
+                    // For other pages, use scroll navigation with hash
                     return (
                       <a
                         key={detail.id}
-                        href={`/${locale}${menu.path}#${sectionSlug}`}
+                        href={targetHref}
                         onClick={(e) => handleNavigation(e, menu.path, sectionSlug)}
                         className="group block cursor-pointer"
                       >
                         <h3 className="text-lg font-plus-semibold text-indesso-dark-blue mb-2 group-hover:text-indesso-blue transition-colors">
                           {detail.title}
                         </h3>
-                        <p className="text-manrope-regular text-[14px] text-indesso-dark-grey mb-3 leading-relaxed">
+                        <p className="font-manrope-regular text-[14px] text-indesso-dark-grey mb-3 leading-relaxed">
                           {detail.description}
                         </p>
                         <span className="inline-flex items-center text-indesso-blue font-plus-medium text-sm group-hover:gap-2 transition-all">

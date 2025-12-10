@@ -120,3 +120,30 @@ export type {
   SustainabilityPageProps,
   ReportItem,
 } from "./sustainability"
+
+// Our Business Page types
+export type {
+  ProductCategory,
+  ProductSubCategory,
+  OurBusinessHeroSection,
+  OurBusinessStickyNav,
+  OurBusinessPageInfo,
+  OurBusinessData,
+  OurBusinessApiResponse,
+  ProductSubCategoryApiResponse,
+  OurBusinessHeroProps,
+  OurBusinessNavItem,
+  OurBusinessNavProps,
+  OurBusinessPageProps,
+  // Page section types
+  SliderHotSpot,
+  BusinessSliderItem,
+  BusinessSummarySectionData,
+  BusinessApplianceSectionData,
+  BotanicalSourceSectionData,
+  OurCatalogSectionData,
+  OurBusinessPageSection,
+  // Botanical types
+  Botanical,
+  BotanicalsApiResponse,
+} from "./our-business"

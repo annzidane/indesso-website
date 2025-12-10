@@ -9,6 +9,28 @@ type FetchOptions = {
   query?: Record<string, string | number | boolean>
 }
 
+/**
+ * Convert nested filter object to Strapi v5 bracket notation
+ * Example: { slug: { $eq: 'test' } } => 'filters[slug][$eq]=test'
+ */
+function buildFilterParams(filters: Record<string, unknown>, prefix = 'filters'): URLSearchParams {
+  const params = new URLSearchParams()
+  
+  function addParams(obj: Record<string, unknown>, currentPrefix: string) {
+    for (const [key, value] of Object.entries(obj)) {
+      const newPrefix = `${currentPrefix}[${key}]`
+      if (typeof value === 'object' && value !== null && !Array.isArray(value)) {
+        addParams(value as Record<string, unknown>, newPrefix)
+      } else {
+        params.set(newPrefix, String(value))
+      }
+    }
+  }
+  
+  addParams(filters, prefix)
+  return params
+}
+
 export async function fetchStrapi<T>(endpoint: string, options: FetchOptions = {}): Promise<T> {
   const {
     locale = "en",
@@ -30,8 +52,12 @@ export async function fetchStrapi<T>(endpoint: string, options: FetchOptions = {
     params.set("populate", JSON.stringify(populate))
   }
 
+  // Use bracket notation for filters (Strapi v5 format)
   if (filters) {
-    params.set("filters", JSON.stringify(filters))
+    const filterParams = buildFilterParams(filters)
+    filterParams.forEach((value, key) => {
+      params.set(key, value)
+    })
   }
 
   if (query) {
