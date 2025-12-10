@@ -64,11 +64,11 @@ export function BotanicalSourceSection({ data, botanicals }: BotanicalSourceSect
                 >
                 <defs>
                     <linearGradient id="grad-border" x1="0" y1="0" x2="1" y2="0">
-                    <stop offset="29.8%" stop-color="#6EBE4A" />
-                    <stop offset="38.73%" stop-color="#7CC24F" />
-                    <stop offset="65.55%" stop-color="#A3D060" />
-                    <stop offset="86.41%" stop-color="#BCD86A" />
-                    <stop offset="99.32%" stop-color="#C5DC6E" />
+                    <stop offset="29.8%" stopColor="#6EBE4A" />
+                    <stop offset="38.73%" stopColor="#7CC24F" />
+                    <stop offset="65.55%" stopColor="#A3D060" />
+                    <stop offset="86.41%" stopColor="#BCD86A" />
+                    <stop offset="99.32%" stopColor="#C5DC6E" />
                     </linearGradient>
                 </defs>
 
