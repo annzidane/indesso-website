@@ -326,8 +326,8 @@
 
   .glass-card {
     background-color: rgba(255, 255, 255, 0.12);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
     border-top: 2px solid rgba(255, 255, 255, 0.15);
     border-right: 2px solid rgba(255, 255, 255, 0.08);
   }
@@ -352,11 +352,22 @@
     content: '';
     position: absolute;
     inset: 0;
-    
+
     background-color: rgba(255, 255, 255, 0.12);
     backdrop-filter: blur(20px);
-    
+
     /* Memastikan pseudo-element mengikuti radius div induk */
     border-radius: 8px; /* 10px (parent) - 2px (padding) */
+  }
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .scrollbar-hide {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
   }
 }

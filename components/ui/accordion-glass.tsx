@@ -39,9 +39,9 @@ export function AccordionGlass({ items, defaultOpenIndex = 0, className }: Accor
               <span className="font-plus-extrabold text-lg sm:text-xl md:text-[28px] italic text-white">{item.title}</span>
             </div>
             {openIndex === index ? (
-              <ChevronRight className="h-5 w-5 sm:h-6 sm:w-6 text-white shrink-0" />
+              <ChevronDown className="h-5 w-5 sm:h-6 sm:w-6 text-white shrink-0 rotate-180 transition-transform duration-300" />
             ) : (
-              <ChevronDown className="h-5 w-5 sm:h-6 sm:w-6 text-white shrink-0" />
+              <ChevronDown className="h-5 w-5 sm:h-6 sm:w-6 text-white shrink-0 transition-transform duration-300" />
             )}
           </button>
           <div

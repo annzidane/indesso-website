@@ -57,7 +57,7 @@ export function BoardSection({ data }: BoardSectionProps) {
         {/* Header */}
         <div className="mb-10 md:mb-16">
           <SectionLabel variant="bubble" className="mb-4">{data.eyebrow}</SectionLabel>
-          <h2 className="font-plus-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-foreground max-w-lg">
+          <h2 className="font-plus-bold text-[28px] md:text-4xl lg:text-5xl text-foreground leading-[36px] md:leading-tight tracking-[-1px] max-w-lg">
             {data.title}
           </h2>
         </div>

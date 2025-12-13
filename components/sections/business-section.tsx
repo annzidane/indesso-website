@@ -86,7 +86,7 @@ function BusinessCard({ card, locale, index }: BusinessCardProps) {
         <div className="relative w-[90px] md:w-[140px] lg:w-[180px] shrink-0 overflow-visible">
           {/* Floating ingredient image - larger, splashing out effect, positioned at top */}
           {floatingImage && (
-            <div className="absolute z-20 pointer-events-none -top-4 -left-4 w-[128px] h-[171px] md:-top-10 md:-left-7 md:w-[220px] md:h-[300px] lg:w-[240px] lg:h-[320px]">
+            <div className="absolute z-20 pointer-events-none -top-4 -left-4 w-[128px] h-[171px] md:-top-10 md:-left-7 md:w-[190px] md:h-[270px] lg:w-[240px] lg:h-[320px]">
               <Image
                 src={floatingImage}
                 alt="Ingredient"

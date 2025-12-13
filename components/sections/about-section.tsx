@@ -23,6 +23,11 @@ export function AboutSection({ data, locale }: AboutSectionProps) {
     ? getStrapiMedia(data.backgroundImage.url)
     : null;
 
+  // Split description into subtitle (first paragraph) and body text (rest)
+  const paragraphs = data.description.split("\n\n");
+  const subtitle = paragraphs[0] || "";
+  const bodyParagraphs = paragraphs.slice(1);
+
   return (
     <>
       <style jsx>{`
@@ -43,7 +48,7 @@ export function AboutSection({ data, locale }: AboutSectionProps) {
         }
       >
         <div className="container mx-auto px-0 md:px-4">
-          <div className="grid lg:grid-cols-2 gap-0 md:gap-12 lg:gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-0 md:gap-12 lg:gap-16 md:items-center">
             {/* Content */}
             <div className="order-2 lg:order-1 px-4 md:px-0 py-8 md:py-0">
               <SectionLabel variant="bubble" className="mb-3 md:mb-4">
@@ -52,8 +57,15 @@ export function AboutSection({ data, locale }: AboutSectionProps) {
               <h2 className="font-plus-bold text-[28px] md:text-4xl lg:text-5xl text-primary leading-[36px] md:leading-tight tracking-[-1px] mb-4 md:mb-6">
                 {data.title}
               </h2>
+              {/* Subtitle - First paragraph with italic bold styling */}
+              {subtitle && (
+                <h3 className="font-plus-bold italic text-[20px] md:text-2xl lg:text-3xl text-primary leading-[32px] md:leading-tight tracking-[-1px] mb-3 md:mb-4">
+                  {subtitle}
+                </h3>
+              )}
+              {/* Body text - Remaining paragraphs */}
               <div className="flex flex-col gap-3 md:gap-4 text-muted-foreground font-manrope-regular text-[14px] md:text-base leading-[24px] md:leading-normal mb-4 md:mb-8">
-                {data.description.split("\n\n").map((paragraph, index) => (
+                {bodyParagraphs.map((paragraph, index) => (
                   <p key={index}>{paragraph}</p>
                 ))}
               </div>
