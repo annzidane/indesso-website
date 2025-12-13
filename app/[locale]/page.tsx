@@ -30,7 +30,7 @@ export default async function HomePage({ params }: PageProps) {
   return (
     <>
       <Header data={headerData} locale={locale} />
-      <main className="overflow-visible">
+      <main>
         <HeroSection data={homepage.hero} banners={banners} locale={locale} />
         <AboutSection data={homepage.about} locale={locale} />
         <StatsSection data={homepage.reason} locale={locale} />

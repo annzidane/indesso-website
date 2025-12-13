@@ -12,7 +12,7 @@ export function SectionLabel({ children, className, variant = "default" }: Secti
     return (
       <span
         className={cn(
-          "inline-flex items-center justify-center font-manrope-extrabold text-[12px] md:text-xs leading-[18px] tracking-[4px] md:tracking-[0.2em] uppercase text-primary h-8 px-4 gap-2.5",
+          "inline-flex items-center justify-center text-xs font-semibold tracking-[0.2em] uppercase text-primary h-8 px-4 gap-2.5",
           className,
         )}
         style={{
