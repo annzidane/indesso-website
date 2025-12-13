@@ -29,7 +29,7 @@ export function LanguageSwitcher({ locale, languages, variant = "transparent" }:
     : locales.map((loc, index) => ({ id: index + 1, title: localeNames[loc], value: loc }))
 
   return (
-    <div className="flex items-center gap-1">
+    <div className="hidden md:flex items-center gap-1">
       {langList.map((lang, index) => (
         <span key={lang.id} className="flex items-center">
           <button

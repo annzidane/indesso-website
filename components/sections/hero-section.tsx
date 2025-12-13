@@ -79,7 +79,7 @@ export function HeroSection({ data, banners, locale }: HeroSectionProps) {
         <div className="absolute inset-0 bg-black/30" />
       </div>
 
-      {/* Carousel Navigation Arrows */}
+      {/* Carousel Navigation Arrows - hidden on mobile */}
       {slides.length > 1 && (
         <>
           <button
@@ -88,10 +88,10 @@ export function HeroSection({ data, banners, locale }: HeroSectionProps) {
               setIsAutoPlaying(false)
               setTimeout(() => setIsAutoPlaying(true), 5000)
             }}
-            className="absolute left-2 sm:left-4 lg:left-8 top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-colors"
+            className="hidden md:flex absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 items-center justify-center text-white hover:bg-white/20 transition-colors"
             aria-label="Previous slide"
           >
-            <ChevronLeft className="h-5 w-5 md:h-6 md:w-6" />
+            <ChevronLeft className="h-6 w-6" />
           </button>
           <button
             onClick={() => {
@@ -99,18 +99,18 @@ export function HeroSection({ data, banners, locale }: HeroSectionProps) {
               setIsAutoPlaying(false)
               setTimeout(() => setIsAutoPlaying(true), 5000)
             }}
-            className="absolute right-2 sm:right-4 lg:right-8 top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-colors"
+            className="hidden md:flex absolute right-4 lg:right-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 items-center justify-center text-white hover:bg-white/20 transition-colors"
             aria-label="Next slide"
           >
-            <ChevronRight className="h-5 w-5 md:h-6 md:w-6" />
+            <ChevronRight className="h-6 w-6" />
           </button>
         </>
       )}
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 pt-16 md:pt-20">
+      <div className="relative z-10 container mx-auto px-4">
         <div className="max-w-6xl mx-auto text-center">
-          <h1 className="font-plus-extrabold text-[32px] sm:text-[40px] md:text-[56px] lg:text-[72px] xl:text-[88px] 2xl:text-[104px] leading-none tracking-tight text-white mb-6 md:mb-8 text-balance">
+          <h1 className="font-plus-extrabold text-[32px] sm:text-[40px] md:text-[56px] lg:text-[72px] xl:text-[88px] 2xl:text-[104px] leading-[1.1] tracking-tight text-white mb-8 md:mb-8 text-balance">
             {data.title}
           </h1>
 
@@ -129,7 +129,7 @@ export function HeroSection({ data, banners, locale }: HeroSectionProps) {
 
       {/* Badge */}
       {data.badge && (
-        <div className="absolute bottom-20 sm:bottom-12 right-4 lg:bottom-16 lg:right-16 z-10">
+        <div className="absolute bottom-24 left-4 right-4 md:bottom-12 md:left-auto md:right-4 lg:bottom-16 lg:right-16 z-10">
           <BadgeGlass
             title={data.badge.title}
             description={data.badge.description}
