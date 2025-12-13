@@ -38,7 +38,7 @@ export function AboutSection({ data, locale }: AboutSectionProps) {
         }
       `}</style>
       <section
-        className="about-section-bg bg-white relative bg-no-repeat md:bg-cover md:bg-center min-h-[600px] md:min-h-[700px] lg:h-[836px] py-0 md:py-16 lg:py-0"
+        className="about-section-bg bg-white relative bg-no-repeat md:bg-cover md:bg-center min-h-[600px] md:min-h-[700px] lg:h-[836px] py-0 md:py-16 lg:py-12"
         style={
           backgroundImageUrl
             ? {
@@ -59,7 +59,7 @@ export function AboutSection({ data, locale }: AboutSectionProps) {
               </h2>
               {/* Subtitle - First paragraph with italic bold styling */}
               {subtitle && (
-                <h3 className="font-plus-bold italic text-[20px] md:text-2xl lg:text-3xl text-primary leading-[32px] md:leading-tight tracking-[-1px] mb-3 md:mb-4">
+                <h3 className="md:text-2xl lg:text-3xl text-primary leading-[32px] md:leading-tight tracking-[-1px] mb-3 md:mb-4">
                   {subtitle}
                 </h3>
               )}

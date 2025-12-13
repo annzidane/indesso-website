@@ -69,15 +69,7 @@ function BusinessCard({ card, locale, index }: BusinessCardProps) {
     ? getStrapiMedia(card.ingredientImage.url)
     : null;
 
-  // Static floating images by card index
-  const floatingImages = [
-    "/img-business-1.png",
-    "/img-business-2.png",
-    "/img-business-3.png",
-    "/img-business-4.png",
-  ];
-
-  const floatingImage = floatingImages[index];
+  const floatingImage = ingredientImageUrl;
 
   return (
     <div className="group w-full mx-auto h-auto min-h-[200px] md:min-h-[280px] bg-white rounded-[8px] md:rounded-lg border-2 border-gray-100 shadow-sm hover:shadow-md transition-shadow overflow-visible relative">
