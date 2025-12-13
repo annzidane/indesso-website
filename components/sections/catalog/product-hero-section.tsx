@@ -1,0 +1,120 @@
+import Image from "next/image"
+
+interface ProductHeroSectionProps {
+  product: {
+    category: string
+    title: string
+    botanicalOrigin: string
+    organoleptic: string
+    productFormat: string
+    image: string
+  }
+}
+
+export function ProductHeroSection({ product }: ProductHeroSectionProps) {
+  return (
+    <section className="pt-24 md:pt-28 lg:pt-32 pb-12 md:pb-16 lg:pb-20 bg-white">
+      <div className="container mx-auto px-4">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16">
+          {/* Left: Product Image */}
+          <div className="w-full">
+            <div className="relative w-full aspect-square rounded-lg overflow-hidden bg-gray-50">
+              <Image
+                src={product.image}
+                alt={product.title}
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
+          </div>
+
+          {/* Right: Product Information */}
+          <div className="flex flex-col justify-center">
+            {/* Category Badge */}
+            <div
+              className="inline-flex items-center justify-center w-fit mb-4 md:mb-6 px-4 py-0 h-8"
+              style={{
+                background: "linear-gradient(274.93deg, rgba(181, 214, 102, 0.1) 0%, rgba(0, 84, 139, 0.1) 100%)",
+                borderTopLeftRadius: "4px",
+                borderTopRightRadius: "16px",
+                borderBottomRightRadius: "16px",
+                borderBottomLeftRadius: "16px",
+              }}
+            >
+              <span
+                className="font-manrope-extrabold text-xs md:text-sm uppercase tracking-[4px]"
+                style={{ color: "#00548B", lineHeight: "32px" }}
+              >
+                {product.category}
+              </span>
+            </div>
+
+            {/* Product Title */}
+            <h1
+              className="font-plus-bold text-3xl md:text-4xl lg:text-5xl mb-6 md:mb-8"
+              style={{
+                color: "#003557",
+                letterSpacing: "-2px",
+                lineHeight: "1.2",
+              }}
+            >
+              {product.title}
+            </h1>
+
+            {/* Product Details */}
+            <div className="space-y-4 md:space-y-6">
+              {/* Botanical Origin */}
+              <div>
+                <h3
+                  className="font-plus-bold text-lg md:text-xl mb-2"
+                  style={{ color: "#003557", lineHeight: "40px" }}
+                >
+                  Botanical Origin
+                </h3>
+                <p
+                  className="font-manrope-regular text-sm md:text-base"
+                  style={{ color: "#333333", lineHeight: "24px" }}
+                >
+                  {product.botanicalOrigin}
+                </p>
+              </div>
+
+              {/* Organoleptic */}
+              <div>
+                <h3
+                  className="font-plus-bold text-lg md:text-xl mb-2"
+                  style={{ color: "#003557", lineHeight: "40px" }}
+                >
+                  Organoleptic
+                </h3>
+                <p
+                  className="font-manrope-regular text-sm md:text-base"
+                  style={{ color: "#333333", lineHeight: "24px" }}
+                >
+                  {product.organoleptic}
+                </p>
+              </div>
+
+              {/* Product Format */}
+              <div>
+                <h3
+                  className="font-plus-bold text-lg md:text-xl mb-2"
+                  style={{ color: "#003557", lineHeight: "40px" }}
+                >
+                  Product Format
+                </h3>
+                <p
+                  className="font-manrope-regular text-sm md:text-base"
+                  style={{ color: "#333333", lineHeight: "24px" }}
+                >
+                  {product.productFormat}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
