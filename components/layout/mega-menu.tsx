@@ -185,14 +185,15 @@ export function MegaMenu({ menu, locale, isOpen, onClose, isTransparent }: MegaM
                     // Use slug if provided, otherwise generate from title
                     const sectionSlug = detail.slug || toSlug(detail.title)
                     
-                    // Check if this is Our Business page - use subpage navigation instead of hash
+                    // Check if this is Our Business page or Media page - use subpage navigation instead of hash
                     const isOurBusinessPage = menu.path === "/our-business"
-                    const targetHref = isOurBusinessPage 
+                    const isMediaPage = menu.path === "/media"
+                    const targetHref = (isOurBusinessPage || isMediaPage)
                       ? `/${locale}${menu.path}/${sectionSlug}`
                       : `/${locale}${menu.path}#${sectionSlug}`
-                    
-                    // For Our Business, use direct Link navigation
-                    if (isOurBusinessPage) {
+
+                    // For Our Business and Media, use direct Link navigation
+                    if (isOurBusinessPage || isMediaPage) {
                       return (
                         <Link
                           key={detail.id}
