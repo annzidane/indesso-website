@@ -28,9 +28,9 @@ type TabType =
 const tabs: { id: TabType; label: string; slug: string }[] = [
   { id: "press-release", label: "Press Release", slug: "press-release" },
   { id: "story", label: "Stories", slug: "stories" },
-  { id: "insight", label: "Insights", slug: "insights" },
-  { id: "product-catalog", label: "Product Catalog", slug: "product-catalog" },
-  { id: "video", label: "Videos", slug: "videos" },
+  { id: "insight", label: "Insights", slug: "insight" },
+  { id: "product-catalog", label: "Product Sheets", slug: "product-sheets" },
+  { id: "video", label: "Videos", slug: "video" },
 ];
 
 export function MediaContent({

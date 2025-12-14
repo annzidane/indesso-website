@@ -11,25 +11,25 @@ interface MediaPageProps {
 }
 
 // Valid media slugs
-const validSlugs = ["press-release", "stories", "insights", "product-catalog", "videos"] as const;
+const validSlugs = ["press-release", "stories", "insight", "product-sheets", "video"] as const;
 type MediaSlug = (typeof validSlugs)[number];
 
 // Map slugs to types
 const slugToType: Record<MediaSlug, string> = {
   "press-release": "press-release",
   stories: "story",
-  insights: "insight",
-  "product-catalog": "product-catalog",
-  videos: "video",
+  insight: "insight",
+  "product-sheets": "product-catalog",
+  video: "video",
 };
 
 // Map slugs to display titles
 const slugToTitle: Record<MediaSlug, string> = {
   "press-release": "Press Release",
   stories: "Stories",
-  insights: "Insights",
-  "product-catalog": "Product Catalog",
-  videos: "Videos",
+  insight: "Insights",
+  "product-sheets": "Product Sheets",
+  video: "Videos",
 };
 
 export async function generateMetadata({ params }: MediaPageProps) {
