@@ -1,51 +1,68 @@
-import type { Locale } from "@/lib/i18n/config"
-import { Header } from "@/components/layout/header"
-import { Footer } from "@/components/layout/footer"
-import { PageHero } from "@/components/ui/page-hero"
-import { StickyNav } from "@/components/ui/sticky-nav"
-import { StrategySection } from "@/components/sections/sustainability/strategy-section"
-import { InitiativeSection } from "@/components/sections/sustainability/initiative-section"
-import { ResponsibleOperationsSection } from "@/components/sections/sustainability/responsible-operation"
-import { CommitmentSection } from "@/components/sections/sustainability/commitment-section"
-import { ReportSection } from "@/components/sections/sustainability/report-section"
-import { getSustainabilityPageData, getReportsData } from "@/lib/strapi/sustainability-api"
-import { getHeaderData, getFooterData } from "@/lib/strapi/api"
+import type { Locale } from "@/lib/i18n/config";
+import { Header } from "@/components/layout/header";
+import { Footer } from "@/components/layout/footer";
+import { PageHero } from "@/components/ui/page-hero";
+import { SustainabilityTabs } from "@/components/ui/sustainability/sustainability-tabs";
+import { StrategySection } from "@/components/sections/sustainability/strategy-section";
+import { InitiativeSection } from "@/components/sections/sustainability/initiative-section";
+import { ResponsibleOperationsSection } from "@/components/sections/sustainability/responsible-operation";
+import { CommitmentSection } from "@/components/sections/sustainability/commitment-section";
+import { ReportSection } from "@/components/sections/sustainability/report-section";
+import {
+  getSustainabilityPageData,
+  getReportsData,
+} from "@/lib/strapi/sustainability-api";
+import { getHeaderData, getFooterData } from "@/lib/strapi/api";
 
 interface PageProps {
-  params: Promise<{ locale: Locale }>
+  params: Promise<{ locale: Locale }>;
 }
 
 export async function generateMetadata({ params }: PageProps) {
-  const { locale } = await params
-  const pageData = await getSustainabilityPageData(locale)
-  
+  const { locale } = await params;
+  const pageData = await getSustainabilityPageData(locale);
+
   return {
-    title: pageData.seo?.metaTitle || (locale === "id" ? "Keberlanjutan - Indesso" : "Sustainability - Indesso"),
-    description: pageData.seo?.metaDescription || "Learn about Indesso's commitment to sustainability and responsible business practices.",
+    title:
+      pageData.seo?.metaTitle ||
+      (locale === "id"
+        ? "Keberlanjutan - Indesso"
+        : "Sustainability - Indesso"),
+    description:
+      pageData.seo?.metaDescription ||
+      "Learn about Indesso's commitment to sustainability and responsible business practices.",
     keywords: pageData.seo?.keywords?.join(", "),
-  }
+  };
 }
 
+const tabs = [
+  { id: "sustainability-strategy", label: "Sustainability Strategy" },
+  { id: "sustainability-initiative", label: "Sustainability Initiative" },
+  { id: "responsible-operations", label: "Responsible Operations" },
+  { id: "commitment-assessments", label: "Commitment & Assessments" },
+  { id: "sustainability-report", label: "Sustainability Report" },
+];
+
 export default async function SustainabilityPage({ params }: PageProps) {
-  const { locale } = await params
-  
+  const { locale } = await params;
+
   // Fetch data from API
   const [pageData, reports, headerData, footerData] = await Promise.all([
     getSustainabilityPageData(locale),
     getReportsData(),
     getHeaderData(locale),
     getFooterData(locale),
-  ])
+  ]);
 
   return (
     <>
       <Header data={headerData} locale={locale} variant="transparent" />
       <main>
-        <PageHero 
+        <PageHero
           title={pageData.hero.title}
           backgroundImage={pageData.hero.backgroundImage}
         />
-        <StickyNav items={pageData.navItems} />
+        <SustainabilityTabs items={tabs} defaultActiveId={tabs[0].id} />
         <StrategySection data={pageData.strategy} />
         <InitiativeSection data={pageData.initiative} />
         <ResponsibleOperationsSection data={pageData.responsibleOperations} />
@@ -54,5 +71,5 @@ export default async function SustainabilityPage({ params }: PageProps) {
       </main>
       <Footer data={footerData} locale={locale} />
     </>
-  )
+  );
 }

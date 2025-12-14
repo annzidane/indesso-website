@@ -1,152 +1,158 @@
-"use client"
+"use client";
 
-import Image from "next/image"
-import { ArrowRight, ChevronLeft, ChevronRight, X } from "lucide-react"
-import { getStrapiMedia } from "@/lib/strapi/api"
-import { toSlug } from "@/lib/strapi/utils"
-import { SectionLabel } from "@/components/ui/section-label"
-import { useState, useRef, useCallback, useEffect } from "react"
-import type { SustainabilityPageProps } from "@/types/strapi"
+import Image from "next/image";
+import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import { getStrapiMedia } from "@/lib/strapi/api";
+import { SectionLabel } from "@/components/ui/section-label";
+import { useState, useRef, useCallback, useEffect } from "react";
+import type { SustainabilityPageProps } from "@/types/strapi";
 
-type InitiativeCard = SustainabilityPageProps["initiative"]["cards"][number]
+type InitiativeCard = SustainabilityPageProps["initiative"]["cards"][number];
 
 interface InitiativeSectionProps {
-  data: SustainabilityPageProps["initiative"]
+  data: SustainabilityPageProps["initiative"];
 }
 
 export function InitiativeSection({ data }: InitiativeSectionProps) {
-  const { eyebrow, title, description, cards } = data
-  const [selectedCard, setSelectedCard] = useState<InitiativeCard | null>(null)
-  const carouselRef = useRef<HTMLDivElement>(null)
-  const isResettingRef = useRef(false)
-  const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null)
+  const { eyebrow, title, description, cards } = data;
+  const [selectedCard, setSelectedCard] = useState<InitiativeCard | null>(null);
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const isResettingRef = useRef(false);
+  const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-  const duplicatedCards = [...cards, ...cards, ...cards, ...cards, ...cards]
+  const duplicatedCards = [...cards, ...cards, ...cards, ...cards, ...cards];
 
   // Responsive card dimensions
-  const [cardDimensions, setCardDimensions] = useState({ width: 392, gap: 24 })
-  
+  const [cardDimensions, setCardDimensions] = useState({ width: 392, gap: 24 });
+
   useEffect(() => {
     const updateDimensions = () => {
-      if (typeof window !== 'undefined') {
+      if (typeof window !== "undefined") {
         if (window.innerWidth < 640) {
-          setCardDimensions({ width: 280, gap: 16 })
+          setCardDimensions({ width: 280, gap: 16 });
         } else if (window.innerWidth < 768) {
-          setCardDimensions({ width: 320, gap: 16 })
+          setCardDimensions({ width: 320, gap: 16 });
         } else if (window.innerWidth < 1024) {
-          setCardDimensions({ width: 360, gap: 24 })
+          setCardDimensions({ width: 360, gap: 24 });
         } else {
-          setCardDimensions({ width: 392, gap: 24 })
+          setCardDimensions({ width: 392, gap: 24 });
         }
       }
-    }
-    
-    updateDimensions()
-    window.addEventListener('resize', updateDimensions)
-    return () => window.removeEventListener('resize', updateDimensions)
-  }, [])
+    };
 
-  const cardTotalWidth = cardDimensions.width + cardDimensions.gap
+    updateDimensions();
+    window.addEventListener("resize", updateDimensions);
+    return () => window.removeEventListener("resize", updateDimensions);
+  }, []);
+
+  const cardTotalWidth = cardDimensions.width + cardDimensions.gap;
 
   // Initialize carousel to middle section for infinite scroll
   useEffect(() => {
     if (carouselRef.current && cards.length > 0) {
-      const scrollTo = cardTotalWidth * cards.length * 2
-      carouselRef.current.scrollLeft = scrollTo
+      const scrollTo = cardTotalWidth * cards.length * 2;
+      carouselRef.current.scrollLeft = scrollTo;
     }
-  }, [cards.length, cardTotalWidth])
+  }, [cards.length, cardTotalWidth]);
 
   // Handle infinite scroll reset - only after scroll ends
   const handleScrollEnd = useCallback(() => {
-    if (!carouselRef.current || isResettingRef.current || cards.length === 0) return
+    if (!carouselRef.current || isResettingRef.current || cards.length === 0)
+      return;
 
-    const carousel = carouselRef.current
-    const singleSetWidth = cardTotalWidth * cards.length
-    const scrollLeft = carousel.scrollLeft
+    const carousel = carouselRef.current;
+    const singleSetWidth = cardTotalWidth * cards.length;
+    const scrollLeft = carousel.scrollLeft;
 
     // Calculate boundaries - wider safe zone
-    const minBoundary = singleSetWidth * 0.8
-    const maxBoundary = singleSetWidth * 3.2
+    const minBoundary = singleSetWidth * 0.8;
+    const maxBoundary = singleSetWidth * 3.2;
 
     // Only reset if we're outside the safe zone
     if (scrollLeft < minBoundary || scrollLeft > maxBoundary) {
-      isResettingRef.current = true
-      
+      isResettingRef.current = true;
+
       // Calculate equivalent position in the middle section
-      let newScrollLeft = scrollLeft
+      let newScrollLeft = scrollLeft;
       while (newScrollLeft < singleSetWidth * 1.8) {
-        newScrollLeft += singleSetWidth
+        newScrollLeft += singleSetWidth;
       }
       while (newScrollLeft > singleSetWidth * 2.2) {
-        newScrollLeft -= singleSetWidth
+        newScrollLeft -= singleSetWidth;
       }
 
       // Instantly jump without animation
-      carousel.scrollLeft = newScrollLeft
-      
+      carousel.scrollLeft = newScrollLeft;
+
       // Small delay before allowing next reset
       requestAnimationFrame(() => {
-        isResettingRef.current = false
-      })
+        isResettingRef.current = false;
+      });
     }
-  }, [cards.length, cardTotalWidth])
+  }, [cards.length, cardTotalWidth]);
 
   // Debounced scroll handler - waits for scroll to stop
   const handleScroll = useCallback(() => {
     if (scrollTimeoutRef.current) {
-      clearTimeout(scrollTimeoutRef.current)
+      clearTimeout(scrollTimeoutRef.current);
     }
 
     // Only trigger reset after scroll stops (200ms delay)
     scrollTimeoutRef.current = setTimeout(() => {
-      handleScrollEnd()
-    }, 200)
-  }, [handleScrollEnd])
+      handleScrollEnd();
+    }, 200);
+  }, [handleScrollEnd]);
 
   useEffect(() => {
-    const carousel = carouselRef.current
+    const carousel = carouselRef.current;
     if (carousel) {
-      carousel.addEventListener('scroll', handleScroll, { passive: true })
+      carousel.addEventListener("scroll", handleScroll, { passive: true });
       return () => {
-        carousel.removeEventListener('scroll', handleScroll)
+        carousel.removeEventListener("scroll", handleScroll);
         if (scrollTimeoutRef.current) {
-          clearTimeout(scrollTimeoutRef.current)
+          clearTimeout(scrollTimeoutRef.current);
         }
-      }
+      };
     }
-  }, [handleScroll])
+  }, [handleScroll]);
 
-  const scroll = (direction: 'left' | 'right') => {
+  const scroll = (direction: "left" | "right") => {
     if (carouselRef.current) {
-      const currentScroll = carouselRef.current.scrollLeft
-      
-      const newScroll = direction === 'left' 
-        ? currentScroll - cardTotalWidth 
-        : currentScroll + cardTotalWidth
+      const currentScroll = carouselRef.current.scrollLeft;
+
+      const newScroll =
+        direction === "left"
+          ? currentScroll - cardTotalWidth
+          : currentScroll + cardTotalWidth;
 
       carouselRef.current.scrollTo({
         left: newScroll,
-        behavior: 'smooth'
-      })
+        behavior: "smooth",
+      });
     }
-  }
+  };
 
   const openModal = (card: InitiativeCard) => {
-    setSelectedCard(card)
-    document.body.style.overflow = 'hidden'
-  }
+    setSelectedCard(card);
+    document.body.style.overflow = "hidden";
+  };
 
   const closeModal = () => {
-    setSelectedCard(null)
-    document.body.style.overflow = 'unset'
-  }
+    setSelectedCard(null);
+    document.body.style.overflow = "unset";
+  };
 
   return (
     <>
-      <section id={toSlug(eyebrow)} className="py-12 md:py-16 lg:py-24 bg-white overflow-hidden">
+      <section
+        id="sustainability-initiative"
+        className="py-12 md:py-16 lg:py-24 bg-white overflow-hidden"
+      >
         <div className="container mx-auto px-4 sm:px-6">
           <div className="text-center mb-8 md:mb-12">
-            <SectionLabel variant="bubble" className="mb-4">{eyebrow}</SectionLabel>
+            <SectionLabel variant="bubble" className="mb-4">
+              {eyebrow}
+            </SectionLabel>
             <h2 className="max-w-3xl mx-auto text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-plus-bold text-indesso-dark-blue mb-4 md:mb-6 leading-tight">
               {title}
             </h2>
@@ -160,7 +166,7 @@ export function InitiativeSection({ data }: InitiativeSectionProps) {
         <div className="relative">
           {/* Left Arrow */}
           <button
-            onClick={() => scroll('left')}
+            onClick={() => scroll("left")}
             className="absolute left-2 md:left-8 top-1/2 -translate-y-1/2 z-10 w-10 h-10 md:w-12 md:h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors"
             aria-label="Scroll left"
           >
@@ -169,7 +175,7 @@ export function InitiativeSection({ data }: InitiativeSectionProps) {
 
           {/* Right Arrow */}
           <button
-            onClick={() => scroll('right')}
+            onClick={() => scroll("right")}
             className="absolute right-2 md:right-8 top-1/2 -translate-y-1/2 z-10 w-10 h-10 md:w-12 md:h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors"
             aria-label="Scroll right"
           >
@@ -180,7 +186,7 @@ export function InitiativeSection({ data }: InitiativeSectionProps) {
           <div
             ref={carouselRef}
             className="flex gap-4 md:gap-6 overflow-x-auto scrollbar-hide px-4 md:px-16 py-4 snap-x snap-mandatory"
-            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
           >
             {duplicatedCards.map((item, index) => (
               <div
@@ -197,23 +203,30 @@ export function InitiativeSection({ data }: InitiativeSectionProps) {
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                 )}
-                
+
                 {/* Dark Gradient Overlay */}
                 <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent" />
-                
+
                 {/* Glass Effect Content Area */}
                 <div className="absolute bottom-0 left-0 right-0 p-5 md:p-6">
                   {/* Glassmorphism Background */}
-                  <div className="absolute inset-0 bg-white/10 backdrop-blur-md rounded-t-2xl" />
-                  
+                  <div className="absolute inset-0 bg-white/10 backdrop-blur-sm rounded-t-2xl" />
+
                   {/* Content */}
                   <div className="relative z-10">
-                    <h3 className="text-lg md:text-xl font-plus-bold text-white mb-3 leading-tight">
+                    <h3
+                      className="font-plus-extrabold italic text-white mb-3"
+                      style={{
+                        fontSize: "28px",
+                        lineHeight: "32px",
+                        letterSpacing: "-1px",
+                      }}
+                    >
                       {item.title}
                     </h3>
                     <button className="inline-flex items-center text-white font-plus-medium text-sm group-hover:gap-2 transition-all">
                       Learn More
-                      <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                      <ChevronRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                     </button>
                   </div>
                 </div>
@@ -271,8 +284,13 @@ export function InitiativeSection({ data }: InitiativeSectionProps) {
               >
                 {selectedCard.image && (
                   <Image
-                    src={getStrapiMedia(selectedCard.image.url) || "/placeholder.svg"}
-                    alt={selectedCard.image.alternativeText || selectedCard.title}
+                    src={
+                      getStrapiMedia(selectedCard.image.url) ||
+                      "/placeholder.svg"
+                    }
+                    alt={
+                      selectedCard.image.alternativeText || selectedCard.title
+                    }
                     fill
                     className="object-cover"
                   />
@@ -309,5 +327,5 @@ export function InitiativeSection({ data }: InitiativeSectionProps) {
         </div>
       )}
     </>
-  )
+  );
 }

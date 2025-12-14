@@ -4,7 +4,6 @@ import { useState, useRef, useCallback, useEffect } from "react"
 import Image from "next/image"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { getStrapiMedia } from "@/lib/strapi/api"
-import { toSlug } from "@/lib/strapi/utils"
 import { SectionLabel } from "@/components/ui/section-label"
 import type { SustainabilityPageProps } from "@/types/strapi"
 
@@ -94,7 +93,7 @@ export function CommitmentSection({ data }: CommitmentSectionProps) {
   }
 
   return (
-    <section id={toSlug(eyebrow)} className="py-12 md:py-16 lg:py-24 bg-white overflow-hidden">
+    <section id="commitment-assessments" className="py-12 md:py-16 lg:py-24 bg-white overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6">
         {/* Header */}
         <div className="text-center mb-8 md:mb-12 lg:mb-16">

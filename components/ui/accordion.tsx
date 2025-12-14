@@ -97,16 +97,24 @@ export function AccordionTrigger({ className, children, ...props }: AccordionTri
       className={cn(
         "flex flex-1 w-full items-center justify-between transition-all",
         "[&>svg]:transition-transform [&>svg]:duration-200",
-        isOpen && "bg-linear-to-r from-[#EBFAFF] to-[#FAFFF7]",
         className
       )}
+      style={{
+        minHeight: "70px",
+        gap: "16px",
+        paddingTop: "24px",
+        paddingRight: "16px",
+        paddingBottom: "24px",
+        paddingLeft: "16px",
+        background: isOpen ? "linear-gradient(90deg, #EBFAFF 0%, #FAFFF7 100%)" : "transparent",
+      }}
       aria-expanded={isOpen}
       {...props}
     >
       {children}
       <ChevronDown
         className={cn(
-          "h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-200",
+          "h-5 w-5 shrink-0 text-[#003557] transition-transform duration-200",
           isOpen && "rotate-180"
         )}
       />
@@ -136,7 +144,18 @@ export function AccordionContent({ className, children }: AccordionContentProps)
         isOpen ? "max-h-[1000px] opacity-100" : "max-h-0 opacity-0"
       )}
     >
-      <div className={cn("pt-0 bg-[#F9F9F9]", className)}>{children}</div>
+      <div
+        className={cn("bg-[#F9F9F9] font-manrope-medium", className)}
+        style={{
+          fontSize: "16px",
+          lineHeight: "29px",
+          letterSpacing: "0px",
+          color: "#555555",
+          padding: "16px",
+        }}
+      >
+        {children}
+      </div>
     </div>
   )
 }
