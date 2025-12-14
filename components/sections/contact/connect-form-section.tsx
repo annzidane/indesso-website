@@ -29,36 +29,28 @@ export function ConnectFormSection() {
   }
 
   return (
-    <section className="py-12 md:py-16 lg:py-20 bg-[#F8F8F8]">
+    <section className="py-12 md:py-16 lg:py-20 bg-white">
       <div className="container mx-auto px-4">
-        {/* Card Container */}
-        <div
-          className="bg-white rounded-lg p-6 md:p-10 lg:p-12 max-w-6xl mx-auto"
-          style={{
-            boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.05)",
-          }}
-        >
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-10 lg:gap-12 items-start">
-            {/* Left: Image with border frame */}
-            <div className="w-full">
-              <div
-                className="relative w-full rounded-lg overflow-hidden"
-                style={{
-                  aspectRatio: "560 / 736",
-                  border: "8px solid #E0F4FF",
-                }}
-              >
-                <Image
-                  src="/contact-us/form-human-1.png"
-                  alt="Connect With Indesso"
-                  fill
-                  className="object-cover"
-                />
-              </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-10 lg:gap-16 items-start max-w-6xl mx-auto">
+          {/* Left: Image */}
+          <div className="w-full">
+            <div
+              className="relative w-full rounded-lg overflow-hidden"
+              style={{
+                aspectRatio: "560 / 736",
+              }}
+            >
+              <Image
+                src="/contact-us/form-human-1.png"
+                alt="Connect With Indesso"
+                fill
+                className="object-cover"
+              />
             </div>
+          </div>
 
-            {/* Right: Form */}
-            <div className="flex flex-col justify-start">
+          {/* Right: Form */}
+          <div className="flex flex-col justify-start">
               {/* Form Header */}
               <div className="mb-6">
                 <SectionLabel variant="bubble" className="mb-3">
@@ -272,7 +264,6 @@ export function ConnectFormSection() {
                 </div>
               </form>
             </div>
-          </div>
         </div>
       </div>
     </section>
