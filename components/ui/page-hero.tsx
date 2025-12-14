@@ -8,16 +8,17 @@ interface PageHeroProps {
   backgroundImage?: StrapiImage
   backgroundUrl?: string
   className?: string
+  objectPosition?: string
 }
 
-export function PageHero({ title, backgroundImage, backgroundUrl, className }: PageHeroProps) {
-  const bgUrl = backgroundImage 
-    ? getStrapiMedia(backgroundImage.url) 
+export function PageHero({ title, backgroundImage, backgroundUrl, className, objectPosition = "center" }: PageHeroProps) {
+  const bgUrl = backgroundImage
+    ? getStrapiMedia(backgroundImage.url)
     : backgroundUrl || "/placeholder.svg?height=400&width=1920"
 
   return (
     <section className={cn(
-      "relative h-[40vh] min-h-[480px] flex items-center overflow-hidden",
+      "relative h-[40vh] min-h-[400px] md:min-h-[480px] flex items-center overflow-hidden",
       className
     )}>
       {/* Background Image */}
@@ -27,6 +28,7 @@ export function PageHero({ title, backgroundImage, backgroundUrl, className }: P
           alt={backgroundImage?.alternativeText || "Page hero background"}
           fill
           className="object-cover"
+          style={{ objectPosition }}
           priority
         />
         <div className="absolute inset-0 from-primary/80 to-primary/40" />

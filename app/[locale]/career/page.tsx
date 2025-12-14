@@ -4,7 +4,7 @@ import { getFooterData, getHeaderData } from "@/lib/strapi/api"
 import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
 import { PageHero } from "@/components/ui/page-hero"
-import { StickyNav } from "@/components/ui/sticky-nav"
+import { CareerTabs } from "@/components/ui/career/career-tabs"
 import { LifeAtIndesso } from "@/components/sections/career/life-at-indesso"
 import { JoinUs } from "@/components/sections/career/join-us"
 import { TestimonialSection } from "@/components/sections/career/testimonial-section"
@@ -43,7 +43,7 @@ export default async function CareerPage({ params }: PageProps) {
           title={careerData.hero.title || "Career"} 
           backgroundImage={careerData.hero.backgroundImage}
         />
-        <StickyNav items={careerData.navItems} defaultActiveId={careerData.navItems[0]?.id} />
+        <CareerTabs items={careerData.navItems} defaultActiveId={careerData.navItems[0]?.id} />
         <LifeAtIndesso data={careerData.lifeAtIndesso} />
         <JoinUs data={careerData.joinUs} locale={locale} />
         <TestimonialSection data={careerData.testimonial} />

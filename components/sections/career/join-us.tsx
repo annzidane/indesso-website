@@ -1,101 +1,466 @@
-import Image from "next/image"
-import Link from "next/link"
-import { ChevronRight } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { SectionLabel } from "@/components/ui/section-label"
-import { getStrapiMedia } from "@/lib/strapi/api"
-import { toSlug } from "@/lib/strapi/utils"
-import type { CareerPageProps } from "@/types/strapi"
+"use client";
+
+import { useState } from "react";
+import Image from "next/image";
+import { ChevronRight, ChevronDown, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { SectionLabel } from "@/components/ui/section-label";
+import { getStrapiMedia } from "@/lib/strapi/api";
+import { toSlug } from "@/lib/strapi/utils";
+import type { CareerPageProps } from "@/types/strapi";
 
 interface JoinUsProps {
-  data: CareerPageProps["joinUs"]
-  locale: string
+  data: CareerPageProps["joinUs"];
+  locale: string;
 }
 
 export function JoinUs({ data, locale }: JoinUsProps) {
-  const imageUrl = data.image 
-    ? getStrapiMedia(data.image.url) 
-    : "/hands-planting-seedling-in-soil-close-up-nature.jpg"
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [formData, setFormData] = useState({
+    yourName: "",
+    email: "",
+    countryCode: "62+",
+    phoneNumber: "",
+    address: "",
+    position: "",
+    cv: null as File | null,
+  });
+
+  const imageUrl = data.image
+    ? getStrapiMedia(data.image.url)
+    : "/hands-planting-seedling-in-soil-close-up-nature.jpg";
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log("Form submitted:", formData);
+    setIsModalOpen(false);
+  };
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      setFormData({
+        ...formData,
+        cv: e.target.files[0],
+      });
+    }
+  };
 
   return (
-    <section id={toSlug(data.eyebrow)} className="py-12 md:py-16 lg:py-24 bg-white">
-      <div className="container mx-auto px-4">
-        <div className="relative rounded-xl md:rounded-2xl overflow-hidden">
-          {/* Background with gradient */}
-          <div className="absolute inset-0 bg-linear-to-r from-indesso-dark-blue/90 to-indesso-dark-blue z-0" />
-          
-          {/* Wave decoration - top right */}
-          <div className="absolute top-0 right-0 z-20 hidden sm:block">
-            <Image
-              src="/border-right.png"
-              alt=""
-              width={272}
-              height={150}
-              className="object-contain mix-blend-soft-light opacity-50 w-[150px] md:w-[200px] lg:w-[272px]"
-            />
-          </div>
-          
-          {/* Wave decoration - bottom left */}
-          <div className="absolute bottom-0 left-0 z-20 hidden sm:block">
-            <Image
-              src="/border-left.png"
-              alt=""
-              width={384}
-              height={151}
-              className="object-contain mix-blend-soft-light opacity-50 w-[200px] md:w-[280px] lg:w-[384px]"
-            />
-          </div>
+    <>
+      <section
+        id={toSlug(data.eyebrow)}
+        className="py-12 md:py-16 lg:py-24 bg-white"
+      >
+        <div className="container mx-auto px-4">
+          <div className="relative rounded-[10px] overflow-hidden">
+            {/* Background with gradient */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#003557] to-[#00548B] z-0" />
 
-          {/* Content Grid */}
-          <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 min-h-[400px] md:min-h-[500px]">
-            {/* Image Side */}
-            <div className="relative h-[200px] sm:h-[250px] md:h-auto">
-              <Image
-                src={imageUrl || "/placeholder.svg"}
-                alt={data.image?.alternativeText || "Join Us"}
-                fill
-                className="object-cover"
-              />
-            </div>
+            {/* Content Grid */}
+            <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 min-h-[400px] md:min-h-[500px] lg:min-h-[560px]">
+              {/* Image Side */}
+              <div className="relative h-[200px] sm:h-[250px] md:h-auto rounded-tl-[10px] rounded-bl-[10px] overflow-hidden">
+                <Image
+                  src={imageUrl || "/placeholder.svg"}
+                  alt={data.image?.alternativeText || "Join Us"}
+                  fill
+                  className="object-cover"
+                />
+              </div>
 
-            {/* Text Content Side */}
-            <div className="flex glass-card flex-col justify-center items-start p-6 sm:p-8 md:p-12 lg:p-16">
-              <SectionLabel variant="bubble-light" className="mb-4 md:mb-6">
-                {data.eyebrow}
-              </SectionLabel>
-              <h2 className="font-plus-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white mb-4 md:mb-6 leading-tight">
-                {data.title}
-              </h2>
-              <p className="font-manrope-regular text-white/80 text-sm md:text-base mb-6 md:mb-8 leading-relaxed max-w-lg">
-                {data.description}
-              </p>
-              {data.button && (
-                <div>
-                  <Link href={`/${locale}${data.button.path}`}>
+              {/* Text Content Side - Glass Effect */}
+              <div
+                className="flex flex-col justify-center items-start p-6 sm:p-8 md:p-12 lg:p-16 rounded-tr-[10px] rounded-br-[10px]"
+                style={{
+                  background:
+                    "linear-gradient(92.19deg, rgba(0, 84, 139, 0.16) 0%, rgba(0, 84, 139, 0.2) 100%)",
+                  backdropFilter: "blur(100px)",
+                  WebkitBackdropFilter: "blur(100px)",
+                  borderLeft: "2px solid rgba(255, 255, 255, 0.1)",
+                }}
+              >
+                <SectionLabel variant="bubble-light" className="mb-4 md:mb-6">
+                  {data.eyebrow}
+                </SectionLabel>
+                <h2 className="font-plus-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white mb-4 md:mb-6 leading-tight">
+                  {data.title}
+                </h2>
+                <p className="font-manrope-regular text-white/80 text-sm md:text-base mb-6 md:mb-8 leading-relaxed max-w-lg">
+                  {data.description}
+                </p>
+                {/* Buttons */}
+                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                  {data.button && (
                     <Button
                       variant="outline"
+                      onClick={() => setIsModalOpen(true)}
                       className="
                         bg-transparent
                         text-white text-sm md:text-[16px]
                         border border-white
                         hover:bg-white hover:text-indesso-dark-blue
                         transition-colors
-                        w-full sm:w-[233px] h-12 md:h-14
+                        w-full sm:w-auto h-12 md:h-14
                         rounded-[2px]
                         px-4 md:px-6 py-3 md:py-[18px]
-                        flex items-center justify-center gap-2.5
+                        flex items-center justify-center gap-2
                       "
                     >
                       {data.button.title}
                       <ChevronRight className="w-4 h-4" />
                     </Button>
-                  </Link>
+                  )}
+
+                  {/* Visit Our LinkedIn Button */}
+                  <a
+                    href="https://www.linkedin.com/company/indesso"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="
+                      group
+                      flex items-center justify-center gap-2
+                      h-12 md:h-14
+                      px-4 md:px-6
+                      rounded-[2px]
+                      border border-transparent
+                      font-manrope-bold
+                      text-sm md:text-[16px]
+                      text-[#00548B]
+                      bg-[#FEFEFE]
+                      hover:bg-white hover:shadow-md
+                      transition-all
+                      cursor-pointer
+                    "
+                    style={{
+                      lineHeight: "20px",
+                    }}
+                  >
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 20 20"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M17.0391 17.043H14.0781V12.4023C14.0781 11.2969 14.0586 9.87109 12.5352 9.87109C10.9922 9.87109 10.7578 11.0781 10.7578 12.3242V17.043H7.79688V7.49609H10.6406V8.80078H10.6797C11.0742 8.05078 12.043 7.25781 13.4844 7.25781C16.4844 7.25781 17.0391 9.23438 17.0391 11.8047V17.043ZM4.44922 6.19141C3.49219 6.19141 2.72266 5.41406 2.72266 4.46484C2.72266 3.51562 3.49219 2.74219 4.44922 2.74219C5.39844 2.74219 6.17578 3.51562 6.17578 4.46484C6.17578 5.41406 5.39844 6.19141 4.44922 6.19141ZM5.93359 17.043H2.96484V7.49609H5.93359V17.043Z"
+                        fill="#00548B"
+                      />
+                    </svg>
+                    Visit Our LinkedIn
+                    <ChevronRight className="w-4 h-4" />
+                  </a>
                 </div>
-              )}
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-  )
+      </section>
+
+      {/* Modal */}
+      {isModalOpen && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4"
+          onClick={() => setIsModalOpen(false)}
+        >
+          <div
+            className="relative bg-white rounded-lg w-full max-w-[480px] md:max-w-[600px] max-h-[90vh] overflow-y-auto"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close Button */}
+            <button
+              onClick={() => setIsModalOpen(false)}
+              className="absolute top-4 right-4 w-8 h-8 rounded-full bg-[#003557] text-white flex items-center justify-center hover:bg-[#00548B] transition-colors z-10"
+            >
+              <X className="w-4 h-4" />
+            </button>
+
+            {/* Modal Content */}
+            <div className="p-6 md:p-8">
+              {/* Title */}
+              <h2
+                className="font-plus-bold italic text-2xl md:text-3xl mb-6"
+                style={{ color: "#003557" }}
+              >
+                Join Indesso
+              </h2>
+
+              {/* Form */}
+              <form onSubmit={handleSubmit} className="space-y-4">
+                {/* Your Name */}
+                <div className="relative">
+                  <input
+                    type="text"
+                    id="yourName"
+                    name="yourName"
+                    value={formData.yourName}
+                    onChange={handleChange}
+                    placeholder="Write Your Name"
+                    className="w-full h-12 md:h-14 px-4 rounded border font-manrope-regular text-sm md:text-base focus:outline-none focus:ring-2 focus:ring-[#00548B] transition-all"
+                    style={{
+                      borderColor: "#00548B",
+                      borderWidth: "0.5px",
+                      backgroundColor: "#FAFDFF",
+                      color: "#333333",
+                    }}
+                    required
+                  />
+                  <label
+                    htmlFor="yourName"
+                    className="absolute left-3 -top-2 px-2 font-plus-bold uppercase pointer-events-none bg-white"
+                    style={{
+                      color: "#00548B",
+                      fontSize: "12px",
+                      lineHeight: "16px",
+                      letterSpacing: "2px",
+                    }}
+                  >
+                    YOUR NAME
+                  </label>
+                </div>
+
+                {/* Email and Phone - Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {/* Email */}
+                  <div className="relative">
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder="Write your company name"
+                      className="w-full h-12 md:h-14 px-4 rounded border font-manrope-regular text-sm md:text-base focus:outline-none focus:ring-2 focus:ring-[#00548B] transition-all"
+                      style={{
+                        borderColor: "#00548B",
+                        borderWidth: "0.5px",
+                        backgroundColor: "#FAFDFF",
+                        color: "#333333",
+                      }}
+                      required
+                    />
+                    <label
+                      htmlFor="email"
+                      className="absolute left-3 -top-2 px-2 font-plus-bold uppercase pointer-events-none bg-white"
+                      style={{
+                        color: "#00548B",
+                        fontSize: "12px",
+                        lineHeight: "16px",
+                        letterSpacing: "2px",
+                      }}
+                    >
+                      EMAIL
+                    </label>
+                  </div>
+
+                  {/* Phone Number */}
+                  <div className="relative">
+                    <div className="flex h-12 md:h-14">
+                      <input
+                        type="text"
+                        id="countryCode"
+                        name="countryCode"
+                        value={formData.countryCode}
+                        onChange={handleChange}
+                        placeholder="62+"
+                        className="w-14 h-full px-2 rounded-l border-y border-l font-manrope-regular text-sm text-center focus:outline-none focus:ring-2 focus:ring-[#00548B] transition-all"
+                        style={{
+                          borderColor: "#00548B",
+                          borderWidth: "0.5px",
+                          backgroundColor: "#FAFDFF",
+                          color: "#A1A1A1",
+                        }}
+                      />
+                      <input
+                        type="tel"
+                        id="phoneNumber"
+                        name="phoneNumber"
+                        value={formData.phoneNumber}
+                        onChange={handleChange}
+                        placeholder="81234567890"
+                        className="flex-1 h-full px-4 rounded-r border font-manrope-regular text-sm md:text-base focus:outline-none focus:ring-2 focus:ring-[#00548B] transition-all"
+                        style={{
+                          borderColor: "#00548B",
+                          borderWidth: "0.5px",
+                          backgroundColor: "#FAFDFF",
+                          color: "#333333",
+                        }}
+                        required
+                      />
+                    </div>
+                    <label
+                      htmlFor="countryCode"
+                      className="absolute left-3 -top-2 px-2 font-plus-bold uppercase pointer-events-none bg-white"
+                      style={{
+                        color: "#00548B",
+                        fontSize: "12px",
+                        lineHeight: "16px",
+                        letterSpacing: "2px",
+                      }}
+                    >
+                      PHONE NUMBER
+                    </label>
+                  </div>
+                </div>
+
+                {/* Address */}
+                <div className="relative">
+                  <input
+                    type="text"
+                    id="address"
+                    name="address"
+                    value={formData.address}
+                    onChange={handleChange}
+                    placeholder="Write Your Address"
+                    className="w-full h-12 md:h-14 px-4 rounded border font-manrope-regular text-sm md:text-base focus:outline-none focus:ring-2 focus:ring-[#00548B] transition-all"
+                    style={{
+                      borderColor: "#00548B",
+                      borderWidth: "0.5px",
+                      backgroundColor: "#FAFDFF",
+                      color: "#333333",
+                    }}
+                    required
+                  />
+                  <label
+                    htmlFor="address"
+                    className="absolute left-3 -top-2 px-2 font-plus-bold uppercase pointer-events-none bg-white"
+                    style={{
+                      color: "#00548B",
+                      fontSize: "12px",
+                      lineHeight: "16px",
+                      letterSpacing: "2px",
+                    }}
+                  >
+                    ADDRESS
+                  </label>
+                </div>
+
+                {/* Position */}
+                <div className="relative">
+                  <select
+                    id="position"
+                    name="position"
+                    value={formData.position}
+                    onChange={handleChange}
+                    className="w-full h-12 md:h-14 px-4 pr-10 rounded border font-manrope-regular text-sm md:text-base appearance-none focus:outline-none focus:ring-2 focus:ring-[#00548B] transition-all cursor-pointer"
+                    style={{
+                      borderColor: "#00548B",
+                      borderWidth: "0.5px",
+                      backgroundColor: "#FAFDFF",
+                      color: formData.position ? "#333333" : "#A1A1A1",
+                    }}
+                    required
+                  >
+                    <option value="" style={{ color: "#A1A1A1" }}>
+                      Choose available position
+                    </option>
+                    <option
+                      value="software-engineer"
+                      style={{ color: "#333333" }}
+                    >
+                      Software Engineer
+                    </option>
+                    <option value="marketing" style={{ color: "#333333" }}>
+                      Marketing
+                    </option>
+                    <option value="sales" style={{ color: "#333333" }}>
+                      Sales
+                    </option>
+                    <option value="hr" style={{ color: "#333333" }}>
+                      Human Resources
+                    </option>
+                    <option value="other" style={{ color: "#333333" }}>
+                      Other
+                    </option>
+                  </select>
+                  <label
+                    htmlFor="position"
+                    className="absolute left-3 -top-2 px-2 font-plus-bold uppercase pointer-events-none bg-white"
+                    style={{
+                      color: "#00548B",
+                      fontSize: "12px",
+                      lineHeight: "16px",
+                      letterSpacing: "2px",
+                    }}
+                  >
+                    POSITION
+                  </label>
+                  <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none" />
+                </div>
+
+                {/* CV Upload */}
+                <div className="relative">
+                  <div
+                    className="w-full h-14 rounded border flex items-center overflow-hidden"
+                    style={{
+                      borderColor: "#00548B",
+                      borderWidth: "0.5px",
+                      backgroundColor: "#FAFDFF",
+                    }}
+                  >
+                    <p className="font-manrope-regular text-xs text-[#A1A1A1] flex-1 px-4 truncate">
+                      {formData.cv
+                        ? formData.cv.name
+                        : "The CV should be in PDF or DOCX format with a max size of 2 MB."}
+                    </p>
+                    <label
+                      htmlFor="cv"
+                      className="shrink-0 h-full px-6 font-plus-bold text-xs text-white cursor-pointer hover:opacity-90 transition-opacity whitespace-nowrap flex items-center"
+                      style={{
+                        background: "#003557",
+                      }}
+                    >
+                      CHOOSE FILE
+                    </label>
+                    <input
+                      type="file"
+                      id="cv"
+                      name="cv"
+                      accept=".pdf,.docx"
+                      onChange={handleFileChange}
+                      className="hidden"
+                    />
+                  </div>
+                  <label
+                    className="absolute left-3 -top-2 px-2 font-plus-bold uppercase pointer-events-none bg-white"
+                    style={{
+                      color: "#00548B",
+                      fontSize: "12px",
+                      lineHeight: "16px",
+                      letterSpacing: "2px",
+                    }}
+                  >
+                    YOUR CV
+                  </label>
+                </div>
+
+                {/* Submit Button */}
+                <div className="pt-2">
+                  <button
+                    type="submit"
+                    className="w-full md:w-auto px-8 py-3 font-plus-bold text-sm text-white transition-all hover:opacity-90"
+                    style={{
+                      background: "#003557",
+                      borderRadius: "2px",
+                    }}
+                  >
+                    Submit CV
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
+  );
 }
