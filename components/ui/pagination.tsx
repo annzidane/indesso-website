@@ -77,7 +77,7 @@ export function Pagination({
             <button
               key={page}
               onClick={() => onPageChange(page as number)}
-              className={`min-w-[32px] h-8 rounded text-sm font-plus-medium transition-colors ${
+              className={`min-w-8 h-8 rounded text-sm font-plus-medium transition-colors ${
                 currentPage === page 
                   ? "text-indesso-dark-blue font-plus-bold" 
                   : "text-gray-500 hover:text-indesso-dark-blue"

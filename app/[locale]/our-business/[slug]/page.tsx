@@ -105,6 +105,7 @@ export default async function OurBusinessPage({ params }: PageProps) {
                   key={uniqueKey}
                   data={section as BotanicalSourceSectionData}
                   botanicals={botanicals}
+                  locale={locale}
                 />
               )
             case "our-business.our-catalog-section":

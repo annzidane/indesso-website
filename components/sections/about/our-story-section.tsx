@@ -190,7 +190,7 @@ export function OurStorySection({ data }: OurStorySectionProps) {
                   >
                     <div 
                       className={cn(
-                        "flex gap-3 md:gap-4 md:-ml-[112px]",
+                        "flex gap-3 md:gap-4 md:-ml-28",
                         slideDirection === 'left' && "md:-translate-x-60",
                         slideDirection === 'right' && "md:translate-x-60",
                         !slideDirection && "translate-x-0"
@@ -222,7 +222,7 @@ export function OurStorySection({ data }: OurStorySectionProps) {
                                 }, 300)
                               }
                             }}
-                            className="relative shrink-0 w-[140px] h-[95px] sm:w-[160px] sm:h-[110px] md:w-[180px] md:h-[120px] lg:w-[220px] lg:h-[150px] rounded-xl overflow-hidden transition-all duration-300 hover:scale-105"
+                            className="relative shrink-0 w-[140px] h-[95px] sm:w-40 sm:h-[110px] md:w-[180px] md:h-[120px] lg:w-[220px] lg:h-[150px] rounded-xl overflow-hidden transition-all duration-300 hover:scale-105"
                           >
                             <Image
                               src={thumbUrl || "/placeholder.svg"}
