@@ -11,7 +11,7 @@ interface BotanicalSourceSectionProps {
 export function BotanicalSourceSection({ data, botanicals }: BotanicalSourceSectionProps) {
   return (
     <section className="py-12 md:py-16 lg:py-24 bg-white">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-3">
         {/* Section Header */}
         <div className="text-center mb-8 md:mb-12">
           <SectionLabel variant="bubble" className="mb-3 md:mb-4">{data.eyebrow}</SectionLabel>

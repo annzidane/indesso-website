@@ -616,7 +616,7 @@ const getProductData = (id: string) => {
         },
       ],
     },
-    "1": {
+    "13": {
       id: "1",
       category: "Aroma Chemicals",
       title: "Alpha-Caryophyllene 55%",
@@ -666,7 +666,7 @@ const getProductData = (id: string) => {
         },
       ],
     },
-    "1": {
+    "14": {
       id: "1",
       category: "Aroma Chemicals",
       title: "Alpha-Caryophyllene 55%",
