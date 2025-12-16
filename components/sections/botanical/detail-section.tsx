@@ -2,10 +2,12 @@
 
 import Image from "next/image"
 import { getStrapiMedia } from "@/lib/strapi/api"
+import { renderRichTextToReact } from "@/lib/strapi/utils"
+import type { StrapiRichText } from "@/types/strapi"
 
 interface BotanicalDetailsProps {
   whatIsImage?: string
-  expandableSections: { title: string; content: string }[]
+  expandableSections: { title: string; content: string; richBlocks?: StrapiRichText[] }[]
 }
 
 export function BotanicalDetails({
@@ -24,11 +26,17 @@ export function BotanicalDetails({
               {expandableSections.map((section, index) => (
                 <div key={index}>
                   <h4 className="text-3xl font-plus-bold text-indesso-blue italic mb-6">{section.title}</h4>
-                  {(section.content || "").split(/\n+/).filter(Boolean).map((p, i) => (
-                    <p key={i} className="text-indesso-dark-grey leading-relaxed font-manrope-regular mb-4">
-                      {p}
-                    </p>
-                  ))}
+                  {section.richBlocks && section.richBlocks.length > 0 ? (
+                    <div className="text-indesso-dark-grey leading-relaxed font-manrope-regular mb-4">
+                      {renderRichTextToReact(section.richBlocks)}
+                    </div>
+                  ) : (
+                    (section.content || "").split(/\n+/).filter(Boolean).map((p, i) => (
+                      <p key={i} className="text-indesso-dark-grey leading-relaxed font-manrope-regular mb-4">
+                        {p}
+                      </p>
+                    ))
+                  )}
                 </div>
               ))}
             </div>

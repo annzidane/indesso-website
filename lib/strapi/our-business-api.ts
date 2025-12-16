@@ -277,10 +277,11 @@ export function transformBotanicalPageData(
   const content = botanicalData.content || []
   let keyPlayerTitle = ""
   const keyPlayerTextParts: string[] = []
-  const expandableSections: { title: string; content: string }[] = []
+  const keyPlayerRichBlocks: any[] = []
+  const expandableSections: { title: string; content: string; richBlocks?: any[] }[] = []
 
   let seenFirstHeading = false
-  let currentExpandable: { title: string; content: string } | null = null
+  let currentExpandable: { title: string; content: string; richBlocks: any[] } | null = null
 
   for (const block of content) {
     if (block.type === "heading") {
@@ -299,19 +300,22 @@ export function transformBotanicalPageData(
         if (currentExpandable) {
           expandableSections.push(currentExpandable)
         }
-        currentExpandable = { title: text, content: "" }
+        currentExpandable = { title: text, content: "", richBlocks: [] }
       }
     } else if (block.type === "paragraph") {
       const text = block.children.map((c) => c.text).join("")
       if (!seenFirstHeading) {
         // no heading seen yet, treat as main text
         keyPlayerTextParts.push(text)
+        keyPlayerRichBlocks.push(block)
       } else if (currentExpandable) {
         // append paragraph to current expandable
         currentExpandable.content += (currentExpandable.content ? "\n" : "") + text
+        currentExpandable.richBlocks.push(block)
       } else {
         // after first heading but before any second heading: this belongs to main text
         keyPlayerTextParts.push(text)
+        keyPlayerRichBlocks.push(block)
       }
     }
   }
@@ -351,6 +355,7 @@ export function transformBotanicalPageData(
     intro: {
       keyPlayerTitle,
       keyPlayerText: keyPlayerTextParts.join("\n"),
+      keyPlayerRich: keyPlayerRichBlocks,
     },
     details: {
       whatIsTitle: "",

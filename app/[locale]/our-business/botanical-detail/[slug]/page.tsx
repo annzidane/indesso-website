@@ -60,6 +60,7 @@ export default async function BotanicalDetailPage({ params }: PageProps) {
           description={""} // This seems to be unused in the new design
           keyPlayerTitle={intro.keyPlayerTitle}
           keyPlayerText={intro.keyPlayerText}
+          keyPlayerRich={intro.keyPlayerRich}
         />
         <BotanicalDetails
           whatIsImage={botanical.image_2?.url}

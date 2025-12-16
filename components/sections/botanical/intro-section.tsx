@@ -1,5 +1,7 @@
 import Image from "next/image"
 import { getStrapiMedia } from "@/lib/strapi/api"
+import { renderRichTextToReact } from "@/lib/strapi/utils"
+import type { StrapiRichText } from "@/types/strapi"
 
 interface BotanicalIntroProps {
   category: string
@@ -9,6 +11,7 @@ interface BotanicalIntroProps {
   description: string
   keyPlayerTitle: string
   keyPlayerText: string
+  keyPlayerRich?: StrapiRichText[]
 }
 
 export function BotanicalIntro({
@@ -19,6 +22,7 @@ export function BotanicalIntro({
   description,
   keyPlayerTitle,
   keyPlayerText,
+  keyPlayerRich,
 }: BotanicalIntroProps) {
   const imageOne = mainImage ? getStrapiMedia(mainImage) : "/placeholder-image.png"
   return (
@@ -49,11 +53,17 @@ export function BotanicalIntro({
 
               <div>
                 <h4 className="text-3xl font-plus-bold italic text-indesso-blue mb-6">{keyPlayerTitle}</h4>
-                {(keyPlayerText || "").split(/\n+/).filter(Boolean).map((para, i) => (
-                  <p key={i} className="text-indesso-dark-grey font-manrope-regular leading-relaxed pb-5">
-                    {para}
-                  </p>
-                ))}
+                {keyPlayerRich && keyPlayerRich.length > 0 ? (
+                  <div className="text-indesso-dark-grey font-manrope-regular leading-relaxed pb-5">
+                    {renderRichTextToReact(keyPlayerRich)}
+                  </div>
+                ) : (
+                  (keyPlayerText || "").split(/\n+/).filter(Boolean).map((para, i) => (
+                    <p key={i} className="text-indesso-dark-grey font-manrope-regular leading-relaxed pb-5">
+                      {para}
+                    </p>
+                  ))
+                )}
               </div>
             </div>
           </div>

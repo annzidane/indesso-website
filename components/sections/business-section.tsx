@@ -20,12 +20,33 @@ export function BusinessSection({ data, locale }: BusinessSectionProps) {
     <section className="py-8 md:py-16 lg:py-24 bg-background overflow-visible">
       <div className="container mx-auto px-4 overflow-visible">
         {/* Header */}
-        <div className="md:text-center max-w-2xl mx-auto mb-8 md:mb-12">
+        <div className="md:text-center max-w-3xl mx-auto mb-8 md:mb-12">
           <SectionLabel variant="bubble" className="mb-3 md:mb-4">
             {data.label}
           </SectionLabel>
-          <h2 className="font-plus-bold text-[28px] md:text-4xl lg:text-5xl md:text-center text-primary leading-[36px] md:leading-tight tracking-[-1px] text-balance">
-            {data.title}
+          <h2 className="font-plus-bold text-[28px] md:text-4xl lg:text-5xl md:text-center text-primary leading-9 md:leading-tight tracking-[-1px] text-balance">
+            {
+              (() => {
+                const title = String(data?.title ?? "").trim()
+                if (!title) return null
+                const words = title.split(/\s+/)
+                if (words.length === 1) return title
+                let secondCount = 1
+                if (words.length >= 6) secondCount = 3
+                else if (words.length === 5) secondCount = 3
+                else if (words.length === 4) secondCount = 2
+                else secondCount = 1
+
+                const first = words.slice(0, -secondCount).join(" ")
+                const last = words.slice(-secondCount).join(" ")
+                return (
+                  <>
+                    <span className="block">{first}</span>
+                    <span className="block">{last}</span>
+                  </>
+                )
+              })()
+            }
           </h2>
         </div>
 
