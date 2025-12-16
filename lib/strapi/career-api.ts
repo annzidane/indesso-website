@@ -112,8 +112,6 @@ export async function getCareerPageData(locale: string): Promise<CareerPageProps
       },
     })
     
-    console.log("Career data fetched:", response)
-    
     if (!response?.data) {
       console.error("No data returned from Career API")
       return getDefaultCareerData()

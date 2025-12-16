@@ -11,15 +11,28 @@ interface Application {
 
 interface CompatibilitySectionProps {
   applications: Application[];
+  title?: string;
+  description?: string;
+  accordionTitle?: string;
 }
 
 export function CompatibilitySection({
   applications,
+  title,
+  description,
+  accordionTitle,
 }: CompatibilitySectionProps) {
   const [isExpanded, setIsExpanded] = useState(true);
 
   return (
-    <section className="py-12 md:py-16 lg:py-20 bg-white">
+    <section className="py-12 md:py-16 lg:py-20"
+      style={{
+        backgroundImage: "url('/application-bg.png')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center max-w-4xl mx-auto mb-8 md:mb-12">
@@ -30,21 +43,18 @@ export function CompatibilitySection({
               letterSpacing: "-1px",
             }}
           >
-            Compatibility That Elevates Your Creation
+            {title ?? ""}
           </h2>
           <p
             className="font-manrope-regular text-sm md:text-base"
             style={{ color: "#333333", lineHeight: "24px" }}
           >
-            Connect with our team to request a product sample tailored to your
-            needs. This helps you explore ingredient quality, assess
-            compatibility, and move forward with confidence in your formulation
-            process.
+            {description ?? ""}
           </p>
         </div>
 
         {/* Application Section */}
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-8xl mx-auto">
           {/* Section Header with Toggle */}
           <button
             onClick={() => setIsExpanded(!isExpanded)}
@@ -52,18 +62,17 @@ export function CompatibilitySection({
             style={{
               background:
                 "linear-gradient(90deg, #00548B 0%, rgba(0, 84, 139, 0.8) 100%)",
-              borderTopLeftRadius: "8px",
-              borderTopRightRadius: "8px",
-              borderBottomLeftRadius: isExpanded ? "0" : "8px",
-              borderBottomRightRadius: isExpanded ? "0" : "8px",
+              borderTopLeftRadius: "2px",
+              borderTopRightRadius: "2px",
+              borderBottomLeftRadius: isExpanded ? "0" : "2px",
+              borderBottomRightRadius: isExpanded ? "0" : "2px",
             }}
           >
-            <span
-              className="font-plus-bold text-lg md:text-xl"
-              style={{ color: "#FEFEFE", lineHeight: "40px" }}
-            >
-              Application
-            </span>
+              <span
+                className="font-plus-bold text-lg md:text-xl text-white"
+              >
+                {accordionTitle ?? ""}
+              </span>
             <ChevronDown
               className={`w-6 h-6 text-white transition-transform duration-300 ${
                 isExpanded ? "rotate-180" : ""
@@ -90,7 +99,7 @@ export function CompatibilitySection({
                   key={index}
                   className="flex items-center gap-4 px-6 py-4 md:px-8 md:py-5 hover:bg-gray-50 transition-colors"
                 >
-                  <div className="w-10 h-10 md:w-12 md:h-12 flex-shrink-0 rounded-full bg-gray-100 flex items-center justify-center p-2">
+                  <div className="w-10 h-10 md:w-12 md:h-12 flex-shrink-0 flex items-center justify-center">
                     <Image
                       src={app.icon}
                       alt={app.title}

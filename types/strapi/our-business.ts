@@ -16,6 +16,18 @@ export interface ProductCategory {
   publishedAt: string
 }
 
+export interface ProductCategoryApiResponse {
+  data: ProductCategory[]
+  meta: {
+    pagination: {
+      page: number
+      pageSize: number
+      pageCount: number
+      total: number
+    }
+  }
+}
+
 // ============================================
 // Page Sections Types
 // ============================================
@@ -91,6 +103,51 @@ export type OurBusinessPageSection =
 // Botanical Types
 // ============================================
 
+export interface Product {
+  id: number
+  name: string
+  slug: string
+  image: StrapiImage
+  product_category: {
+    name: string
+    slug: string
+  }
+  botanical: {
+    name: string
+    slug: string
+  }
+  organoleptics: {
+    name: string
+  }[]
+  product_format: {
+    name: string
+  }
+  industry_categories: {
+    id: number
+    name: string
+  }[]
+  general_information: {
+    cas_number: string
+    inci_name: string
+    moq: string
+    ec_number: string
+    shelf_life: string
+    fema_number: string
+  }
+}
+
+export interface ProductApiResponse {
+  data: Product[]
+  meta: {
+    pagination: {
+      page: number
+      pageSize: number
+      pageCount: number
+      total: number
+    }
+  }
+}
+
 export interface Botanical {
   id: number
   documentId: string
@@ -98,10 +155,33 @@ export interface Botanical {
   slug: string
   scientific_name: string
   image_1: StrapiImage | null
+  image_2: StrapiImage | null
+  content: StrapiRichText[] | null
+  products: {
+    id: number
+    name: string
+  }[]
 }
 
 export interface BotanicalsApiResponse {
   data: Botanical[]
+  meta: {
+    pagination: {
+      page: number
+      pageSize: number
+      pageCount: number
+      total: number
+    }
+  }
+}
+
+export interface BotanicalFaq {
+  id: number
+  quesion: string
+  answer: StrapiRichText[]
+}
+export interface BotanicalFaqApiResponse {
+  data: BotanicalFaq[]
   meta: {
     pagination: {
       page: number
@@ -132,6 +212,7 @@ export interface ProductSubCategory {
 
 // Hero Section for Our Business page
 export interface OurBusinessHeroSection {
+  __component?: "our-business.hero-section"
   id: number
   title: string
   background_image: StrapiImage
@@ -179,6 +260,109 @@ export interface ProductSubCategoryApiResponse {
       total: number
     }
   }
+}
+
+// ============================================
+// Our Business Botanical Page
+// ============================================
+
+export interface ListProductSectionData {
+  __component: "our-business.list-product-section"
+  id: number
+  title: string
+  button: StrapiButton
+}
+
+export interface FaqSectionData {
+  __component: "our-business.faq-section"
+  id: number
+  eyebrow: string
+  title: string
+}
+
+export interface ContactUsSectionData {
+  __component: "our-business.contact-us-section"
+  id: number
+  contact_us_section: any // Define this more accurately if needed
+}
+
+export type OurBusinessBotanicalPageSection =
+  | OurBusinessHeroSection
+  | ListProductSectionData
+  | FaqSectionData
+  | ContactUsSectionData
+
+export interface OurBusinessBotanicalData {
+  id: number
+  documentId: string
+  createdAt: string
+  updatedAt: string
+  publishedAt: string
+  page_info: OurBusinessPageInfo
+  page_sections: OurBusinessBotanicalPageSection[]
+}
+
+export interface OurBusinessBotanicalApiResponse {
+  data: OurBusinessBotanicalData
+  meta: Record<string, unknown>
+}
+
+// ============================================
+// Our Business Catalog Page
+// ============================================
+
+export interface CatalogPageData {
+  id: number
+  page_info: OurBusinessPageInfo
+  hero_section: OurBusinessHeroSection
+}
+
+export interface CatalogPageApiResponse {
+  data: CatalogPageData
+  meta: Record<string, unknown>
+}
+
+// ============================================
+// Our Business Product Detail Page
+// ============================================
+
+export interface ProductDetailSectionData {
+  __component: "our-business.product-detail-section"
+  id: number
+  title_botanical: string
+  title_organoleptic: string
+  title_format: string
+  title_application: string
+  description_application: string
+  title_accordion: string
+  general_information_label: {
+    id: number
+    title: string
+    cas_label: string
+    certification_label: string
+    inci_label: string
+    moq_label: string
+    ec_label: string
+    shelf_life_label: string
+    fema_label: string
+    packaging_label: string
+  }
+}
+
+export type ProductDetailPageSection =
+  | ProductDetailSectionData
+  | ContactUsSectionData
+  | ListProductSectionData
+
+export interface ProductDetailPageData {
+  id: number
+  page_info: OurBusinessPageInfo
+  page_sections: ProductDetailPageSection[]
+}
+
+export interface ProductDetailPageApiResponse {
+  data: ProductDetailPageData
+  meta: Record<string, unknown>
 }
 
 // Props for components

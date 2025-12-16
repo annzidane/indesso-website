@@ -236,7 +236,7 @@
   .font-plus-bold {
     font-family: var(--font-sans);
     font-weight: 700;
-    line-height: 100%;
+    line-height: 1.2;
     letter-spacing: -1px;
   }
   

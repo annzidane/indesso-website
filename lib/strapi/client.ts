@@ -69,7 +69,6 @@ export async function fetchStrapi<T>(endpoint: string, options: FetchOptions = {
   }
 
   const url = `${STRAPI_URL}/api/${endpoint}?${params.toString()}`
-  console.log("Fetching Strapi URL:", url)
 
   const response = await fetch(url, {
     headers: {

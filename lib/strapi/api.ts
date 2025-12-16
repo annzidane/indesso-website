@@ -141,7 +141,7 @@ export async function getHomepageData(locale: string): Promise<HomepageProps> {
         pLevel: 6,
       },
     })
-    console.log("Homepage data fetched:", response)
+
     return transformHomepageData(response.data)
   } catch (error) {
     console.error("Failed to fetch homepage data:", error)
@@ -161,7 +161,6 @@ export async function getHeaderData(locale: string): Promise<HeaderData> {
         pLevel: 5,
       },
     })
-    console.log("Header data fetched:", response)
     return response.data
   } catch (error) {
     console.error("Failed to fetch header data:", error)
@@ -181,7 +180,7 @@ export async function getFooterData(locale: string): Promise<FooterData> {
         pLevel: 5,
       },
     })
-    console.log("Footer data fetched:", response)
+
     return response.data
   } catch (error) {
     console.error("Failed to fetch footer data:", error)

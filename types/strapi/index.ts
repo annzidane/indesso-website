@@ -124,6 +124,7 @@ export type {
 // Our Business Page types
 export type {
   ProductCategory,
+  ProductCategoryApiResponse,
   ProductSubCategory,
   OurBusinessHeroSection,
   OurBusinessStickyNav,
@@ -146,4 +147,25 @@ export type {
   // Botanical types
   Botanical,
   BotanicalsApiResponse,
+  // Botanical FAQ + page types
+  BotanicalFaq,
+  BotanicalFaqApiResponse,
+  // Product + API response
+  Product,
+  ProductApiResponse,
+  // Our Business Botanical page sections and page data
+  ListProductSectionData,
+  FaqSectionData,
+  ContactUsSectionData,
+  OurBusinessBotanicalPageSection,
+  OurBusinessBotanicalData,
+  OurBusinessBotanicalApiResponse,
+  // Our Business Catalog page
+  CatalogPageData,
+  CatalogPageApiResponse,
+  // Our Business Product Detail page
+  ProductDetailSectionData,
+  ProductDetailPageSection,
+  ProductDetailPageData,
+  ProductDetailPageApiResponse,
 } from "./our-business"

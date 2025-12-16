@@ -33,7 +33,6 @@ export default async function CareerPage({ params }: PageProps) {
     getHeaderData(locale),
     getFooterData(locale),
   ])
-  console.log("Career Page Data:", careerData)
 
   return (
     <>

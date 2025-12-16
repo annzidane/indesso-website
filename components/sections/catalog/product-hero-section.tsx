@@ -1,3 +1,4 @@
+import { SectionLabel } from "@/components/ui/section-label"
 import Image from "next/image"
 
 interface ProductHeroSectionProps {
@@ -9,22 +10,25 @@ interface ProductHeroSectionProps {
     productFormat: string
     image: string
   }
+  page: any
 }
 
-export function ProductHeroSection({ product }: ProductHeroSectionProps) {
+export function ProductHeroSection({ product, page }: ProductHeroSectionProps) {
+
   return (
     <section className="pt-24 md:pt-28 lg:pt-32 pb-12 md:pb-16 lg:pb-20 bg-white">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-[120px]">
           {/* Left: Product Image */}
-          <div className="w-full">
-            <div className="relative w-full aspect-square rounded-lg overflow-hidden bg-gray-50">
+          <div className="w-full flex justify-center lg:justify-start">
+            <div className="relative w-full max-w-[560px] aspect-square rounded-lg overflow-hidden bg-gray-50 mx-auto">
               <Image
                 src={product.image}
                 alt={product.title}
                 fill
                 className="object-cover"
                 priority
+                sizes="(max-width: 1024px) 100vw, 560px"
               />
             </div>
           </div>
@@ -33,32 +37,13 @@ export function ProductHeroSection({ product }: ProductHeroSectionProps) {
           <div className="flex flex-col justify-center">
             {/* Category Badge */}
             <div
-              className="inline-flex items-center justify-center w-fit mb-4 md:mb-6 px-4 py-0 h-8"
-              style={{
-                background: "linear-gradient(274.93deg, rgba(181, 214, 102, 0.1) 0%, rgba(0, 84, 139, 0.1) 100%)",
-                borderTopLeftRadius: "4px",
-                borderTopRightRadius: "16px",
-                borderBottomRightRadius: "16px",
-                borderBottomLeftRadius: "16px",
-              }}
+              className="inline-flex items-center justify-center w-fit mb-2 md:mb-2 py-0 h-8"
             >
-              <span
-                className="font-manrope-extrabold text-xs md:text-sm uppercase tracking-[4px]"
-                style={{ color: "#00548B", lineHeight: "32px" }}
-              >
-                {product.category}
-              </span>
+              <SectionLabel variant="bubble" className="mb-4">{product.category}</SectionLabel>
             </div>
 
             {/* Product Title */}
-            <h1
-              className="font-plus-bold text-3xl md:text-4xl lg:text-5xl mb-6 md:mb-8"
-              style={{
-                color: "#003557",
-                letterSpacing: "-2px",
-                lineHeight: "1.2",
-              }}
-            >
+            <h1 className="font-plus-bold text-3xl md:text-4xl lg:text-5xl mb-6 md:mb-8">
               {product.title}
             </h1>
 
@@ -70,7 +55,7 @@ export function ProductHeroSection({ product }: ProductHeroSectionProps) {
                   className="font-plus-bold text-lg md:text-xl mb-2"
                   style={{ color: "#003557", lineHeight: "40px" }}
                 >
-                  Botanical Origin
+                  {page.title_botanical}
                 </h3>
                 <p
                   className="font-manrope-regular text-sm md:text-base"
@@ -86,7 +71,7 @@ export function ProductHeroSection({ product }: ProductHeroSectionProps) {
                   className="font-plus-bold text-lg md:text-xl mb-2"
                   style={{ color: "#003557", lineHeight: "40px" }}
                 >
-                  Organoleptic
+                  {page.title_organoleptic}
                 </h3>
                 <p
                   className="font-manrope-regular text-sm md:text-base"
@@ -102,7 +87,7 @@ export function ProductHeroSection({ product }: ProductHeroSectionProps) {
                   className="font-plus-bold text-lg md:text-xl mb-2"
                   style={{ color: "#003557", lineHeight: "40px" }}
                 >
-                  Product Format
+                  {page.title_format}
                 </h3>
                 <p
                   className="font-manrope-regular text-sm md:text-base"

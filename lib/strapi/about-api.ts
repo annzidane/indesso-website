@@ -135,8 +135,6 @@ export async function getAboutPageData(locale: string): Promise<AboutUsPageProps
       },
     })
     
-    console.log("About Us data fetched:", response)
-    
     if (!response?.data) {
       console.error("No data returned from About Us API")
       return getDefaultAboutUsData()

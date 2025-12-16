@@ -2,13 +2,17 @@ import Image from "next/image"
 import { getStrapiMedia } from "@/lib/strapi/client"
 import type { BotanicalSourceSectionData, Botanical } from "@/types/strapi"
 import { SectionLabel } from "@/components/ui/section-label"
+import type { Locale } from "@/lib/i18n/config"
+import Link from "next/link"
+
 
 interface BotanicalSourceSectionProps {
   data: BotanicalSourceSectionData
   botanicals: Botanical[]
+  locale: Locale
 }
 
-export function BotanicalSourceSection({ data, botanicals }: BotanicalSourceSectionProps) {
+export function BotanicalSourceSection({ data, botanicals, locale = "en" }: BotanicalSourceSectionProps) {
   return (
     <section className="py-12 md:py-16 lg:py-24 bg-white">
       <div className="container mx-auto px-3">
@@ -23,8 +27,9 @@ export function BotanicalSourceSection({ data, botanicals }: BotanicalSourceSect
         {/* Botanical Grid - 2 columns on mobile, flexible on desktop */}
         <div className="grid grid-cols-2 md:flex md:flex-wrap md:justify-start gap-4 md:gap-8">
           {botanicals.map((botanical) => (
-            <div
+            <Link
               key={botanical.id}
+              href={`/${locale}/our-business/botanical-detail/${botanical.slug}`}
               className="bg-white rounded-[10px] overflow-hidden hover:shadow-md transition-shadow"
               style={{
                 border: '1.5px solid #EAEAEA',
@@ -81,7 +86,7 @@ export function BotanicalSourceSection({ data, botanicals }: BotanicalSourceSect
                   {botanical.scientific_name}
                 </p>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
