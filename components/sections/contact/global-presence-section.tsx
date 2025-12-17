@@ -200,14 +200,28 @@ function OfficeCard({ office }: { office: Office }) {
   )
 }
 
-export function GlobalPresenceSection() {
-  const [activeCountry, setActiveCountry] = useState(0)
-  const currentCountry = countriesData[activeCountry]
+interface GlobalPresenceProps {
+  data?: any
+}
 
-  const countryTabs = countriesData.map((country) => ({
-    id: country.id,
-    label: country.label,
-  }))
+export function GlobalPresenceSection({ data }: GlobalPresenceProps) {
+  const [activeCountry, setActiveCountry] = useState(0)
+
+  // map API data or fallback to local countriesData
+  const mappedCountries = data?.country_tab?.map((c: any, idx: number) => ({
+    id: String(idx),
+    label: c.title,
+    offices: (c.location_card || []).map((o: any) => ({
+      type: o.office_type || o.office_type,
+      city: o.city_name || o.city,
+      location: o.address || o.location,
+      phone: o.phone_number || o.phone || "",
+    })),
+  })) || countriesData
+
+  const currentCountry = mappedCountries[activeCountry]
+
+  const countryTabs = mappedCountries.map((country: any) => ({ id: country.id, label: country.label }))
 
   return (
     <section className="py-12 md:py-16 lg:py-24 bg-white">
@@ -217,16 +231,16 @@ export function GlobalPresenceSection() {
           {/* Left Column - Eyebrow & Title */}
           <div>
             <SectionLabel variant="bubble" className="mb-4 md:mb-6">
-              OUR LOCATION
+              {data?.eyebrow ?? "OUR LOCATION"}
             </SectionLabel>
             <h2 className="font-plus-bold text-[28px] md:text-4xl lg:text-5xl text-[#003557] leading-[36px] md:leading-tight tracking-[-1px]">
-              Global Presence Through Our Wide Network
+              {data?.title ?? "Global Presence Through Our Wide Network"}
             </h2>
           </div>
           {/* Right Column - Description */}
           <div>
             <p className="font-manrope-regular text-[14px] md:text-[16px] text-[#555555] leading-[24px] md:leading-relaxed">
-              Our facilities operate across locations, helping us stay closer to partners and maintain an efficient flow of communication.
+              {data?.description ?? "Our facilities operate across locations, helping us stay closer to partners and maintain an efficient flow of communication."}
             </p>
           </div>
         </div>
@@ -241,7 +255,7 @@ export function GlobalPresenceSection() {
 
         {/* Office Cards Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-          {currentCountry.offices.map((office, index) => (
+          {currentCountry?.offices?.map((office: any, index: number) => (
             <OfficeCard key={index} office={office} />
           ))}
         </div>

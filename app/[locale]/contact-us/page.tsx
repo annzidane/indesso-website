@@ -4,6 +4,7 @@ import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
 import { PageHero } from "@/components/ui/page-hero"
 import { ContactUsContent } from "@/components/sections/contact/contact-us-content"
+import { getContactUsData } from "@/lib/strapi/contact-us-api"
 
 interface PageProps {
   params: Promise<{ locale: Locale }>
@@ -26,16 +27,21 @@ export default async function ContactUsPage({ params }: PageProps) {
     getFooterData(locale),
   ])
 
+  // fetch contact-us page data
+  const contactData = await getContactUsData(locale)
+
   return (
     <>
       <Header data={headerData} locale={locale} variant="transparent" />
       <main>
         <PageHero
-          title="Contact Us"
-          backgroundUrl="/contact-us/contact-us-featured.png"
+          title={contactData?.hero_section?.title ?? "Contact Us"}
+          backgroundUrl={
+            contactData?.hero_section?.background_image?.url
+          }
           objectPosition="center top"
         />
-        <ContactUsContent />
+        <ContactUsContent data={contactData} />
       </main>
       <Footer data={footerData} locale={locale} />
     </>

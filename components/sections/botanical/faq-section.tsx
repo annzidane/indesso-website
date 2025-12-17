@@ -33,7 +33,7 @@ export function BotanicalFAQ({ eyebrow, title, questions }: BotanicalFAQProps) {
             <AccordionItem
               key={index}
               value={`item-${index}`}
-              className="bg-white border border-gray-200 rounded-lg px-6"
+              className="bg-white border border-gray-200 rounded-lg"
             >
               <AccordionTrigger className="text-left hover:no-underline">
                 <span className="flex items-start gap-3">

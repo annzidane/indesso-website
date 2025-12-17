@@ -5,7 +5,11 @@ import Image from "next/image"
 import { ChevronDown } from "lucide-react"
 import { SectionLabel } from "@/components/ui/section-label"
 
-export function ConnectFormSection() {
+interface ConnectFormData {
+  data?: any
+}
+
+export function ConnectFormSection({ data }: ConnectFormData) {
   const [formData, setFormData] = useState({
     yourName: "",
     companyName: "",
@@ -41,8 +45,8 @@ export function ConnectFormSection() {
               }}
             >
               <Image
-                src="/contact-us/form-human-1.png"
-                alt="Connect With Indesso"
+                src={data?.image?.url ?? "/contact-us/form-human-1.png"}
+                alt={data?.title ?? "Connect With Indesso"}
                 fill
                 className="object-cover"
               />
@@ -54,7 +58,7 @@ export function ConnectFormSection() {
               {/* Form Header */}
               <div className="mb-6">
                 <SectionLabel variant="bubble" className="mb-3">
-                  CONTACT US
+                  {data?.eyebrow ?? "CONTACT US"}
                 </SectionLabel>
                 <h2
                   className="font-plus-bold text-2xl md:text-3xl lg:text-[36px] italic"
@@ -63,7 +67,7 @@ export function ConnectFormSection() {
                     lineHeight: "1.2",
                   }}
                 >
-                  Connect With Indesso
+                  {data?.title ?? "Connect With Indesso"}
                 </h2>
               </div>
 
@@ -77,7 +81,7 @@ export function ConnectFormSection() {
                     name="yourName"
                     value={formData.yourName}
                     onChange={handleChange}
-                    placeholder="Write Your Name"
+                    placeholder={data?.field_name?.placeholder ?? "Write Your Name"}
                     className="w-full h-12 px-4 rounded border font-manrope-regular text-sm focus:outline-none focus:ring-2 focus:ring-[#00548B] transition-all"
                     style={{
                       borderColor: "#00548B",
@@ -111,7 +115,7 @@ export function ConnectFormSection() {
                       name="companyName"
                       value={formData.companyName}
                       onChange={handleChange}
-                      placeholder="Write your company name"
+                      placeholder={data?.field_company_name?.placeholder ?? "Write your company name"}
                       className="w-full h-12 px-4 rounded border font-manrope-regular text-sm focus:outline-none focus:ring-2 focus:ring-[#00548B] transition-all"
                       style={{
                         borderColor: "#00548B",
@@ -143,7 +147,7 @@ export function ConnectFormSection() {
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
-                      placeholder="Write your email"
+                      placeholder={data?.field_email?.placeholder ?? "Write your email"}
                       className="w-full h-12 px-4 rounded border font-manrope-regular text-sm focus:outline-none focus:ring-2 focus:ring-[#00548B] transition-all"
                       style={{
                         borderColor: "#00548B",
@@ -185,23 +189,13 @@ export function ConnectFormSection() {
                     required
                   >
                     <option value="" style={{ color: "#A1A1A1" }}>
-                      Choose your inquiry topics
+                      {data?.field_topic?.placeholder ?? "Choose your inquiry topics"}
                     </option>
-                    <option value="product-sample" style={{ color: "#333333" }}>
-                      Product Sample Request
-                    </option>
-                    <option value="technical-inquiry" style={{ color: "#333333" }}>
-                      Technical Inquiry
-                    </option>
-                    <option value="pricing" style={{ color: "#333333" }}>
-                      Pricing Information
-                    </option>
-                    <option value="partnership" style={{ color: "#333333" }}>
-                      Partnership Opportunity
-                    </option>
-                    <option value="other" style={{ color: "#333333" }}>
-                      Other
-                    </option>
+                    {(data?.field_topic?.option || []).map((opt: any) => (
+                      <option key={opt.id} value={opt.size} style={{ color: "#333333" }}>
+                        {opt.size}
+                      </option>
+                    ))}
                   </select>
                   <label
                     htmlFor="contactInquiryTopic"
