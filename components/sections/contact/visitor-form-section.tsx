@@ -1,10 +1,11 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
 import { ChevronDown } from "lucide-react"
 import { SectionLabel } from "@/components/ui/section-label"
 import { renderRichTextToReact } from "@/lib/strapi/utils"
+import { submitVisitorForm } from "@/lib/strapi/visitor-form-api"
 
 const rules = [
 	{
@@ -55,9 +56,75 @@ export function VisitorFormSection({ data }: VisitorFormProps) {
 		agreeToRules: false,
 	})
 
-	const handleSubmit = (e: React.FormEvent) => {
+	const [submitting, setSubmitting] = useState(false)
+	const [successMessage, setSuccessMessage] = useState<string | null>(null)
+	const [errorMessage, setErrorMessage] = useState<string | null>(null)
+
+  const timerRef = useRef<number | null>(null)
+
+  // auto-dismiss messages after 5 seconds
+  useEffect(() => {
+    if (timerRef.current) {
+      window.clearTimeout(timerRef.current)
+      timerRef.current = null
+    }
+
+    if (successMessage || errorMessage) {
+      timerRef.current = window.setTimeout(() => {
+        setSuccessMessage(null)
+        setErrorMessage(null)
+        timerRef.current = null
+      }, 5000)
+    }
+
+    return () => {
+      if (timerRef.current) {
+        window.clearTimeout(timerRef.current)
+        timerRef.current = null
+      }
+    }
+  }, [successMessage, errorMessage])
+
+	const handleSubmit = async (e: React.FormEvent) => {
 		e.preventDefault()
-		console.log("Form submitted:", formData)
+
+		// Basic client-side validation
+		if (!formData.yourName || !formData.institution || !formData.dateOfVisit || !formData.visitTime || !formData.numberOfVisitors) {
+			setErrorMessage(data?.error_message ?? "Please fill all required fields.")
+			return
+		}
+
+		const numVisitors = parseInt(String(formData.numberOfVisitors), 10) || 0
+		if (numVisitors < 1) {
+			setErrorMessage(data?.error_message ?? "Please enter at least 1 visitor.")
+			return
+		}
+		if (numVisitors > 30) {
+			setErrorMessage(data?.error_message ?? "Number of visitors cannot exceed 30.")
+			return
+		}
+
+		const payload = {
+			name: formData.yourName,
+			institution: formData.institution,
+			date_of_visit: formData.dateOfVisit,
+			visit_time: formData.visitTime,
+			number_of_visitors: numVisitors,
+		}
+
+		setSubmitting(true)
+		setErrorMessage(null)
+		setSuccessMessage(null)
+
+		try {
+			const json = await submitVisitorForm(payload)
+			setSuccessMessage(json?.message ?? data?.success_message ?? "Thank you — your booking request has been submitted.")
+			setFormData({ yourName: "", institution: "", dateOfVisit: "", visitTime: "", numberOfVisitors: "", agreeToRules: false })
+		} catch (err: any) {
+			setErrorMessage(err?.message ?? data?.error_message ?? "Failed to submit. Please try again later.")
+		} finally {
+			setSubmitting(false)
+		}
 	}
 
 	const handleChange = (
@@ -104,6 +171,17 @@ export function VisitorFormSection({ data }: VisitorFormProps) {
 
 					{/* Right: Form */}
 					<div className="flex flex-col justify-center">
+						{/* Feedback messages */}
+						{successMessage && (
+							<div role="status" className="mb-6 p-4 rounded border border-green-200 bg-green-50 text-green-800">
+								<strong className="block font-plus-bold">{successMessage}</strong>
+							</div>
+						)}
+						{errorMessage && (
+							<div role="alert" className="mb-6 p-4 rounded border border-red-200 bg-red-50 text-red-800">
+								<strong className="block font-plus-bold">{errorMessage}</strong>
+							</div>
+						)}
 						<form onSubmit={handleSubmit} className="space-y-8">
 							{/* Your Name */}
 							<div className="relative">
@@ -244,6 +322,7 @@ export function VisitorFormSection({ data }: VisitorFormProps) {
 									onChange={handleChange}
 									placeholder={data?.field_visitor?.placeholder ?? "Enter number of visitors"}
 									min={1}
+									max={30}
 									className="w-full h-12 md:h-14 px-4 rounded border font-manrope-regular text-sm md:text-base focus:outline-none focus:ring-2 focus:ring-[#00548B] transition-all"
 									style={{
 										borderColor: "#00548B",
@@ -270,11 +349,8 @@ export function VisitorFormSection({ data }: VisitorFormProps) {
 							{/* Rules Section */}
 							<div className="py-4">
 								<p
-									className="font-plus-bold uppercase mb-4"
+									className="font-plus-bold text-indesso-blue text-[14px] uppercase mb-4"
 									style={{
-										color: "#00548B",
-										fontSize: "12px",
-										lineHeight: "16px",
 										letterSpacing: "2px",
 									}}
 								>
@@ -285,25 +361,25 @@ export function VisitorFormSection({ data }: VisitorFormProps) {
 														(data.rules_card || []).map((rule: any, index: number) => (
 															<div
 																key={index}
-																className="flex items-center gap-4 w-full md:w-[292px] h-16 md:h-[64px] border border-[#E6E6E6] rounded-md p-4 bg-white shadow-sm"
+																className="flex items-center gap-4 w-full md:w-[292px] h-16 md:h-[64px] border border-[#E6E6E6] rounded-md p-2 bg-white shadow-sm"
 																style={{ alignItems: "center" }}
 															>
 																<div className="w-10 h-10 relative flex-shrink-0">
 																	<Image src={rule.icon?.url ?? rule.icon ?? "/contact-us/icon-rule-18+.png"} alt="" fill className="object-contain" />
 																</div>
-																<p className="font-manrope-regular text-sm md:text-base text-[#555555] leading-snug">{rule.rules ?? rule.text}</p>
+																<p className="font-manrope-regular text-[10px] md:text-[12px] text-indesso-dark-grey leading-snug">{rule.rules ?? rule.text}</p>
 															</div>
 														))
 													) : (
 														rules.map((rule, index) => (
 															<div
 																key={index}
-																className="flex items-center gap-4 w-full md:w-[292px] h-16 md:h-[64px] border border-[#E6E6E6] rounded-md p-4 bg-white shadow-sm"
+																className="flex items-center gap-4 w-full md:w-[292px] h-16 md:h-[64px] border border-[#E6E6E6] rounded-md p-2 bg-white shadow-sm"
 															>
 																<div className="w-10 h-10 relative flex-shrink-0">
 																	<Image src={rule.icon} alt="" fill className="object-contain" />
 																</div>
-																<p className="font-manrope-regular text-sm md:text-base text-[#555555] leading-snug">{rule.text}</p>
+																<p className="font-manrope-regular text-[10px] md:text-[12px] text-indesso-dark-grey leading-snug">{rule.text}</p>
 															</div>
 														))
 													)}

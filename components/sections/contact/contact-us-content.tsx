@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect, useMemo, useRef } from "react"
 import { ContactTabs } from "@/components/ui/contact/contact-tabs"
 import { GlobalPresenceSection } from "@/components/sections/contact/global-presence-section"
 import { RequestSampleSection } from "@/components/sections/catalog/request-sample-section"
@@ -20,20 +20,112 @@ interface ContactUsContentProps {
 export function ContactUsContent({ data }: ContactUsContentProps) {
   const [activeTab, setActiveTab] = useState(0)
 
-  // build tabs from API if available
-  const computedTabs = data?.page_nav
-    ? data.page_nav.map((p: any, idx: number) => ({ id: String(idx), label: p.title || p.__component || `Tab ${idx + 1}` }))
-    : [
-        { id: "0", label: "Contact Us" },
-        { id: "1", label: "Visitor Center" },
-      ]
+  // helper to create URL-friendly slugs from titles
+  const slugify = (s: any) =>
+    String(s ?? "")
+      .toLowerCase()
+      .trim()
+      .replace(/\s+/g, "-")
+      .replace(/[^a-z0-9-_]/g, "")
+
+  // build tabs from API if available; each tab gets a slug id used for the URL hash
+  const computedTabs = useMemo(() => {
+    if (data?.page_nav) {
+      return data.page_nav.map((p: any, idx: number) => {
+        const label = p.title || p.__component || `Tab ${idx + 1}`
+        return { id: slugify(label) || `tab-${idx + 1}`, label }
+      })
+    }
+
+    return [
+      { id: "contact-us", label: "Contact Us" },
+      { id: "visitor-center", label: "Visitor Center" },
+    ]
+  }, [data])
+
+  const initializedRef = useRef(false)
+
+  useEffect(() => {
+    if (typeof window === "undefined") return
+
+    const rawHash = window.location.hash.replace(/^#/, "")
+    // flexible matching: try exact id, label slug, or substring matches
+    if (rawHash) {
+      const idx = computedTabs.findIndex((t: any) => {
+        const labelSlug = slugify(t.label)
+        return (
+          t.id === rawHash ||
+          labelSlug === rawHash ||
+          t.id.includes(rawHash) ||
+          rawHash.includes(t.id) ||
+          labelSlug.includes(rawHash) ||
+          rawHash.includes(labelSlug)
+        )
+      })
+      if (idx >= 0) {
+        setActiveTab(idx)
+        initializedRef.current = true
+        return
+      }
+    }
+
+    // no matching hash -> default to 'contact-us' if present, else first tab
+    const defaultIdx = computedTabs.findIndex((t: any) => t.id === "contact-us")
+    const startIdx = defaultIdx >= 0 ? defaultIdx : 0
+    setActiveTab(startIdx)
+
+    // ensure URL contains the default hash without adding a new history entry
+    const defaultHash = computedTabs[startIdx]?.id
+    if (defaultHash && window.location.hash.replace(/^#/, "") !== defaultHash) {
+      window.history.replaceState(null, "", `#${defaultHash}`)
+    }
+
+    initializedRef.current = true
+  }, [computedTabs])
+
+  useEffect(() => {
+    if (typeof window === "undefined") return
+
+    const onHashChange = () => {
+      const rawHash = window.location.hash.replace(/^#/, "")
+      if (!rawHash) return
+      const idx = computedTabs.findIndex((t: any) => {
+        const labelSlug = slugify(t.label)
+        return (
+          t.id === rawHash ||
+          labelSlug === rawHash ||
+          t.id.includes(rawHash) ||
+          rawHash.includes(t.id) ||
+          labelSlug.includes(rawHash) ||
+          rawHash.includes(labelSlug)
+        )
+      })
+
+      if (idx >= 0) {
+        setActiveTab(idx)
+      }
+    }
+
+    window.addEventListener("hashchange", onHashChange)
+    return () => window.removeEventListener("hashchange", onHashChange)
+  }, [computedTabs])
 
   return (
     <>
       {/* Tabs Section */}
       <section className="bg-white">
         <div className="container mx-auto px-4">
-          <ContactTabs tabs={computedTabs} activeTab={activeTab} onTabChange={setActiveTab} />
+          <ContactTabs
+            tabs={computedTabs}
+            activeTab={activeTab}
+            onTabChange={(idx: number) => {
+              setActiveTab(idx)
+              if (typeof window !== "undefined") {
+                const id = computedTabs[idx]?.id
+                if (id) window.history.replaceState(null, "", `#${id}`)
+              }
+            }}
+          />
         </div>
       </section>
 

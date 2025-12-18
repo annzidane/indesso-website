@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { ChevronDown } from "lucide-react";
 import { getStrapiMedia } from "@/lib/strapi/client";
@@ -26,6 +26,31 @@ export function RequestSampleSection({
   const [submitting, setSubmitting] = useState(false);
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+
+  const timerRef = useRef<number | null>(null)
+
+  // auto-dismiss messages after 5 seconds
+  useEffect(() => {
+    if (timerRef.current) {
+      window.clearTimeout(timerRef.current)
+      timerRef.current = null
+    }
+
+    if (successMessage || errorMessage) {
+      timerRef.current = window.setTimeout(() => {
+        setSuccessMessage(null)
+        setErrorMessage(null)
+        timerRef.current = null
+      }, 5000)
+    }
+
+    return () => {
+      if (timerRef.current) {
+        window.clearTimeout(timerRef.current)
+        timerRef.current = null
+      }
+    }
+  }, [successMessage, errorMessage])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -149,6 +174,18 @@ export function RequestSampleSection({
                 {data?.title ?? "Request a Sample"}
               </h2>
             </div>
+
+            {/* Feedback messages (same style as VisitorForm) */}
+            {successMessage && (
+              <div role="status" className="mb-6 p-4 rounded border border-green-200 bg-green-50 text-green-800">
+                <strong className="block font-plus-bold">{successMessage}</strong>
+              </div>
+            )}
+            {errorMessage && (
+              <div role="alert" className="mb-6 p-4 rounded border border-red-200 bg-red-50 text-red-800">
+                <strong className="block font-plus-bold">{errorMessage}</strong>
+              </div>
+            )}
 
             {/* Form */}
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -388,13 +425,7 @@ export function RequestSampleSection({
                   {submitting ? (data?.submitting_text ?? "Sending...") : (data?.button ?? "Submit")}
                 </button>
 
-                {successMessage && (
-                  <p className="mt-3 text-sm font-medium" style={{ color: "#00548B" }}>{successMessage}</p>
-                )}
-
-                {errorMessage && (
-                  <p className="mt-3 text-sm font-medium" style={{ color: "#D9534F" }}>{errorMessage}</p>
-                )}
+                {/* messages handled above and auto-dismiss */}
               </div>
             </form>
           </div>
