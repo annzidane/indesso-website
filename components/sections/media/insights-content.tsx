@@ -7,9 +7,13 @@ import type { Locale } from "@/lib/i18n/config";
 
 interface InsightsContentProps {
   locale: Locale;
+  tab?: {
+    articleGridTitle?: string;
+    buttonLabel?: string;
+  };
 }
 
-export function InsightsContent({ locale }: InsightsContentProps) {
+export function InsightsContent({ locale, tab }: InsightsContentProps) {
   // Get all insight items
   const insightItems = getMediaByType("insight");
 
@@ -91,7 +95,7 @@ export function InsightsContent({ locale }: InsightsContentProps) {
                 fontStyle: "italic",
               }}
             >
-              Older Reports & Insights
+              {tab?.articleGridTitle || "Older Insights"}
             </h2>
             <div className="flex-1 h-[2px] bg-[#EAEAEA]" />
           </div>
@@ -120,7 +124,7 @@ export function InsightsContent({ locale }: InsightsContentProps) {
             href={`/${locale}/media/explore-insights`}
             className="flex items-center justify-center w-full h-14 px-6 rounded-sm border border-[#003557] text-[#003557] hover:bg-[#003557] hover:text-white transition-colors font-manrope-bold text-base leading-5 text-center bg-white"
           >
-            Explore All Insights
+            {tab?.buttonLabel || "Explore All Insights"}
           </Link>
         </div>
       )}

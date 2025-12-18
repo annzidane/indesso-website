@@ -58,7 +58,7 @@ const galleryVideos = [
   },
 ];
 
-export function VideosContent() {
+export function VideosContent({ label }: { label?: string }) {
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
 
   const handlePlayVideo = (videoUrl: string) => {
@@ -134,7 +134,7 @@ export function VideosContent() {
               fontStyle: "italic",
             }}
           >
-            Video Gallery
+            {label || "Video Gallery"}
           </h2>
           <div className="flex-1 h-[2px] bg-[#EAEAEA]" />
         </div>

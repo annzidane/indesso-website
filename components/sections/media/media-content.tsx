@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { MediaCard } from "@/components/ui/media/media-card";
 import { getMediaByType } from "@/lib/data/media-data";
+import { getStrapiMedia } from "@/lib/strapi/client";
 import { InsightsContent } from "@/components/sections/media/insights-content";
 import { ProductCatalogContent } from "@/components/sections/media/product-catalog-content";
 import { VideosContent } from "@/components/sections/media/videos-content";
@@ -15,7 +16,10 @@ import type { Locale } from "@/lib/i18n/config";
 
 interface MediaContentProps {
   locale: Locale;
-  defaultTab?: TabType;
+  defaultTab?: string;
+  nav?: any[];
+  initialArticles?: any[]; // server-provided initial articles (raw Strapi entries)
+  initialMeta?: any; // server-provided meta (pagination)
 }
 
 type TabType =
@@ -25,39 +29,216 @@ type TabType =
   | "product-catalog"
   | "video";
 
-const tabs: { id: TabType; label: string; slug: string }[] = [
+// helper slugify
+function slugify(s: string) {
+  return String(s ?? "").toLowerCase().trim().replace(/\s+/g, "-").replace(/[^a-z0-9-_]/g, "")
+}
+
+// Default tabs use the route slugs (these must match the valid slugs defined in the media slug page)
+const defaultTabs: { id: string; label: string; slug: string }[] = [
   { id: "press-release", label: "Press Release", slug: "press-release" },
-  { id: "story", label: "Stories", slug: "stories" },
+  { id: "stories", label: "Stories", slug: "stories" },
   { id: "insight", label: "Insights", slug: "insight" },
-  { id: "product-catalog", label: "Product Sheets", slug: "product-sheets" },
+  { id: "product-sheets", label: "Product Sheets", slug: "product-sheets" },
   { id: "video", label: "Videos", slug: "video" },
 ];
 
 export function MediaContent({
   locale,
   defaultTab = "press-release",
+  nav,
+  initialArticles,
+  initialMeta,
 }: MediaContentProps) {
   const router = useRouter();
-  const [activeTab, setActiveTab] = useState<TabType>(defaultTab);
-  const [visibleItems, setVisibleItems] = useState(6);
+  const [activeTab, setActiveTab] = useState<string>(defaultTab);
+  // default to 7: 1 featured + 6 grid items
+  const [visibleItems, setVisibleItems] = useState(7);
+  const [mediaItems, setMediaItems] = useState<any[]>([]);
+  const [loading, setLoading] = useState(false);
+  const [hasMore, setHasMore] = useState(false);
+  const [totalCount, setTotalCount] = useState<number | null>(null);
+
+  // helper to convert CMS title -> canonical route slug used by the media slug page
+  function titleToRouteSlug(title: string) {
+    const s = String(title ?? "").toLowerCase();
+    if (s.includes("press")) return "press-release";
+    if (s.includes("story")) return "stories";
+    if (s.includes("insight")) return "insight";
+    if (s.includes("product")) return "product-sheets";
+    if (s.includes("video")) return "video";
+    return slugify(title);
+  }
+
+  // build tabs from nav if provided. Use canonical route slug for both id and slug so router.push matches app routes.
+  const computedTabs = (nav && Array.isArray(nav) && nav.length > 0)
+    ? nav.map((n) => {
+        const routeSlug = titleToRouteSlug(n.title);
+        return {
+          id: routeSlug,
+          label: n.title,
+          slug: routeSlug,
+          articleGridTitle: n.article_grid_title,
+          buttonLabel: n.button_label,
+        };
+      })
+    : defaultTabs.map(t => ({ ...t, articleGridTitle: null, buttonLabel: null }))
+
+  console.log("Computed Tabs:", computedTabs);
 
   // Update active tab when defaultTab changes
   useEffect(() => {
     setActiveTab(defaultTab);
   }, [defaultTab]);
 
-  // Get media items based on active tab
-  const mediaItems = getMediaByType(activeTab);
-  const displayedItems = mediaItems.slice(0, visibleItems);
-  const hasMore = visibleItems < mediaItems.length;
+  // Initialize mediaItems from server-provided initialArticles when available.
+  useEffect(() => {
+    const cat = slugToCategory(activeTab);
 
-  const handleLoadMore = () => {
-    setVisibleItems((prev) => prev + 6);
+    // If server provided initialArticles for this tab, use them (mapped)
+    if (initialArticles && Array.isArray(initialArticles) && initialArticles.length > 0) {
+      const mapped = initialArticles.map((a: any) => mapArticleToMedia(a, slugToType(activeTab)));
+      setMediaItems(mapped);
+      setVisibleItems(7);
+      // use initialMeta if provided for accurate hasMore
+      // @ts-ignore - initialMeta passed from page
+      const meta = (initialMeta as any) || null;
+      const total = meta?.pagination?.total ?? null;
+      if (total !== null) {
+        setTotalCount(Number(total));
+        setHasMore(mapped.length < Number(total));
+      } else {
+        setHasMore(mapped.length === 7);
+      }
+      return;
+    }
+
+    // Fallback to local dummy data for non-API tabs
+    if (!cat) {
+      const local = getMediaByType(slugToType(activeTab));
+      setMediaItems(local);
+      setVisibleItems(7);
+      setHasMore(false);
+      return;
+    }
+
+    // API-backed tab but no server data provided: start empty; client can load more via proxy
+    setMediaItems([]);
+    setVisibleItems(7);
+    setHasMore(false);
+  }, [activeTab, locale, initialArticles]);
+
+  // Helper to map tab slug -> data type expected by getMediaByType
+  function slugToType(slug: string): TabType {
+    const s = String(slug ?? "").toLowerCase();
+    if (s.includes("press")) return "press-release";
+    if (s.includes("story")) return "story";
+    if (s.includes("stories")) return "story";
+    if (s.includes("insight")) return "insight";
+    if (s.includes("product")) return "product-catalog";
+    if (s.includes("video")) return "video";
+    return "press-release";
+  }
+
+  // Map slug to human readable Strapi category
+  function slugToCategory(slug: string) {
+    const s = String(slug ?? "").toLowerCase();
+    if (s.includes("press")) return "Press Release";
+    if (s.includes("story") || s.includes("stories")) return "Corporate Events";
+    return null;
+  }
+
+  // Map Strapi article -> local media item shape used by this component
+  function mapArticleToMedia(a: any, type: TabType) {
+    const dateStr = a?.date || a?.publishedAt || a?.createdAt || null;
+    const date = dateStr
+      ? new Date(dateStr).toLocaleDateString(locale === "id" ? "id" : "en", {
+          day: "numeric",
+          month: "long",
+          year: "numeric",
+        })
+      : "";
+
+    const imageUrl =
+      a?.image?.data?.attributes?.url || a?.image?.url || a?.image || null;
+
+    const image = getStrapiMedia(imageUrl);
+
+    const content = (() => {
+      if (!a?.description) return "";
+      if (typeof a.description === "string") return a.description;
+      try {
+        if (Array.isArray(a.description) && a.description.length > 0) {
+          const first = a.description[0];
+          if (first?.children && Array.isArray(first.children)) {
+            return first.children.map((c: any) => c.text || "").join(" ");
+          }
+          if (first?.text) return first.text;
+        }
+      } catch (e) {
+        // ignore
+      }
+      return "";
+    })();
+
+    return {
+      id: String(a.id),
+      type,
+      title: a.title || a.name || "",
+      date,
+      image,
+      content,
+      category: a.article_category || a.category || null,
+      tags: a.tags || null,
+    };
+  }
+
+  const displayedItems = mediaItems.slice(0, visibleItems);
+
+  const handleLoadMore = async () => {
+    const cat = slugToCategory(activeTab);
+    if (cat) {
+      setLoading(true);
+      try {
+        const start = mediaItems.length;
+        const limit = 6;
+        const url = `/api/articles?category=${encodeURIComponent(cat)}&locale=${encodeURIComponent(
+          locale
+        )}&start=${start}&limit=${limit}`;
+        const res = await fetch(url);
+        if (!res.ok) throw new Error(`Failed to load articles: ${res.status}`);
+        const json = await res.json();
+        const newArticles = json.data || [];
+        const meta = json.meta || null;
+        const mapped = newArticles.map((a: any) => mapArticleToMedia(a, slugToType(activeTab)));
+        setMediaItems((prev) => [...prev, ...mapped]);
+        setVisibleItems((prev) => prev + mapped.length);
+        // update totalCount if provided by meta
+        const totalFromMeta = meta?.pagination?.total ?? null;
+        if (totalFromMeta !== null && totalFromMeta !== undefined) {
+          setTotalCount(Number(totalFromMeta));
+          const loaded = (mediaItems.length || 0) + newArticles.length;
+          setHasMore(loaded < Number(totalFromMeta));
+        } else if (totalCount !== null) {
+          const loaded = (mediaItems.length || 0) + newArticles.length;
+          setHasMore(loaded < (totalCount as number));
+        } else {
+          // fallback heuristic
+          setHasMore(newArticles.length === limit);
+        }
+      } catch (e) {
+        console.error("Error loading more articles", e);
+      } finally {
+        setLoading(false);
+      }
+    } else {
+      setVisibleItems((prev) => prev + 6);
+    }
   };
 
-  const handleTabChange = (tabId: TabType, slug: string) => {
+  const handleTabChange = (tabId: string, slug: string) => {
     setActiveTab(tabId);
-    setVisibleItems(6); // Reset to initial count when changing tabs
+    setVisibleItems(7); // Reset to initial count when changing tabs (1 featured + 6 grid)
 
     // Navigate to the slug URL
     router.push(`/${locale}/media/${slug}`);
@@ -65,13 +246,20 @@ export function MediaContent({
     window.scrollTo({ top: 400, behavior: "smooth" });
   };
 
+  // helpers to detect special tabs by CMS label/slug (keeps default behavior working too)
+  const currentTab = computedTabs.find((t) => t.id === activeTab);
+  const activeLabel = (currentTab?.label || activeTab).toLowerCase();
+  const isInsight = activeLabel.includes("insight");
+  const isProduct = activeLabel.includes("product");
+  const isVideo = activeLabel.includes("video");
+
   return (
     <section className="pb-8 md:pb-12 lg:pb-16">
       {/* Desktop Tabs - Full Width */}
       <div className="hidden md:block w-full border-b-2 border-[#EAEAEA] mb-6 md:pt-3">
         <div className="container mx-auto px-4">
           <div className="flex w-full gap-0">
-            {tabs.map((tab) => (
+            {computedTabs.map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => handleTabChange(tab.id, tab.slug)}
@@ -96,29 +284,27 @@ export function MediaContent({
 
       {/* Mobile Tabs */}
       <MediaTabsMobile
-        tabs={tabs}
+        tabs={computedTabs}
         activeTab={activeTab}
-        onTabChange={(tabId, slug) => handleTabChange(tabId as TabType, slug)}
+        onTabChange={(tabId, slug) => handleTabChange(tabId, slug)}
         className="mb-4"
       />
 
       {/* Insights Tab - Custom Layout */}
-      {activeTab === "insight" && <InsightsContent locale={locale} />}
+      {isInsight && <InsightsContent locale={locale} tab={currentTab} />}
 
       {/* Product Catalog Tab - Custom Layout */}
-      {activeTab === "product-catalog" && (
+      {isProduct && (
         <div className="container mx-auto px-4">
-          <ProductCatalogContent />
+          <ProductCatalogContent buttonLabel={currentTab?.buttonLabel} />
         </div>
       )}
 
       {/* Videos Tab - Custom Layout */}
-      {activeTab === "video" && <VideosContent />}
+      {isVideo && <VideosContent label={currentTab?.articleGridTitle} />}
 
       {/* Other Tabs - Default Layout (Press Release & Stories) */}
-      {activeTab !== "insight" &&
-        activeTab !== "product-catalog" &&
-        activeTab !== "video" && (
+      {(!isInsight && !isProduct && !isVideo) && (
           <>
             {/* Featured Item with Full-Width Background */}
             {displayedItems.length > 0 && (
@@ -126,7 +312,7 @@ export function MediaContent({
                 {/* Full-width Background Blur Image */}
                 <div className="absolute inset-0 z-0">
                   <Image
-                    src="/media/media-bg-blur.png"
+                    src="/feature-bg.png"
                     alt=""
                     fill
                     className="object-cover"
@@ -151,7 +337,7 @@ export function MediaContent({
                       {displayedItems[0].tags &&
                         displayedItems[0].tags.length > 0 && (
                           <div className="absolute top-4 left-4 flex flex-wrap gap-2 z-10">
-                            {displayedItems[0].tags.map((tag, index) => (
+                            {displayedItems[0].tags.map((tag: string, index: number) => (
                               <span
                                 key={index}
                                 className="font-plus-bold text-sm px-3 py-1 rounded bg-[rgba(16,153,214,0.1)] text-[#003557]"
@@ -163,7 +349,7 @@ export function MediaContent({
                         )}
 
                       {/* Blur Overlay Container */}
-                      <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 flex flex-col gap-1 glass-media-card">
+                      <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 flex flex-col gap-1 glass-dark">
                         <p className="font-manrope-regular text-sm md:text-base leading-6 text-[#EAEAEA]">
                           {displayedItems[0].date}
                         </p>
@@ -188,10 +374,8 @@ export function MediaContent({
                       fontStyle: "italic",
                     }}
                   >
-                    Older{" "}
-                    {activeTab === "press-release"
-                      ? "Press Release"
-                      : "Stories"}
+                    {/** Use articleGridTitle from CMS when available, otherwise fallback to label or default */}
+                    {currentTab?.articleGridTitle}
                   </h2>
                   <div className="flex-1 h-[2px] bg-[#EAEAEA]" />
                 </div>
@@ -223,7 +407,7 @@ export function MediaContent({
                   onClick={handleLoadMore}
                   className="w-full h-14 px-6 rounded-sm border border-[#003557] text-[#003557] hover:bg-[#003557] hover:text-white transition-colors font-manrope-bold text-base leading-5 text-center bg-transparent"
                 >
-                  Load More
+                  {currentTab?.buttonLabel ?? "Load More"}
                 </button>
               )}
 

@@ -4,7 +4,7 @@ import { useState } from "react";
 import { getMediaByType } from "@/lib/data/media-data";
 import { ProductCatalogCard } from "@/components/ui/media/product-catalog-card";
 
-export function ProductCatalogContent() {
+export function ProductCatalogContent({ buttonLabel }: { buttonLabel?: string }) {
   const [visibleItems, setVisibleItems] = useState(8);
 
   // Get all product catalog items
@@ -36,7 +36,7 @@ export function ProductCatalogContent() {
           onClick={handleLoadMore}
           className="flex items-center justify-center w-full h-14 px-6 rounded-sm border border-[#003557] text-[#003557] hover:bg-[#003557] hover:text-white transition-colors font-manrope-bold text-base leading-5 text-center bg-white"
         >
-          Load More
+          {buttonLabel || "Load More"}
         </button>
       )}
 

@@ -1,5 +1,7 @@
 import type { Locale } from "@/lib/i18n/config";
 import { getFooterData, getHeaderData } from "@/lib/strapi/api";
+import { fetchStrapi } from "@/lib/strapi/client";
+import { getArticles } from "@/lib/strapi/articles-api";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { PageHero } from "@/components/ui/page-hero";
@@ -71,12 +73,39 @@ export default async function MediaSlugPage({ params }: MediaPageProps) {
     getHeaderData(locale),
   ]);
 
+  // fetch media page content from Strapi to get nav labels/buttons
+  let mediaPage: any = null
+  try {
+    const resp = (await fetchStrapi("media", { locale, query: { pLevel: 3 } })) as any
+    mediaPage = resp?.data ?? null
+    console.log("Fetched media page data:", mediaPage)
+  } catch (e) {
+    // ignore and allow page to render with defaults
+    mediaPage = null
+  }
+
+  // Fetch initial articles server-side for press-release and stories to avoid exposing token to client
+  let initialArticles: any[] = [];
+  let initialArticlesMeta: any = null;
+  try {
+    if (slug === "press-release" || slug === "stories") {
+      const category = slug === "press-release" ? "Press Release" : "Corporate Events";
+      const resp = await getArticles(category, locale, 0, 7);
+      initialArticles = resp?.data || [];
+      initialArticlesMeta = resp?.meta || null;
+    }
+  } catch (e) {
+    console.error("Error fetching initial articles in page.tsx", e);
+    initialArticles = [];
+    initialArticlesMeta = null;
+  }
+
   return (
     <>
       <Header data={headerData} locale={locale} />
       <main>
         <PageHero title="Media" backgroundUrl="/media/media-bg.png" />
-        <MediaContent locale={locale} defaultTab={mediaType as any} />
+      <MediaContent locale={locale} defaultTab={slug as string} nav={mediaPage?.page_nav} initialArticles={initialArticles} initialMeta={initialArticlesMeta} />
       </main>
       <Footer data={footerData} locale={locale} />
     </>
