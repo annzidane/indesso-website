@@ -149,6 +149,9 @@
   --color-sidebar-ring: var(--sidebar-ring);
   --container-max-width: 1440px;
 
+  /* Site header height used by sticky elements (matches Header h-16 / md:h-20) */
+  --site-header-height: 4rem; /* default for small screens (h-16) */
+
   /* Variabel Custom Navbar */
   --color-navbar-bg-base: 26, 26, 26;
   --opacity-start: 0.2;
@@ -162,6 +165,13 @@
     rgba(var(--color-navbar-bg-base), var(--opacity-end)) 99.79%
   );
   --navbar-backdrop-filter-style: blur(50px);
+}
+
+/* Adjust site header height on larger screens to match Header md:h-20 */
+@media (min-width: 768px) {
+  :root {
+    --site-header-height: 5rem; /* md and up (h-20) */
+  }
 }
 
 @layer base {
@@ -316,6 +326,17 @@
       228.71deg,
       rgba(0, 53, 87, 0.5) 0%,
       rgba(0, 53, 87, 0.4) 100%
+    );
+    backdrop-filter: blur(20px);
+    /* -webkit-backdrop-filter: blur(20px); */
+    border: 2px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .glass-dark-media {
+    background: linear-gradient(
+      228.71deg,
+      rgba(0, 0, 0, 0.5) 0%,
+      rgba(0, 0, 0, 0.4) 100%
     );
     backdrop-filter: blur(20px);
     /* -webkit-backdrop-filter: blur(20px); */

@@ -67,7 +67,7 @@ export function renderRichTextToReact(richText: StrapiRichText[] | undefined | n
     switch (block.type) {
       case "paragraph":
       default:
-        return React.createElement("p", { key: idx, className: "mb-4 leading-relaxed" }, children)
+        return React.createElement("p", { key: idx, className: "mb-5 leading-7" }, children)
     }
   })
 }

@@ -45,6 +45,70 @@ export function ContactUsContent({ data }: ContactUsContentProps) {
 
   const initializedRef = useRef(false)
 
+  const [isPinned, setIsPinned] = useState(false)
+  const barRef = useRef<HTMLDivElement | null>(null)
+  const originalTopRef = useRef<number | null>(null)
+  const placeholderHeightRef = useRef<number | undefined>(undefined)
+
+  // Fallback pinning: measure bar and toggle fixed positioning when scrolled past.
+  useEffect(() => {
+    if (typeof window === "undefined") return
+    const el = barRef.current
+    if (!el) return
+
+    const parseHeaderHeight = () => {
+      const raw = getComputedStyle(document.documentElement).getPropertyValue('--site-header-height')?.trim() || ''
+      if (!raw) return 64
+      // px value
+      if (raw.endsWith('px')) return parseFloat(raw)
+      // rem value -> convert to px using root font-size
+      if (raw.endsWith('rem')) {
+        const val = parseFloat(raw)
+        const rootFont = parseFloat(getComputedStyle(document.documentElement).fontSize || '16')
+        return val * rootFont
+      }
+      // fallback: try parseFloat
+      return parseFloat(raw) || 64
+    }
+
+    let headerHeight = parseHeaderHeight()
+
+    // compute the element's document top (stable) and measured height for placeholder
+    const computeOriginalTop = () => {
+      const r = el.getBoundingClientRect()
+      originalTopRef.current = r.top + window.scrollY
+      placeholderHeightRef.current = el.offsetHeight || undefined
+    }
+
+    const onScroll = () => {
+      if (originalTopRef.current == null) computeOriginalTop()
+      const currentScroll = window.scrollY
+      const pinned = (currentScroll + headerHeight) >= (originalTopRef.current ?? 0)
+      setIsPinned(pinned)
+    }
+
+    const onResize = () => {
+      headerHeight = parseHeaderHeight()
+      // recompute original top after layout changes
+      requestAnimationFrame(() => computeOriginalTop())
+      onScroll()
+    }
+
+    // initial measurement after layout
+    requestAnimationFrame(() => {
+      headerHeight = parseHeaderHeight()
+      computeOriginalTop()
+      onScroll()
+    })
+
+    window.addEventListener('scroll', onScroll, { passive: true })
+    window.addEventListener('resize', onResize)
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+      window.removeEventListener('resize', onResize)
+    }
+  }, [])
+
   useEffect(() => {
     if (typeof window === "undefined") return
 
@@ -114,18 +178,28 @@ export function ContactUsContent({ data }: ContactUsContentProps) {
     <>
       {/* Tabs Section */}
       <section className="bg-white">
-        <div className="container mx-auto px-4">
-          <ContactTabs
-            tabs={computedTabs}
-            activeTab={activeTab}
-            onTabChange={(idx: number) => {
-              setActiveTab(idx)
-              if (typeof window !== "undefined") {
-                const id = computedTabs[idx]?.id
-                if (id) window.history.replaceState(null, "", `#${id}`)
-              }
-            }}
-          />
+        {/* placeholder to preserve layout when pinned */}
+        <div aria-hidden className={isPinned ? "h-auto" : "hidden"} style={isPinned ? { height: barRef.current?.offsetHeight || undefined } : undefined} />
+        <div
+          ref={barRef}
+          className={"w-full z-40 bg-white" + (isPinned ? " fixed left-0 right-0" : " sticky")}
+          style={{ top: 'var(--site-header-height, 4rem)' }}
+        >
+          <div className="w-full">
+            <div className="mx-auto px-0">
+              <ContactTabs
+                tabs={computedTabs}
+                activeTab={activeTab}
+                onTabChange={(idx: number) => {
+                  setActiveTab(idx)
+                  if (typeof window !== "undefined") {
+                    const id = computedTabs[idx]?.id
+                    if (id) window.history.replaceState(null, "", `#${id}`)
+                  }
+                }}
+              />
+            </div>
+          </div>
         </div>
       </section>
 

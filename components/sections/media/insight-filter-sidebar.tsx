@@ -2,10 +2,15 @@
 
 import { cn } from "@/lib/utils";
 
+interface InsightTopic {
+  title: string;
+  slug: string;
+}
+
 interface InsightFilterSidebarProps {
-  topics: string[];
-  selectedTopic: string | null;
-  onTopicSelect: (topic: string | null) => void;
+  topics: InsightTopic[];
+  selectedTopic: string | null; // slug
+  onTopicSelect: (topicSlug: string | null) => void;
 }
 
 // Chevron Right Icon
@@ -56,17 +61,17 @@ export function InsightFilterSidebar({
         <div className="flex flex-col">
           {topics.map((topic) => (
             <button
-              key={topic}
-              onClick={() => onTopicSelect(topic)}
+              key={topic.slug}
+              onClick={() => onTopicSelect(topic.slug)}
               className={cn(
                 "w-full flex items-center justify-between py-4 text-left text-base transition-colors border-b border-[#EAEAEA]",
-                selectedTopic === topic
+                selectedTopic === topic.slug
                   ? "text-[#00548B] font-plus-bold"
                   : "text-[#555555] hover:text-[#00548B] font-plus-medium"
               )}
             >
-              <span>{topic}</span>
-              {selectedTopic === topic && <ChevronRight />}
+              <span>{topic.title}</span>
+              {selectedTopic === topic.slug && <ChevronRight />}
             </button>
           ))}
         </div>

@@ -3,7 +3,8 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 interface InsightFeaturedCardProps {
-  id: string;
+  id?: string;
+  slug?: string;
   title: string;
   date: string;
   image: string;
@@ -15,6 +16,7 @@ interface InsightFeaturedCardProps {
 
 export function InsightFeaturedCard({
   id,
+  slug,
   title,
   date,
   image,
@@ -27,7 +29,7 @@ export function InsightFeaturedCard({
 
   return (
     <Link
-      href={`/${locale}/media/detail/${id}`}
+      href={`/${locale}/media/detail/${slug || id}`}
       className={cn(
         "block relative w-full h-full overflow-hidden rounded-[4px] group cursor-pointer",
         className

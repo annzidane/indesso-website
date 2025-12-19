@@ -41,7 +41,7 @@ export default async function ContactUsPage({ params }: PageProps) {
           }
           objectPosition="center top"
         />
-        <ContactUsContent data={contactData} />
+      <ContactUsContent data={contactData} />
       </main>
       <Footer data={footerData} locale={locale} />
     </>

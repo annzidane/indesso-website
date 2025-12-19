@@ -1,17 +1,17 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { MediaCard } from "@/components/ui/media/media-card";
-import { getMediaByType } from "@/lib/data/media-data";
 import { getStrapiMedia } from "@/lib/strapi/client";
 import { InsightsContent } from "@/components/sections/media/insights-content";
 import { ProductCatalogContent } from "@/components/sections/media/product-catalog-content";
 import { VideosContent } from "@/components/sections/media/videos-content";
 import { MediaTabsMobile } from "@/components/ui/media/media-tabs-mobile";
 import { cn } from "@/lib/utils";
+import { toSlug } from "@/lib/strapi/utils";
 import type { Locale } from "@/lib/i18n/config";
 
 interface MediaContentProps {
@@ -84,8 +84,6 @@ export function MediaContent({
       })
     : defaultTabs.map(t => ({ ...t, articleGridTitle: null, buttonLabel: null }))
 
-  console.log("Computed Tabs:", computedTabs);
-
   // Update active tab when defaultTab changes
   useEffect(() => {
     setActiveTab(defaultTab);
@@ -100,8 +98,6 @@ export function MediaContent({
       const mapped = initialArticles.map((a: any) => mapArticleToMedia(a, slugToType(activeTab)));
       setMediaItems(mapped);
       setVisibleItems(7);
-      // use initialMeta if provided for accurate hasMore
-      // @ts-ignore - initialMeta passed from page
       const meta = (initialMeta as any) || null;
       const total = meta?.pagination?.total ?? null;
       if (total !== null) {
@@ -113,16 +109,40 @@ export function MediaContent({
       return;
     }
 
-    // Fallback to local dummy data for non-API tabs
-    if (!cat) {
-      const local = getMediaByType(slugToType(activeTab));
-      setMediaItems(local);
-      setVisibleItems(7);
-      setHasMore(false);
+    // If this tab maps to an articles category, fetch initial articles from the articles API
+    if (cat) {
+      // client-side fetch initial batch
+      (async () => {
+        try {
+          const url = `/api/articles?category=${encodeURIComponent(cat)}&locale=${encodeURIComponent(
+            locale
+          )}&start=0&limit=7`;
+          const res = await fetch(url);
+          if (!res.ok) throw new Error(`Failed to load articles: ${res.status}`);
+          const json = await res.json();
+          const newArticles = json.data || [];
+          const meta = json.meta || null;
+          const mapped = newArticles.map((a: any) => mapArticleToMedia(a, slugToType(activeTab)));
+          setMediaItems(mapped);
+          setVisibleItems(7);
+          const totalFromMeta = meta?.pagination?.total ?? null;
+          if (totalFromMeta !== null && totalFromMeta !== undefined) {
+            setTotalCount(Number(totalFromMeta));
+            setHasMore(mapped.length < Number(totalFromMeta));
+          } else {
+            setHasMore(mapped.length === 7);
+          }
+        } catch (e) {
+          console.error('Error loading initial articles for tab', e);
+          setMediaItems([]);
+          setVisibleItems(7);
+          setHasMore(false);
+        }
+      })();
       return;
     }
 
-    // API-backed tab but no server data provided: start empty; client can load more via proxy
+    // If no category mapping and no server data, show empty list (avoid using local dummy data)
     setMediaItems([]);
     setVisibleItems(7);
     setHasMore(false);
@@ -145,6 +165,7 @@ export function MediaContent({
     const s = String(slug ?? "").toLowerCase();
     if (s.includes("press")) return "Press Release";
     if (s.includes("story") || s.includes("stories")) return "Corporate Events";
+    if (s.includes("insight")) return "Insights";
     return null;
   }
 
@@ -183,6 +204,8 @@ export function MediaContent({
 
     return {
       id: String(a.id),
+      // Prefer explicit slug if provided by CMS, otherwise build one from title
+      slug: a?.slug || a?.attributes?.slug || toSlug(a?.title || a?.name || String(a.id)),
       type,
       title: a.title || a.name || "",
       date,
@@ -253,42 +276,111 @@ export function MediaContent({
   const isProduct = activeLabel.includes("product");
   const isVideo = activeLabel.includes("video");
 
+  // Sticky tabs fallback (desktop + mobile)
+  const [tabsPinned, setTabsPinned] = useState(false);
+  const tabsBarRef = useRef<HTMLDivElement | null>(null);
+  const tabsOriginalTopRef = useRef<number | null>(null);
+  const tabsPlaceholderHeightRef = useRef<number | undefined>(undefined);
+
+  useEffect(() => {
+    const el = tabsBarRef.current;
+    if (typeof window === "undefined" || !el) return;
+
+    const parseHeaderHeight = () => {
+      const raw = getComputedStyle(document.documentElement).getPropertyValue('--site-header-height')?.trim() || '';
+      if (!raw) return 64;
+      if (raw.endsWith('px')) return parseFloat(raw);
+      if (raw.endsWith('rem')) {
+        const val = parseFloat(raw);
+        const rootFont = parseFloat(getComputedStyle(document.documentElement).fontSize || '16');
+        return val * rootFont;
+      }
+      return parseFloat(raw) || 64;
+    }
+
+    let headerHeight = parseHeaderHeight();
+
+    const computeOriginalTop = () => {
+      const r = el.getBoundingClientRect();
+      tabsOriginalTopRef.current = r.top + window.scrollY;
+      tabsPlaceholderHeightRef.current = el.offsetHeight || undefined;
+    }
+
+    const onScroll = () => {
+      if (tabsOriginalTopRef.current == null) computeOriginalTop();
+      const currentScroll = window.scrollY;
+      const pinned = (currentScroll + headerHeight) >= (tabsOriginalTopRef.current ?? 0);
+      setTabsPinned(pinned);
+    }
+
+    const onResize = () => {
+      headerHeight = parseHeaderHeight();
+      requestAnimationFrame(() => computeOriginalTop());
+      onScroll();
+    }
+
+    requestAnimationFrame(() => {
+      headerHeight = parseHeaderHeight();
+      computeOriginalTop();
+      onScroll();
+    });
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onResize);
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onResize);
+    }
+  }, []);
+
   return (
     <section className="pb-8 md:pb-12 lg:pb-16">
-      {/* Desktop Tabs - Full Width */}
-      <div className="hidden md:block w-full border-b-2 border-[#EAEAEA] mb-6 md:pt-3">
-        <div className="container mx-auto px-4">
-          <div className="flex w-full gap-0">
-            {computedTabs.map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => handleTabChange(tab.id, tab.slug)}
-                className={cn(
-                  "flex-1 pb-3 md:pb-4 px-2 md:px-4 transition-all text-center",
-                  activeTab === tab.id
-                    ? "text-[#00548B] border-b-2 border-[#00548B] font-plus-extrabold"
-                    : "text-[#A1A1A1] hover:text-[#00548B] font-plus-medium"
-                )}
-                style={{
-                  fontSize: "16px",
-                  lineHeight: "40px",
-                  letterSpacing: "0px",
-                }}
-              >
-                {tab.label}
-              </button>
-            ))}
+      {/* Tabs (desktop + mobile) with sticky/fallback pinning */}
+      {/* placeholder to preserve layout when pinned */}
+      <div aria-hidden className={tabsPinned ? "" : "hidden"} style={tabsPinned ? { height: tabsPlaceholderHeightRef.current || undefined } : undefined} />
+
+      <div
+        ref={tabsBarRef}
+        className={"w-full z-40 bg-white " + (tabsPinned ? "fixed left-0 right-0" : "sticky")}
+        style={{ top: 'var(--site-header-height, 4rem)' }}
+      >
+        {/* Desktop Tabs - Full Width */}
+        <div className="hidden md:block w-full border-b-2 border-[#EAEAEA] mb-6 md:pt-3">
+          <div className="container mx-auto px-4">
+            <div className="flex w-full gap-0">
+              {computedTabs.map((tab) => (
+                <button
+                  key={tab.id}
+                  onClick={() => handleTabChange(tab.id, tab.slug)}
+                  className={cn(
+                    "flex-1 pb-3 md:pb-4 px-2 md:px-4 transition-all text-center",
+                    activeTab === tab.id
+                      ? "text-[#00548B] border-b-2 border-[#00548B] font-plus-extrabold"
+                      : "text-[#A1A1A1] hover:text-[#00548B] font-plus-medium"
+                  )}
+                  style={{
+                    fontSize: "16px",
+                    lineHeight: "40px",
+                    letterSpacing: "0px",
+                  }}
+                >
+                  {tab.label}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* Mobile Tabs */}
-      <MediaTabsMobile
-        tabs={computedTabs}
-        activeTab={activeTab}
-        onTabChange={(tabId, slug) => handleTabChange(tabId, slug)}
-        className="mb-4"
-      />
+        {/* Mobile Tabs */}
+        <div className="md:hidden">
+          <MediaTabsMobile
+            tabs={computedTabs}
+            activeTab={activeTab}
+            onTabChange={(tabId, slug) => handleTabChange(tabId, slug)}
+            className="mb-4"
+          />
+        </div>
+      </div>
 
       {/* Insights Tab - Custom Layout */}
       {isInsight && <InsightsContent locale={locale} tab={currentTab} />}
@@ -322,7 +414,7 @@ export function MediaContent({
                 {/* Content Container */}
                 <div className="relative z-10 container mx-auto px-4">
                   <Link
-                    href={`/${locale}/media/detail/${displayedItems[0].id}`}
+                    href={`/${locale}/media/detail/${displayedItems[0].slug || displayedItems[0].id}`}
                     className="block group"
                   >
                     <div className="relative w-full aspect-[4/3] md:aspect-[31/15] overflow-hidden rounded-b-[4px] cursor-pointer transition-transform hover:scale-[1.02]">
@@ -349,7 +441,7 @@ export function MediaContent({
                         )}
 
                       {/* Blur Overlay Container */}
-                      <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 flex flex-col gap-1 glass-dark">
+                      <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 flex flex-col gap-1 glass-dark-media">
                         <p className="font-manrope-regular text-sm md:text-base leading-6 text-[#EAEAEA]">
                           {displayedItems[0].date}
                         </p>
@@ -387,7 +479,7 @@ export function MediaContent({
                   {displayedItems.slice(1).map((item) => (
                     <Link
                       key={item.id}
-                      href={`/${locale}/media/detail/${item.id}`}
+                      href={`/${locale}/media/detail/${item.slug || item.id}`}
                       className="block"
                     >
                       <MediaCard

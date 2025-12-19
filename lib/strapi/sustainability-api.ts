@@ -167,12 +167,19 @@ export async function getReportsData(): Promise<ReportItem[]> {
       return []
     }
     
-    return response.data.map(report => ({
-      id: report.id,
-      year: report.year,
-      fileUrl: report.file?.url,
-      fileName: report.file?.name,
-    }))
+    return response.data.map((report) => {
+      const r: any = report;
+
+      const imageUrlFromReport = r?.image?.data?.attributes?.url || r?.image?.url || r?.file?.formats?.thumbnail?.url || null;
+      return {
+        id: report.id,
+        year: report.year,
+        fileUrl: report.file?.url,
+        fileName: report.file?.name,
+        title: r?.title,
+        image: (getStrapiMedia(imageUrlFromReport) || undefined),
+      }
+    })
   } catch (error) {
     console.error("Error fetching Reports data:", error)
     return []

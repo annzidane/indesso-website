@@ -4,6 +4,7 @@ import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { ExploreInsightsHero } from "@/components/sections/media/explore-insights-hero";
 import { ExploreInsightsContent } from "@/components/sections/media/explore-insights-content";
+import { fetchStrapi, getStrapiMedia } from "@/lib/strapi/client";
 
 interface ExploreInsightsPageProps {
   params: Promise<{ locale: Locale }>;
@@ -30,17 +31,26 @@ export default async function ExploreInsightsPage({
 }: ExploreInsightsPageProps) {
   const { locale } = await params;
 
-  const [footerData, headerData] = await Promise.all([
+  // Fetch header/footer and the explore-insights page data from Strapi
+  const [footerData, headerData, exploreResp] = await Promise.all([
     getFooterData(locale),
     getHeaderData(locale),
+    fetchStrapi<any>("media-explore-insight", { locale, query: { pLevel: 3 }, revalidate: 60 }),
   ]);
+
+  const exploreData = (exploreResp as any)?.data ?? null;
+  const hero = exploreData?.hero_section ?? null;
+  const pageConfig = exploreData?.media_insight ?? null;
+
+  // resolve hero background image URL
+  const heroImage = hero?.background_image ? getStrapiMedia(hero.background_image?.formats?.large?.url || hero.background_image?.url || null) : "/media/explore-insight-bg-top.png";
 
   return (
     <>
       <Header data={headerData} locale={locale} />
       <main>
-        <ExploreInsightsHero />
-        <ExploreInsightsContent locale={locale} />
+        <ExploreInsightsHero title={hero?.title || "Explore Insights"} backgroundImage={heroImage} />
+        <ExploreInsightsContent locale={locale} pageConfig={pageConfig} />
       </main>
       <Footer data={footerData} locale={locale} />
     </>

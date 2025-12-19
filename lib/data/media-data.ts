@@ -25,6 +25,8 @@ const content: string = `
 `;
 
 // Dummy data for Press Release and Stories
+import { toSlug } from "@/lib/strapi/utils";
+
 export const mediaData: MediaItem[] = [
   {
     id: "1",
@@ -574,6 +576,31 @@ export function getMediaByType(type: MediaItem["type"]): MediaItem[] {
 // Helper function to get media by ID
 export function getMediaById(id: string): MediaItem | undefined {
   return mediaData.find((item) => item.id === id);
+}
+
+// Helper function to get media by slug (slug may be generated from title for local data)
+export function getMediaBySlug(slug: string): MediaItem | undefined {
+  return mediaData.find((item) => {
+    const itemSlug = (item as any).slug || toSlug(item.title);
+    return itemSlug === slug;
+  });
+}
+
+// Helper to get related media by slug
+export function getRelatedMediaBySlug(
+  slug: string,
+  limit: number = 3
+): MediaItem[] {
+  const media = getMediaBySlug(slug);
+  if (!media) return [];
+  return mediaData
+    .filter((item) => item.type === media.type && item.id !== media.id)
+    .slice(0, limit)
+    .map((it) => ({ ...it, slug: (it as any).slug || toSlug(it.title) }));
+}
+
+export function getAllMediaSlugs(): string[] {
+  return mediaData.map((it) => (it as any).slug || toSlug(it.title));
 }
 
 // Helper function to get related media (same type, different ID)

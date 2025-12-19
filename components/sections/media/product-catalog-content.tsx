@@ -1,20 +1,55 @@
 "use client";
 
-import { useState } from "react";
-import { getMediaByType } from "@/lib/data/media-data";
+import { useState, useEffect } from "react";
 import { ProductCatalogCard } from "@/components/ui/media/product-catalog-card";
 
 export function ProductCatalogContent({ buttonLabel }: { buttonLabel?: string }) {
   const [visibleItems, setVisibleItems] = useState(8);
 
-  // Get all product catalog items
-  const catalogItems = getMediaByType("product-catalog");
+  // Fetch product catalog items from reports API; do not rely on local dummy data
+  const [catalogItems, setCatalogItems] = useState<any[]>([]);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    let mounted = true;
+    const load = async () => {
+      setLoading(true);
+      try {
+        const res = await fetch('/api/sustainability/reports');
+
+        if (!res.ok) throw new Error('Failed to fetch reports');
+        const json = await res.json();
+        const data = Array.isArray(json?.data) ? json.data : [];
+
+        if (mounted && data.length > 0) {
+          // Map ReportItem -> product catalog item shape expected by the card
+          const mapped = data.map((r: any) => ({
+            id: r.id,
+            title: r.title || `Report ${r.year}`,
+            image: r.image || undefined,
+            downloadUrl: r.fileUrl || r.file_url || undefined,
+          }));
+
+          setCatalogItems(mapped);
+        }
+      } catch (e) {
+        // Keep fallback local data
+        console.error('Error fetching reports for product catalog', e);
+      } finally {
+        setLoading(false);
+      }
+    }
+    load()
+    return () => { mounted = false }
+  }, [])
+
   const displayedItems = catalogItems.slice(0, visibleItems);
   const hasMore = visibleItems < catalogItems.length;
 
   const handleLoadMore = () => {
     setVisibleItems((prev) => prev + 8);
   };
+  console.log('ProductCatalogContent render', { catalogItems, displayedItems, hasMore, loading });
 
   return (
     <div className="space-y-8 md:space-y-12">

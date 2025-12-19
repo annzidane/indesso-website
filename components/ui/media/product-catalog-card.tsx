@@ -2,7 +2,7 @@ import Image from "next/image";
 
 interface ProductCatalogCardProps {
   title: string;
-  image: string;
+  image?: string;
   downloadUrl?: string;
 }
 
@@ -11,6 +11,7 @@ export function ProductCatalogCard({
   image,
   downloadUrl = "#",
 }: ProductCatalogCardProps) {
+  const imageSrc = image || "/media/media-product-catalog.png";
   return (
     <div className="flex flex-col items-center">
       {/* Card Container with Border */}
@@ -18,7 +19,7 @@ export function ProductCatalogCard({
         {/* Image */}
         <div className="relative w-full aspect-[3/4] mb-4">
           <Image
-            src={image}
+            src={imageSrc}
             alt={title}
             fill
             className="object-contain"

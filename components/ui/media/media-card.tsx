@@ -47,7 +47,7 @@ export function MediaCard({ title, date, image, className, tags }: MediaCardProp
         )}
 
         {/* Blur Overlay Container */}
-        <div className="absolute bottom-0 left-0 right-0 p-8 flex flex-col gap-1 glass-dark">
+        <div className="absolute bottom-0 left-0 right-0 p-8 flex flex-col gap-1 glass-dark-media">
           {/* Date */}
           <p className="font-manrope-regular text-sm md:text-base leading-6 text-[#EAEAEA]">
             {date}

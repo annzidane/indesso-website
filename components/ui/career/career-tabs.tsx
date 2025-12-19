@@ -103,8 +103,8 @@ export function CareerTabs({ items, defaultActiveId, className }: CareerTabsProp
                 className={cn(
                   "flex-1 pb-3 md:pb-4 px-2 md:px-4 pt-3 md:pt-4 transition-all text-center",
                   activeSection === item.id
-                    ? "text-[#00548B] border-b-2 border-[#00548B] font-plus-extrabold"
-                    : "text-[#A1A1A1] hover:text-[#00548B] font-plus-medium"
+                    ? "text-[#00548B] border-b-[3px] border-[#00548B] font-plus-extrabold -mb-[2px]"
+                    : "text-[#A1A1A1] hover:text-[#00548B] font-plus-medium border-b-[3px] border-transparent -mb-[2px]"
                 )}
                 style={{
                   fontSize: "16px",

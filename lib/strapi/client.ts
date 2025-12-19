@@ -19,7 +19,20 @@ function buildFilterParams(filters: Record<string, unknown>, prefix = 'filters')
   function addParams(obj: Record<string, unknown>, currentPrefix: string) {
     for (const [key, value] of Object.entries(obj)) {
       const newPrefix = `${currentPrefix}[${key}]`
-      if (typeof value === 'object' && value !== null && !Array.isArray(value)) {
+      // If the value is an array, serialize as JSON so complex filters (e.g. $in) are preserved
+      if (Array.isArray(value)) {
+        // Encode arrays using indexed bracket notation so Strapi receives multiple values:
+        // e.g. filters[insight_categories][slug][$in][0]=bakery
+        for (let i = 0; i < value.length; i++) {
+          const val = value[i]
+          const indexedKey = `${newPrefix}[${i}]`
+          if (typeof val === 'object' && val !== null && !Array.isArray(val)) {
+            addParams(val as Record<string, unknown>, indexedKey)
+          } else {
+            params.set(indexedKey, String(val))
+          }
+        }
+      } else if (typeof value === 'object' && value !== null) {
         addParams(value as Record<string, unknown>, newPrefix)
       } else {
         params.set(newPrefix, String(value))
@@ -69,7 +82,7 @@ export async function fetchStrapi<T>(endpoint: string, options: FetchOptions = {
   }
 
   const url = `${STRAPI_URL}/api/${endpoint}?${params.toString()}`
-
+console.log(`Fetching Strapi URL: ${url}`)
   const response = await fetch(url, {
     headers: {
       Authorization: `Bearer ${STRAPI_API_TOKEN}`,
@@ -86,7 +99,7 @@ export async function fetchStrapi<T>(endpoint: string, options: FetchOptions = {
 }
 
 export function getStrapiMedia(url: string | null): string {
-  if (!url) return "/abstract-geometric-sculpture.png"
+  if (!url) return ""
   if (url.startsWith("http")) return url
   return `${STRAPI_URL}${url}`
 }

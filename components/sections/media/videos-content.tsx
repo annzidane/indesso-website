@@ -1,65 +1,88 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { VideoFeaturedCard } from "@/components/ui/media/video-featured-card";
 import { VideoGalleryCard } from "@/components/ui/media/video-gallery-card";
 
 // Video data for the featured section
-const featuredVideos = [
-  {
-    id: "v1",
-    title: "Bunga Mas Journey: Nurtured by Nature, Crafted for Radiance",
-    subtitle: "BUNGA MAS JOURNEY",
-    thumbnail: "/media/video-featured-big.png",
-    videoUrl: "/media/video_sample.mp4",
-  },
-  {
-    id: "v2",
-    title: "Clove Journey: From Fallen Leaves to Every...",
-    subtitle: "CLOVE JOURNEY",
-    thumbnail: "/media/video-featured-1.png",
-    videoUrl: "/media/video_sample.mp4",
-  },
-  {
-    id: "v3",
-    title: "Indesso Visitor Center Highlights",
-    subtitle: "",
-    thumbnail: "/media/video-featured-2.png",
-    videoUrl: "/media/video_sample.mp4",
-  },
-];
+// We'll fetch videos from the server proxy `/api/videos`.
+type VideoModel = {
+  id: number | string;
+  title?: string;
+  url_video?: string;
+  description?: string;
+  publishedAt?: string;
+}
 
-// Video data for the gallery section
-const galleryVideos = [
-  {
-    id: "g1",
-    title: "Indesso Company Profile",
-    thumbnail: "/media/video-gallery-1.png",
-    videoUrl: "/media/video_sample.mp4",
-  },
-  {
-    id: "g2",
-    title: "Culinaroma Profile",
-    thumbnail: "/media/video-gallery-2.png",
-    videoUrl: "/media/video_sample.mp4",
-  },
-  {
-    id: "g3",
-    title: "Indesso Visitor Center",
-    thumbnail: "/media/video-gallery-3.png",
-    videoUrl: "/media/video_sample.mp4",
-  },
-  {
-    id: "g4",
-    title: "Indesso Logo Philosophy",
-    thumbnail: "/media/video-gallery-4.png",
-    videoUrl: "/media/video_sample.mp4",
-  },
-];
+function getYouTubeId(url?: string) {
+  if (!url) return null
+  const ytMatch = url.match(/(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([A-Za-z0-9_-]{6,})/)
+  return ytMatch ? ytMatch[1] : null
+}
+
+const PLACEHOLDER_BIG = "/media/video-featured-big.png"
+const PLACEHOLDER_SMALL = "/media/video-gallery-1.png"
+
 
 export function VideosContent({ label }: { label?: string }) {
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
+  const [featuredVideos, setFeaturedVideos] = useState<Array<any>>([])
+  const [galleryVideos, setGalleryVideos] = useState<Array<any>>([])
+
+  useEffect(() => {
+    let mounted = true
+    ;(async () => {
+      try {
+        const res = await fetch(`/api/videos?pLevel=4&limit=100`)
+        if (!res.ok) throw new Error(`Failed to fetch videos: ${res.status}`)
+        const json = await res.json()
+        const data = Array.isArray(json?.data) ? json.data : []
+
+        const mapped: VideoModel[] = data.map((v: any) => ({
+          id: v.id,
+          title: v.title,
+          url_video: v.url_video,
+          description: v.description,
+          publishedAt: v.publishedAt || v.publishedAt,
+        }))
+
+        if (!mounted) return
+
+        // First 3 -> featured; rest -> gallery
+        const first3 = mapped.slice(0, 3).map((m) => {
+          const ytId = getYouTubeId(m.url_video)
+          return {
+            id: `v${m.id}`,
+            title: m.title || '',
+            subtitle: m.title ? m.title.toUpperCase() : '',
+            thumbnail: ytId ? `https://img.youtube.com/vi/${ytId}/hqdefault.jpg` : PLACEHOLDER_BIG,
+            videoUrl: m.url_video || '',
+          }
+        })
+
+        const rest = mapped.slice(3).map((m) => {
+          const ytId = getYouTubeId(m.url_video)
+          return {
+            id: `g${m.id}`,
+            title: m.title || '',
+            thumbnail: ytId ? `https://img.youtube.com/vi/${ytId}/mqdefault.jpg` : PLACEHOLDER_SMALL,
+            videoUrl: m.url_video || '',
+          }
+        })
+
+        setFeaturedVideos(first3)
+        setGalleryVideos(rest)
+      } catch (e) {
+        console.error('Error fetching videos', e)
+        if (mounted) {
+          setFeaturedVideos([])
+          setGalleryVideos([])
+        }
+      }
+    })()
+    return () => { mounted = false }
+  }, [])
 
   const handlePlayVideo = (videoUrl: string) => {
     setActiveVideo(videoUrl);
@@ -68,6 +91,11 @@ export function VideosContent({ label }: { label?: string }) {
   const handleCloseVideo = () => {
     setActiveVideo(null);
   };
+
+  // Defensive defaults for featured slots to avoid reading undefined before fetch completes
+  const fv0 = featuredVideos[0] || { title: "", subtitle: "", thumbnail: PLACEHOLDER_BIG, videoUrl: "" };
+  const fv1 = featuredVideos[1] || { title: "", subtitle: "", thumbnail: PLACEHOLDER_SMALL, videoUrl: "" };
+  const fv2 = featuredVideos[2] || { title: "", subtitle: "", thumbnail: PLACEHOLDER_SMALL, videoUrl: "" };
 
   return (
     <div className="space-y-8 md:space-y-12">
@@ -89,34 +117,34 @@ export function VideosContent({ label }: { label?: string }) {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 h-auto md:min-h-[520px] lg:min-h-[600px]">
             {/* Large Video - Left */}
             <VideoFeaturedCard
-              title={featuredVideos[0].title}
-              subtitle={featuredVideos[0].subtitle}
-              thumbnail={featuredVideos[0].thumbnail}
-              videoUrl={featuredVideos[0].videoUrl}
+              title={fv0.title}
+              subtitle={fv0.subtitle}
+              thumbnail={fv0.thumbnail}
+              videoUrl={fv0.videoUrl}
               variant="large"
               className="h-full"
-              onPlay={() => handlePlayVideo(featuredVideos[0].videoUrl)}
+              onPlay={() => handlePlayVideo(fv0.videoUrl)}
             />
 
             {/* Right Column - 2 Smaller Videos */}
             <div className="flex flex-col gap-4 md:gap-6 h-full">
               <VideoFeaturedCard
-                title={featuredVideos[1].title}
-                subtitle={featuredVideos[1].subtitle}
-                thumbnail={featuredVideos[1].thumbnail}
-                videoUrl={featuredVideos[1].videoUrl}
+                title={fv1.title}
+                subtitle={fv1.subtitle}
+                thumbnail={fv1.thumbnail}
+                videoUrl={fv1.videoUrl}
                 variant="small"
                 className="flex-1"
-                onPlay={() => handlePlayVideo(featuredVideos[1].videoUrl)}
+                onPlay={() => handlePlayVideo(fv1.videoUrl)}
               />
               <VideoFeaturedCard
-                title={featuredVideos[2].title}
-                subtitle={featuredVideos[2].subtitle}
-                thumbnail={featuredVideos[2].thumbnail}
-                videoUrl={featuredVideos[2].videoUrl}
+                title={fv2.title}
+                subtitle={fv2.subtitle}
+                thumbnail={fv2.thumbnail}
+                videoUrl={fv2.videoUrl}
                 variant="small"
                 className="flex-1"
-                onPlay={() => handlePlayVideo(featuredVideos[2].videoUrl)}
+                onPlay={() => handlePlayVideo(fv2.videoUrl)}
               />
             </div>
           </div>
@@ -126,7 +154,7 @@ export function VideosContent({ label }: { label?: string }) {
       {/* Video Gallery Section */}
       <div className="container mx-auto px-4">
         {/* Section Title */}
-        <div className="flex items-center gap-6 mb-6 md:mb-8">
+          <div className="flex items-center gap-6 mb-6 md:mb-8">
           <h2
             className="font-plus-bold text-xl md:text-2xl lg:text-3xl whitespace-nowrap"
             style={{
@@ -136,12 +164,12 @@ export function VideosContent({ label }: { label?: string }) {
           >
             {label || "Video Gallery"}
           </h2>
-          <div className="flex-1 h-[2px] bg-[#EAEAEA]" />
+          <div className="flex-1 h-0.5 bg-[#EAEAEA]" />
         </div>
 
         {/* Gallery Grid - 2 columns */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-          {galleryVideos.map((video) => (
+          {galleryVideos.map((video: any) => (
             <VideoGalleryCard
               key={video.id}
               title={video.title}
@@ -185,15 +213,27 @@ export function VideosContent({ label }: { label?: string }) {
               </svg>
             </button>
 
-            {/* Video Player */}
-            <video
-              src={activeVideo}
-              controls
-              autoPlay
-              className="w-full aspect-video rounded-lg"
-            >
-              Your browser does not support the video tag.
-            </video>
+            {/* Video Player: use iframe for YouTube links, otherwise native video */}
+            {getYouTubeId(activeVideo || undefined) ? (
+              <iframe
+                width="100%"
+                height="480"
+                src={`https://www.youtube.com/embed/${getYouTubeId(activeVideo || undefined)}?autoplay=1`}
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="w-full aspect-video rounded-lg"
+              />
+            ) : (
+              <video
+                src={activeVideo || undefined}
+                controls
+                autoPlay
+                className="w-full aspect-video rounded-lg"
+              >
+                Your browser does not support the video tag.
+              </video>
+            )}
           </div>
         </div>
       )}

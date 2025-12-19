@@ -16,9 +16,15 @@ interface ContactTabsProps {
 
 export function ContactTabs({ tabs, activeTab, onTabChange, className }: ContactTabsProps) {
   return (
-    <div className={cn("relative", className)}>
+    <nav
+      className={cn(
+        "sticky z-40 bg-white border-b-2 border-[#EAEAEA] shadow-sm",
+        "top-16 md:top-20",
+        className
+      )}
+    >
       {/* Desktop Tabs - Media style with border-bottom */}
-      <div className="hidden md:block border-b-2 border-[#EAEAEA]">
+      <div className="hidden md:block">
         <div className="flex items-stretch">
           {tabs.map((tab, index) => (
             <button
@@ -43,7 +49,7 @@ export function ContactTabs({ tabs, activeTab, onTabChange, className }: Contact
       </div>
 
       {/* Mobile Tabs - Same style */}
-      <div className="md:hidden border-b-2 border-[#EAEAEA]">
+      <div className="md:hidden">
         <div className="flex items-stretch">
           {tabs.map((tab, index) => (
             <button
@@ -68,6 +74,6 @@ export function ContactTabs({ tabs, activeTab, onTabChange, className }: Contact
           ))}
         </div>
       </div>
-    </div>
+    </nav>
   )
 }

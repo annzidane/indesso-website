@@ -1,46 +1,114 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { getMediaByType } from "@/lib/data/media-data";
+import { toSlug } from "@/lib/strapi/utils";
+import { getStrapiMedia } from "@/lib/strapi/client";
 import { InsightFilterSidebar } from "./insight-filter-sidebar";
 import { InsightTag } from "@/components/ui/media/insight-tag";
 import type { Locale } from "@/lib/i18n/config";
 
 interface ExploreInsightsContentProps {
   locale: Locale;
+  pageConfig?: any;
 }
 
-// Define available topics/tags for filtering
-const INSIGHT_TOPICS = [
-  "Bakery",
-  "Beverage",
-  "Snack",
-  "Food Service",
-  "Dairy",
-  "Essential Oil",
-  "Flavor & Fragrance",
-  "Pharmaceutical",
-  "Perfumery",
-  "Skin Care",
-];
+interface InsightTopic {
+  title: string;
+  slug: string;
+}
 
-export function ExploreInsightsContent({ locale }: ExploreInsightsContentProps) {
-  const [selectedTopic, setSelectedTopic] = useState<string | null>(null);
+export function ExploreInsightsContent({ locale, pageConfig }: ExploreInsightsContentProps) {
+  const [selectedTopic, setSelectedTopic] = useState<string | null>(null); // slug
   const [visibleItems, setVisibleItems] = useState(6);
 
-  // Get all insight items
-  const allInsights = getMediaByType("insight");
+  const [allInsights, setAllInsights] = useState<any[]>([]);
+  const [topics, setTopics] = useState<InsightTopic[]>([]);
 
-  // Filter insights based on selected topic
+  useEffect(() => {
+    let mounted = true;
+    (async () => {
+      try {
+        const res = await fetch(`/api/media-insights?category=${encodeURIComponent("Insights")}&locale=${encodeURIComponent(locale)}&start=0&limit=200`);
+        if (!res.ok) throw new Error(`Failed to fetch insights: ${res.status}`);
+        const json = await res.json();
+        const data = Array.isArray(json?.data) ? json.data : [];
+        const mapped = data.map((a: any) => {
+          const dateStr = a?.date || a?.publishedAt || a?.createdAt || null;
+          const date = dateStr
+            ? new Date(dateStr).toLocaleDateString(locale === "id" ? "id" : "en", {
+                day: "numeric",
+                month: "long",
+                year: "numeric",
+              })
+            : "";
+          const imageUrl = a?.image?.data?.attributes?.url || a?.image?.url || a?.image || null;
+          const image = getStrapiMedia(imageUrl);
+          const content = (() => {
+            if (!a?.description) return "";
+            if (typeof a.description === "string") return a.description;
+            try {
+              if (Array.isArray(a.description) && a.description.length > 0) {
+                const first = a.description[0];
+                if (first?.children && Array.isArray(first.children)) {
+                  return first.children.map((c: any) => c.text || "").join(" ");
+                }
+                if (first?.text) return first.text;
+              }
+            } catch (e) {}
+            return "";
+          })();
+          return {
+            id: String(a.id),
+            slug: a?.slug || a?.attributes?.slug || toSlug(a?.title || a?.name || String(a.id)),
+            title: a?.title || a?.name || "",
+            date,
+            image,
+            content,
+            tags: a?.tags || null,
+            categories:
+              a?.insight_categories?.data
+                ? a.insight_categories.data.map((c: any) => ({ title: c?.attributes?.title || c?.title, slug: c?.attributes?.slug || c?.slug }))
+                : a?.insight_categories || [],
+          };
+        });
+        if (mounted) setAllInsights(mapped);
+      } catch (e) {
+        console.error('Error fetching explore insights', e);
+        if (mounted) setAllInsights([]);
+      }
+    })();
+    return () => { mounted = false };
+  }, [locale]);
+
+  // fetch categories for sidebar
+  useEffect(() => {
+    let mounted = true;
+    (async () => {
+      try {
+        const res = await fetch(`/api/insight-categories?locale=${encodeURIComponent(locale)}`);
+        if (!res.ok) throw new Error(`Failed to fetch insight categories: ${res.status}`);
+        const json = await res.json();
+        const data = Array.isArray(json?.data) ? json.data : [];
+        const mapped = data.map((c: any) => {
+          const attrs = c?.attributes || c;
+          return { title: attrs?.title || attrs?.name || '', slug: attrs?.slug || '' };
+        });
+        if (mounted) setTopics(mapped);
+      } catch (e) {
+        console.error('Error fetching insight categories', e);
+        if (mounted) setTopics([]);
+      }
+    })();
+    return () => { mounted = false };
+  }, [locale]);
+
+  // Filter insights based on selected topic (slug)
   const filteredInsights = useMemo(() => {
     if (!selectedTopic) return allInsights;
     return allInsights.filter((item) =>
-      item.tags?.some((tag) =>
-        tag.toLowerCase().includes(selectedTopic.toLowerCase()) ||
-        selectedTopic.toLowerCase().includes(tag.toLowerCase())
-      )
+      (item.categories || []).some((cat: any) => String(cat.slug) === String(selectedTopic))
     );
   }, [allInsights, selectedTopic]);
 
@@ -62,7 +130,7 @@ export function ExploreInsightsContent({ locale }: ExploreInsightsContentProps) 
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
           {/* Sidebar */}
           <InsightFilterSidebar
-            topics={INSIGHT_TOPICS}
+            topics={topics}
             selectedTopic={selectedTopic}
             onTopicSelect={handleTopicSelect}
           />
@@ -80,7 +148,7 @@ export function ExploreInsightsContent({ locale }: ExploreInsightsContentProps) 
               {displayedInsights.map((item) => (
                 <Link
                   key={item.id}
-                  href={`/${locale}/media/detail/${item.id}`}
+                  href={`/${locale}/media/detail/${(item as any).slug || item.id}`}
                   className="block group"
                 >
                   <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
@@ -119,7 +187,7 @@ export function ExploreInsightsContent({ locale }: ExploreInsightsContentProps) 
                       {/* Tags */}
                       {item.tags && item.tags.length > 0 && (
                         <div className="flex flex-wrap gap-2 mt-auto pt-2">
-                          {item.tags.map((tag, index) => (
+                          {item.tags.map((tag: string, index: number) => (
                             <InsightTag key={index} tag={tag} />
                           ))}
                         </div>
@@ -145,7 +213,7 @@ export function ExploreInsightsContent({ locale }: ExploreInsightsContentProps) 
                 onClick={handleLoadMore}
                 className="w-full h-14 px-6 mt-8 rounded-sm border border-[#003557] text-[#003557] hover:bg-[#003557] hover:text-white transition-colors font-manrope-bold text-base leading-5 text-center bg-transparent"
               >
-                Load More
+                {pageConfig?.lable_button || 'Load More'}
               </button>
             )}
           </div>

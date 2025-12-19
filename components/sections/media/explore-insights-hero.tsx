@@ -1,12 +1,17 @@
 import Image from "next/image";
 
-export function ExploreInsightsHero() {
+interface ExploreInsightsHeroProps {
+  title?: string;
+  backgroundImage?: string;
+}
+
+export function ExploreInsightsHero({ title = "Explore Insights", backgroundImage }: ExploreInsightsHeroProps) {
   return (
     <section className="relative w-full h-[240px] md:h-[320px] lg:h-[480px] overflow-hidden">
       {/* Background Image */}
       <Image
-        src="/media/explore-insight-bg-top.png"
-        alt="Explore Insights"
+        src={backgroundImage || "/media/explore-insight-bg-top.png"}
+        alt={String(title)}
         fill
         className="object-cover"
         priority
@@ -24,7 +29,7 @@ export function ExploreInsightsHero() {
             letterSpacing: "-1px",
           }}
         >
-          Explore Insights
+          {title}
         </h1>
       </div>
     </section>

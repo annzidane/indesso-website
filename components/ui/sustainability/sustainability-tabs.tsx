@@ -108,7 +108,7 @@ export function SustainabilityTabs({ items, defaultActiveId, className }: Sustai
                 )}
                 style={{
                   fontSize: "16px",
-                  lineHeight: "40px",
+                  lineHeight: "23px",
                   letterSpacing: "0px",
                 }}
               >

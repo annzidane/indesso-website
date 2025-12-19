@@ -168,6 +168,7 @@ export interface ReportData {
   id: number
   documentId: string
   year: string
+  title?: string
   createdAt: string
   updatedAt: string
   publishedAt: string
@@ -267,4 +268,5 @@ export interface ReportItem {
   fileUrl?: string
   fileName?: string
   title?: string
+  image?: string
 }
