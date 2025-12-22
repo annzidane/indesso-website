@@ -125,6 +125,35 @@ export async function getCareerPageData(locale: string): Promise<CareerPageProps
   }
 }
 
+export async function getPositionData(locale: string): Promise<Array<{ id: number; name: string; slug: string }>> {
+  try {
+    const response = await fetchStrapi<CareerApiResponse>("positions-opportunities", {
+      locale,
+      query: {
+        pLevel: 4,
+        limit: 100,
+      },
+    })
+
+    if (!response?.data || !Array.isArray(response.data)) {
+      console.error("No data returned from Positions API")
+      return []
+    }
+    const items = response.data.map((pos: any) => {
+      const id = pos.id
+      const name = (pos.attributes?.name ?? pos.name ?? pos.attributes?.title ?? '').toString()
+      const slug = (pos.attributes?.slug ?? pos.slug ?? '').toString()
+      return { id, name, slug }
+    })
+
+    // Optionally filter out empty names
+    return items.filter(i => i.name && i.name.trim().length > 0)
+  } catch (error) {
+    console.error("Error fetching Positions data:", error)
+    return []
+  }
+}
+
 // Default data for fallback
 function getDefaultCareerData(): CareerPageProps {
   return {

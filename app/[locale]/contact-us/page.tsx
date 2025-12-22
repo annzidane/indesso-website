@@ -4,7 +4,7 @@ import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
 import { PageHero } from "@/components/ui/page-hero"
 import { ContactUsContent } from "@/components/sections/contact/contact-us-content"
-import { getContactUsData } from "@/lib/strapi/contact-us-api"
+import { getContactUsData, getTopicsData } from "@/lib/strapi/contact-us-api"
 
 interface PageProps {
   params: Promise<{ locale: Locale }>
@@ -22,9 +22,10 @@ export async function generateMetadata({ params }: PageProps) {
 export default async function ContactUsPage({ params }: PageProps) {
   const { locale } = await params
 
-  const [headerData, footerData] = await Promise.all([
+  const [headerData, footerData, topicsData] = await Promise.all([
     getHeaderData(locale),
     getFooterData(locale),
+    getTopicsData(locale),
   ])
 
   // fetch contact-us page data
@@ -41,7 +42,7 @@ export default async function ContactUsPage({ params }: PageProps) {
           }
           objectPosition="center top"
         />
-      <ContactUsContent data={contactData} />
+      <ContactUsContent data={contactData} topicsData={topicsData} />
       </main>
       <Footer data={footerData} locale={locale} />
     </>

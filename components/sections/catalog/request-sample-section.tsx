@@ -10,11 +10,17 @@ import { SectionLabel } from "@/components/ui/section-label";
 interface RequestSampleSectionProps {
   productName: string;
   data?: any;
+  topicsData?: Array<{
+    topic: string;
+    slug: string;
+    destination_email: string
+  }>;
 }
 
 export function RequestSampleSection({
   productName,
   data,
+  topicsData,
 }: RequestSampleSectionProps) {
   const [formData, setFormData] = useState({
     yourName: "",
@@ -81,8 +87,8 @@ export function RequestSampleSection({
         }
 
         // botanical detail page
-        if (!formPageValue && (p.includes("botanical-detail") || p.includes("/our-business/botanical"))) {
-          formPageValue = data?.botanical_name ?? data?.botanical?.name ?? data?.title ?? productName
+        if (!formPageValue && (p.includes("botanical-detail") || p.includes("/our-business/"))) {
+          formPageValue = productName
         }
 
         // contact page
@@ -97,11 +103,20 @@ export function RequestSampleSection({
       }
 
     // Submit via helper
+    // If topicsData is available, send the human-readable topic label as inquiry_topics
+    let inquiry_topics_value = formData.inquiryTopic
+    if (Array.isArray(topicsData) && topicsData.length > 0) {
+      const found = topicsData.find(t => String(t.slug) === String(formData.inquiryTopic) || String(t.topic) === String(formData.inquiryTopic))
+      if (found) {
+        inquiry_topics_value = String(found.topic ?? found.slug)
+      }
+    }
+
     const payload = {
       name: formData.yourName,
       company_name: formData.companyName,
       email: formData.email,
-      inquiry_topics: formData.inquiryTopic,
+      inquiry_topics: inquiry_topics_value,
       your_notes: formData.notes,
       form_page: String(formPageValue),
     }
@@ -290,10 +305,13 @@ export function RequestSampleSection({
 
               {/* Inquiry Topics */}
               <div className="relative">
-                {/* Build options from CMS data if provided */}
                 {(() => {
-                  const topicOptions = (data?.field_topic?.option as any[]) || []
                   const placeholderText = data?.field_topic?.placeholder || "Choose your inquiry topics"
+
+                  const topicOptions: Array<{ id: string; label: string; value: string }> = (Array.isArray(topicsData) && topicsData.length > 0)
+                    ? topicsData.map((t) => ({ id: String(t.slug ?? t.topic), label: String(t.topic ?? t.slug), value: String(t.slug ?? t.topic) }))
+                    : []
+
                   return (
                     <>
                       <select
@@ -313,51 +331,12 @@ export function RequestSampleSection({
                         <option value="" style={{ color: "#A1A1A1" }}>
                           {placeholderText}
                         </option>
-                        {topicOptions.length > 0
-                          ? topicOptions.map((opt) => {
-                              // Prefer human-readable string fields for the label (e.g. size, option, value, label)
-                              let label: string | undefined = undefined
-                              if (opt?.size && typeof opt.size === "string") label = opt.size
-                              if (!label && opt?.label && typeof opt.label === "string") label = opt.label
-                              if (!label && opt?.option && typeof opt.option === "string") label = opt.option
-                              if (!label && opt?.value && typeof opt.value === "string") label = opt.value
-                              // Fallback: try to find any string property besides id
-                              if (!label) {
-                                for (const k in opt) {
-                                  if (k !== "id" && typeof (opt as any)[k] === "string") {
-                                    label = (opt as any)[k]
-                                    break
-                                  }
-                                }
-                              }
-                              const val = label ?? String(opt?.id ?? "")
-                              const key = String(opt?.id ?? val)
-                              return (
-                                <option key={key} value={val} style={{ color: "#333333" }}>
-                                  {label ?? key}
-                                </option>
-                              )
-                            })
-                          : (
-                            // fallback static options
-                            <>
-                              <option value="product-sample" style={{ color: "#333333" }}>
-                                Product Sample Request
-                              </option>
-                              <option value="technical-inquiry" style={{ color: "#333333" }}>
-                                Technical Inquiry
-                              </option>
-                              <option value="pricing" style={{ color: "#333333" }}>
-                                Pricing Information
-                              </option>
-                              <option value="partnership" style={{ color: "#333333" }}>
-                                Partnership Opportunity
-                              </option>
-                              <option value="other" style={{ color: "#333333" }}>
-                                Other
-                              </option>
-                            </>
-                          )}
+                        {topicOptions.length > 0 &&
+                          topicOptions.map((opt) => (
+                            <option key={opt.id} value={opt.value} style={{ color: "#333333" }}>
+                              {opt.label}
+                            </option>
+                          ))}
                       </select>
                       <label
                         htmlFor="inquiryTopic"

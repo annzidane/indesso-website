@@ -15,9 +15,14 @@ const tabs = [
 
 interface ContactUsContentProps {
   data?: any
+  topicsData?: Array<{
+    topic: string;
+    slug: string;
+    destination_email: string
+  }>
 }
 
-export function ContactUsContent({ data }: ContactUsContentProps) {
+export function ContactUsContent({ data, topicsData }: ContactUsContentProps) {
   const [activeTab, setActiveTab] = useState(0)
 
   // helper to create URL-friendly slugs from titles
@@ -210,6 +215,7 @@ export function ContactUsContent({ data }: ContactUsContentProps) {
           <RequestSampleSection
             productName={data?.page_nav?.find((p: any) => p.__component?.includes("contact-us-page"))?.contact_us_section?.title ?? ""}
             data={data?.page_nav?.find((p: any) => p.__component?.includes("contact-us-page"))?.contact_us_section}
+            topicsData={topicsData}
           />
         </>
       ) : (

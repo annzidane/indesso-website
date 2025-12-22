@@ -9,6 +9,7 @@ import { CompatibilitySection } from "@/components/sections/catalog/compatibilit
 import { RequestSampleSection } from "@/components/sections/catalog/request-sample-section";
 import { RelatedProductsSection } from "@/components/sections/catalog/related-products-section";
 import { notFound } from "next/navigation";
+import { getTopicsData } from "@/lib/strapi/contact-us-api";
 
 interface ProductDetailPageProps {
   params: Promise<{ locale: Locale; slug: string }>;
@@ -37,11 +38,12 @@ export default async function ProductDetailPage({
 }: ProductDetailPageProps) {
   const { locale, slug } = await params;
   // Fetch product and page content in parallel
-  const [product, pageData, footerData, headerData] = await Promise.all([
+  const [product, pageData, footerData, headerData, topicsData] = await Promise.all([
     getProductBySlug(slug, locale),
     getProductDetailPage(locale),
     getFooterData(locale),
     getHeaderData(locale),
+    getTopicsData(locale),
   ]);
 
   if (!product) {
@@ -112,7 +114,7 @@ export default async function ProductDetailPage({
           description={productDetailSection?.description_application}
           accordionTitle={productDetailSection?.title_accordion}
         />
-        <RequestSampleSection productName={product.name ?? ""} data={contactData} />
+        <RequestSampleSection productName={product.name ?? ""} data={contactData} topicsData={topicsData} />
         <RelatedProductsSection
           title={listWrapper?.title}
           products={relatedProducts}

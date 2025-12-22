@@ -1,5 +1,5 @@
 import type { Locale } from "@/lib/i18n/config"
-import { getCareerPageData } from "@/lib/strapi/career-api"
+import { getCareerPageData, getPositionData } from "@/lib/strapi/career-api"
 import { getFooterData, getHeaderData } from "@/lib/strapi/api"
 import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
@@ -28,8 +28,9 @@ export async function generateMetadata({ params }: PageProps) {
 export default async function CareerPage({ params }: PageProps) {
   const { locale } = await params
 
-  const [careerData, headerData, footerData] = await Promise.all([
+  const [careerData, positionData, headerData, footerData] = await Promise.all([
     getCareerPageData(locale),
+    getPositionData(locale),
     getHeaderData(locale),
     getFooterData(locale),
   ])
@@ -44,7 +45,7 @@ export default async function CareerPage({ params }: PageProps) {
         />
         <CareerTabs items={careerData.navItems} defaultActiveId={careerData.navItems[0]?.id} />
         <LifeAtIndesso data={careerData.lifeAtIndesso} />
-        <JoinUs data={careerData.joinUs} locale={locale} />
+        <JoinUs data={careerData.joinUs} positionData={positionData} locale={locale} />
         <TestimonialSection data={careerData.testimonial} />
         <GrowingTogether data={careerData.growingTogether} />
       </main>

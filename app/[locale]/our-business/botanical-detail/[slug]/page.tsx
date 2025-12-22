@@ -10,6 +10,7 @@ import { BotanicalIntro } from "@/components/sections/botanical/intro-section"
 import { BotanicalDetails } from "@/components/sections/botanical/detail-section"
 import { BotanicalFAQ } from "@/components/sections/botanical/faq-section"
 import { RequestSampleSection } from "@/components/sections/catalog/request-sample-section"
+import { getTopicsData } from "@/lib/strapi/contact-us-api"
 
 interface PageProps {
   params: Promise<{ locale: Locale; slug: string }>
@@ -18,11 +19,12 @@ interface PageProps {
 export default async function BotanicalDetailPage({ params }: PageProps) {
   const { slug, locale } = await params
 
-  const [headerData, footerData, pageData, relatedProductsData] = await Promise.all([
+  const [headerData, footerData, pageData, relatedProductsData, topicsData] = await Promise.all([
     getHeaderData(locale),
     getFooterData(locale),
     getBotanicalPageData(slug, locale),
     getProductsByBotanicalSlug(slug, locale),
+    getTopicsData(locale),
   ])
 
   if (!pageData) {
@@ -73,7 +75,7 @@ export default async function BotanicalDetailPage({ params }: PageProps) {
           locale={locale}
         />
         <BotanicalFAQ title={faqSection?.title} eyebrow={faqSection?.eyebrow} questions={faqs} />
-        <RequestSampleSection productName={botanical.name} data={contactUsSection} />
+        <RequestSampleSection productName={botanical.name} data={contactUsSection} topicsData={topicsData} />
       </main>
       <Footer data={footerData} locale={locale} />
     </>

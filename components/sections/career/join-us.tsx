@@ -12,9 +12,14 @@ import type { CareerPageProps } from "@/types/strapi";
 interface JoinUsProps {
   data: CareerPageProps["joinUs"];
   locale: string;
+  positionData: Array<{ 
+    id: number;
+    name: string;
+    slug: string;
+  }>;
 }
 
-export function JoinUs({ data, locale }: JoinUsProps) {
+export function JoinUs({ data, locale, positionData }: JoinUsProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [formData, setFormData] = useState({
     yourName: "",
@@ -439,10 +444,10 @@ export function JoinUs({ data, locale }: JoinUsProps) {
                     <option value="" style={{ color: "#A1A1A1" }}>
                       {data.join_us_modal?.field_position?.placeholder || "Select a position"}
                     </option>
-                    {data.join_us_modal?.field_position?.option && data.join_us_modal.field_position.option.length > 0 ? (
-                      data.join_us_modal.field_position.option.map((opt) => (
-                        <option key={opt.id} value={toSlug(opt.option)} style={{ color: "#333333" }}>
-                          {opt.option}
+                    {positionData && positionData.length > 0 ? (
+                      positionData.map((opt) => (
+                        <option key={opt.id} value={toSlug(opt.name)} style={{ color: "#333333" }}>
+                          {opt.name}
                         </option>
                       ))
                     ) : (
