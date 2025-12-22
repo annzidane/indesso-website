@@ -19,7 +19,7 @@ export function JoinUs({ data, locale }: JoinUsProps) {
   const [formData, setFormData] = useState({
     yourName: "",
     email: "",
-    countryCode: "62+",
+    countryCode: "",
     phoneNumber: "",
     address: "",
     position: "",
@@ -30,10 +30,69 @@ export function JoinUs({ data, locale }: JoinUsProps) {
     ? getStrapiMedia(data.image.url)
     : "/hands-planting-seedling-in-soil-close-up-nature.jpg";
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [submitting, setSubmitting] = useState(false)
+  const [formError, setFormError] = useState<string | null>(null)
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    setIsModalOpen(false);
+
+    // reset previous error
+    setFormError(null)
+
+    // Validate all required fields
+    if (!formData.yourName || !formData.email || !formData.phoneNumber || !formData.address || !formData.position || !formData.cv) {
+      setFormError('Please fill all required fields and attach your CV.')
+      return
+    }
+
+    try {
+      setSubmitting(true)
+      const body = new FormData()
+      body.append('yourName', formData.yourName)
+      body.append('email', formData.email)
+      if (formData.countryCode) body.append('countryCode', formData.countryCode)
+      body.append('phoneNumber', formData.phoneNumber)
+      body.append('address', formData.address)
+      body.append('position', formData.position)
+      if (formData.cv) body.append('cv', formData.cv)
+
+      const res = await fetch('/api/applicants', { method: 'POST', body })
+      if (!res.ok) {
+        const json = await res.json().catch(() => ({}))
+        console.error('Submit error', json)
+
+        // Extract a human-friendly message from server response
+        let message = 'Failed to submit your application. Please try again later.'
+        if (json) {
+          if (json.details) {
+            // details may be a JSON string from Strapi; try to parse it
+            try {
+              const parsed = typeof json.details === 'string' ? JSON.parse(json.details) : json.details
+              // prefer a top-level message or Strapi's error.message
+              message = parsed?.error?.message || parsed?.message || JSON.stringify(parsed)
+            } catch (e) {
+              message = String(json.details)
+            }
+          } else if (json.error) {
+            message = String(json.error)
+          }
+        }
+
+        setFormError(message)
+      } else {
+        const successJson = await res.json().catch(() => ({}))
+        // clear on success
+        setFormError(null)
+        alert('Application submitted — thank you!')
+        setIsModalOpen(false)
+        setFormData({ yourName: '', email: '', countryCode: '', phoneNumber: '', address: '', position: '', cv: null })
+      }
+    } catch (err) {
+      console.error('Error submitting applicant', err)
+      alert('Failed to submit your application. Please try again later.')
+    } finally {
+      setSubmitting(false)
+    }
   };
 
   const handleChange = (
@@ -99,7 +158,7 @@ export function JoinUs({ data, locale }: JoinUsProps) {
                 </p>
                 {/* Buttons */}
                 <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                  {data.button && (
+                  {data.opportunitiesButton && (
                     <Button
                       variant="outline"
                       onClick={() => setIsModalOpen(true)}
@@ -115,14 +174,14 @@ export function JoinUs({ data, locale }: JoinUsProps) {
                         flex items-center justify-center gap-2
                       "
                     >
-                      {data.button.title}
+                      {data.opportunitiesButton}
                       <ChevronRight className="w-4 h-4" />
                     </Button>
                   )}
 
                   {/* Visit Our LinkedIn Button */}
                   <a
-                    href="https://www.linkedin.com/company/indesso"
+                    href={data.urlVisitButton || "https://www.linkedin.com/"}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="
@@ -144,19 +203,29 @@ export function JoinUs({ data, locale }: JoinUsProps) {
                       lineHeight: "20px",
                     }}
                   >
-                    <svg
-                      width="20"
-                      height="20"
-                      viewBox="0 0 20 20"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M17.0391 17.043H14.0781V12.4023C14.0781 11.2969 14.0586 9.87109 12.5352 9.87109C10.9922 9.87109 10.7578 11.0781 10.7578 12.3242V17.043H7.79688V7.49609H10.6406V8.80078H10.6797C11.0742 8.05078 12.043 7.25781 13.4844 7.25781C16.4844 7.25781 17.0391 9.23438 17.0391 11.8047V17.043ZM4.44922 6.19141C3.49219 6.19141 2.72266 5.41406 2.72266 4.46484C2.72266 3.51562 3.49219 2.74219 4.44922 2.74219C5.39844 2.74219 6.17578 3.51562 6.17578 4.46484C6.17578 5.41406 5.39844 6.19141 4.44922 6.19141ZM5.93359 17.043H2.96484V7.49609H5.93359V17.043Z"
-                        fill="#00548B"
-                      />
-                    </svg>
-                    Visit Our LinkedIn
+                      {data.logoVisitButton?.url ? (
+                        <Image
+                          src={getStrapiMedia(data.logoVisitButton.url)}
+                          alt={data.labelVisitButton || 'LinkedIn'}
+                          width={20}
+                          height={20}
+                          className="object-contain"
+                        />
+                      ) : (
+                        <svg
+                          width="20"
+                          height="20"
+                          viewBox="0 0 20 20"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M17.0391 17.043H14.0781V12.4023C14.0781 11.2969 14.0586 9.87109 12.5352 9.87109C10.9922 9.87109 10.7578 11.0781 10.7578 12.3242V17.043H7.79688V7.49609H10.6406V8.80078H10.6797C11.0742 8.05078 12.043 7.25781 13.4844 7.25781C16.4844 7.25781 17.0391 9.23438 17.0391 11.8047V17.043ZM4.44922 6.19141C3.49219 6.19141 2.72266 5.41406 2.72266 4.46484C2.72266 3.51562 3.49219 2.74219 4.44922 2.74219C5.39844 2.74219 6.17578 3.51562 6.17578 4.46484C6.17578 5.41406 5.39844 6.19141 4.44922 6.19141ZM5.93359 17.043H2.96484V7.49609H5.93359V17.043Z"
+                            fill="#00548B"
+                          />
+                        </svg>
+                      )}
+                    {data.labelVisitButton || "Visit Us"}
                     <ChevronRight className="w-4 h-4" />
                   </a>
                 </div>
@@ -188,14 +257,19 @@ export function JoinUs({ data, locale }: JoinUsProps) {
             <div className="p-6 md:p-8">
               {/* Title */}
               <h2
-                className="font-plus-bold italic text-2xl md:text-3xl mb-6"
-                style={{ color: "#003557" }}
+                className="font-plus-bold text-indesso-dark-blue text-2xl md:text-3xl mb-6"
               >
-                Join Indesso
+                {data.join_us_modal?.title || "Join Indesso"}
               </h2>
 
               {/* Form */}
               <form onSubmit={handleSubmit} className="space-y-4">
+                {/* Inline error message (server or client validation) */}
+                {formError && (
+                  <div className="rounded border border-red-200 bg-red-50 text-red-800 px-4 py-2 text-sm">
+                    {formError}
+                  </div>
+                )}
                 {/* Your Name */}
                 <div className="relative">
                   <input
@@ -204,7 +278,7 @@ export function JoinUs({ data, locale }: JoinUsProps) {
                     name="yourName"
                     value={formData.yourName}
                     onChange={handleChange}
-                    placeholder="Write Your Name"
+                    placeholder= {data.join_us_modal?.field_name?.placeholder || "Write Your Name"}
                     className="w-full h-12 md:h-14 px-4 rounded border font-manrope-regular text-sm md:text-base focus:outline-none focus:ring-2 focus:ring-[#00548B] transition-all"
                     style={{
                       borderColor: "#00548B",
@@ -224,7 +298,7 @@ export function JoinUs({ data, locale }: JoinUsProps) {
                       letterSpacing: "2px",
                     }}
                   >
-                    YOUR NAME
+                    {data.join_us_modal?.field_name?.title || "YOUR NAME"}
                   </label>
                 </div>
 
@@ -238,7 +312,7 @@ export function JoinUs({ data, locale }: JoinUsProps) {
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
-                      placeholder="Write your company name"
+                      placeholder={data.join_us_modal?.field_email?.placeholder || "Write your email"}
                       className="w-full h-12 md:h-14 px-4 rounded border font-manrope-regular text-sm md:text-base focus:outline-none focus:ring-2 focus:ring-[#00548B] transition-all"
                       style={{
                         borderColor: "#00548B",
@@ -258,7 +332,7 @@ export function JoinUs({ data, locale }: JoinUsProps) {
                         letterSpacing: "2px",
                       }}
                     >
-                      EMAIL
+                      {data.join_us_modal?.field_email?.title || "EMAIL"}
                     </label>
                   </div>
 
@@ -271,8 +345,10 @@ export function JoinUs({ data, locale }: JoinUsProps) {
                         name="countryCode"
                         value={formData.countryCode}
                         onChange={handleChange}
-                        placeholder="62+"
-                        className="w-14 h-full px-2 rounded-l border-y border-l font-manrope-regular text-sm text-center focus:outline-none focus:ring-2 focus:ring-[#00548B] transition-all"
+                        placeholder="+62"
+                        disabled
+                        aria-disabled={true}
+                        className="w-14 h-full px-2 rounded-l border-y border-l font-manrope-regular text-sm text-center focus:outline-none focus:ring-2 focus:ring-[#00548B] transition-all opacity-50"
                         style={{
                           borderColor: "#00548B",
                           borderWidth: "0.5px",
@@ -286,7 +362,7 @@ export function JoinUs({ data, locale }: JoinUsProps) {
                         name="phoneNumber"
                         value={formData.phoneNumber}
                         onChange={handleChange}
-                        placeholder="81234567890"
+                        placeholder={data.join_us_modal?.field_contact?.placeholder || "81234567890"}
                         className="flex-1 h-full px-4 rounded-r border font-manrope-regular text-sm md:text-base focus:outline-none focus:ring-2 focus:ring-[#00548B] transition-all"
                         style={{
                           borderColor: "#00548B",
@@ -307,7 +383,7 @@ export function JoinUs({ data, locale }: JoinUsProps) {
                         letterSpacing: "2px",
                       }}
                     >
-                      PHONE NUMBER
+                      {data.join_us_modal?.field_contact?.title || "CONTACT NUMBER"}
                     </label>
                   </div>
                 </div>
@@ -320,7 +396,7 @@ export function JoinUs({ data, locale }: JoinUsProps) {
                     name="address"
                     value={formData.address}
                     onChange={handleChange}
-                    placeholder="Write Your Address"
+                    placeholder={data.join_us_modal?.field_address?.placeholder || "Write your address"}
                     className="w-full h-12 md:h-14 px-4 rounded border font-manrope-regular text-sm md:text-base focus:outline-none focus:ring-2 focus:ring-[#00548B] transition-all"
                     style={{
                       borderColor: "#00548B",
@@ -340,7 +416,7 @@ export function JoinUs({ data, locale }: JoinUsProps) {
                       letterSpacing: "2px",
                     }}
                   >
-                    ADDRESS
+                    {data.join_us_modal?.field_address?.title || "ADDRESS"}
                   </label>
                 </div>
 
@@ -361,26 +437,33 @@ export function JoinUs({ data, locale }: JoinUsProps) {
                     required
                   >
                     <option value="" style={{ color: "#A1A1A1" }}>
-                      Choose available position
+                      {data.join_us_modal?.field_position?.placeholder || "Select a position"}
                     </option>
-                    <option
-                      value="software-engineer"
-                      style={{ color: "#333333" }}
-                    >
-                      Software Engineer
-                    </option>
-                    <option value="marketing" style={{ color: "#333333" }}>
-                      Marketing
-                    </option>
-                    <option value="sales" style={{ color: "#333333" }}>
-                      Sales
-                    </option>
-                    <option value="hr" style={{ color: "#333333" }}>
-                      Human Resources
-                    </option>
-                    <option value="other" style={{ color: "#333333" }}>
-                      Other
-                    </option>
+                    {data.join_us_modal?.field_position?.option && data.join_us_modal.field_position.option.length > 0 ? (
+                      data.join_us_modal.field_position.option.map((opt) => (
+                        <option key={opt.id} value={toSlug(opt.option)} style={{ color: "#333333" }}>
+                          {opt.option}
+                        </option>
+                      ))
+                    ) : (
+                      <>
+                        <option value="software-engineer" style={{ color: "#333333" }}>
+                          Software Engineer
+                        </option>
+                        <option value="marketing" style={{ color: "#333333" }}>
+                          Marketing
+                        </option>
+                        <option value="sales" style={{ color: "#333333" }}>
+                          Sales
+                        </option>
+                        <option value="hr" style={{ color: "#333333" }}>
+                          Human Resources
+                        </option>
+                        <option value="other" style={{ color: "#333333" }}>
+                          Other
+                        </option>
+                      </>
+                    )}
                   </select>
                   <label
                     htmlFor="position"
@@ -392,7 +475,7 @@ export function JoinUs({ data, locale }: JoinUsProps) {
                       letterSpacing: "2px",
                     }}
                   >
-                    POSITION
+                    {data.join_us_modal?.field_position?.title || "POSITION"}
                   </label>
                   <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none" />
                 </div>
@@ -410,16 +493,17 @@ export function JoinUs({ data, locale }: JoinUsProps) {
                     <p className="font-manrope-regular text-xs text-[#A1A1A1] flex-1 px-4 truncate">
                       {formData.cv
                         ? formData.cv.name
-                        : "The CV should be in PDF or DOCX format with a max size of 2 MB."}
+                        : data.join_us_modal?.field_file?.placeholder || "No file chosen"}
                     </p>
                     <label
                       htmlFor="cv"
                       className="shrink-0 h-full px-6 font-plus-bold text-xs text-white cursor-pointer hover:opacity-90 transition-opacity whitespace-nowrap flex items-center"
                       style={{
                         background: "#003557",
+                        letterSpacing: "1px",
                       }}
                     >
-                      CHOOSE FILE
+                      {data.join_us_modal?.field_file?.button || "CHOOSE FILE"}
                     </label>
                     <input
                       type="file"
@@ -439,7 +523,7 @@ export function JoinUs({ data, locale }: JoinUsProps) {
                       letterSpacing: "2px",
                     }}
                   >
-                    YOUR CV
+                    {data.join_us_modal?.field_file?.title || "UPLOAD CV"}
                   </label>
                 </div>
 
@@ -447,13 +531,15 @@ export function JoinUs({ data, locale }: JoinUsProps) {
                 <div className="pt-2">
                   <button
                     type="submit"
-                    className="w-full md:w-auto px-8 py-3 font-plus-bold text-sm text-white transition-all hover:opacity-90"
+                    disabled={submitting}
+                    className={`w-full md:w-auto px-8 py-3 font-plus-bold text-sm text-white transition-all ${submitting ? 'opacity-50 cursor-not-allowed' : 'hover:opacity-90'}`}
                     style={{
-                      background: "#003557",
+                      background: "#00548B",
                       borderRadius: "2px",
+                      letterSpacing: "1px",
                     }}
                   >
-                    Submit CV
+                    {submitting ? (data.join_us_modal?.submit_button ? `${data.join_us_modal.submit_button}...` : 'Submitting...') : (data.join_us_modal?.submit_button || "SUBMIT CV")}
                   </button>
                 </div>
               </form>

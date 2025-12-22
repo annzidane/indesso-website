@@ -3,7 +3,7 @@
  * Types specific to the career API
  */
 
-import type { StrapiImage, StrapiRichText } from "./common"
+import type { field, fieldFile, fieldOption, StrapiImage, StrapiRichText } from "./common"
 
 // ============================================
 // API Response Types (Raw from Strapi)
@@ -85,11 +85,22 @@ export interface CareerJoinUsSectionData {
   title: string
   description: string
   image?: StrapiImage
-  button?: {
-    id: number
-    title: string
-    path: string
-  }
+  opportunities_button: string
+  label_visit_button: string
+  logo_visit_button?: StrapiImage
+  url_visit_button: string
+  join_us_modal?: JoinUsModal
+}
+
+export interface JoinUsModal {
+  title: string
+  field_name: field
+  field_email: field
+  field_contact: field
+  field_address: field
+  field_position: fieldOption
+  field_file: fieldFile
+  submit_button: string
 }
 
 // ============================================
@@ -170,10 +181,11 @@ export interface CareerPageProps {
     title: string
     description: string
     image?: StrapiImage
-    button?: {
-      title: string
-      path: string
-    }
+    opportunitiesButton: string
+    labelVisitButton: string
+    logoVisitButton?: StrapiImage
+    urlVisitButton: string
+    join_us_modal?: JoinUsModal
   }
   testimonial: {
     eyebrow: string

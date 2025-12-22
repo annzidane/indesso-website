@@ -90,3 +90,26 @@ export interface NavigationItem {
   href: string
   children?: NavigationItem[]
 }
+
+export interface field {
+  id: number
+  title: string
+  placeholder: string
+}
+
+export interface fieldOption {
+  id: number
+  title: string
+  placeholder: string
+  option: Array<{
+    id: number
+    option: string
+  }>
+}
+
+export interface fieldFile {
+  id: number
+  title: string
+  placeholder: string
+  button: string
+}

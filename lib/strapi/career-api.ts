@@ -62,10 +62,11 @@ function transformCareerData(data: CareerData): CareerPageProps {
       title: joinUsData?.title || "Shape Your Future with Indesso",
       description: joinUsData?.description || "",
       image: joinUsData?.image,
-      button: joinUsData?.button ? {
-        title: joinUsData.button.title,
-        path: joinUsData.button.path,
-      } : undefined,
+      opportunitiesButton: joinUsData?.opportunities_button || "Explore Opportunities",
+      labelVisitButton: joinUsData?.label_visit_button || "Visit Us",
+      logoVisitButton: joinUsData?.logo_visit_button,
+      urlVisitButton: joinUsData?.url_visit_button || "https://www.linkedin.com/",
+      join_us_modal: joinUsData?.join_us_modal
     },
 
     testimonial: {
@@ -116,7 +117,7 @@ export async function getCareerPageData(locale: string): Promise<CareerPageProps
       console.error("No data returned from Career API")
       return getDefaultCareerData()
     }
-    
+    console.log("Career data fetched:", response)
     return transformCareerData(response.data)
   } catch (error) {
     console.error("Error fetching Career page data:", error)
@@ -153,7 +154,10 @@ function getDefaultCareerData(): CareerPageProps {
       title: "Shape Your Future with Indesso",
       description: "",
       image: undefined,
-      button: undefined,
+      opportunitiesButton: "Explore Opportunities",
+      labelVisitButton: "Visit Us",
+      logoVisitButton: undefined,
+      urlVisitButton: "https://www.linkedin.com/",
     },
     testimonial: {
       eyebrow: "TESTIMONIAL",
