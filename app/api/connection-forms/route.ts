@@ -74,37 +74,62 @@ export async function POST(request: Request) {
       info: null,
     }
 
-    if (destinationEmail && SMTP_HOST && SMTP_PORT && SMTP_USER && SMTP_PASS) {
+    if (destinationEmail && SMTP_HOST && SMTP_PORT) {
       try {
-        const transporter = nodemailer.createTransport({
+        // Build transport options friendly to MailHog (no TLS, optional auth)
+        const transportOptions: any = {
           host: SMTP_HOST,
           port: SMTP_PORT,
-          auth: { user: SMTP_USER, pass: SMTP_PASS },
-        })
-
-        const { subject, html, text, attachments } = buildInquiryEmail(payload.data)
-
-        const mailOptions = {
-          from: `Indesso Website <no-reply@indesso.com>`,
-          to: destinationEmail,
-          replyTo: payload.data.email,
-          subject,
-          text,
-          html,
-          attachments: attachments.length > 0 ? attachments : undefined,
+          secure: false,
+          ignoreTLS: true, // skip STARTTLS for local dev servers like MailHog
+          tls: { rejectUnauthorized: false },
+          greetingTimeout: 30000,
+          connectionTimeout: 30000,
         }
 
-        const info = await transporter.sendMail(mailOptions)
-        emailLog.subject = mailOptions.subject
-        emailLog.success = true
-        // Keep only serializable, relevant fields
-        emailLog.info = {
-          messageId: info.messageId,
-          accepted: info.accepted,
-          rejected: info.rejected,
-          response: info.response,
+        if (SMTP_USER && SMTP_PASS) {
+          transportOptions.auth = { user: SMTP_USER, pass: SMTP_PASS }
+        }
+
+        const transporter = nodemailer.createTransport(transportOptions)
+
+        // Verify transport before attempting to send — gives clearer diagnostics
+        let okToSend = true
+        try {
+          await transporter.verify()
+        } catch (verifyErr: any) {
+          okToSend = false
+          emailLog.success = false
+          emailLog.info = { message: `SMTP verify failed: ${verifyErr?.message ?? String(verifyErr)}` }
+          console.error('SMTP verify failed:', verifyErr)
+        }
+
+        if (okToSend) {
+          const { subject, html, text, attachments } = buildInquiryEmail(payload.data)
+
+          const mailOptions = {
+            from: `Indesso Website <no-reply@indesso.com>`,
+            to: destinationEmail,
+            replyTo: payload.data.email,
+            subject,
+            text,
+            html,
+            attachments: attachments.length > 0 ? attachments : undefined,
+          }
+
+          const info = await transporter.sendMail(mailOptions)
+          emailLog.subject = mailOptions.subject
+          emailLog.success = true
+          // Keep only serializable, relevant fields
+          emailLog.info = {
+            messageId: info.messageId,
+            accepted: info.accepted,
+            rejected: info.rejected,
+            response: info.response,
+          }
         }
       } catch (err: any) {
+        // catch unexpected errors in transport/send flow
         emailLog.success = false
         emailLog.info = { message: err?.message ?? String(err) }
         console.error('Failed to send inquiry email:', err)
