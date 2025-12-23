@@ -150,9 +150,10 @@ export function BusinessSummarySection({ data }: BusinessSummarySectionProps) {
             {/* Center Icon with Pulse Effect - Hidden on mobile, visible on desktop */}
             {data.icon && (
               <div
-                className="hidden md:flex absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 cursor-pointer z-10"
-                onMouseEnter={() => setIsHotSpotVisible(true)}
-                onMouseLeave={() => setIsHotSpotVisible(false)}
+                className="flex absolute top-[25%] md:top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 cursor-pointer z-10"
+                onMouseEnter={() => window.innerWidth >= 768 && setIsHotSpotVisible(true)}
+                onMouseLeave={() => window.innerWidth >= 768 && setIsHotSpotVisible(false)}
+                onClick={() => setIsHotSpotVisible(!isHotSpotVisible)}
               >
                 {/* Pulse rings animation */}
                 <div className="relative flex items-center justify-center w-12 h-12 md:w-16 md:h-16">
@@ -176,12 +177,12 @@ export function BusinessSummarySection({ data }: BusinessSummarySectionProps) {
 
                 {/* Hot Spot Badge - shows on hover - Desktop only */}
                 {isHotSpotVisible && currentSlide.hot_spot && (
-                  <div className="hidden md:block absolute top-full left-1/2 transform -translate-x-1/2 mt-4 ml-[250px] z-20 animate-in fade-in slide-in-from-top-2 duration-300">
+                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-4 md:ml-[250px] z-20 animate-in fade-in slide-in-from-top-2 duration-300">
                     <BadgeGlass
                       title={currentSlide.hot_spot.feature_title}
                       description={currentSlide.hot_spot.feature_desc}
                       image={currentSlide.hot_spot.feature_icon || undefined}
-                      className="w-[500px] max-w-[500px]"
+                      className="w-[300px] md:w-[500px] max-w-[90vw] md:max-w-[500px]"
                     />
                   </div>
                 )}
