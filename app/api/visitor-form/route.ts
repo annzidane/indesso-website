@@ -22,7 +22,6 @@ export async function POST(request: Request) {
         number_of_visitors: parseInt(String(body.number_of_visitors), 10) || 1,
       },
     }
-    console.log("Visitor form payload:", payload)
 
     // Helper to POST to Strapi; accepts headers override
     const doPost = async (useAuth: boolean) => {

@@ -3,16 +3,13 @@
  * Types specific to the homepage API response
  */
 
-import type { StrapiImage, StrapiButton, StrapiRichText } from "./common"
+import type { StrapiImage, StrapiButton, StrapiRichText, StrapiResponse, SeoData, SeoKeyword } from "./common"
 
 // ============================================
 // API Response Types
 // ============================================
 
-export interface HomepageApiResponse {
-  data: HomepageData
-  meta: object
-}
+export type HomepageApiResponse = StrapiResponse<HomepageData>
 
 export interface HomepageData {
   id: number
@@ -28,17 +25,12 @@ export interface HomepageData {
 // SEO
 // ============================================
 
-export interface SeoData {
-  id: number
-  meta_title: string
-  meta_description: string
-  keywords?: SeoKeyword[]
-}
+// ============================================
+// SEO
+// ============================================
 
-export interface SeoKeyword {
-  id: number
-  keywords: string
-}
+// SeoData Imported from common
+
 
 // ============================================
 // SEO Props for Components
@@ -198,11 +190,11 @@ export interface ReasonSectionProps {
     peopleDescription: string
     image?: StrapiImage
   }
-  statistics: Array<{ 
+  statistics: Array<{
     id: number
     title: string
     description: string
-    image?: StrapiImage 
+    image?: StrapiImage
   }>
   impact: {
     opener: string

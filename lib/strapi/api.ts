@@ -1,6 +1,6 @@
 import { fetchStrapi, getStrapiMedia } from "./client"
-import { 
-  defaultHeaderData, 
+import {
+  defaultHeaderData,
   defaultFooterData,
   defaultHomepageProps,
 } from "./defaults"
@@ -51,7 +51,7 @@ function extractTextFromRichText(richText: StrapiRichText[] | undefined | null):
 // Transform API response to component props
 function transformHomepageData(data: HomepageData): HomepageProps {
   const sections = data.page_sections
-  
+
   // Find each section by component type
   const heroData = sections.find(s => s.__component === "home-page.hero-section") as HeroSectionData | undefined
   const aboutData = sections.find(s => s.__component === "home-page.about-us-section") as AboutUsSectionData | undefined
@@ -134,19 +134,14 @@ function transformHomepageData(data: HomepageData): HomepageProps {
 }
 
 export async function getHomepageData(locale: string): Promise<HomepageProps> {
-  try {
-    const response = await fetchStrapi<HomepageApiResponse>("homepage", {
-      locale,
-      query: {
-        pLevel: 6,
-      },
-    })
+  const response = await fetchStrapi<HomepageApiResponse>("homepage", {
+    locale,
+    query: {
+      pLevel: 6,
+    },
+  })
 
-    return transformHomepageData(response.data)
-  } catch (error) {
-    console.error("Failed to fetch homepage data:", error)
-    return defaultHomepageProps
-  }
+  return transformHomepageData(response.data)
 }
 
 // ============================================
@@ -154,18 +149,13 @@ export async function getHomepageData(locale: string): Promise<HomepageProps> {
 // ============================================
 
 export async function getHeaderData(locale: string): Promise<HeaderData> {
-  try {
-    const response = await fetchStrapi<HeaderApiResponse>("header", {
-      locale,
-      query: {
-        pLevel: 5,
-      },
-    })
-    return response.data
-  } catch (error) {
-    console.error("Failed to fetch header data:", error)
-    return defaultHeaderData
-  }
+  const response = await fetchStrapi<HeaderApiResponse>("header", {
+    locale,
+    query: {
+      pLevel: 5,
+    },
+  })
+  return response.data
 }
 
 // ============================================
@@ -173,19 +163,14 @@ export async function getHeaderData(locale: string): Promise<HeaderData> {
 // ============================================
 
 export async function getFooterData(locale: string): Promise<FooterData> {
-  try {
-    const response = await fetchStrapi<FooterApiResponse>("footer", {
-      locale,
-      query: {
-        pLevel: 5,
-      },
-    })
+  const response = await fetchStrapi<FooterApiResponse>("footer", {
+    locale,
+    query: {
+      pLevel: 5,
+    },
+  })
 
-    return response.data
-  } catch (error) {
-    console.error("Failed to fetch footer data:", error)
-    return defaultFooterData
-  }
+  return response.data
 }
 
 // ============================================
@@ -193,20 +178,15 @@ export async function getFooterData(locale: string): Promise<FooterData> {
 // ============================================
 
 export async function getBanners(): Promise<BannerData[]> {
-  try {
-    const response = await fetchStrapi<BannerApiResponse>("banners", {
-      populate: "*",
-    })
-    // Sort by order_number if available
-    return response.data.sort((a, b) => {
-      const orderA = a.order_number ?? 999
-      const orderB = b.order_number ?? 999
-      return orderA - orderB
-    })
-  } catch (error) {
-    console.error("Failed to fetch banners:", error)
-    return []
-  }
+  const response = await fetchStrapi<BannerApiResponse>("banners", {
+    populate: "*",
+  })
+  // Sort by order_number if available
+  return response.data.sort((a, b) => {
+    const orderA = a.order_number ?? 999
+    const orderB = b.order_number ?? 999
+    return orderA - orderB
+  })
 }
 
 // ============================================

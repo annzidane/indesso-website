@@ -30,6 +30,11 @@ export async function generateMetadata({ params }: ProductDetailPageProps) {
     title: `${product.name} - ${product.product_category?.name ?? ""} - Indesso`,
     description: desc,
     keywords: `${product.product_category?.name ?? ""}, ${product.botanical?.name ?? ""}, ${product.name}`,
+    openGraph: {
+      title: `${product.name} - ${product.product_category?.name ?? ""} - Indesso`,
+      description: desc,
+      type: "website",
+    },
   };
 }
 

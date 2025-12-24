@@ -67,7 +67,7 @@ export async function MediaExploreMore({
                   if (first?.children && Array.isArray(first.children)) return first.children.map((c: any) => c.text || "").join(" ");
                   if (first?.text) return first.text;
                 }
-              } catch (e) {}
+              } catch (e) { }
               return "";
             })(),
             tags: Array.isArray(r?.insight_categories) ? r.insight_categories.map((c: any) => c.title || c.name || c.slug) : [],
@@ -98,7 +98,7 @@ export async function MediaExploreMore({
                 if (first?.children && Array.isArray(first.children)) return first.children.map((c: any) => c.text || "").join(" ");
                 if (first?.text) return first.text;
               }
-            } catch (e) {}
+            } catch (e) { }
             return "";
           })(),
         }));

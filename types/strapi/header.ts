@@ -3,7 +3,7 @@
  * Types specific to the header/navigation API
  */
 
-import type { StrapiImage } from "./common"
+import type { StrapiImage, StrapiResponse } from "./common"
 
 export interface HeaderMenuDetail {
   id: number
@@ -38,7 +38,4 @@ export interface HeaderData {
   lang: HeaderLang[]
 }
 
-export interface HeaderApiResponse {
-  data: HeaderData
-  meta: object
-}
+export type HeaderApiResponse = StrapiResponse<HeaderData>

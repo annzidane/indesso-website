@@ -49,7 +49,6 @@ export function ProductCatalogContent({ buttonLabel }: { buttonLabel?: string })
   const handleLoadMore = () => {
     setVisibleItems((prev) => prev + 8);
   };
-  console.log('ProductCatalogContent render', { catalogItems, displayedItems, hasMore, loading });
 
   return (
     <div className="space-y-8 md:space-y-12">

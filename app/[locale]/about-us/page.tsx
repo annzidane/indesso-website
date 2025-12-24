@@ -17,11 +17,16 @@ interface AboutPageProps {
 export async function generateMetadata({ params }: AboutPageProps) {
   const { locale } = await params
   const aboutData = await getAboutPageData(locale)
-  
+
   return {
     title: aboutData.seo?.metaTitle || (locale === "id" ? "Tentang Kami - Indesso" : "About Us - Indesso"),
     description: aboutData.seo?.metaDescription || "Learn about Indesso's journey, leadership, and commitment to innovation in natural ingredients.",
     keywords: aboutData.seo?.keywords?.join(", "),
+    openGraph: {
+      title: aboutData.seo?.metaTitle || (locale === "id" ? "Tentang Kami - Indesso" : "About Us - Indesso"),
+      description: aboutData.seo?.metaDescription || "Learn about Indesso's journey, leadership, and commitment to innovation in natural ingredients.",
+      type: "website",
+    },
   }
 }
 
@@ -37,9 +42,9 @@ export default async function AboutPage({ params }: AboutPageProps) {
     <>
       <Header data={headerData} locale={locale} />
       <main>
-        <PageHero 
-          title={aboutData.hero.title} 
-          backgroundImage={aboutData.hero.backgroundImage} 
+        <PageHero
+          title={aboutData.hero.title}
+          backgroundImage={aboutData.hero.backgroundImage}
         />
         <OurStorySection data={aboutData.story} />
         <BoardSection data={aboutData.boards} />

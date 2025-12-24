@@ -25,8 +25,8 @@ export function AboutSection({ data, locale }: AboutSectionProps) {
 
   // Split description into subtitle (first paragraph) and body text (rest)
   const paragraphs = data.description.split("\n\n");
-  const subtitle = paragraphs[0] || "";
-  const bodyParagraphs = paragraphs.slice(1);
+  // const subtitle = paragraphs[0] || "";
+  const bodyParagraphs = paragraphs.slice(0);
 
   return (
     <>
@@ -42,8 +42,8 @@ export function AboutSection({ data, locale }: AboutSectionProps) {
         style={
           backgroundImageUrl
             ? {
-                backgroundImage: `url(${backgroundImageUrl})`,
-              }
+              backgroundImage: `url(${backgroundImageUrl})`,
+            }
             : undefined
         }
       >
@@ -58,11 +58,11 @@ export function AboutSection({ data, locale }: AboutSectionProps) {
                 {data.title}
               </h2>
               {/* Subtitle - First paragraph with italic bold styling */}
-              {subtitle && (
+              {/* {subtitle && (
                 <h3 className="md:text-2xl lg:text-3xl text-primary leading-[32px] md:leading-tight tracking-[-1px] mb-3 md:mb-4">
                   {subtitle}
                 </h3>
-              )}
+              )} */}
               {/* Body text - Remaining paragraphs */}
               <div className="flex flex-col gap-3 md:gap-4 text-muted-foreground font-manrope-regular text-[14px] md:text-base leading-[24px] md:leading-normal mb-4 md:mb-8">
                 {bodyParagraphs.map((paragraph, index) => (

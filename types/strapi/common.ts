@@ -113,3 +113,16 @@ export interface fieldFile {
   placeholder: string
   button: string
 }
+
+// SEO Types
+export interface SeoData {
+  id: number
+  meta_title: string
+  meta_description: string
+  keywords?: SeoKeyword[]
+}
+
+export interface SeoKeyword {
+  id: number
+  keywords: string
+}

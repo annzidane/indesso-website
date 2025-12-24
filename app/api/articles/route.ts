@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { fetchStrapi } from "@/lib/strapi/client";
+import { getArticles } from "@/lib/strapi/articles-api";
 
 export async function GET(request: Request) {
   try {
@@ -13,21 +13,7 @@ export async function GET(request: Request) {
       return NextResponse.json({ data: [], meta: null });
     }
 
-    const resp = await fetchStrapi<any>("articles", {
-      locale,
-      filters: {
-        article_category: {
-          $eq: category,
-        },
-      },
-      query: {
-        sort: "date:desc",
-        ["pagination[start]"]: start,
-        ["pagination[limit]"]: limit,
-        pLevel: 3,
-      },
-      revalidate: 60,
-    });
+    const resp = await getArticles(category, locale, start, limit);
 
     return NextResponse.json(resp);
   } catch (err) {

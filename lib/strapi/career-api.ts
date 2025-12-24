@@ -14,7 +14,7 @@ import type {
   CareerGrowingTogetherSectionData,
   CareerPageProps,
   CareerHeroSectionData,
-} from "@/types/strapi"
+} from "@/types/strapi/career"
 
 // Transform API response to component props
 function transformCareerData(data: CareerData): CareerPageProps {
@@ -40,7 +40,7 @@ function transformCareerData(data: CareerData): CareerPageProps {
     navItems,
 
     hero: {
-      title: heroData?.hero?.title || "About Us",
+      title: heroData?.hero?.title || "Career",
       backgroundImage: heroData?.hero?.background_image,
     },
 
@@ -105,40 +105,42 @@ function transformCareerData(data: CareerData): CareerPageProps {
 
 // Fetch Career page data
 export async function getCareerPageData(locale: string): Promise<CareerPageProps> {
-  try {
-    const response = await fetchStrapi<CareerApiResponse>("career", {
-      locale,
-      query: {
-        pLevel: 6,
-      },
-    })
-    
-    if (!response?.data) {
-      console.error("No data returned from Career API")
-      return getDefaultCareerData()
-    }
-    console.log("Career data fetched:", response)
-    return transformCareerData(response.data)
-  } catch (error) {
-    console.error("Error fetching Career page data:", error)
-    return getDefaultCareerData()
+  // Removed try-catch to allow errors to propagate (fail loudly)
+  // This allows Next.js error boundary to handle the error
+
+  const response = await fetchStrapi<CareerApiResponse>("career", {
+    locale,
+    query: {
+      pLevel: 6, // Plugin query for deep population
+    },
+    // We can be more specific with populate if we want to optimize further, 
+    // but sticking to pLevel for now as it seems to be a custom plugin/middleware logic
+    // populate: "*" 
+  })
+
+  if (!response?.data) {
+    throw new Error("No data returned from Career API")
   }
+
+  return transformCareerData(response.data)
 }
 
 export async function getPositionData(locale: string): Promise<Array<{ id: number; name: string; slug: string }>> {
   try {
-    const response = await fetchStrapi<CareerApiResponse>("positions-opportunities", {
+    const response = await fetchStrapi<any>("positions-opportunities", { // keeping 'any' here for now as types for positions weren't requested/analyzed deeply yet
       locale,
       query: {
         pLevel: 4,
         limit: 100,
       },
+      revalidate: 300 // Longer cache for positions
     })
 
     if (!response?.data || !Array.isArray(response.data)) {
-      console.error("No data returned from Positions API")
       return []
     }
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const items = response.data.map((pos: any) => {
       const id = pos.id
       const name = (pos.attributes?.name ?? pos.name ?? pos.attributes?.title ?? '').toString()
@@ -147,57 +149,10 @@ export async function getPositionData(locale: string): Promise<Array<{ id: numbe
     })
 
     // Optionally filter out empty names
-    return items.filter(i => i.name && i.name.trim().length > 0)
+    return items.filter((i: { name: string }) => i.name && i.name.trim().length > 0)
   } catch (error) {
-    console.error("Error fetching Positions data:", error)
+    console.warn("Error fetching Positions data, returning empty list:", error)
     return []
   }
 }
 
-// Default data for fallback
-function getDefaultCareerData(): CareerPageProps {
-  return {
-    pageInfo: {
-      title: "Career",
-      slug: "career",
-      path: "/career",
-    },
-    navItems: [
-      { id: "life-at-indesso", label: "Life at Indesso" },
-      { id: "join-us", label: "Join Us" },
-      { id: "testimonial", label: "Testimonial" },
-      { id: "growing-together", label: "Growing Together" },
-    ],
-    hero: {
-      title: "Career",
-    },
-    lifeAtIndesso: {
-      eyebrow: "LIFE AT INDESSO",
-      title: "A Workplace that Inspires Better Tomorrows",
-      description: "",
-      image: undefined,
-      showcaseItems: [],
-    },
-    joinUs: {
-      eyebrow: "JOIN US",
-      title: "Shape Your Future with Indesso",
-      description: "",
-      image: undefined,
-      opportunitiesButton: "Explore Opportunities",
-      labelVisitButton: "Visit Us",
-      logoVisitButton: undefined,
-      urlVisitButton: "https://www.linkedin.com/",
-    },
-    testimonial: {
-      eyebrow: "TESTIMONIAL",
-      title: "Stories from Our People",
-      testimonials: [],
-    },
-    growingTogether: {
-      eyebrow: "GROWING TOGETHER",
-      title: "Celebrating Every Milestone",
-      description: "",
-      slides: [],
-    },
-  }
-}

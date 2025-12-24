@@ -20,7 +20,6 @@ export function ConnectFormSection({ data }: ConnectFormData) {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    console.log("Form submitted:", formData)
   }
 
   const handleChange = (

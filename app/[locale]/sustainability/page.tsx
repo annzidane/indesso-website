@@ -32,6 +32,11 @@ export async function generateMetadata({ params }: PageProps) {
       pageData.seo?.metaDescription ||
       "Learn about Indesso's commitment to sustainability and responsible business practices.",
     keywords: pageData.seo?.keywords?.join(", "),
+    openGraph: {
+      title: pageData.seo?.metaTitle || "Sustainability - Indesso",
+      description: pageData.seo?.metaDescription || "Learn about Indesso's commitment to sustainability and responsible business practices.",
+      type: "website",
+    },
   };
 }
 

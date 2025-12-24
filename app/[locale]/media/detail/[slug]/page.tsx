@@ -16,45 +16,18 @@ interface MediaDetailPageProps {
 }
 
 export async function generateMetadata({ params }: MediaDetailPageProps) {
-  const { locale, slug } = await params;
-  // Fetch article by slug from Strapi
-  try {
-    // Try insight first
-    const insight: any = await getMediaInsightBySlug(slug, locale, 5);
-    const a: any = insight ?? (await getArticleBySlug(slug, locale, 3));
-    if (!a) {
-      return { title: "Media Not Found - Indesso" };
-    }
+  const { locale } = await params
+  const mediaPageData = await getMediaDetailPage(locale)
 
-    const content = (() => {
-      if (!a?.description) return "";
-      if (typeof a.description === "string") return a.description;
-      try {
-        if (Array.isArray(a.description) && a.description.length > 0) {
-          const first = a.description[0];
-          if (first?.children && Array.isArray(first.children)) {
-            return first.children.map((c: any) => c.text || "").join(" ");
-          }
-          if (first?.text) return first.text;
-        }
-      } catch (e) {}
-      return "";
-    })();
-
-    const title = a?.title || a?.name || "";
-    const imageUrl = a?.image?.data?.attributes?.url || a?.image?.url || a?.image || null;
-    const image = getStrapiMedia(imageUrl);
-
-    return {
-      title: `${title} - Indesso`,
-      description: String(content).substring(0, 160).replace(/<[^>]*>/g, ""),
-      keywords: `${a.article_category || a.category || ""}, indesso, media`,
-      openGraph: {
-        images: image ? [{ url: image }] : undefined,
-      },
-    };
-  } catch (e) {
-    return { title: "Media - Indesso" };
+  return {
+    title: mediaPageData?.seo?.meta_title || (locale === "id" ? "Media - Indesso" : "Media - Indesso"),
+    description: mediaPageData?.seo?.meta_description || "Indesso Media Center",
+    keywords: mediaPageData?.seo?.keywords?.map((k: any) => k.keywords).join(", "),
+    openGraph: {
+      title: mediaPageData?.seo?.meta_title || (locale === "id" ? "Media - Indesso" : "Media - Indesso"),
+      description: mediaPageData?.seo?.meta_description || "Indesso Media Center",
+      type: "website",
+    },
   }
 }
 
@@ -73,14 +46,17 @@ export default async function MediaDetailPage({
   const insight: any = await getMediaInsightBySlug(slug, locale, 5);
   let a: any = null;
   let relatedRaw: any[] = [];
+  let isInsight = false;
 
   if (insight) {
     a = insight;
+    isInsight = true;
     // related items will be fetched by MediaExploreMore component (server-side) using mediaType/mediaCategory
   } else {
     // fallback to articles
     const articlePage = await getArticlePageData(slug, locale, 3, 3);
     a = articlePage?.article ?? null;
+    relatedRaw = articlePage?.related ?? [];
   }
 
   if (!a) {
@@ -97,31 +73,40 @@ export default async function MediaDetailPage({
   const media = {
     id: String(a.id),
     slug: a?.slug || a?.attributes?.slug,
-    type: a.article_category || a.category || (a.insight_categories ? "insight" : ""),
+    type: isInsight ? "insight" : (a.article_category || a.category || "article"),
     title: a.title || a.name || "",
     date,
     image,
     content,
-    category: a.article_category || a.category || (a.insight_categories ? a.insight_categories : null),
+    category: isInsight ? a.insight_categories : (a.article_category || a.category),
     raw: a,
   }
 
-  const exploreSectionPage = {
-    title: mediaPageData?.media_detail?.title_explore,
-    button: mediaPageData?.media_detail?.button,
+  const tags = isInsight && Array.isArray(a?.insight_categories) ? a.insight_categories.map((c: any) => c.title || c.name || c.slug) : []
 
-  }
-
-  const tags = media.type === "insight" && Array.isArray(a?.insight_categories) ? a.insight_categories.map((c: any) => c.title || c.name || c.slug) : []
+  // Helper to normalize type for title generation
+  const normalizedType = (() => {
+    const t = (media.type || "").toLowerCase();
+    if (t.includes("press")) return "press-release";
+    if (t.includes("event") || t.includes("story") || t.includes("stories")) return "story";
+    if (t.includes("insight")) return "insight";
+    if (t.includes("video")) return "video";
+    return "other";
+  })();
 
   const sectionTitle =
-    media.type === "press-release"
+    normalizedType === "press-release"
       ? "Explore More Press Releases"
-      : media.type === "story"
-      ? "Explore More Stories"
-      : media.type === "insight"
-      ? "Explore More Insights"
-      : "Explore More Videos";
+      : normalizedType === "story"
+        ? "Explore More Stories"
+        : normalizedType === "insight"
+          ? "Explore More Insights"
+          : "Explore More Articles";
+
+  const exploreSectionPage = {
+    title: sectionTitle,
+    button: mediaPageData?.media_detail?.button,
+  }
   return (
     <>
       <Header data={headerData} locale={locale} variant="solid" />
@@ -141,6 +126,16 @@ export default async function MediaDetailPage({
           mediaCategory={media.category}
           mediaSlug={media.slug}
           limit={3}
+          items={!isInsight ? relatedRaw.map(r => ({
+            id: String(r.id),
+            slug: r.slug || r.attributes?.slug,
+            type: r.article_category || r.category || "article",
+            title: r.title || r.name || "",
+            date: r.date ? new Date(r.date).toLocaleDateString(locale === "id" ? "id" : "en", { day: "numeric", month: "long", year: "numeric" }) : "",
+            image: getStrapiMedia(r.image?.data?.attributes?.url || r.image?.url || r.image?.formats?.medium?.url || r.image || null),
+            content: r.description ? (typeof r.description === 'string' ? r.description : "") : "",
+            tags: []
+          })) : undefined}
         />
         {/* hero already rendered above */}
       </main>

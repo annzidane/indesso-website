@@ -12,10 +12,12 @@ interface PageProps {
 
 export async function generateMetadata({ params }: PageProps) {
   const { locale } = await params
+  const contactData = await getContactUsData(locale)
 
   return {
-    title: locale === "id" ? "Hubungi Kami - Indesso" : "Contact Us - Indesso",
-    description: "Get in touch with Indesso. Find our office locations and contact information.",
+    title: contactData.seo?.metaTitle || (locale === "id" ? "Hubungi Kami - Indesso" : "Contact Us - Indesso"),
+    description: contactData.seo?.metaDescription || "Get in touch with Indesso. Find our office locations and contact information.",
+    keywords: contactData.seo?.keywords ? contactData.seo.keywords.join(", ") : undefined,
   }
 }
 
@@ -36,13 +38,13 @@ export default async function ContactUsPage({ params }: PageProps) {
       <Header data={headerData} locale={locale} variant="transparent" />
       <main>
         <PageHero
-          title={contactData?.hero_section?.title ?? "Contact Us"}
+          title={contactData?.hero?.title ?? "Contact Us"}
           backgroundUrl={
-            contactData?.hero_section?.background_image?.url
+            contactData?.hero?.backgroundImage?.url
           }
           objectPosition="center top"
         />
-      <ContactUsContent data={contactData} topicsData={topicsData} />
+        <ContactUsContent data={contactData} topicsData={topicsData} />
       </main>
       <Footer data={footerData} locale={locale} />
     </>

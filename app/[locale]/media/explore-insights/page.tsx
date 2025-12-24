@@ -5,25 +5,26 @@ import { Footer } from "@/components/layout/footer";
 import { ExploreInsightsHero } from "@/components/sections/media/explore-insights-hero";
 import { ExploreInsightsContent } from "@/components/sections/media/explore-insights-content";
 import { fetchStrapi, getStrapiMedia } from "@/lib/strapi/client";
+import { getMediaExploreInsight } from "@/lib/strapi/articles-api";
 
 interface ExploreInsightsPageProps {
   params: Promise<{ locale: Locale }>;
 }
 
 export async function generateMetadata({ params }: ExploreInsightsPageProps) {
-  const { locale } = await params;
+  const { locale } = await params
+  const exploreInsightData = await getMediaExploreInsight(locale)
 
   return {
-    title:
-      locale === "id"
-        ? "Jelajahi Insights - Media - Indesso"
-        : "Explore Insights - Media - Indesso",
-    description:
-      locale === "id"
-        ? "Jelajahi insights dan laporan terbaru dari Indesso berdasarkan topik"
-        : "Explore the latest insights and reports from Indesso by topic",
-    keywords: "insights, reports, analysis, indesso, media",
-  };
+    title: exploreInsightData?.seo?.meta_title || (locale === "id" ? "Jelajahi Insights - Media - Indesso" : "Explore Insights - Media - Indesso"),
+    description: exploreInsightData?.seo?.meta_description || "Indesso Media Center",
+    keywords: exploreInsightData?.seo?.keywords?.map((k: any) => k.keywords).join(", "),
+    openGraph: {
+      title: exploreInsightData?.seo?.meta_title || (locale === "id" ? "Jelajahi Insights - Media - Indesso" : "Explore Insights - Media - Indesso"),
+      description: exploreInsightData?.seo?.meta_description || "Indesso Media Center",
+      type: "website",
+    },
+  }
 }
 
 export default async function ExploreInsightsPage({
@@ -35,7 +36,7 @@ export default async function ExploreInsightsPage({
   const [footerData, headerData, exploreResp] = await Promise.all([
     getFooterData(locale),
     getHeaderData(locale),
-    fetchStrapi<any>("media-explore-insight", { locale, query: { pLevel: 3 }, revalidate: 60 }),
+    getMediaExploreInsight(locale),
   ]);
 
   const exploreData = (exploreResp as any)?.data ?? null;

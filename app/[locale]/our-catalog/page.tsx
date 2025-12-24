@@ -12,13 +12,23 @@ interface CatalogPageProps {
 
 export async function generateMetadata({ params }: CatalogPageProps) {
   const { locale } = await params
+  const catalogPage = await getCatalogPage(locale)
 
   return {
-    title: locale === "id" ? "Katalog Kami - Indesso" : "Our Catalog - Indesso",
-    description: locale === "id"
+    title: catalogPage?.seo?.meta_title || (locale === "id" ? "Katalog Kami - Indesso" : "Our Catalog - Indesso"),
+    description: catalogPage?.seo?.meta_description || (locale === "id"
       ? "Jelajahi katalog lengkap produk aroma kimia dan bahan alami dari Indesso"
-      : "Explore our comprehensive catalog of aroma chemicals and natural ingredients",
-    keywords: "aroma chemicals, natural ingredients, catalog, products, indesso",
+      : "Explore our comprehensive catalog of aroma chemicals and natural ingredients"),
+    keywords: catalogPage?.seo?.keywords
+      ? catalogPage.seo.keywords.map((k) => k.keywords).join(", ")
+      : "aroma chemicals, natural ingredients, catalog, products, indesso",
+    openGraph: {
+      title: catalogPage?.seo?.meta_title || (locale === "id" ? "Katalog Kami - Indesso" : "Our Catalog - Indesso"),
+      description: catalogPage?.seo?.meta_description || (locale === "id"
+        ? "Jelajahi katalog lengkap produk aroma kimia dan bahan alami dari Indesso"
+        : "Explore our comprehensive catalog of aroma chemicals and natural ingredients"),
+      type: "website",
+    },
   }
 }
 
@@ -58,7 +68,9 @@ export default async function OurCatalogPage({ params }: CatalogPageProps) {
         <CatalogContent
           locale={locale}
           initialProducts={initialProducts}
-          initialMeta={productsResponse?.meta}
+          initialMeta={{
+            pagination: productsResponse?.meta?.pagination || { page: 1, pageSize: 12, pageCount: 1, total: 0 }
+          }}
         />
       </main>
       <Footer data={footerData} locale={locale} />

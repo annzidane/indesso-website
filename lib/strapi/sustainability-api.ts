@@ -131,59 +131,50 @@ function transformSustainabilityData(data: SustainabilityData): SustainabilityPa
 }
 
 // Fetch Sustainability page data
+// Fetch Sustainability page data
 export async function getSustainabilityPageData(locale: string): Promise<SustainabilityPageProps> {
-  try {
-    const response = await fetchStrapi<SustainabilityApiResponse>("sustainability", {
-      locale,
-      query: {
-        pLevel: 6,
-      },
-    })
-    
-    if (!response?.data) {
-      console.error("No data returned from Sustainability API")
-      return getDefaultSustainabilityData()
-    }
-    console .log("Sustainability data fetched:", response)
-    return transformSustainabilityData(response.data)
-  } catch (error) {
-    console.error("Error fetching Sustainability page data:", error)
-    return getDefaultSustainabilityData()
+  const response = await fetchStrapi<SustainabilityApiResponse>("sustainability", {
+    locale,
+    query: {
+      pLevel: 6,
+    },
+  })
+
+  if (!response?.data) {
+    throw new Error("No data returned from Sustainability API")
   }
+
+  return transformSustainabilityData(response.data)
 }
 
 // Fetch Reports data
 export async function getReportsData(): Promise<ReportItem[]> {
-  try {
-    const response = await fetchStrapi<ReportsApiResponse>("reports", {
-      query: {
-        pLevel: 2,
-        sort: "year:desc",
-      },
-    })
-    
-    if (!response?.data) {
-      console.error("No data returned from Reports API")
-      return []
-    }
-    
-    return response.data.map((report) => {
-      const r: any = report;
+  const response = await fetchStrapi<ReportsApiResponse>("reports", {
+    query: {
+      pLevel: 2,
+      sort: "year:desc",
+    },
+  })
 
-      const imageUrlFromReport = r?.image?.data?.attributes?.url || r?.image?.url || r?.file?.formats?.thumbnail?.url || null;
-      return {
-        id: report.id,
-        year: report.year,
-        fileUrl: report.file?.url,
-        fileName: report.file?.name,
-        title: r?.title,
-        image: (getStrapiMedia(imageUrlFromReport) || undefined),
-      }
-    })
-  } catch (error) {
-    console.error("Error fetching Reports data:", error)
+  if (!response?.data) {
     return []
   }
+
+  return response.data.map((report) => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const r: any = report;
+
+    const imageUrlFromReport = r?.image?.data?.attributes?.url || r?.image?.url || r?.file?.formats?.thumbnail?.url || null;
+    return {
+      id: report.id,
+      year: report.year,
+      fileUrl: report.file?.url,
+      fileName: report.file?.name,
+      title: r?.title, // title is optional in ReportData
+      // eslint-disable-next-line @typescript-eslint/no-non-null-asserted-optional-chain
+      image: (getStrapiMedia(imageUrlFromReport) || undefined),
+    }
+  })
 }
 
 // Default data for fallback

@@ -1,5 +1,6 @@
 import type { Locale } from "@/lib/i18n/config";
 import { getFooterData, getHeaderData } from "@/lib/strapi/api";
+import { getMediaPage } from "@/lib/strapi/media-api";
 import { fetchStrapi } from "@/lib/strapi/client";
 import { getArticles } from "@/lib/strapi/articles-api";
 import { Header } from "@/components/layout/header";
@@ -35,27 +36,19 @@ const slugToTitle: Record<MediaSlug, string> = {
 };
 
 export async function generateMetadata({ params }: MediaPageProps) {
-  const { locale, slug } = await params;
-
-  if (!validSlugs.includes(slug as MediaSlug)) {
-    return {
-      title: "Media Not Found - Indesso",
-    };
-  }
-
-  const title = slugToTitle[slug as MediaSlug];
+  const { locale } = await params
+  const mediaData = await getMediaPage(locale)
 
   return {
-    title:
-      locale === "id"
-        ? `${title} - Media - Indesso`
-        : `${title} - Media - Indesso`,
-    description:
-      locale === "id"
-        ? `Berita terbaru ${title.toLowerCase()} dari Indesso`
-        : `Latest ${title.toLowerCase()} from Indesso`,
-    keywords: `media, ${slug}, ${title.toLowerCase()}, indesso`,
-  };
+    title: mediaData?.seo?.meta_title || (locale === "id" ? "Media - Indesso" : "Media - Indesso"),
+    description: mediaData?.seo?.meta_description || "Indesso Media Center",
+    keywords: mediaData?.seo?.keywords?.join(", "),
+    openGraph: {
+      title: mediaData?.seo?.meta_title || (locale === "id" ? "Media - Indesso" : "Media - Indesso"),
+      description: mediaData?.seo?.meta_description || "Indesso Media Center",
+      type: "website",
+    },
+  }
 }
 
 export default async function MediaSlugPage({ params }: MediaPageProps) {
@@ -68,21 +61,11 @@ export default async function MediaSlugPage({ params }: MediaPageProps) {
 
   const mediaType = slugToType[slug as MediaSlug];
 
-  const [footerData, headerData] = await Promise.all([
+  const [footerData, headerData, mediaPage] = await Promise.all([
     getFooterData(locale),
     getHeaderData(locale),
+    getMediaPage(locale),
   ]);
-
-  // fetch media page content from Strapi to get nav labels/buttons
-  let mediaPage: any = null
-  try {
-    const resp = (await fetchStrapi("media", { locale, query: { pLevel: 3 } })) as any
-    mediaPage = resp?.data ?? null
-    console.log("Fetched media page data:", mediaPage)
-  } catch (e) {
-    // ignore and allow page to render with defaults
-    mediaPage = null
-  }
 
   // Fetch initial articles server-side for press-release and stories to avoid exposing token to client
   let initialArticles: any[] = [];
@@ -104,8 +87,11 @@ export default async function MediaSlugPage({ params }: MediaPageProps) {
     <>
       <Header data={headerData} locale={locale} />
       <main>
-        <PageHero title="Media" backgroundUrl="/media/media-bg.png" />
-      <MediaContent locale={locale} defaultTab={slug as string} nav={mediaPage?.page_nav} initialArticles={initialArticles} initialMeta={initialArticlesMeta} />
+        <PageHero
+          title={mediaPage?.hero_section.title ?? "Media"}
+          backgroundUrl={mediaPage?.hero_section.background_image?.url ?? "/media/media-bg.png"}
+        />
+        <MediaContent locale={locale} defaultTab={slug as string} nav={mediaPage?.page_nav} initialArticles={initialArticles} initialMeta={initialArticlesMeta} />
       </main>
       <Footer data={footerData} locale={locale} />
     </>

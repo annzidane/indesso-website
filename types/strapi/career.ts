@@ -3,16 +3,13 @@
  * Types specific to the career API
  */
 
-import type { field, fieldFile, fieldOption, StrapiImage, StrapiRichText } from "./common"
+import type { field, fieldFile, fieldOption, StrapiImage, StrapiRichText, StrapiResponse } from "./common"
 
 // ============================================
 // API Response Types (Raw from Strapi)
 // ============================================
 
-export interface CareerApiResponse {
-  data: CareerData
-  meta: object
-}
+export type CareerApiResponse = StrapiResponse<CareerData>
 
 export interface CareerData {
   id: number
@@ -168,7 +165,7 @@ export interface CareerPageProps {
     eyebrow: string
     title: string
     description: string
-    image?: StrapiImage
+    image?: StrapiImage // Changed from undefined to StrapiImage | undefined to match
     showcaseItems: Array<{
       id: number
       title: string

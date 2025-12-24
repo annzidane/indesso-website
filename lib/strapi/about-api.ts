@@ -4,6 +4,7 @@
  */
 
 import { fetchStrapi } from "./client"
+import { extractTextFromRichText } from "./utils"
 import type {
   AboutUsApiResponse,
   AboutUsData,
@@ -14,19 +15,7 @@ import type {
   AboutUsScientificMasterySectionData,
   AboutUsResponsibleOperationsSectionData,
   AboutUsPageProps,
-  StrapiRichText,
-} from "@/types/strapi"
-
-// Helper to extract text from Strapi Rich Text
-function extractTextFromRichText(richText: StrapiRichText[] | undefined | null): string {
-  if (!richText || !Array.isArray(richText)) {
-    return ""
-  }
-  return richText
-    .map(block => block.children?.map(child => child.text).join("") || "")
-    .filter(text => text.length > 0)
-    .join("\n\n")
-}
+} from "@/types/strapi/about-us"
 
 // Transform API response to component props
 function transformAboutUsData(data: AboutUsData): AboutUsPageProps {
@@ -127,24 +116,18 @@ function transformAboutUsData(data: AboutUsData): AboutUsPageProps {
 
 // Fetch About Us page data
 export async function getAboutPageData(locale: string): Promise<AboutUsPageProps> {
-  try {
-    const response = await fetchStrapi<AboutUsApiResponse>("about-us", {
-      locale,
-      query: {
-        pLevel: 6,
-      },
-    })
-    
-    if (!response?.data) {
-      console.error("No data returned from About Us API")
-      return getDefaultAboutUsData()
-    }
-    
-    return transformAboutUsData(response.data)
-  } catch (error) {
-    console.error("Error fetching About Us page data:", error)
-    return getDefaultAboutUsData()
+  const response = await fetchStrapi<AboutUsApiResponse>("about-us", {
+    locale,
+    query: {
+      pLevel: 6,
+    },
+  })
+
+  if (!response?.data) {
+    throw new Error("No data returned from About Us API")
   }
+
+  return transformAboutUsData(response.data)
 }
 
 // Default data for fallback
