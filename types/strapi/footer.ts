@@ -3,7 +3,7 @@
  * Types specific to the footer API
  */
 
-import type { StrapiImage } from "./common"
+import type { StrapiImage, StrapiResponse } from "./common"
 
 export interface FooterSubMenu {
   id: number
@@ -41,10 +41,7 @@ export interface FooterData {
   footer_menus: FooterMenuGroup[]
 }
 
-export interface FooterApiResponse {
-  data: FooterData
-  meta: object
-}
+export type FooterApiResponse = StrapiResponse<FooterData>
 
 // Legacy types (for backward compatibility)
 export interface FooterLink {

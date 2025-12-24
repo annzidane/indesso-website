@@ -14,6 +14,8 @@ export type {
   StrapiRichText,
   StrapiRichTextChild,
   NavigationItem,
+  SeoData,
+  SeoKeyword,
 } from "./common"
 
 // Header types
@@ -58,8 +60,7 @@ export type {
   BusinessSectionData,
   BusinessCard,
   // SEO types
-  SeoData,
-  SeoKeyword,
+  // SeoData, SeoKeyword exported from common
   SeoProps,
   // Transformed props types
   HeroSectionProps,

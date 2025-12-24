@@ -24,6 +24,7 @@ interface ContactUsContentProps {
 
 export function ContactUsContent({ data, topicsData }: ContactUsContentProps) {
   const [activeTab, setActiveTab] = useState(0)
+  console.log("data pusat", data)
 
   // helper to create URL-friendly slugs from titles
   const slugify = (s: any) =>
@@ -211,18 +212,18 @@ export function ContactUsContent({ data, topicsData }: ContactUsContentProps) {
       {/* Tab Content */}
       {activeTab === 0 ? (
         <>
-          <GlobalPresenceSection data={data?.page_nav?.find((p: any) => p.__component?.includes("contact-us-page"))?.our_location_section} />
+          <GlobalPresenceSection data={data?.contactSection?.location} />
           <RequestSampleSection
-            productName={data?.page_nav?.find((p: any) => p.__component?.includes("contact-us-page"))?.contact_us_section?.title ?? ""}
-            data={data?.page_nav?.find((p: any) => p.__component?.includes("contact-us-page"))?.contact_us_section}
+            productName={data?.contactSection?.form?.title}
+            data={data?.contactSection?.form}
             topicsData={topicsData}
           />
         </>
       ) : (
         <>
-          <VisitorCenterSection data={data?.page_nav?.find((p: any) => p.__component?.includes("visitor-center-page"))?.visitor_center_section} />
-          <VisitorVideoSection data={data?.page_nav?.find((p: any) => p.__component?.includes("visitor-center-page"))?.visitor_center_section} />
-          <VisitorFormSection data={data?.page_nav?.find((p: any) => p.__component?.includes("visitor-center-page"))?.visitor_form_section} />
+          <VisitorCenterSection data={data?.visitorSection?.center} />
+          <VisitorVideoSection data={data?.visitorSection?.video} />
+          <VisitorFormSection data={data?.visitorSection?.form} />
         </>
       )}
     </>

@@ -24,8 +24,8 @@ export function VisitorCenterSection({ data }: VisitorCenterProps) {
           {/* Left: Image */}
           <div className="relative w-full aspect-[4/3] md:aspect-auto md:w-[600px] md:h-[560px] rounded-lg overflow-hidden">
             <Image
-              src={data?.image?.url ?? "/contact-us/visitor-center-featured.png"}
-              alt={data?.title ?? "A Gateway to Science and Creativity"}
+              src={data?.image?.url}
+              alt={data?.title}
               fill
               className="object-cover"
             />
@@ -34,12 +34,12 @@ export function VisitorCenterSection({ data }: VisitorCenterProps) {
           {/* Right: Content */}
           <div>
             <SectionLabel variant="bubble" className="mb-4 md:mb-6">
-              {data?.eyebrow ?? "INDESSO VISITOR CENTER"}
+              {data?.eyebrow}
             </SectionLabel>
             <h2
               className="font-plus-bold text-indesso-dark-blue text-[28px] md:text-[32px] lg:text-[48px] mb-4 md:mb-6"
             >
-              {data?.title ?? "A Gateway to Science and Creativity"}
+              {data?.title}
             </h2>
             <div className="space-y-4 font-manrope-regular text-[14px] md:text-[16px] text-indesso-dark-grey leading-[24px] md:leading-relaxed">
               {paragraphs.length > 0 ? (

@@ -3,7 +3,7 @@
  * Types specific to the banner/carousel API
  */
 
-import type { StrapiImage, StrapiPagination } from "./common"
+import type { StrapiImage, StrapiResponse } from "./common"
 
 export interface BannerData {
   id: number
@@ -16,9 +16,4 @@ export interface BannerData {
   publishedAt: string
 }
 
-export interface BannerApiResponse {
-  data: BannerData[]
-  meta: {
-    pagination: StrapiPagination
-  }
-}
+export type BannerApiResponse = StrapiResponse<BannerData[]>

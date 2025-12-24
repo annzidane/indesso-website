@@ -17,11 +17,16 @@ interface PageProps {
 export async function generateMetadata({ params }: PageProps) {
   const { locale } = await params
   const careerData = await getCareerPageData(locale)
-  
+
   return {
     title: careerData.seo?.metaTitle || (locale === "id" ? "Karir - Indesso" : "Career - Indesso"),
     description: careerData.seo?.metaDescription || "Join Indesso and be part of our journey to create sustainable natural ingredients.",
     keywords: careerData.seo?.keywords?.join(", "),
+    openGraph: {
+      title: careerData.seo?.metaTitle || (locale === "id" ? "Karir - Indesso" : "Career - Indesso"),
+      description: careerData.seo?.metaDescription || "Join Indesso and be part of our journey to create sustainable natural ingredients.",
+      type: "website",
+    }
   }
 }
 
@@ -39,8 +44,8 @@ export default async function CareerPage({ params }: PageProps) {
     <>
       <Header data={headerData} locale={locale} variant="transparent" />
       <main>
-        <PageHero 
-          title={careerData.hero.title || "Career"} 
+        <PageHero
+          title={careerData.hero.title || "Career"}
           backgroundImage={careerData.hero.backgroundImage}
         />
         <CareerTabs items={careerData.navItems} defaultActiveId={careerData.navItems[0]?.id} />

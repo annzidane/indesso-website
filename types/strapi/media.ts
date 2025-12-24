@@ -1,12 +1,12 @@
-// types/strapi/media-detail.ts
+// types/strapi/media.ts
 
-import type { StrapiImage } from "./common" // sesuaikan path jika perlu
+import type { StrapiImage, StrapiResponse } from "./common"
 
-// Top-level API response wrapper
-export interface MediaDetailApiResponse {
-  data: MediaDetailRecord
-  meta?: Record<string, any>
-}
+// ============================================
+// Media Detail (Article) Types
+// ============================================
+
+export type MediaDetailApiResponse = StrapiResponse<MediaDetailRecord>
 
 export interface MediaDetailRecord {
   id: number
@@ -17,7 +17,6 @@ export interface MediaDetailRecord {
   page_info?: PageInfo | null
   media_detail?: MediaDetail | null
   seo?: Seo | null
-  // tambahan: jika response mengandung field lain, tambahkan di sini
 }
 
 export interface PageInfo {
@@ -34,7 +33,6 @@ export interface MediaDetail {
   background_image?: StrapiImage | null
   social_media?: SocialMediaItem[] | null
   button?: LinkButton | null
-  // jika ada properti lain di media_detail, tambahkan di sini
 }
 
 export interface SocialMediaItem {
@@ -49,7 +47,6 @@ export interface LinkButton {
   path?: string | null
 }
 
-/** SEO block shape found in the payload */
 export interface Seo {
   id: number
   meta_title?: string | null
@@ -61,3 +58,31 @@ export interface SeoKeyword {
   id: number
   keywords?: string | null
 }
+
+// ============================================
+// Media Page Types (Landing)
+// ============================================
+
+export interface MediaPageHeroSection {
+  id: number
+  title: string
+  background_image: StrapiImage
+}
+
+export interface MediaPageNavItem {
+  id: number
+  title: string
+  article_grid_title: string | null
+  button_label: string | null
+}
+
+export interface MediaPageData {
+  id: number
+  documentId: string
+  page_info: PageInfo
+  hero_section: MediaPageHeroSection
+  page_nav: MediaPageNavItem[]
+  seo?: Seo
+}
+
+export type MediaPageApiResponse = StrapiResponse<MediaPageData>

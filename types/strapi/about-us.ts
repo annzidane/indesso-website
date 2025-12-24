@@ -3,16 +3,13 @@
  * Types specific to the about-us API
  */
 
-import type { StrapiImage, StrapiRichText } from "./common"
+import type { StrapiImage, StrapiRichText, StrapiResponse } from "./common"
 
 // ============================================
 // API Response Types (Raw from Strapi)
 // ============================================
 
-export interface AboutUsApiResponse {
-  data: AboutUsData
-  meta: object
-}
+export type AboutUsApiResponse = StrapiResponse<AboutUsData>
 
 export interface AboutUsData {
   id: number

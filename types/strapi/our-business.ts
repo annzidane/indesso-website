@@ -2,7 +2,7 @@
  * Our Business Page - Strapi Types
  */
 
-import type { StrapiImage, StrapiResponse, StrapiRichText, StrapiButton } from "./common"
+import type { StrapiImage, StrapiResponse, StrapiRichText, StrapiButton, SeoData } from "./common"
 
 // Product Category
 export interface ProductCategory {
@@ -136,17 +136,7 @@ export interface Product {
   }
 }
 
-export interface ProductApiResponse {
-  data: Product[]
-  meta: {
-    pagination: {
-      page: number
-      pageSize: number
-      pageCount: number
-      total: number
-    }
-  }
-}
+export type ProductApiResponse = StrapiResponse<Product[]>
 
 export interface Botanical {
   id: number
@@ -161,36 +151,17 @@ export interface Botanical {
     id: number
     name: string
   }[]
+  seo: SeoData | null
 }
 
-export interface BotanicalsApiResponse {
-  data: Botanical[]
-  meta: {
-    pagination: {
-      page: number
-      pageSize: number
-      pageCount: number
-      total: number
-    }
-  }
-}
+export type BotanicalsApiResponse = StrapiResponse<Botanical[]>
 
 export interface BotanicalFaq {
   id: number
   quesion: string
   answer: StrapiRichText[]
 }
-export interface BotanicalFaqApiResponse {
-  data: BotanicalFaq[]
-  meta: {
-    pagination: {
-      page: number
-      pageSize: number
-      pageCount: number
-      total: number
-    }
-  }
-}
+export type BotanicalFaqApiResponse = StrapiResponse<BotanicalFaq[]>
 
 // ============================================
 // Product Sub Category with page_sections
@@ -207,7 +178,7 @@ export interface ProductSubCategory {
   publishedAt: string
   product_categories: ProductCategory[]
   page_sections: OurBusinessPageSection[]
-  seo: unknown | null
+  seo: SeoData | null
 }
 
 // Hero Section for Our Business page
@@ -245,22 +216,9 @@ export interface OurBusinessData {
 }
 
 // API Response types
-export interface OurBusinessApiResponse {
-  data: OurBusinessData
-  meta: Record<string, unknown>
-}
+export type OurBusinessApiResponse = StrapiResponse<OurBusinessData>
 
-export interface ProductSubCategoryApiResponse {
-  data: ProductSubCategory[]
-  meta: {
-    pagination: {
-      page: number
-      pageSize: number
-      pageCount: number
-      total: number
-    }
-  }
-}
+export type ProductSubCategoryApiResponse = StrapiResponse<ProductSubCategory[]>
 
 // ============================================
 // Our Business Botanical Page
@@ -302,10 +260,7 @@ export interface OurBusinessBotanicalData {
   page_sections: OurBusinessBotanicalPageSection[]
 }
 
-export interface OurBusinessBotanicalApiResponse {
-  data: OurBusinessBotanicalData
-  meta: Record<string, unknown>
-}
+export type OurBusinessBotanicalApiResponse = StrapiResponse<OurBusinessBotanicalData>
 
 // ============================================
 // Our Business Catalog Page
@@ -315,12 +270,10 @@ export interface CatalogPageData {
   id: number
   page_info: OurBusinessPageInfo
   hero_section: OurBusinessHeroSection
+  seo: SeoData | null
 }
 
-export interface CatalogPageApiResponse {
-  data: CatalogPageData
-  meta: Record<string, unknown>
-}
+export type CatalogPageApiResponse = StrapiResponse<CatalogPageData>
 
 // ============================================
 // Our Business Product Detail Page
@@ -360,10 +313,7 @@ export interface ProductDetailPageData {
   page_sections: ProductDetailPageSection[]
 }
 
-export interface ProductDetailPageApiResponse {
-  data: ProductDetailPageData
-  meta: Record<string, unknown>
-}
+export type ProductDetailPageApiResponse = StrapiResponse<ProductDetailPageData>
 
 // Props for components
 export interface OurBusinessHeroProps {

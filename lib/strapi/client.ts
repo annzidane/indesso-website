@@ -1,12 +1,23 @@
 const STRAPI_URL = process.env.STRAPI_URL || "http://localhost:1337"
 const STRAPI_API_TOKEN = process.env.STRAPI_API_TOKEN
 
+export class StrapiError extends Error {
+  constructor(
+    public status: number,
+    public message: string,
+    public url: string
+  ) {
+    super(`Strapi Error ${status}: ${message} (${url})`)
+    this.name = "StrapiError"
+  }
+}
+
 type FetchOptions = {
   locale?: string
   populate?: string | Record<string, unknown>
   filters?: Record<string, unknown>
   revalidate?: number
-  query?: Record<string, string | number | boolean>
+  query?: Record<string, string | number | boolean | undefined | null>
 }
 
 /**
@@ -15,7 +26,7 @@ type FetchOptions = {
  */
 function buildFilterParams(filters: Record<string, unknown>, prefix = 'filters'): URLSearchParams {
   const params = new URLSearchParams()
-  
+
   function addParams(obj: Record<string, unknown>, currentPrefix: string) {
     for (const [key, value] of Object.entries(obj)) {
       const newPrefix = `${currentPrefix}[${key}]`
@@ -39,7 +50,7 @@ function buildFilterParams(filters: Record<string, unknown>, prefix = 'filters')
       }
     }
   }
-  
+
   addParams(filters, prefix)
   return params
 }
@@ -81,24 +92,43 @@ export async function fetchStrapi<T>(endpoint: string, options: FetchOptions = {
     }
   }
 
-  const url = `${STRAPI_URL}/api/${endpoint}?${params.toString()}`
-console.log(`Fetching Strapi URL: ${url}`)
-  const response = await fetch(url, {
-    headers: {
-      Authorization: `Bearer ${STRAPI_API_TOKEN}`,
-      "Content-Type": "application/json",
-    },
-    next: { revalidate },
-  })
+  // Ensure endpoint doesn't start with /
+  const cleanEndpoint = endpoint.startsWith('/') ? endpoint.slice(1) : endpoint
+  const url = `${STRAPI_URL}/api/${cleanEndpoint}?${params.toString()}`
 
-  if (!response.ok) {
-    throw new Error(`Failed to fetch ${endpoint}: ${response.statusText}`)
+  try {
+    const response = await fetch(url, {
+      headers: {
+        Authorization: `Bearer ${STRAPI_API_TOKEN}`,
+        "Content-Type": "application/json",
+      },
+      next: { revalidate },
+    })
+
+    if (!response.ok) {
+      // Try to parse error message from Strapi if available
+      let errorMessage = response.statusText;
+      try {
+        const errorBody = await response.json();
+        errorMessage = errorBody?.error?.message || errorMessage;
+      } catch {
+        // ignore JSON parse error
+      }
+      throw new StrapiError(response.status, errorMessage, url)
+    }
+
+    return response.json()
+  } catch (error) {
+    // If it's already a StrapiError, rethrow it
+    if (error instanceof StrapiError) {
+      throw error
+    }
+    // Network errors or other fetch issues
+    throw new StrapiError(500, error instanceof Error ? error.message : "Unknown error", url)
   }
-
-  return response.json()
 }
 
-export function getStrapiMedia(url: string | null): string {
+export function getStrapiMedia(url: string | null | undefined): string {
   if (!url) return ""
   if (url.startsWith("http")) return url
   return `${STRAPI_URL}${url}`

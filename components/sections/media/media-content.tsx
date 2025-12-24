@@ -73,15 +73,15 @@ export function MediaContent({
   // build tabs from nav if provided. Use canonical route slug for both id and slug so router.push matches app routes.
   const computedTabs = (nav && Array.isArray(nav) && nav.length > 0)
     ? nav.map((n) => {
-        const routeSlug = titleToRouteSlug(n.title);
-        return {
-          id: routeSlug,
-          label: n.title,
-          slug: routeSlug,
-          articleGridTitle: n.article_grid_title,
-          buttonLabel: n.button_label,
-        };
-      })
+      const routeSlug = titleToRouteSlug(n.title);
+      return {
+        id: routeSlug,
+        label: n.title,
+        slug: routeSlug,
+        articleGridTitle: n.article_grid_title,
+        buttonLabel: n.button_label,
+      };
+    })
     : defaultTabs.map(t => ({ ...t, articleGridTitle: null, buttonLabel: null }))
 
   // Update active tab when defaultTab changes
@@ -114,12 +114,14 @@ export function MediaContent({
       // client-side fetch initial batch
       (async () => {
         try {
+          // Inline fetch to avoid external helper file
           const url = `/api/articles?category=${encodeURIComponent(cat)}&locale=${encodeURIComponent(
             locale
           )}&start=0&limit=7`;
           const res = await fetch(url);
           if (!res.ok) throw new Error(`Failed to load articles: ${res.status}`);
           const json = await res.json();
+
           const newArticles = json.data || [];
           const meta = json.meta || null;
           const mapped = newArticles.map((a: any) => mapArticleToMedia(a, slugToType(activeTab)));
@@ -174,14 +176,12 @@ export function MediaContent({
     const dateStr = a?.date || a?.publishedAt || a?.createdAt || null;
     const date = dateStr
       ? new Date(dateStr).toLocaleDateString(locale === "id" ? "id" : "en", {
-          day: "numeric",
-          month: "long",
-          year: "numeric",
-        })
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+      })
       : "";
-
-    const imageUrl =
-      a?.image?.data?.attributes?.url || a?.image?.url || a?.image || null;
+    const imageUrl = a?.image?.data?.attributes?.url || a?.image?.url || a?.image || null;
 
     const image = getStrapiMedia(imageUrl);
 
@@ -231,6 +231,7 @@ export function MediaContent({
         const res = await fetch(url);
         if (!res.ok) throw new Error(`Failed to load articles: ${res.status}`);
         const json = await res.json();
+
         const newArticles = json.data || [];
         const meta = json.meta || null;
         const mapped = newArticles.map((a: any) => mapArticleToMedia(a, slugToType(activeTab)));
@@ -249,6 +250,7 @@ export function MediaContent({
           // fallback heuristic
           setHasMore(newArticles.length === limit);
         }
+
       } catch (e) {
         console.error("Error loading more articles", e);
       } finally {
@@ -397,123 +399,123 @@ export function MediaContent({
 
       {/* Other Tabs - Default Layout (Press Release & Stories) */}
       {(!isInsight && !isProduct && !isVideo) && (
-          <>
-            {/* Featured Item with Full-Width Background */}
-            {displayedItems.length > 0 && (
-              <div className="relative mb-8 md:mb-12">
-                {/* Full-width Background Blur Image */}
-                <div className="absolute inset-0 z-0">
-                  <Image
-                    src="/feature-bg.png"
-                    alt=""
-                    fill
-                    className="object-cover"
-                  />
-                </div>
+        <>
+          {/* Featured Item with Full-Width Background */}
+          {displayedItems.length > 0 && (
+            <div className="relative mb-8 md:mb-12">
+              {/* Full-width Background Blur Image */}
+              <div className="absolute inset-0 z-0">
+                <Image
+                  src="/feature-bg.png"
+                  alt=""
+                  fill
+                  className="object-cover"
+                />
+              </div>
 
-                {/* Content Container */}
-                <div className="relative z-10 container mx-auto px-4">
-                  <Link
-                    href={`/${locale}/media/detail/${displayedItems[0].slug || displayedItems[0].id}`}
-                    className="block group"
-                  >
-                    <div className="relative w-full aspect-[4/3] md:aspect-[31/15] overflow-hidden rounded-b-[4px] cursor-pointer transition-transform hover:scale-[1.02]">
-                      <Image
-                        src={displayedItems[0].image}
-                        alt={displayedItems[0].title}
-                        fill
-                        className="object-cover transition-transform duration-300 group-hover:scale-105"
-                      />
+              {/* Content Container */}
+              <div className="relative z-10 container mx-auto px-4">
+                <Link
+                  href={`/${locale}/media/detail/${displayedItems[0].slug || displayedItems[0].id}`}
+                  className="block group"
+                >
+                  <div className="relative w-full aspect-[4/3] md:aspect-[31/15] overflow-hidden rounded-b-[4px] cursor-pointer transition-transform hover:scale-[1.02]">
+                    <Image
+                      src={displayedItems[0].image}
+                      alt={displayedItems[0].title}
+                      fill
+                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
 
-                      {/* Tags */}
-                      {displayedItems[0].tags &&
-                        displayedItems[0].tags.length > 0 && (
-                          <div className="absolute top-4 left-4 flex flex-wrap gap-2 z-10">
-                            {displayedItems[0].tags.map((tag: string, index: number) => (
-                              <span
-                                key={index}
-                                className="font-plus-bold text-sm px-3 py-1 rounded bg-[rgba(16,153,214,0.1)] text-[#003557]"
-                              >
-                                {tag}
-                              </span>
-                            ))}
-                          </div>
-                        )}
+                    {/* Tags */}
+                    {displayedItems[0].tags &&
+                      displayedItems[0].tags.length > 0 && (
+                        <div className="absolute top-4 left-4 flex flex-wrap gap-2 z-10">
+                          {displayedItems[0].tags.map((tag: string, index: number) => (
+                            <span
+                              key={index}
+                              className="font-plus-bold text-sm px-3 py-1 rounded bg-[rgba(16,153,214,0.1)] text-[#003557]"
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                      )}
 
-                      {/* Blur Overlay Container */}
-                      <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 flex flex-col gap-1 glass-dark-media">
-                        <p className="font-manrope-regular text-sm md:text-base leading-6 text-[#EAEAEA]">
-                          {displayedItems[0].date}
-                        </p>
-                        <h3 className="font-plus-bold text-lg md:text-xl lg:text-2xl leading-7 tracking-tight text-white line-clamp-2">
-                          {displayedItems[0].title}
-                        </h3>
-                      </div>
+                    {/* Blur Overlay Container */}
+                    <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 flex flex-col gap-1 glass-dark-media">
+                      <p className="font-manrope-regular text-sm md:text-base leading-6 text-[#EAEAEA]">
+                        {displayedItems[0].date}
+                      </p>
+                      <h3 className="font-plus-bold text-lg md:text-xl lg:text-2xl leading-7 tracking-tight text-white line-clamp-2">
+                        {displayedItems[0].title}
+                      </h3>
                     </div>
-                  </Link>
-                </div>
+                  </div>
+                </Link>
+              </div>
+            </div>
+          )}
+
+          {/* Section Title */}
+          <div className="container mx-auto px-4 pt-3 md:pt-[12px]">
+            {displayedItems.length > 1 && (
+              <div className="flex items-center gap-6 mb-6 md:mb-8">
+                <h2
+                  className="font-plus-bold text-2xl md:text-3xl whitespace-nowrap"
+                  style={{
+                    color: "#003557",
+                    fontStyle: "italic",
+                  }}
+                >
+                  {/** Use articleGridTitle from CMS when available, otherwise fallback to label or default */}
+                  {currentTab?.articleGridTitle}
+                </h2>
+                <div className="flex-1 h-[2px] bg-[#EAEAEA]" />
               </div>
             )}
 
-            {/* Section Title */}
-            <div className="container mx-auto px-4 pt-3 md:pt-[12px]">
-              {displayedItems.length > 1 && (
-                <div className="flex items-center gap-6 mb-6 md:mb-8">
-                  <h2
-                    className="font-plus-bold text-2xl md:text-3xl whitespace-nowrap"
-                    style={{
-                      color: "#003557",
-                      fontStyle: "italic",
-                    }}
+            {/* Grid of Remaining Items */}
+            {displayedItems.length > 1 && (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-8 md:mb-12">
+                {displayedItems.slice(1).map((item) => (
+                  <Link
+                    key={item.id}
+                    href={`/${locale}/media/detail/${item.slug || item.id}`}
+                    className="block"
                   >
-                    {/** Use articleGridTitle from CMS when available, otherwise fallback to label or default */}
-                    {currentTab?.articleGridTitle}
-                  </h2>
-                  <div className="flex-1 h-[2px] bg-[#EAEAEA]" />
-                </div>
-              )}
+                    <MediaCard
+                      title={item.title}
+                      date={item.date}
+                      image={item.image}
+                      tags={item.tags}
+                    />
+                  </Link>
+                ))}
+              </div>
+            )}
 
-              {/* Grid of Remaining Items */}
-              {displayedItems.length > 1 && (
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-8 md:mb-12">
-                  {displayedItems.slice(1).map((item) => (
-                    <Link
-                      key={item.id}
-                      href={`/${locale}/media/detail/${item.slug || item.id}`}
-                      className="block"
-                    >
-                      <MediaCard
-                        title={item.title}
-                        date={item.date}
-                        image={item.image}
-                        tags={item.tags}
-                      />
-                    </Link>
-                  ))}
-                </div>
-              )}
+            {/* Load More Button */}
+            {hasMore && (
+              <button
+                onClick={handleLoadMore}
+                className="w-full h-14 px-6 rounded-sm border border-[#003557] text-[#003557] hover:bg-[#003557] hover:text-white transition-colors font-manrope-bold text-base leading-5 text-center bg-transparent"
+              >
+                {currentTab?.buttonLabel ?? "Load More"}
+              </button>
+            )}
 
-              {/* Load More Button */}
-              {hasMore && (
-                <button
-                  onClick={handleLoadMore}
-                  className="w-full h-14 px-6 rounded-sm border border-[#003557] text-[#003557] hover:bg-[#003557] hover:text-white transition-colors font-manrope-bold text-base leading-5 text-center bg-transparent"
-                >
-                  {currentTab?.buttonLabel ?? "Load More"}
-                </button>
-              )}
-
-              {/* Empty State */}
-              {displayedItems.length === 0 && (
-                <div className="text-center py-16">
-                  <p className="font-manrope-regular text-lg text-[#555555]">
-                    No items available in this category yet.
-                  </p>
-                </div>
-              )}
-            </div>
-          </>
-        )}
+            {/* Empty State */}
+            {displayedItems.length === 0 && (
+              <div className="text-center py-16">
+                <p className="font-manrope-regular text-lg text-[#555555]">
+                  No items available in this category yet.
+                </p>
+              </div>
+            )}
+          </div>
+        </>
+      )}
     </section>
   );
 }

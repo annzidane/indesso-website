@@ -20,19 +20,21 @@ import type {
 /**
  * Fetch Our Business page data (hero, sticky nav)
  */
-export async function getOurBusinessPage(locale: string = "en"): Promise<OurBusinessData | null> {
-  try {
-    const response = await fetchStrapi<OurBusinessApiResponse>("our-business", {
-      locale,
-      query: { pLevel: 5 },
-      revalidate: 60,
-    })
+/**
+ * Fetch Our Business page data (hero, sticky nav)
+ */
+export async function getOurBusinessPage(locale: string = "en"): Promise<OurBusinessData> {
+  const response = await fetchStrapi<OurBusinessApiResponse>("our-business", {
+    locale,
+    query: { pLevel: 5 },
+    revalidate: 60,
+  })
 
-    return response.data
-  } catch (error) {
-    console.error("Error fetching our-business page:", error)
-    return null
+  if (!response?.data) {
+    throw new Error("No data returned from Our Business API")
   }
+
+  return response.data
 }
 
 /**
@@ -42,55 +44,40 @@ export async function getProductSubCategoryBySlug(
   slug: string,
   locale: string = "en"
 ): Promise<ProductSubCategory | null> {
-  try {
-    const response = await fetchStrapi<ProductSubCategoryApiResponse>("product-sub-categories", {
-      locale,
-      filters: {
-        slug: {
-          $eq: slug,
-        },
+  const response = await fetchStrapi<ProductSubCategoryApiResponse>("product-sub-categories", {
+    locale,
+    filters: {
+      slug: {
+        $eq: slug,
       },
-      query: { pLevel: 5 },
-      revalidate: 60,
-    })
+    },
+    query: { pLevel: 5 },
+    revalidate: 60,
+  })
 
-    return response.data?.[0] || null
-  } catch (error) {
-    console.error("Error fetching product-sub-category:", error)
-    return null
-  }
+  return response.data?.[0] || null
 }
 
 /**
  * Get all product sub-category slugs for static params
  */
 export async function getAllProductSubCategorySlugs(locale: string = "en"): Promise<string[]> {
-  try {
-    const pageData = await getOurBusinessPage(locale)
-    if (!pageData?.sticky_nav?.product_sub_categories) {
-      return []
-    }
-    return pageData.sticky_nav.product_sub_categories.map((cat) => cat.slug)
-  } catch (error) {
-    console.error("Error fetching product sub-category slugs:", error)
+  const pageData = await getOurBusinessPage(locale)
+  if (!pageData?.sticky_nav?.product_sub_categories) {
     return []
   }
+  return pageData.sticky_nav.product_sub_categories.map((cat) => cat.slug)
 }
 
 /**
  * Get the default/first product sub-category slug
  */
 export async function getDefaultProductSubCategorySlug(locale: string = "en"): Promise<string | null> {
-  try {
-    const pageData = await getOurBusinessPage(locale)
-    if (!pageData?.sticky_nav?.product_sub_categories?.length) {
-      return null
-    }
-    return pageData.sticky_nav.product_sub_categories[0].slug
-  } catch (error) {
-    console.error("Error fetching default sub-category slug:", error)
+  const pageData = await getOurBusinessPage(locale)
+  if (!pageData?.sticky_nav?.product_sub_categories?.length) {
     return null
   }
+  return pageData.sticky_nav.product_sub_categories[0].slug
 }
 
 // ============================================
@@ -112,125 +99,102 @@ import { extractTextFromRichText } from "./utils"
 /**
  * Fetch all botanicals
  */
+/**
+ * Fetch all botanicals
+ */
 export async function getBotanicals(locale: string = "en"): Promise<Botanical[]> {
-  try {
-    const response = await fetchStrapi<BotanicalsApiResponse>("botanicals", {
-      locale,
-      query: {
-        "fields[0]": "name",
-        "fields[1]": "slug",
-        "fields[2]": "scientific_name",
-        "populate[image_1][fields][0]": "url",
-        "populate[image_1][fields][1]": "alternativeText",
-        "populate[image_1][fields][2]": "width",
-        "populate[image_1][fields][3]": "height",
-      },
-      revalidate: 60,
-    })
+  const response = await fetchStrapi<BotanicalsApiResponse>("botanicals", {
+    locale,
+    query: {
+      "fields[0]": "name",
+      "fields[1]": "slug",
+      "fields[2]": "scientific_name",
+      "populate[image_1][fields][0]": "url",
+      "populate[image_1][fields][1]": "alternativeText",
+      "populate[image_1][fields][2]": "width",
+      "populate[image_1][fields][3]": "height",
+    },
+    revalidate: 60,
+  })
 
-    return response.data || []
-  } catch (error) {
-    console.error("Error fetching botanicals:", error)
-    return []
-  }
+  return response.data || []
 }
 
 export async function getOurBusinessBotanicalPage(
   locale: string = "en"
-): Promise<OurBusinessBotanicalData | null> {
-  try {
-    const response = await fetchStrapi<OurBusinessBotanicalApiResponse>("our-business-botanical", {
-      locale,
-      query: { pLevel: 5 },
-      revalidate: 60,
-    })
+): Promise<OurBusinessBotanicalData> {
+  const response = await fetchStrapi<OurBusinessBotanicalApiResponse>("our-business-botanical", {
+    locale,
+    query: { pLevel: 5 },
+    revalidate: 60,
+  })
 
-    return response.data
-  } catch (error) {
-    console.error("Error fetching our-business-botanical page:", error)
-    return null
+  if (!response?.data) {
+    throw new Error("No data returned from Our Business Botanical Page API")
   }
+
+  return response.data
 }
 
 export async function getBotanicalBySlug(slug: string, locale: string = "en"): Promise<Botanical | null> {
-  try {
-    const response = await fetchStrapi<BotanicalsApiResponse>("botanicals", {
-      locale,
-      filters: {
-        slug: {
-          $eq: slug,
-        },
+  const response = await fetchStrapi<BotanicalsApiResponse>("botanicals", {
+    locale,
+    filters: {
+      slug: {
+        $eq: slug,
       },
-      query: { pLevel: 2 },
-      revalidate: 60,
-    })
+    },
+    query: { pLevel: 2 },
+    revalidate: 60,
+  })
 
-    return response.data?.[0] || null
-  } catch (error) {
-    console.error("Error fetching botanical by slug:", error)
-    return null
-  }
+  return response.data?.[0] || null
 }
 
 export async function getFaqsByBotanicalSlug(
   slug: string,
   locale: string = "en"
 ): Promise<BotanicalFaq[]> {
-  try {
-    const response = await fetchStrapi<BotanicalFaqApiResponse>("faq-botanicals", {
-      locale,
-      filters: {
-        botanical: {
-          slug: {
-            $eq: slug,
-          },
+  const response = await fetchStrapi<BotanicalFaqApiResponse>("faq-botanicals", {
+    locale,
+    filters: {
+      botanical: {
+        slug: {
+          $eq: slug,
         },
       },
-      query: { pLevel: 1 },
-      revalidate: 60,
-    })
+    },
+    query: { pLevel: 1 },
+    revalidate: 60,
+  })
 
-    return response.data || []
-  } catch (error) {
-    console.error("Error fetching faqs by botanical slug:", error)
-    return []
-  }
+  return response.data || []
 }
 
 export async function getProductsByBotanicalSlug(
   slug: string,
   locale: string = "en"
 ): Promise<Product[]> {
-  try {
-    const response = await fetchStrapi<ProductApiResponse>("products", {
-      locale,
-      filters: {
-        botanical: {
-          slug: {
-            $eq: slug,
-          },
+  const response = await fetchStrapi<ProductApiResponse>("products", {
+    locale,
+    filters: {
+      botanical: {
+        slug: {
+          $eq: slug,
         },
       },
-      // limit products per page to 8
-      query: { pLevel: 2, "pagination[pageSize]": 8 },
-      revalidate: 60,
-    })
+    },
+    // limit products per page to 8
+    query: { pLevel: 2, "pagination[pageSize]": 8 },
+    revalidate: 60,
+  })
 
-    return response.data || []
-  } catch (error) {
-    console.error("Error fetching products by botanical slug:", error)
-    return []
-  }
+  return response.data || []
 }
 
 export async function getAllBotanicalSlugs(locale: string = "en"): Promise<string[]> {
-  try {
-    const botanicals = await getBotanicals(locale)
-    return botanicals.map((botanical) => botanical.slug)
-  } catch (error) {
-    console.error("Error fetching all botanical slugs:", error)
-    return []
-  }
+  const botanicals = await getBotanicals(locale)
+  return botanicals.map((botanical) => botanical.slug)
 }
 
 export async function getBotanicalPageData(slug: string, locale: string) {
@@ -331,19 +295,19 @@ export function transformBotanicalPageData(
   // Transform hero section to match PageHero props (title, backgroundImage)
   const hero = heroSection
     ? {
-        title: (heroSection as any).hero_section.title || "",
-        backgroundImage: (heroSection as any).hero_section.background_image,
-      }
+      title: (heroSection as any).hero_section.title || "",
+      backgroundImage: (heroSection as any).hero_section.background_image,
+    }
     : undefined
 
   const listProduct = listProductSection
     ? {
-        title: (listProductSection as any).title || "",
-        button: {
-          title: (listProductSection as any).button?.title || "",
-          path: (listProductSection as any).button?.path || "",
-        },
-      }
+      title: (listProductSection as any).title || "",
+      button: {
+        title: (listProductSection as any).button?.title || "",
+        path: (listProductSection as any).button?.path || "",
+      },
+    }
     : undefined
 
   return {

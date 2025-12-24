@@ -27,6 +27,24 @@ interface PageProps {
   params: Promise<{ locale: Locale; slug: string }>
 }
 
+export async function generateMetadata({ params }: PageProps) {
+  const { locale, slug } = await params
+  const subCategory = await getProductSubCategoryBySlug(slug, locale)
+
+  if (!subCategory) return {}
+
+  return {
+    title: subCategory.seo?.meta_title || `${subCategory.title} - Indesso`,
+    description: subCategory.seo?.meta_description || subCategory.title,
+    keywords: subCategory.seo?.keywords ? subCategory.seo.keywords.map((k: any) => k.keywords).join(", ") : undefined,
+    openGraph: {
+      title: subCategory.seo?.meta_title || `${subCategory.title} - Indesso`,
+      description: subCategory.seo?.meta_description || subCategory.title,
+      type: "website",
+    },
+  }
+}
+
 export default async function OurBusinessPage({ params }: PageProps) {
   const { locale, slug } = await params
 
@@ -69,20 +87,20 @@ export default async function OurBusinessPage({ params }: PageProps) {
     <>
       <Header data={headerData} locale={locale} variant="transparent" />
       <main>
-        <PageHero 
-          title={heroSection.title} 
+        <PageHero
+          title={heroSection.title}
           backgroundUrl={heroSection.backgroundImage}
         />
-        <StickyNavLink 
-          items={stickyNavItems} 
-          activeId={slug} 
+        <StickyNavLink
+          items={stickyNavItems}
+          activeId={slug}
         />
-        
+
         {/* Render page sections dynamically */}
         {pageSections.map((section) => {
           // Use component type + id for unique key
           const uniqueKey = `${section.__component}-${section.id}`
-          
+
           switch (section.__component) {
             case "our-business.business-summary-section":
               return (
@@ -137,7 +155,7 @@ export async function generateStaticParams() {
 
   // Generate params for each locale and slug combination
   const params: { locale: string; slug: string }[] = []
-  
+
   for (const locale of ["en", "id"]) {
     for (const slug of allSlugs) {
       params.push({ locale, slug })

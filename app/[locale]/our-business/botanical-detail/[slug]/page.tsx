@@ -16,6 +16,24 @@ interface PageProps {
   params: Promise<{ locale: Locale; slug: string }>
 }
 
+export async function generateMetadata({ params }: PageProps) {
+  const { locale, slug } = await params
+  const botanical = await getBotanicalPageData(slug, locale)
+
+  if (!botanical) return {}
+
+  return {
+    title: botanical?.botanical.seo?.meta_title || `${botanical.botanical.name} - Indesso`,
+    description: botanical?.botanical.seo?.meta_description || botanical.botanical.name,
+    keywords: botanical?.botanical.seo?.keywords ? botanical.botanical.seo.keywords.map((k: any) => k.keywords).join(", ") : undefined,
+    openGraph: {
+      title: botanical?.botanical.seo?.meta_title || `${botanical.botanical.name} - Indesso`,
+      description: botanical?.botanical.seo?.meta_description || botanical.botanical.name,
+      type: "website",
+    },
+  }
+}
+
 export default async function BotanicalDetailPage({ params }: PageProps) {
   const { slug, locale } = await params
 
@@ -41,7 +59,7 @@ export default async function BotanicalDetailPage({ params }: PageProps) {
     contactUsSection,
     listProductSection,
   } = pageData
-
+  console.log("botanical", botanical)
   // Prefer the explicit relatedProductsData fetched above; fallback to pageData.products
   const relatedProducts = (relatedProductsData || pageData.products || []).filter(
     (p) => p.id !== botanical.id

@@ -12,6 +12,25 @@ interface PageProps {
   params: Promise<{ locale: string }>
 }
 
+export async function generateMetadata({ params }: PageProps) {
+  const { locale: localeParam } = await params
+  if (!isValidLocale(localeParam)) return {}
+
+  const locale = localeParam as Locale
+  const homepage = await getHomepageData(locale)
+
+  return {
+    title: homepage.seo?.metaTitle || "Indesso - Ingredients for Life",
+    description: homepage.seo?.metaDescription || "Indesso offers a wide variety of natural ingredients, aroma chemicals, and essential oils.",
+    keywords: homepage.seo?.keywords ? homepage.seo.keywords.join(", ") : "indesso, aroma, ingredients",
+    openGraph: {
+      title: homepage.seo?.metaTitle || "Indesso - Ingredients for Life",
+      description: homepage.seo?.metaDescription || "Indesso offers a wide variety of natural ingredients, aroma chemicals, and essential oils.",
+      type: "website",
+    },
+  }
+}
+
 export default async function HomePage({ params }: PageProps) {
   const { locale: localeParam } = await params
 

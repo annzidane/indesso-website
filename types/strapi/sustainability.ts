@@ -3,16 +3,13 @@
  * Types specific to the sustainability API
  */
 
-import type { StrapiImage, StrapiRichText } from "./common"
+import type { StrapiImage, StrapiRichText, StrapiResponse } from "./common"
 
 // ============================================
 // API Response Types (Raw from Strapi)
 // ============================================
 
-export interface SustainabilityApiResponse {
-  data: SustainabilityData
-  meta: object
-}
+export type SustainabilityApiResponse = StrapiResponse<SustainabilityData>
 
 export interface SustainabilityData {
   id: number

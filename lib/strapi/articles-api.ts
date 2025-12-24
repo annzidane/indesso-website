@@ -1,5 +1,6 @@
-import { MediaDetailApiResponse } from "@/types/strapi/media";
-import { fetchStrapi } from "./client";
+import type { MediaDetailApiResponse } from "@/types/strapi/media"
+import type { ArticlesApiResponse, Article } from "@/types/strapi/articles"
+import { fetchStrapi } from "./client"
 
 /**
  * Fetch articles from Strapi filtered by category with pagination and sort by date desc.
@@ -10,31 +11,26 @@ export async function getArticles(
   locale: string = "en",
   start: number = 0,
   limit: number = 6
-) {
-  try {
-    const resp = await fetchStrapi<any>("articles", {
-      locale,
-      filters: {
-        article_category: {
-          $eq: category,
-        },
+): Promise<ArticlesApiResponse> {
+  const resp = await fetchStrapi<ArticlesApiResponse>("articles", {
+    locale,
+    filters: {
+      article_category: {
+        $eq: category,
       },
-      query: {
-        sort: "date:desc",
-        ["pagination[start]"]: start,
-        ["pagination[limit]"]: limit,
-        pLevel: 3,
-      },
-      revalidate: 60,
-    });
+    },
+    query: {
+      sort: "date:desc",
+      ["pagination[start]"]: start,
+      ["pagination[limit]"]: limit,
+      pLevel: 3,
+    },
+    revalidate: 60,
+  })
 
-    return resp;
-  } catch (err) {
-    console.error("Error fetching articles:", err);
-    return { data: [], meta: { pagination: { page: 1, pageSize: limit, pageCount: 1, total: 0 } } };
-  }
+  // We return the full response to allow access to meta pagination
+  return resp
 }
-// /api/media-detail
 
 /**
  * Fetch Media Detail Page data
@@ -42,19 +38,28 @@ export async function getArticles(
 export async function getMediaDetailPage(
   locale: string = "en"
 ): Promise<MediaDetailApiResponse["data"] | null> {
-  try {
-    const response = await fetchStrapi<MediaDetailApiResponse>("media-detail", {
-      locale,
-      query: { pLevel: 5 },
-      revalidate: 60,
-    })
-    return response.data
-  } catch (error) {
-    console.error("Error fetching product detail page:", error)
-    return null
-  }
+  const response = await fetchStrapi<MediaDetailApiResponse>("media-detail", {
+    locale,
+    query: { pLevel: 5 },
+    revalidate: 60,
+  })
+  return response.data
 }
 
+
+/**
+ * Fetch Media Explore Insight Page data
+ */
+export async function getMediaExploreInsight(
+  locale: string = "en"
+): Promise<MediaDetailApiResponse["data"] | null> {
+  const response = await fetchStrapi<MediaDetailApiResponse>("media-explore-insight", {
+    locale,
+    query: { pLevel: 3 },
+    revalidate: 60,
+  })
+  return response.data
+}
 /**
  * Fetch a single article by slug. Returns the first matching article or null.
  */
@@ -62,20 +67,15 @@ export async function getArticleBySlug(
   slug: string,
   locale: string = "en",
   pLevel: number = 3
-) {
-  try {
-    const resp: any = await fetchStrapi("articles", {
-      locale,
-      filters: { slug: { $eq: slug } },
-      query: { pLevel },
-      revalidate: 60,
-    })
-    const data = Array.isArray(resp?.data) ? resp.data : []
-    return data[0] ?? null
-  } catch (err) {
-    console.error("Error fetching article by slug:", err)
-    return null
-  }
+): Promise<Article | null> {
+  const resp = await fetchStrapi<ArticlesApiResponse>("articles", {
+    locale,
+    filters: { slug: { $eq: slug } },
+    query: { pLevel },
+    revalidate: 60,
+  })
+
+  return resp.data?.[0] || null
 }
 
 /**
@@ -87,28 +87,24 @@ export async function getRelatedArticlesByCategory(
   excludeSlug: string | null,
   locale: string = "en",
   limit: number = 3
-) {
-  try {
-    const filters: any = {
-      article_category: { $eq: category },
-    }
-    if (excludeSlug) filters.slug = { $ne: excludeSlug }
-
-    const resp: any = await fetchStrapi("articles", {
-      locale,
-      filters,
-      query: {
-        sort: "date:desc",
-        ["pagination[limit]"]: limit,
-        pLevel: 3,
-      },
-      revalidate: 60,
-    })
-    return Array.isArray(resp?.data) ? resp.data : []
-  } catch (err) {
-    console.error("Error fetching related articles:", err)
-    return []
+): Promise<Article[]> {
+  const filters: any = {
+    article_category: { $eq: category },
   }
+  if (excludeSlug) filters.slug = { $ne: excludeSlug }
+
+  const resp = await fetchStrapi<ArticlesApiResponse>("articles", {
+    locale,
+    filters,
+    query: {
+      sort: "date:desc",
+      ["pagination[limit]"]: limit,
+      pLevel: 3,
+    },
+    revalidate: 60,
+  })
+
+  return resp.data || []
 }
 
 /**
@@ -121,12 +117,12 @@ export async function getArticlePageData(
   locale: string = "en",
   pLevel: number = 3,
   relatedLimit: number = 3
-) {
+): Promise<{ article: Article | null; related: Article[] }> {
   try {
     const article = await getArticleBySlug(slug, locale, pLevel)
     if (!article) return { article: null, related: [] }
 
-    const category = article.article_category || article.category || null
+    const category = article.article_category || null
     const related = category
       ? await getRelatedArticlesByCategory(category, slug, locale, relatedLimit)
       : []
@@ -134,6 +130,9 @@ export async function getArticlePageData(
     return { article, related }
   } catch (err) {
     console.error("Error building article page data:", err)
-    return { article: null, related: [] }
+    // Here we can choose to propagate error or return null/empty, but typical page data fetch might prefer returning null if main article fails
+    // However, getArticleBySlug now might throw if fetchStrapi throws (on 404/500).
+    // If we want fail-loud for page generation, we should rethrow.
+    throw err
   }
 }

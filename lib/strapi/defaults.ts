@@ -21,7 +21,7 @@ export const defaultHeaderData: HeaderData = {
   logo: {
     id: 0,
     documentId: "",
-    name: "logo-indesso.png",
+    name: "/logo-indesso.png",
     alternativeText: "Indesso Logo",
     caption: null,
     width: 179,
@@ -42,7 +42,7 @@ export const defaultHeaderData: HeaderData = {
   logo_fullcolor: {
     id: 0,
     documentId: "",
-    name: "logo-indesso-fullcolor.png",
+    name: "/logo-indesso-fullcolor.png",
     alternativeText: "Indesso Logo",
     caption: null,
     width: 179,
@@ -52,7 +52,7 @@ export const defaultHeaderData: HeaderData = {
     ext: ".png",
     mime: "image/png",
     size: 0,
-    url: "/logo-indesso.png",
+    url: "/logo-indesso-fullcolor.png",
     previewUrl: null,
     provider: "local",
     provider_metadata: null,
@@ -82,54 +82,54 @@ export const defaultFooterData: FooterData = {
   description: "A global ingredient and innovation company committed to delivering quality, reliability, and sustainable value for every partner.",
   copyright: "Copyright © 2025 PT Indesso Aroma All Rights Reserved.",
   footer_menus: [
-    { 
-      id: 1, 
-      title: "Our Business", 
+    {
+      id: 1,
+      title: "Our Business",
       path: "/our-business",
       menus: [
         { id: 1, title: "Natural Aroma Ingredients & Extracts", path: "/" },
         { id: 2, title: "Taste & Wellness", path: "/" },
       ]
     },
-    { 
-      id: 2, 
-      title: "About Indesso", 
+    {
+      id: 2,
+      title: "About Indesso",
       path: "/about-us",
       menus: [
         { id: 3, title: "Our Journey", path: "/" },
         { id: 4, title: "Meet The Boards", path: "/" },
       ]
     },
-    { 
-      id: 3, 
-      title: "Media", 
+    {
+      id: 3,
+      title: "Media",
       path: "/media",
       menus: [
         { id: 5, title: "Press Release", path: "/" },
         { id: 6, title: "Corporate News", path: "/" },
       ]
     },
-    { 
-      id: 4, 
-      title: "Careers", 
+    {
+      id: 4,
+      title: "Careers",
       path: "/career",
       menus: [
         { id: 7, title: "Life at Indesso", path: "/" },
         { id: 8, title: "Join Our Team", path: "/" },
       ]
     },
-    { 
-      id: 5, 
-      title: "Sustainability", 
+    {
+      id: 5,
+      title: "Sustainability",
       path: "/sustainability",
       menus: [
         { id: 9, title: "Sustainability Strategy", path: "/" },
         { id: 10, title: "Responsible Sourcing", path: "/" },
       ]
     },
-    { 
-      id: 6, 
-      title: "Contact Us", 
+    {
+      id: 6,
+      title: "Contact Us",
       path: "/contact-us",
       menus: [
         { id: 11, title: "Sites & Subsidiaries", path: "/" },

@@ -34,7 +34,8 @@ export function RequestSampleSection({
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const timerRef = useRef<number | null>(null)
-
+  console.log("data", data)
+  console.log("topicsData", topicsData)
   // auto-dismiss messages after 5 seconds
   useEffect(() => {
     if (timerRef.current) {
@@ -75,32 +76,32 @@ export function RequestSampleSection({
       setErrorMessage("Please fill in all required fields.");
       return;
     }
-      const pathname = typeof window !== "undefined" ? window.location.pathname : ""
+    const pathname = typeof window !== "undefined" ? window.location.pathname : ""
 
-      let formPageValue: string | undefined = undefined
+    let formPageValue: string | undefined = undefined
 
-      try {
-        const p = pathname || ""
-        // product page
-        if (p.includes("/our-catalog/")) {
-          formPageValue = productName || data?.title
-        }
-
-        // botanical detail page
-        if (!formPageValue && (p.includes("botanical-detail") || p.includes("/our-business/"))) {
-          formPageValue = productName
-        }
-
-        // contact page
-        if (!formPageValue && (p.includes("/contact") || (data?.title && String(data.title).toLowerCase().includes("contact")))) {
-          formPageValue = data?.title ?? "Contact Us"
-        }
-
-        // final fallbacks
-        formPageValue = formPageValue ?? productName ?? data?.form_page ?? p ?? ""
-      } catch (e) {
-        formPageValue = productName ?? data?.form_page ?? ""
+    try {
+      const p = pathname || ""
+      // product page
+      if (p.includes("/our-catalog/")) {
+        formPageValue = productName || data?.title
       }
+
+      // botanical detail page
+      if (!formPageValue && (p.includes("botanical-detail") || p.includes("/our-business/"))) {
+        formPageValue = productName
+      }
+
+      // contact page
+      if (!formPageValue && (p.includes("/contact") || (data?.title && String(data.title).toLowerCase().includes("contact")))) {
+        formPageValue = data?.title ?? "Contact Us"
+      }
+
+      // final fallbacks
+      formPageValue = formPageValue ?? productName ?? data?.form_page ?? p ?? ""
+    } catch (e) {
+      formPageValue = productName ?? data?.form_page ?? ""
+    }
 
     // Submit via helper
     // If topicsData is available, send the human-readable topic label as inquiry_topics
@@ -120,7 +121,6 @@ export function RequestSampleSection({
       your_notes: formData.notes,
       form_page: String(formPageValue),
     }
-    console.log("Submitting form with payload:", payload)
 
     setSubmitting(true)
     try {
