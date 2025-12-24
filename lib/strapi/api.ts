@@ -134,14 +134,22 @@ function transformHomepageData(data: HomepageData): HomepageProps {
 }
 
 export async function getHomepageData(locale: string): Promise<HomepageProps> {
-  const response = await fetchStrapi<HomepageApiResponse>("homepage", {
-    locale,
-    query: {
-      pLevel: 6,
-    },
-  })
+  try {
+    const response = await fetchStrapi<HomepageApiResponse>("homepage", {
+      locale,
+      query: {
+        pLevel: 6,
+      },
+    })
 
-  return transformHomepageData(response.data)
+    return transformHomepageData(response.data)
+  } catch (error) {
+    if (locale !== "en") {
+      console.warn(`[getHomepageData] Failed to fetch for locale '${locale}', falling back to 'en'.`)
+      return getHomepageData("en")
+    }
+    throw error
+  }
 }
 
 // ============================================
@@ -149,13 +157,21 @@ export async function getHomepageData(locale: string): Promise<HomepageProps> {
 // ============================================
 
 export async function getHeaderData(locale: string): Promise<HeaderData> {
-  const response = await fetchStrapi<HeaderApiResponse>("header", {
-    locale,
-    query: {
-      pLevel: 5,
-    },
-  })
-  return response.data
+  try {
+    const response = await fetchStrapi<HeaderApiResponse>("header", {
+      locale,
+      query: {
+        pLevel: 5,
+      },
+    })
+    return response.data
+  } catch (error) {
+    if (locale !== "en") {
+      console.warn(`[getHeaderData] Failed to fetch for locale '${locale}', falling back to 'en'.`)
+      return getHeaderData("en")
+    }
+    throw error
+  }
 }
 
 // ============================================
@@ -163,14 +179,22 @@ export async function getHeaderData(locale: string): Promise<HeaderData> {
 // ============================================
 
 export async function getFooterData(locale: string): Promise<FooterData> {
-  const response = await fetchStrapi<FooterApiResponse>("footer", {
-    locale,
-    query: {
-      pLevel: 5,
-    },
-  })
+  try {
+    const response = await fetchStrapi<FooterApiResponse>("footer", {
+      locale,
+      query: {
+        pLevel: 5,
+      },
+    })
 
-  return response.data
+    return response.data
+  } catch (error) {
+    if (locale !== "en") {
+      console.warn(`[getFooterData] Failed to fetch for locale '${locale}', falling back to 'en'.`)
+      return getFooterData("en")
+    }
+    throw error
+  }
 }
 
 // ============================================

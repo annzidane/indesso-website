@@ -19,13 +19,26 @@ const ITEMS_PER_PAGE = 12
 /**
  * Fetch Catalog page data (hero)
  */
-export async function getCatalogPage(locale: string = "en"): Promise<CatalogPageData | null> {
-  const response = await fetchStrapi<CatalogPageApiResponse>("our-business-catalog", {
-    locale,
-    query: { pLevel: 3 },
-    revalidate: 60,
-  })
-  return response.data
+export async function getCatalogPage(locale: string = "en"): Promise<CatalogPageData> {
+  try {
+    const response = await fetchStrapi<CatalogPageApiResponse>("our-business-catalog", {
+      locale,
+      query: { pLevel: 3 },
+      revalidate: 60,
+    })
+
+    if (!response?.data) {
+      throw new Error("No data returned from Our Business Catalog Page API")
+    }
+
+    return response.data
+  } catch (error) {
+    if (locale !== "en") {
+      console.warn(`[getCatalogPage] Failed to fetch for locale '${locale}', falling back to 'en'.`)
+      return getCatalogPage("en")
+    }
+    throw error
+  }
 }
 
 /**
