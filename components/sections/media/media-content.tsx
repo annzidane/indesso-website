@@ -10,6 +10,7 @@ import { InsightsContent } from "@/components/sections/media/insights-content";
 import { ProductCatalogContent } from "@/components/sections/media/product-catalog-content";
 import { VideosContent } from "@/components/sections/media/videos-content";
 import { MediaTabsMobile } from "@/components/ui/media/media-tabs-mobile";
+import { MediaSkeleton } from "@/components/ui/media-skeleton";
 import { cn } from "@/lib/utils";
 import { toSlug } from "@/lib/strapi/utils";
 import type { Locale } from "@/lib/i18n/config";
@@ -91,22 +92,31 @@ export function MediaContent({
 
   // Initialize mediaItems from server-provided initialArticles when available.
   useEffect(() => {
+    let isMounted = true;
     const cat = slugToCategory(activeTab);
+
+    setLoading(true); // Start loading immediately on tab change
 
     // If server provided initialArticles for this tab, use them (mapped)
     if (initialArticles && Array.isArray(initialArticles) && initialArticles.length > 0) {
-      const mapped = initialArticles.map((a: any) => mapArticleToMedia(a, slugToType(activeTab)));
-      setMediaItems(mapped);
-      setVisibleItems(7);
-      const meta = (initialMeta as any) || null;
-      const total = meta?.pagination?.total ?? null;
-      if (total !== null) {
-        setTotalCount(Number(total));
-        setHasMore(mapped.length < Number(total));
-      } else {
-        setHasMore(mapped.length === 7);
+      if (activeTab === defaultTab) {
+        setLoading(false); // Immediate data available
+        const mapped = initialArticles.map((a: any) => mapArticleToMedia(a, slugToType(activeTab)));
+
+        if (isMounted) {
+          setMediaItems(mapped);
+          setVisibleItems(7);
+          const meta = (initialMeta as any) || null;
+          const total = meta?.pagination?.total ?? null;
+          if (total !== null) {
+            setTotalCount(Number(total));
+            setHasMore(mapped.length < Number(total));
+          } else {
+            setHasMore(mapped.length === 7);
+          }
+        }
+        return () => { isMounted = false };
       }
-      return;
     }
 
     // If this tab maps to an articles category, fetch initial articles from the articles API
@@ -114,10 +124,10 @@ export function MediaContent({
       // client-side fetch initial batch
       (async () => {
         try {
-          // Inline fetch to avoid external helper file
           const url = `/api/articles?category=${encodeURIComponent(cat)}&locale=${encodeURIComponent(
             locale
           )}&start=0&limit=7`;
+
           const res = await fetch(url);
           if (!res.ok) throw new Error(`Failed to load articles: ${res.status}`);
           const json = await res.json();
@@ -125,6 +135,7 @@ export function MediaContent({
           const newArticles = json.data || [];
           const meta = json.meta || null;
           const mapped = newArticles.map((a: any) => mapArticleToMedia(a, slugToType(activeTab)));
+
           setMediaItems(mapped);
           setVisibleItems(7);
           const totalFromMeta = meta?.pagination?.total ?? null;
@@ -135,20 +146,29 @@ export function MediaContent({
             setHasMore(mapped.length === 7);
           }
         } catch (e) {
+          if (!isMounted) return;
           console.error('Error loading initial articles for tab', e);
           setMediaItems([]);
           setVisibleItems(7);
           setHasMore(false);
+        } finally {
+          if (isMounted) setLoading(false);
         }
       })();
-      return;
+
+      return () => { isMounted = false };
     }
 
-    // If no category mapping and no server data, show empty list (avoid using local dummy data)
-    setMediaItems([]);
-    setVisibleItems(7);
-    setHasMore(false);
-  }, [activeTab, locale, initialArticles]);
+    // If no category mapping and no server data
+    if (isMounted) {
+      setMediaItems([]);
+      setVisibleItems(7);
+      setHasMore(false);
+      setLoading(false);
+    }
+
+    return () => { isMounted = false };
+  }, [activeTab, locale, initialArticles, defaultTab]);
 
   // Helper to map tab slug -> data type expected by getMediaByType
   function slugToType(slug: string): TabType {
@@ -181,7 +201,9 @@ export function MediaContent({
         year: "numeric",
       })
       : "";
-    const imageUrl = a?.image?.data?.attributes?.url || a?.image?.url || a?.image || null;
+
+    const imageUrl =
+      a?.image?.data?.attributes?.url || a?.image?.url || a?.image || null;
 
     const image = getStrapiMedia(imageUrl);
 
@@ -218,10 +240,12 @@ export function MediaContent({
 
   const displayedItems = mediaItems.slice(0, visibleItems);
 
+  const [loadingMore, setLoadingMore] = useState(false);
+
   const handleLoadMore = async () => {
     const cat = slugToCategory(activeTab);
     if (cat) {
-      setLoading(true);
+      setLoadingMore(true);
       try {
         const start = mediaItems.length;
         const limit = 6;
@@ -231,7 +255,6 @@ export function MediaContent({
         const res = await fetch(url);
         if (!res.ok) throw new Error(`Failed to load articles: ${res.status}`);
         const json = await res.json();
-
         const newArticles = json.data || [];
         const meta = json.meta || null;
         const mapped = newArticles.map((a: any) => mapArticleToMedia(a, slugToType(activeTab)));
@@ -250,11 +273,10 @@ export function MediaContent({
           // fallback heuristic
           setHasMore(newArticles.length === limit);
         }
-
       } catch (e) {
         console.error("Error loading more articles", e);
       } finally {
-        setLoading(false);
+        setLoadingMore(false);
       }
     } else {
       setVisibleItems((prev) => prev + 6);
@@ -401,7 +423,7 @@ export function MediaContent({
       {(!isInsight && !isProduct && !isVideo) && (
         <>
           {/* Featured Item with Full-Width Background */}
-          {displayedItems.length > 0 && (
+          {!loading && displayedItems.length > 0 && (
             <div className="relative mb-8 md:mb-12">
               {/* Full-width Background Blur Image */}
               <div className="absolute inset-0 z-0">
@@ -459,54 +481,61 @@ export function MediaContent({
 
           {/* Section Title */}
           <div className="container mx-auto px-4 pt-3 md:pt-[12px]">
-            {displayedItems.length > 1 && (
-              <div className="flex items-center gap-6 mb-6 md:mb-8">
-                <h2
-                  className="font-plus-bold text-2xl md:text-3xl whitespace-nowrap"
-                  style={{
-                    color: "#003557",
-                    fontStyle: "italic",
-                  }}
-                >
-                  {/** Use articleGridTitle from CMS when available, otherwise fallback to label or default */}
-                  {currentTab?.articleGridTitle}
-                </h2>
-                <div className="flex-1 h-[2px] bg-[#EAEAEA]" />
-              </div>
-            )}
+            {loading ? (
+              <MediaSkeleton count={6} />
+            ) : (
+              <>
+                {displayedItems.length > 1 && (
+                  <div className="flex items-center gap-6 mb-6 md:mb-8">
+                    <h2
+                      className="font-plus-bold text-2xl md:text-3xl whitespace-nowrap"
+                      style={{
+                        color: "#003557",
+                        fontStyle: "italic",
+                      }}
+                    >
+                      {/** Use articleGridTitle from CMS when available, otherwise fallback to label or default */}
+                      {currentTab?.articleGridTitle}
+                    </h2>
+                    <div className="flex-1 h-[2px] bg-[#EAEAEA]" />
+                  </div>
+                )}
 
-            {/* Grid of Remaining Items */}
-            {displayedItems.length > 1 && (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-8 md:mb-12">
-                {displayedItems.slice(1).map((item) => (
-                  <Link
-                    key={item.id}
-                    href={`/${locale}/media/detail/${item.slug || item.id}`}
-                    className="block"
-                  >
-                    <MediaCard
-                      title={item.title}
-                      date={item.date}
-                      image={item.image}
-                      tags={item.tags}
-                    />
-                  </Link>
-                ))}
-              </div>
+                {/* Grid of Remaining Items */}
+                {displayedItems.length > 1 && (
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-8 md:mb-12">
+                    {displayedItems.slice(1).map((item) => (
+                      <Link
+                        key={item.id}
+                        href={`/${locale}/media/detail/${item.slug || item.id}`}
+                        className="block"
+                      >
+                        <MediaCard
+                          title={item.title}
+                          date={item.date}
+                          image={item.image}
+                          tags={item.tags}
+                        />
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </>
             )}
 
             {/* Load More Button */}
-            {hasMore && (
+            {!loading && hasMore && (
               <button
                 onClick={handleLoadMore}
-                className="w-full h-14 px-6 rounded-sm border border-[#003557] text-[#003557] hover:bg-[#003557] hover:text-white transition-colors font-manrope-bold text-base leading-5 text-center bg-transparent"
+                disabled={loadingMore}
+                className="w-full h-14 px-6 rounded-sm border border-[#003557] text-[#003557] hover:bg-[#003557] hover:text-white transition-colors font-manrope-bold text-base leading-5 text-center bg-transparent disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                {currentTab?.buttonLabel ?? "Load More"}
+                {loadingMore ? "Loading..." : (currentTab?.buttonLabel ?? "Load More")}
               </button>
             )}
 
             {/* Empty State */}
-            {displayedItems.length === 0 && (
+            {!loading && displayedItems.length === 0 && (
               <div className="text-center py-16">
                 <p className="font-manrope-regular text-lg text-[#555555]">
                   No items available in this category yet.
