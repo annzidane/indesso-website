@@ -24,17 +24,26 @@ import type {
  * Fetch Our Business page data (hero, sticky nav)
  */
 export async function getOurBusinessPage(locale: string = "en"): Promise<OurBusinessData> {
-  const response = await fetchStrapi<OurBusinessApiResponse>("our-business", {
-    locale,
-    query: { pLevel: 5 },
-    revalidate: 60,
-  })
+  try {
+    const response = await fetchStrapi<OurBusinessApiResponse>("our-business", {
+      locale,
+      query: { pLevel: 5 },
+      revalidate: 60,
+    })
 
-  if (!response?.data) {
-    throw new Error("No data returned from Our Business API")
+    if (!response?.data) {
+      throw new Error("No data returned from Our Business API")
+    }
+
+    return response.data
+  } catch (error) {
+    // If localized content fails (e.g. 404), fallback to default locale 'en'
+    if (locale !== "en") {
+      console.warn(`[getOurBusinessPage] Failed to fetch for locale '${locale}', falling back to 'en'.`)
+      return getOurBusinessPage("en")
+    }
+    throw error
   }
-
-  return response.data
 }
 
 /**
@@ -44,18 +53,30 @@ export async function getProductSubCategoryBySlug(
   slug: string,
   locale: string = "en"
 ): Promise<ProductSubCategory | null> {
-  const response = await fetchStrapi<ProductSubCategoryApiResponse>("product-sub-categories", {
-    locale,
-    filters: {
-      slug: {
-        $eq: slug,
+  try {
+    const response = await fetchStrapi<ProductSubCategoryApiResponse>("product-sub-categories", {
+      locale,
+      filters: {
+        slug: {
+          $eq: slug,
+        },
       },
-    },
-    query: { pLevel: 5 },
-    revalidate: 60,
-  })
+      query: { pLevel: 5 },
+      revalidate: 60,
+    })
 
-  return response.data?.[0] || null
+    if (!response.data || response.data.length === 0) {
+      throw new Error("Not found")
+    }
+
+    return response.data[0]
+  } catch (error) {
+    if (locale !== "en") {
+      console.warn(`[getProductSubCategoryBySlug] Failed for locale '${locale}' and slug '${slug}', falling back to 'en'.`)
+      return getProductSubCategoryBySlug(slug, "en")
+    }
+    return null
+  }
 }
 
 /**
@@ -123,17 +144,25 @@ export async function getBotanicals(locale: string = "en"): Promise<Botanical[]>
 export async function getOurBusinessBotanicalPage(
   locale: string = "en"
 ): Promise<OurBusinessBotanicalData> {
-  const response = await fetchStrapi<OurBusinessBotanicalApiResponse>("our-business-botanical", {
-    locale,
-    query: { pLevel: 5 },
-    revalidate: 60,
-  })
+  try {
+    const response = await fetchStrapi<OurBusinessBotanicalApiResponse>("our-business-botanical", {
+      locale,
+      query: { pLevel: 5 },
+      revalidate: 60,
+    })
 
-  if (!response?.data) {
-    throw new Error("No data returned from Our Business Botanical Page API")
+    if (!response?.data) {
+      throw new Error("No data returned from Our Business Botanical Page API")
+    }
+
+    return response.data
+  } catch (error) {
+    if (locale !== "en") {
+      console.warn(`[getOurBusinessBotanicalPage] Failed to fetch for locale '${locale}', falling back to 'en'.`)
+      return getOurBusinessBotanicalPage("en")
+    }
+    throw error
   }
-
-  return response.data
 }
 
 export async function getBotanicalBySlug(slug: string, locale: string = "en"): Promise<Botanical | null> {
