@@ -1,0 +1,50 @@
+http://localhost:1337/api/positions-opportunities
+
+{
+  "data": [
+    {
+      "id": 2,
+      "documentId": "q1tx0xibqqxfedvqz1a86fra",
+      "name": "Software Engineer",
+      "slug": "software-engineer",
+      "createdAt": "2025-12-22T07:09:31.142Z",
+      "updatedAt": "2025-12-22T07:09:32.076Z",
+      "publishedAt": "2025-12-22T07:09:32.150Z"
+    },
+    {
+      "id": 4,
+      "documentId": "ippjnvyxy69032ts9ena80h0",
+      "name": "Marketing",
+      "slug": "marketing",
+      "createdAt": "2025-12-22T07:09:45.700Z",
+      "updatedAt": "2025-12-22T07:09:46.610Z",
+      "publishedAt": "2025-12-22T07:09:46.683Z"
+    },
+    {
+      "id": 6,
+      "documentId": "xgat8h7xrd8n9twzwapg5avt",
+      "name": "Sales",
+      "slug": "sales",
+      "createdAt": "2025-12-22T07:10:05.549Z",
+      "updatedAt": "2025-12-22T07:10:06.478Z",
+      "publishedAt": "2025-12-22T07:10:06.552Z"
+    },
+    {
+      "id": 8,
+      "documentId": "l158ybzp3oa2ga7shomx885z",
+      "name": "Human Resources",
+      "slug": "human-resources",
+      "createdAt": "2025-12-22T07:12:18.675Z",
+      "updatedAt": "2025-12-22T07:12:19.721Z",
+      "publishedAt": "2025-12-22T07:12:19.817Z"
+    }
+  ],
+  "meta": {
+    "pagination": {
+      "page": 1,
+      "pageSize": 25,
+      "pageCount": 1,
+      "total": 4
+    }
+  }
+}

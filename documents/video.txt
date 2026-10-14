@@ -1,0 +1,94 @@
+http://localhost:1337/api/videos?pLevel=4
+
+{
+  "data": [
+    {
+      "id": 2,
+      "documentId": "igka04lzvzqqux33xeg3x7pz",
+      "title": "Bunga Mas Journey: Nurtured by Nature, Crafted for Radiance",
+      "url_video": "https://www.youtube.com/watch?v=aTCUy80TwcU",
+      "description": "test",
+      "createdAt": "2025-12-19T11:10:10.740Z",
+      "updatedAt": "2025-12-19T11:10:11.864Z",
+      "publishedAt": "2025-12-19T11:10:11.954Z"
+    },
+    {
+      "id": 4,
+      "documentId": "xlv8nssldtd2qihhtzl6okz2",
+      "title": "Clove Journey: From Fallen Leaves to Every Clove Journey: From Fallen Leaves to Every...",
+      "url_video": "https://www.youtube.com/watch?v=aTCUy80TwcU",
+      "description": "test",
+      "createdAt": "2025-12-19T11:10:31.489Z",
+      "updatedAt": "2025-12-19T11:10:32.850Z",
+      "publishedAt": "2025-12-19T11:10:32.945Z"
+    },
+    {
+      "id": 6,
+      "documentId": "mfznmiytffjjhyoy3tbyx4nx",
+      "title": "Indesso Visitor Center Highlights",
+      "url_video": "https://www.youtube.com/watch?v=aTCUy80TwcU",
+      "description": "test",
+      "createdAt": "2025-12-19T11:10:44.056Z",
+      "updatedAt": "2025-12-19T11:10:45.212Z",
+      "publishedAt": "2025-12-19T11:10:45.377Z"
+    },
+    {
+      "id": 8,
+      "documentId": "zca96uwxbkdbrb6ugl1mkv45",
+      "title": "Indesso Company Profile",
+      "url_video": "https://www.youtube.com/watch?v=aTCUy80TwcU",
+      "description": "test",
+      "createdAt": "2025-12-19T11:11:02.068Z",
+      "updatedAt": "2025-12-19T11:11:03.300Z",
+      "publishedAt": "2025-12-19T11:11:03.418Z"
+    },
+    {
+      "id": 10,
+      "documentId": "m73882wunbt9b5ben3x68flv",
+      "title": "Culinaroma Profile",
+      "url_video": "https://www.youtube.com/watch?v=aTCUy80TwcU",
+      "description": "test",
+      "createdAt": "2025-12-19T11:11:15.080Z",
+      "updatedAt": "2025-12-19T11:11:16.362Z",
+      "publishedAt": "2025-12-19T11:11:16.523Z"
+    },
+    {
+      "id": 12,
+      "documentId": "buwfasphnww1brjd7t5lo1b8",
+      "title": "Indesso Visitor Center",
+      "url_video": "https://www.youtube.com/watch?v=aTCUy80TwcU",
+      "description": "test",
+      "createdAt": "2025-12-19T11:11:31.079Z",
+      "updatedAt": "2025-12-19T11:11:32.389Z",
+      "publishedAt": "2025-12-19T11:11:32.505Z"
+    },
+    {
+      "id": 14,
+      "documentId": "vnjgdayj2996mwvq8we89hek",
+      "title": "Indesso Logo Philosophy",
+      "url_video": "https://www.youtube.com/watch?v=aTCUy80TwcU",
+      "description": "test",
+      "createdAt": "2025-12-19T11:11:46.463Z",
+      "updatedAt": "2025-12-19T11:11:47.662Z",
+      "publishedAt": "2025-12-19T11:11:47.818Z"
+    },
+    {
+      "id": 16,
+      "documentId": "cge5rojc2zr6q6329qf3eqlu",
+      "title": "Indesso Logo Philosophy",
+      "url_video": "https://www.youtube.com/watch?v=aTCUy80TwcU",
+      "description": "Indesso Logo Philosophy",
+      "createdAt": "2025-12-19T11:11:54.849Z",
+      "updatedAt": "2025-12-19T11:11:55.916Z",
+      "publishedAt": "2025-12-19T11:11:56.012Z"
+    }
+  ],
+  "meta": {
+    "pagination": {
+      "page": 1,
+      "pageSize": 25,
+      "pageCount": 1,
+      "total": 8
+    }
+  }
+}

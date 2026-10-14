@@ -1,0 +1,513 @@
+http://localhost:1337/api/homepage?locale=en
+&populate[page_sections][on][home-page.hero-section][populate]=*
+&populate[page_sections][on][home-page.about-us-section][populate]=*
+&populate[page_sections][on][home-page.reason-section][populate][matric_card][populate]=*
+&populate[page_sections][on][home-page.reason-section][populate][statistic_card][populate]=*
+&populate[page_sections][on][home-page.reason-section][populate][impact_card][populate]=*
+&populate[page_sections][on][home-page.business-section][populate][business_card][populate]=*
+&populate[seo][populate]=*
+
+{
+  "data": {
+    "id": 19,
+    "documentId": "her3pdrean70ghv6fv2f89f0",
+    "createdAt": "2025-11-26T07:41:40.936Z",
+    "updatedAt": "2025-11-28T04:06:00.832Z",
+    "publishedAt": "2025-11-28T04:06:00.867Z",
+    "locale": "en",
+    "page_sections": [
+      {
+        "__component": "home-page.hero-section",
+        "id": 19,
+        "title": "Crafting Natures Essence for the World",
+        "title_badge": "One of Few Company in The World",
+        "description_badge": "mastering The Entire Clove Derivative Spectrum",
+        "button": {
+          "id": 49,
+          "title": "LEARN MORE",
+          "path": "/"
+        },
+        "image_badge": {
+          "id": 3,
+          "documentId": "zodhsa4g0pndp56i5b2iheu5",
+          "name": "badge.png",
+          "alternativeText": null,
+          "caption": null,
+          "width": 72,
+          "height": 72,
+          "formats": null,
+          "hash": "badge_605dbd9f55",
+          "ext": ".png",
+          "mime": "image/png",
+          "size": 1.66,
+          "url": "/uploads/badge_605dbd9f55.png",
+          "previewUrl": null,
+          "provider": "local",
+          "provider_metadata": null,
+          "createdAt": "2025-11-26T07:55:24.549Z",
+          "updatedAt": "2025-11-26T07:55:24.549Z",
+          "publishedAt": "2025-11-26T07:55:24.549Z"
+        }
+      },
+      {
+        "__component": "home-page.about-us-section",
+        "id": 19,
+        "title": "ABOUT US",
+        "main_title": "Specialist in Natural Taste & Aroma Ingredients",
+        "text": [
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "text": "We create nature based solutions that elevate taste, aroma, and sensory experiences for brands and creators in the food, beverage, and aromatic industries.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "text": "",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "text": "With strong manufacturing expertise rooted in Indonesia and trusted across international markets, we combine scientific excellence with a passion for sustainability to enrich quality of life through the best of nature.",
+                "type": "text"
+              }
+            ]
+          }
+        ],
+        "feature_image": {
+          "id": 4,
+          "documentId": "dg0o45zg1cu7y8u3zyk66w3k",
+          "name": "Frame 5140286.png",
+          "alternativeText": null,
+          "caption": null,
+          "width": 560,
+          "height": 676,
+          "formats": {
+            "small": {
+              "ext": ".png",
+              "url": "/uploads/small_Frame_5140286_c635effa00.png",
+              "hash": "small_Frame_5140286_c635effa00",
+              "mime": "image/png",
+              "name": "small_Frame 5140286.png",
+              "path": null,
+              "size": 294.38,
+              "width": 414,
+              "height": 500,
+              "sizeInBytes": 294382
+            },
+            "thumbnail": {
+              "ext": ".png",
+              "url": "/uploads/thumbnail_Frame_5140286_c635effa00.png",
+              "hash": "thumbnail_Frame_5140286_c635effa00",
+              "mime": "image/png",
+              "name": "thumbnail_Frame 5140286.png",
+              "path": null,
+              "size": 34.73,
+              "width": 129,
+              "height": 156,
+              "sizeInBytes": 34730
+            }
+          },
+          "hash": "Frame_5140286_c635effa00",
+          "ext": ".png",
+          "mime": "image/png",
+          "size": 117.54,
+          "url": "/uploads/Frame_5140286_c635effa00.png",
+          "previewUrl": null,
+          "provider": "local",
+          "provider_metadata": null,
+          "createdAt": "2025-11-26T07:57:35.016Z",
+          "updatedAt": "2025-11-26T07:57:35.016Z",
+          "publishedAt": "2025-11-26T07:57:35.016Z"
+        },
+        "background_image": {
+          "id": 5,
+          "documentId": "pflribao61czjpjmmf1rlh44",
+          "name": "Rectangle 5332.png",
+          "alternativeText": null,
+          "caption": null,
+          "width": 1440,
+          "height": 836,
+          "formats": {
+            "large": {
+              "ext": ".png",
+              "url": "/uploads/large_Rectangle_5332_26dcbc3688.png",
+              "hash": "large_Rectangle_5332_26dcbc3688",
+              "mime": "image/png",
+              "name": "large_Rectangle 5332.png",
+              "path": null,
+              "size": 455.01,
+              "width": 1000,
+              "height": 581,
+              "sizeInBytes": 455014
+            },
+            "small": {
+              "ext": ".png",
+              "url": "/uploads/small_Rectangle_5332_26dcbc3688.png",
+              "hash": "small_Rectangle_5332_26dcbc3688",
+              "mime": "image/png",
+              "name": "small_Rectangle 5332.png",
+              "path": null,
+              "size": 108.69,
+              "width": 500,
+              "height": 290,
+              "sizeInBytes": 108690
+            },
+            "medium": {
+              "ext": ".png",
+              "url": "/uploads/medium_Rectangle_5332_26dcbc3688.png",
+              "hash": "medium_Rectangle_5332_26dcbc3688",
+              "mime": "image/png",
+              "name": "medium_Rectangle 5332.png",
+              "path": null,
+              "size": 247.52,
+              "width": 750,
+              "height": 435,
+              "sizeInBytes": 247517
+            },
+            "thumbnail": {
+              "ext": ".png",
+              "url": "/uploads/thumbnail_Rectangle_5332_26dcbc3688.png",
+              "hash": "thumbnail_Rectangle_5332_26dcbc3688",
+              "mime": "image/png",
+              "name": "thumbnail_Rectangle 5332.png",
+              "path": null,
+              "size": 28.81,
+              "width": 245,
+              "height": 142,
+              "sizeInBytes": 28810
+            }
+          },
+          "hash": "Rectangle_5332_26dcbc3688",
+          "ext": ".png",
+          "mime": "image/png",
+          "size": 215.67,
+          "url": "/uploads/Rectangle_5332_26dcbc3688.png",
+          "previewUrl": null,
+          "provider": "local",
+          "provider_metadata": null,
+          "createdAt": "2025-11-26T07:58:15.009Z",
+          "updatedAt": "2025-11-26T07:58:15.009Z",
+          "publishedAt": "2025-11-26T07:58:15.009Z"
+        },
+        "card": {
+          "id": 19,
+          "title": "Since",
+          "number": 1968,
+          "description": "Indonesia’s most experienced natural ingredients company"
+        },
+        "button": {
+          "id": 50,
+          "title": "Learn More",
+          "path": "/"
+        }
+      },
+      {
+        "__component": "home-page.reason-section",
+        "id": 19,
+        "title": "WHY CHOOSE US",
+        "main_title": "Our Innovation Story in Powerful Numbers",
+        "description": "We create nature based solutions that elevate taste, aroma, and sensory experiences for brands and creators in the food, beverage, and aromatic industries.",
+        "matric_card": {
+          "id": 19,
+          "title_employee": "700+ Employees",
+          "description_employee": "Powering innovation and excellence",
+          "title_people": "15% of Our People",
+          "description_people": "Work directly in scientific & technical roles",
+          "image": {
+            "id": 6,
+            "documentId": "oq9yggx5rx1crzueix7erw2r",
+            "name": "Frame 1171275501.png",
+            "alternativeText": null,
+            "caption": null,
+            "width": 308,
+            "height": 296,
+            "formats": {
+              "thumbnail": {
+                "ext": ".png",
+                "url": "/uploads/thumbnail_Frame_1171275501_11e1798dc6.png",
+                "hash": "thumbnail_Frame_1171275501_11e1798dc6",
+                "mime": "image/png",
+                "name": "thumbnail_Frame 1171275501.png",
+                "path": null,
+                "size": 52.55,
+                "width": 162,
+                "height": 156,
+                "sizeInBytes": 52546
+              }
+            },
+            "hash": "Frame_1171275501_11e1798dc6",
+            "ext": ".png",
+            "mime": "image/png",
+            "size": 47.52,
+            "url": "/uploads/Frame_1171275501_11e1798dc6.png",
+            "previewUrl": null,
+            "provider": "local",
+            "provider_metadata": null,
+            "createdAt": "2025-11-26T08:06:38.838Z",
+            "updatedAt": "2025-11-26T08:06:38.838Z",
+            "publishedAt": "2025-11-26T08:06:38.838Z"
+          }
+        },
+        "statistic_card": [
+          {
+            "id": 73,
+            "title": "2800+ solar panels across 3 sites",
+            "description": "Pioneering renewable energy in our industry",
+            "image": {
+              "id": 7,
+              "documentId": "w2g5b4oaxajzjhijdg39xurx",
+              "name": "Rectangle 2458.png",
+              "alternativeText": null,
+              "caption": null,
+              "width": 296,
+              "height": 120,
+              "formats": {
+                "thumbnail": {
+                  "ext": ".png",
+                  "url": "/uploads/thumbnail_Rectangle_2458_974df57b82.png",
+                  "hash": "thumbnail_Rectangle_2458_974df57b82",
+                  "mime": "image/png",
+                  "name": "thumbnail_Rectangle 2458.png",
+                  "path": null,
+                  "size": 55.03,
+                  "width": 245,
+                  "height": 99,
+                  "sizeInBytes": 55030
+                }
+              },
+              "hash": "Rectangle_2458_974df57b82",
+              "ext": ".png",
+              "mime": "image/png",
+              "size": 21.39,
+              "url": "/uploads/Rectangle_2458_974df57b82.png",
+              "previewUrl": null,
+              "provider": "local",
+              "provider_metadata": null,
+              "createdAt": "2025-11-26T08:14:13.779Z",
+              "updatedAt": "2025-11-26T08:14:13.779Z",
+              "publishedAt": "2025-11-26T08:14:13.780Z"
+            }
+          },
+          {
+            "id": 74,
+            "title": "One of few companies in the world",
+            "description": "Mastering the Entire Clove Derivative Spectrum",
+            "image": {
+              "id": 8,
+              "documentId": "ieheybp5inbaqcdg8xoslxbu",
+              "name": "Rectangle 2458 (1).png",
+              "alternativeText": null,
+              "caption": null,
+              "width": 296,
+              "height": 120,
+              "formats": {
+                "thumbnail": {
+                  "ext": ".png",
+                  "url": "/uploads/thumbnail_Rectangle_2458_1_f06caac423.png",
+                  "hash": "thumbnail_Rectangle_2458_1_f06caac423",
+                  "mime": "image/png",
+                  "name": "thumbnail_Rectangle 2458 (1).png",
+                  "path": null,
+                  "size": 71.37,
+                  "width": 245,
+                  "height": 99,
+                  "sizeInBytes": 71370
+                }
+              },
+              "hash": "Rectangle_2458_1_f06caac423",
+              "ext": ".png",
+              "mime": "image/png",
+              "size": 30.4,
+              "url": "/uploads/Rectangle_2458_1_f06caac423.png",
+              "previewUrl": null,
+              "provider": "local",
+              "provider_metadata": null,
+              "createdAt": "2025-11-26T08:14:58.945Z",
+              "updatedAt": "2025-11-26T08:14:58.945Z",
+              "publishedAt": "2025-11-26T08:14:58.945Z"
+            }
+          },
+          {
+            "id": 75,
+            "title": "150,000 Tonnes of Essential Oils & Aroma",
+            "description": "Ingredients produced - shaping the scent and flavor of billions products",
+            "image": {
+              "id": 9,
+              "documentId": "p7p1eiv59hve3r75jpww4u0m",
+              "name": "Rectangle 2458 (2).png",
+              "alternativeText": null,
+              "caption": null,
+              "width": 294,
+              "height": 120,
+              "formats": {
+                "thumbnail": {
+                  "ext": ".png",
+                  "url": "/uploads/thumbnail_Rectangle_2458_2_39fa6b5c56.png",
+                  "hash": "thumbnail_Rectangle_2458_2_39fa6b5c56",
+                  "mime": "image/png",
+                  "name": "thumbnail_Rectangle 2458 (2).png",
+                  "path": null,
+                  "size": 53.25,
+                  "width": 245,
+                  "height": 100,
+                  "sizeInBytes": 53246
+                }
+              },
+              "hash": "Rectangle_2458_2_39fa6b5c56",
+              "ext": ".png",
+              "mime": "image/png",
+              "size": 18.87,
+              "url": "/uploads/Rectangle_2458_2_39fa6b5c56.png",
+              "previewUrl": null,
+              "provider": "local",
+              "provider_metadata": null,
+              "createdAt": "2025-11-26T08:15:44.489Z",
+              "updatedAt": "2025-11-26T08:15:44.489Z",
+              "publishedAt": "2025-11-26T08:15:44.489Z"
+            }
+          },
+          {
+            "id": 76,
+            "title": "59 Countries Served",
+            "description": "Bringing the essence of nature to global industries",
+            "image": {
+              "id": 10,
+              "documentId": "zvygkq3u1kn8tmj7s66sxfbm",
+              "name": "Rectangle 2458 (3).png",
+              "alternativeText": null,
+              "caption": null,
+              "width": 294,
+              "height": 120,
+              "formats": {
+                "thumbnail": {
+                  "ext": ".png",
+                  "url": "/uploads/thumbnail_Rectangle_2458_3_31dae8d818.png",
+                  "hash": "thumbnail_Rectangle_2458_3_31dae8d818",
+                  "mime": "image/png",
+                  "name": "thumbnail_Rectangle 2458 (3).png",
+                  "path": null,
+                  "size": 43.69,
+                  "width": 245,
+                  "height": 100,
+                  "sizeInBytes": 43686
+                }
+              },
+              "hash": "Rectangle_2458_3_31dae8d818",
+              "ext": ".png",
+              "mime": "image/png",
+              "size": 13.56,
+              "url": "/uploads/Rectangle_2458_3_31dae8d818.png",
+              "previewUrl": null,
+              "provider": "local",
+              "provider_metadata": null,
+              "createdAt": "2025-11-26T08:16:33.901Z",
+              "updatedAt": "2025-11-26T08:16:33.901Z",
+              "publishedAt": "2025-11-26T08:16:33.901Z"
+            }
+          }
+        ],
+        "impact_card": {
+          "id": 19,
+          "opener": "Embracing more than",
+          "number": 100000,
+          "title": "Farmers & Biomass Collectors",
+          "description": "for raw material sourcing, touching people’s lives and enhancing their livelihoods",
+          "image": {
+            "id": 11,
+            "documentId": "dzct94ygc0zf2cl9pwjz995d",
+            "name": "Frame 1171275503.png",
+            "alternativeText": null,
+            "caption": null,
+            "width": 308,
+            "height": 296,
+            "formats": {
+              "thumbnail": {
+                "ext": ".png",
+                "url": "/uploads/thumbnail_Frame_1171275503_246c782970.png",
+                "hash": "thumbnail_Frame_1171275503_246c782970",
+                "mime": "image/png",
+                "name": "thumbnail_Frame 1171275503.png",
+                "path": null,
+                "size": 57.49,
+                "width": 162,
+                "height": 156,
+                "sizeInBytes": 57489
+              }
+            },
+            "hash": "Frame_1171275503_246c782970",
+            "ext": ".png",
+            "mime": "image/png",
+            "size": 49.63,
+            "url": "/uploads/Frame_1171275503_246c782970.png",
+            "previewUrl": null,
+            "provider": "local",
+            "provider_metadata": null,
+            "createdAt": "2025-11-26T08:18:28.587Z",
+            "updatedAt": "2025-11-26T08:18:28.587Z",
+            "publishedAt": "2025-11-26T08:18:28.587Z"
+          }
+        }
+      },
+      {
+        "__component": "home-page.business-section",
+        "id": 18,
+        "title": "OUR BUSINESS",
+        "main_title": "Shaping Sensory Journeys for Everyday Life",
+        "business_card": [
+          {
+            "id": 73,
+            "title": "Natural Aroma Ingredients & Extracts",
+            "description": "We transform the best of nature into inspiration for broader product innovations, empowering development in Flavor and Fragrance, Food, and the Pharmaceutical industry while helping creators craft products that enrich everyday life.",
+            "title_button": "Learn More \u003E",
+            "path": "/"
+          },
+          {
+            "id": 74,
+            "title": "Food & Beverage Solutions",
+            "description": "We craft experiences that bring joy to every bite, from savory ingredients, meat extracts, and cheese powders to beverages, desserts, and sauces. More than flavor, we aim to season life with delight.",
+            "title_button": "Learn More \u003E",
+            "path": "/"
+          },
+          {
+            "id": 75,
+            "title": "Taste & Scent",
+            "description": "We believe every taste carries a story and every scent stirs a feeling. Through our Taste and Scent solutions, we bring these moments to life, helping brands shape experiences that stay long after the first bite or the first breath.",
+            "title_button": "Learn More \u003E",
+            "path": "/"
+          },
+          {
+            "id": 76,
+            "title": "Specialty Food Ingredients",
+            "description": "Our curated collection of Specialty Ingredients, ranging from natural colors and stevia to stabilizers, dairy ingredients, and nutraceuticals, empowers brands to elevate both product performance and the overall consumer experience.",
+            "title_button": "Learn More \u003E",
+            "path": "/"
+          }
+        ]
+      }
+    ],
+    "seo": {
+      "id": 19,
+      "meta_title": "homapge",
+      "meta_description": "hompage",
+      "keywords": [
+        {
+          "id": 19,
+          "keywords": "homepage"
+        }
+      ]
+    }
+  },
+  "meta": {
+
+  }
+}

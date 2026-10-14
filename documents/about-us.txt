@@ -1,0 +1,1629 @@
+http://localhost:1337/api/about-us?locale=en
+&populate[page_info][populate]=*
+&populate[page_sections][on][about-us.hero-section][populate][hero][populate]=*
+&populate[page_sections][on][about-us.story-section][populate][stories][populate]=*
+&populate[page_sections][on][about-us.board-section][populate][sections][populate][members][populate][0]=image
+&populate[page_sections][on][about-us.board-section][populate][sections][populate][members][populate][1]=position
+&populate[page_sections][on][about-us.research-innovation-section][populate][card][populate]=*
+&populate[page_sections][on][about-us.scientific-mastery-section][populate][tabs][populate]=*
+&populate[page_sections][on][about-us.responsible-operations-section][populate][accordion_items][populate]=*
+&populate[seo][populate]=*
+
+{
+  "data": {
+    "id": 14,
+    "documentId": "tvt3jyp1ri4mdvmt747h8cz8",
+    "createdAt": "2025-12-01T04:06:26.711Z",
+    "updatedAt": "2025-12-02T04:46:29.527Z",
+    "publishedAt": "2025-12-02T04:46:30.873Z",
+    "page_info": {
+      "id": 36,
+      "title": "About Us",
+      "slug": "about-us",
+      "path": "/about-us"
+    },
+    "page_sections": [
+      {
+        "__component": "about-us.hero-section",
+        "id": 14,
+        "hero": {
+          "id": 14,
+          "title": "About Us",
+          "background_image": {
+            "id": 24,
+            "documentId": "i4r4rxterygwt2wararhuxh3",
+            "name": "Rectangle 2448 (1).png",
+            "alternativeText": null,
+            "caption": null,
+            "width": 1440,
+            "height": 480,
+            "formats": {
+              "large": {
+                "ext": ".png",
+                "url": "http://192.168.10.5:9000/indesso/large_Rectangle_2448_1_7bdcb0fae6.png",
+                "hash": "large_Rectangle_2448_1_7bdcb0fae6",
+                "mime": "image/png",
+                "name": "large_Rectangle 2448 (1).png",
+                "path": null,
+                "size": 788.86,
+                "width": 1000,
+                "height": 333,
+                "sizeInBytes": 788862
+              },
+              "small": {
+                "ext": ".png",
+                "url": "http://192.168.10.5:9000/indesso/small_Rectangle_2448_1_7bdcb0fae6.png",
+                "hash": "small_Rectangle_2448_1_7bdcb0fae6",
+                "mime": "image/png",
+                "name": "small_Rectangle 2448 (1).png",
+                "path": null,
+                "size": 212.58,
+                "width": 500,
+                "height": 167,
+                "sizeInBytes": 212579
+              },
+              "medium": {
+                "ext": ".png",
+                "url": "http://192.168.10.5:9000/indesso/medium_Rectangle_2448_1_7bdcb0fae6.png",
+                "hash": "medium_Rectangle_2448_1_7bdcb0fae6",
+                "mime": "image/png",
+                "name": "medium_Rectangle 2448 (1).png",
+                "path": null,
+                "size": 457.88,
+                "width": 750,
+                "height": 250,
+                "sizeInBytes": 457875
+              },
+              "thumbnail": {
+                "ext": ".png",
+                "url": "http://192.168.10.5:9000/indesso/thumbnail_Rectangle_2448_1_7bdcb0fae6.png",
+                "hash": "thumbnail_Rectangle_2448_1_7bdcb0fae6",
+                "mime": "image/png",
+                "name": "thumbnail_Rectangle 2448 (1).png",
+                "path": null,
+                "size": 55.18,
+                "width": 245,
+                "height": 82,
+                "sizeInBytes": 55180
+              }
+            },
+            "hash": "Rectangle_2448_1_7bdcb0fae6",
+            "ext": ".png",
+            "mime": "image/png",
+            "size": 309.04,
+            "url": "http://192.168.10.5:9000/indesso/Rectangle_2448_1_7bdcb0fae6.png",
+            "previewUrl": null,
+            "provider": "strapi-provider-upload-minio-ce",
+            "provider_metadata": null,
+            "createdAt": "2025-12-01T04:26:49.563Z",
+            "updatedAt": "2025-12-01T04:26:49.563Z",
+            "publishedAt": "2025-12-01T04:26:49.563Z"
+          }
+        }
+      },
+      {
+        "__component": "about-us.story-section",
+        "id": 13,
+        "eyebrow": "OUR STORY",
+        "title": "Long Journey to The Greatness",
+        "stories": [
+          {
+            "id": 13,
+            "title": "A Legacy of Unlocking Nature",
+            "text": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "It began in 1968 when Robertus Hartanto Gunawan looked at fallen clove leaves and questioned how something considered waste could be distilled into a high value product. What started as a humble clove oil distillation grew into a lifelong pursuit to transform nature’s potential into meaningful creations. ",
+                    "type": "text"
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Joined by his brothers Wien, Yahya, and Sutanto, his early curiosity evolved into a shared passion for nature and innovation that later shaped the essence of Indesso. From that spark, a legacy was born.",
+                    "type": "text"
+                  }
+                ]
+              }
+            ],
+            "title_slider": "ORIGINS",
+            "image": {
+              "id": 25,
+              "documentId": "s8srxn6gkxx60pirmhmioed9",
+              "name": "965893e6723a1b8990892c5713abeaa193ef8564.jpg",
+              "alternativeText": null,
+              "caption": null,
+              "width": 4096,
+              "height": 2731,
+              "formats": {
+                "large": {
+                  "ext": ".jpg",
+                  "url": "http://192.168.10.5:9000/indesso/large_965893e6723a1b8990892c5713abeaa193ef8564_6bd27049cf.jpg",
+                  "hash": "large_965893e6723a1b8990892c5713abeaa193ef8564_6bd27049cf",
+                  "mime": "image/jpeg",
+                  "name": "large_965893e6723a1b8990892c5713abeaa193ef8564.jpg",
+                  "path": null,
+                  "size": 64.21,
+                  "width": 1000,
+                  "height": 667,
+                  "sizeInBytes": 64212
+                },
+                "small": {
+                  "ext": ".jpg",
+                  "url": "http://192.168.10.5:9000/indesso/small_965893e6723a1b8990892c5713abeaa193ef8564_6bd27049cf.jpg",
+                  "hash": "small_965893e6723a1b8990892c5713abeaa193ef8564_6bd27049cf",
+                  "mime": "image/jpeg",
+                  "name": "small_965893e6723a1b8990892c5713abeaa193ef8564.jpg",
+                  "path": null,
+                  "size": 23.45,
+                  "width": 500,
+                  "height": 333,
+                  "sizeInBytes": 23447
+                },
+                "medium": {
+                  "ext": ".jpg",
+                  "url": "http://192.168.10.5:9000/indesso/medium_965893e6723a1b8990892c5713abeaa193ef8564_6bd27049cf.jpg",
+                  "hash": "medium_965893e6723a1b8990892c5713abeaa193ef8564_6bd27049cf",
+                  "mime": "image/jpeg",
+                  "name": "medium_965893e6723a1b8990892c5713abeaa193ef8564.jpg",
+                  "path": null,
+                  "size": 42.14,
+                  "width": 750,
+                  "height": 500,
+                  "sizeInBytes": 42136
+                },
+                "thumbnail": {
+                  "ext": ".jpg",
+                  "url": "http://192.168.10.5:9000/indesso/thumbnail_965893e6723a1b8990892c5713abeaa193ef8564_6bd27049cf.jpg",
+                  "hash": "thumbnail_965893e6723a1b8990892c5713abeaa193ef8564_6bd27049cf",
+                  "mime": "image/jpeg",
+                  "name": "thumbnail_965893e6723a1b8990892c5713abeaa193ef8564.jpg",
+                  "path": null,
+                  "size": 8.13,
+                  "width": 234,
+                  "height": 156,
+                  "sizeInBytes": 8132
+                }
+              },
+              "hash": "965893e6723a1b8990892c5713abeaa193ef8564_6bd27049cf",
+              "ext": ".jpg",
+              "mime": "image/jpeg",
+              "size": 565.03,
+              "url": "http://192.168.10.5:9000/indesso/965893e6723a1b8990892c5713abeaa193ef8564_6bd27049cf.jpg",
+              "previewUrl": null,
+              "provider": "strapi-provider-upload-minio-ce",
+              "provider_metadata": null,
+              "createdAt": "2025-12-01T04:38:46.717Z",
+              "updatedAt": "2025-12-01T04:38:46.717Z",
+              "publishedAt": "2025-12-01T04:38:46.717Z"
+            }
+          },
+          {
+            "id": 14,
+            "title": "A Legacy of Unlocking Nature",
+            "text": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "It began in 1968 when Robertus Hartanto Gunawan looked at fallen clove leaves and questioned how something considered waste could be distilled into a high value product. What started as a humble clove oil distillation grew into a lifelong pursuit to transform nature’s potential into meaningful creations. ",
+                    "type": "text"
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Joined by his brothers Wien, Yahya, and Sutanto, his early curiosity evolved into a shared passion for nature and innovation that later shaped the essence of Indesso. From that spark, a legacy was born.",
+                    "type": "text"
+                  }
+                ]
+              }
+            ],
+            "title_slider": "GROWTH",
+            "image": {
+              "id": 27,
+              "documentId": "vu6sgzkt88vi8uybgoniyd1l",
+              "name": "bb5c4e2949cc8f607b700a606dc0713a8474ddc3.png",
+              "alternativeText": null,
+              "caption": null,
+              "width": 4096,
+              "height": 2792,
+              "formats": {
+                "large": {
+                  "ext": ".png",
+                  "url": "http://192.168.10.5:9000/indesso/large_bb5c4e2949cc8f607b700a606dc0713a8474ddc3_acbb619cbb.png",
+                  "hash": "large_bb5c4e2949cc8f607b700a606dc0713a8474ddc3_acbb619cbb",
+                  "mime": "image/png",
+                  "name": "large_bb5c4e2949cc8f607b700a606dc0713a8474ddc3.png",
+                  "path": null,
+                  "size": 1223.93,
+                  "width": 1000,
+                  "height": 682,
+                  "sizeInBytes": 1223933
+                },
+                "small": {
+                  "ext": ".png",
+                  "url": "http://192.168.10.5:9000/indesso/small_bb5c4e2949cc8f607b700a606dc0713a8474ddc3_acbb619cbb.png",
+                  "hash": "small_bb5c4e2949cc8f607b700a606dc0713a8474ddc3_acbb619cbb",
+                  "mime": "image/png",
+                  "name": "small_bb5c4e2949cc8f607b700a606dc0713a8474ddc3.png",
+                  "path": null,
+                  "size": 317.81,
+                  "width": 500,
+                  "height": 341,
+                  "sizeInBytes": 317808
+                },
+                "medium": {
+                  "ext": ".png",
+                  "url": "http://192.168.10.5:9000/indesso/medium_bb5c4e2949cc8f607b700a606dc0713a8474ddc3_acbb619cbb.png",
+                  "hash": "medium_bb5c4e2949cc8f607b700a606dc0713a8474ddc3_acbb619cbb",
+                  "mime": "image/png",
+                  "name": "medium_bb5c4e2949cc8f607b700a606dc0713a8474ddc3.png",
+                  "path": null,
+                  "size": 696.1,
+                  "width": 750,
+                  "height": 511,
+                  "sizeInBytes": 696101
+                },
+                "thumbnail": {
+                  "ext": ".png",
+                  "url": "http://192.168.10.5:9000/indesso/thumbnail_bb5c4e2949cc8f607b700a606dc0713a8474ddc3_acbb619cbb.png",
+                  "hash": "thumbnail_bb5c4e2949cc8f607b700a606dc0713a8474ddc3_acbb619cbb",
+                  "mime": "image/png",
+                  "name": "thumbnail_bb5c4e2949cc8f607b700a606dc0713a8474ddc3.png",
+                  "path": null,
+                  "size": 71.87,
+                  "width": 229,
+                  "height": 156,
+                  "sizeInBytes": 71871
+                }
+              },
+              "hash": "bb5c4e2949cc8f607b700a606dc0713a8474ddc3_acbb619cbb",
+              "ext": ".png",
+              "mime": "image/png",
+              "size": 3577.74,
+              "url": "http://192.168.10.5:9000/indesso/bb5c4e2949cc8f607b700a606dc0713a8474ddc3_acbb619cbb.png",
+              "previewUrl": null,
+              "provider": "strapi-provider-upload-minio-ce",
+              "provider_metadata": null,
+              "createdAt": "2025-12-01T04:42:46.799Z",
+              "updatedAt": "2025-12-01T04:42:46.799Z",
+              "publishedAt": "2025-12-01T04:42:46.799Z"
+            }
+          },
+          {
+            "id": 15,
+            "title": "A Legacy of Unlocking Nature",
+            "text": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "It began in 1968 when Robertus Hartanto Gunawan looked at fallen clove leaves and questioned how something considered waste could be distilled into a high value product. What started as a humble clove oil distillation grew into a lifelong pursuit to transform nature’s potential into meaningful creations. ",
+                    "type": "text"
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Joined by his brothers Wien, Yahya, and Sutanto, his early curiosity evolved into a shared passion for nature and innovation that later shaped the essence of Indesso. From that spark, a legacy was born.",
+                    "type": "text"
+                  }
+                ]
+              }
+            ],
+            "title_slider": "ADVANCE",
+            "image": {
+              "id": 26,
+              "documentId": "dxzdahwzk2clv11fiyp7jbw9",
+              "name": "fe377eacb307f05f48a6a2cdc0b5c90a4dafe83d.jpg",
+              "alternativeText": null,
+              "caption": null,
+              "width": 4096,
+              "height": 2731,
+              "formats": {
+                "large": {
+                  "ext": ".jpg",
+                  "url": "http://192.168.10.5:9000/indesso/large_fe377eacb307f05f48a6a2cdc0b5c90a4dafe83d_9d6e536e78.jpg",
+                  "hash": "large_fe377eacb307f05f48a6a2cdc0b5c90a4dafe83d_9d6e536e78",
+                  "mime": "image/jpeg",
+                  "name": "large_fe377eacb307f05f48a6a2cdc0b5c90a4dafe83d.jpg",
+                  "path": null,
+                  "size": 155.18,
+                  "width": 1000,
+                  "height": 667,
+                  "sizeInBytes": 155182
+                },
+                "small": {
+                  "ext": ".jpg",
+                  "url": "http://192.168.10.5:9000/indesso/small_fe377eacb307f05f48a6a2cdc0b5c90a4dafe83d_9d6e536e78.jpg",
+                  "hash": "small_fe377eacb307f05f48a6a2cdc0b5c90a4dafe83d_9d6e536e78",
+                  "mime": "image/jpeg",
+                  "name": "small_fe377eacb307f05f48a6a2cdc0b5c90a4dafe83d.jpg",
+                  "path": null,
+                  "size": 47.21,
+                  "width": 500,
+                  "height": 333,
+                  "sizeInBytes": 47205
+                },
+                "medium": {
+                  "ext": ".jpg",
+                  "url": "http://192.168.10.5:9000/indesso/medium_fe377eacb307f05f48a6a2cdc0b5c90a4dafe83d_9d6e536e78.jpg",
+                  "hash": "medium_fe377eacb307f05f48a6a2cdc0b5c90a4dafe83d_9d6e536e78",
+                  "mime": "image/jpeg",
+                  "name": "medium_fe377eacb307f05f48a6a2cdc0b5c90a4dafe83d.jpg",
+                  "path": null,
+                  "size": 93.02,
+                  "width": 750,
+                  "height": 500,
+                  "sizeInBytes": 93022
+                },
+                "thumbnail": {
+                  "ext": ".jpg",
+                  "url": "http://192.168.10.5:9000/indesso/thumbnail_fe377eacb307f05f48a6a2cdc0b5c90a4dafe83d_9d6e536e78.jpg",
+                  "hash": "thumbnail_fe377eacb307f05f48a6a2cdc0b5c90a4dafe83d_9d6e536e78",
+                  "mime": "image/jpeg",
+                  "name": "thumbnail_fe377eacb307f05f48a6a2cdc0b5c90a4dafe83d.jpg",
+                  "path": null,
+                  "size": 12.74,
+                  "width": 234,
+                  "height": 156,
+                  "sizeInBytes": 12744
+                }
+              },
+              "hash": "fe377eacb307f05f48a6a2cdc0b5c90a4dafe83d_9d6e536e78",
+              "ext": ".jpg",
+              "mime": "image/jpeg",
+              "size": 1652.82,
+              "url": "http://192.168.10.5:9000/indesso/fe377eacb307f05f48a6a2cdc0b5c90a4dafe83d_9d6e536e78.jpg",
+              "previewUrl": null,
+              "provider": "strapi-provider-upload-minio-ce",
+              "provider_metadata": null,
+              "createdAt": "2025-12-01T04:41:14.741Z",
+              "updatedAt": "2025-12-01T04:41:14.741Z",
+              "publishedAt": "2025-12-01T04:41:14.741Z"
+            }
+          },
+          {
+            "id": 16,
+            "title": "A Legacy of Unlocking Nature",
+            "text": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "It began in 1968 when Robertus Hartanto Gunawan looked at fallen clove leaves and questioned how something considered waste could be distilled into a high value product. What started as a humble clove oil distillation grew into a lifelong pursuit to transform nature’s potential into meaningful creations. ",
+                    "type": "text"
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Joined by his brothers Wien, Yahya, and Sutanto, his early curiosity evolved into a shared passion for nature and innovation that later shaped the essence of Indesso. From that spark, a legacy was born.",
+                    "type": "text"
+                  }
+                ]
+              }
+            ],
+            "title_slider": "MASTERY",
+            "image": {
+              "id": 41,
+              "documentId": "u1j43vqf6slqgyqbi0xy2ud7",
+              "name": "6db02884a39d3b57226e89f0ea5da60a44c14945.jpg",
+              "alternativeText": null,
+              "caption": null,
+              "width": 320,
+              "height": 480,
+              "formats": {
+                "thumbnail": {
+                  "ext": ".jpg",
+                  "url": "http://192.168.10.5:9000/indesso/thumbnail_6db02884a39d3b57226e89f0ea5da60a44c14945_f087170dbf.jpg",
+                  "hash": "thumbnail_6db02884a39d3b57226e89f0ea5da60a44c14945_f087170dbf",
+                  "mime": "image/jpeg",
+                  "name": "thumbnail_6db02884a39d3b57226e89f0ea5da60a44c14945.jpg",
+                  "path": null,
+                  "size": 4.6,
+                  "width": 104,
+                  "height": 156,
+                  "sizeInBytes": 4598
+                }
+              },
+              "hash": "6db02884a39d3b57226e89f0ea5da60a44c14945_f087170dbf",
+              "ext": ".jpg",
+              "mime": "image/jpeg",
+              "size": 33.9,
+              "url": "http://192.168.10.5:9000/indesso/6db02884a39d3b57226e89f0ea5da60a44c14945_f087170dbf.jpg",
+              "previewUrl": null,
+              "provider": "strapi-provider-upload-minio-ce",
+              "provider_metadata": null,
+              "createdAt": "2025-12-02T04:02:41.999Z",
+              "updatedAt": "2025-12-02T04:02:41.999Z",
+              "publishedAt": "2025-12-02T04:02:42.000Z"
+            }
+          }
+        ]
+      },
+      {
+        "__component": "about-us.board-section",
+        "id": 12,
+        "eyebrow": "MEET THE BOARDS",
+        "title": "Meet the People Behind Our Innovation",
+        "sections": [
+          {
+            "id": 23,
+            "title": "Board of Commissioner",
+            "members": [
+              {
+                "id": 104,
+                "order_number": 1,
+                "first_name": "Budi",
+                "last_name": "Setiadharma",
+                "image": {
+                  "id": 28,
+                  "documentId": "pe6ujx3emw2pz40zlfk3dqap",
+                  "name": "Photo.png",
+                  "alternativeText": null,
+                  "caption": null,
+                  "width": 280,
+                  "height": 280,
+                  "formats": {
+                    "thumbnail": {
+                      "ext": ".png",
+                      "url": "http://192.168.10.5:9000/indesso/thumbnail_Photo_c003929887.png",
+                      "hash": "thumbnail_Photo_c003929887",
+                      "mime": "image/png",
+                      "name": "thumbnail_Photo.png",
+                      "path": null,
+                      "size": 11.16,
+                      "width": 156,
+                      "height": 156,
+                      "sizeInBytes": 11159
+                    }
+                  },
+                  "hash": "Photo_c003929887",
+                  "ext": ".png",
+                  "mime": "image/png",
+                  "size": 6.4,
+                  "url": "http://192.168.10.5:9000/indesso/Photo_c003929887.png",
+                  "previewUrl": null,
+                  "provider": "strapi-provider-upload-minio-ce",
+                  "provider_metadata": null,
+                  "createdAt": "2025-12-01T04:48:59.124Z",
+                  "updatedAt": "2025-12-01T04:48:59.124Z",
+                  "publishedAt": "2025-12-01T04:48:59.124Z"
+                },
+                "position": {
+                  "id": 2,
+                  "documentId": "odcwt9pjwgdoxr1d8smxugte",
+                  "name": "Chairman",
+                  "code": "chairman",
+                  "group": "commissioner",
+                  "order_number": 1,
+                  "createdAt": "2025-12-01T04:45:49.984Z",
+                  "updatedAt": "2025-12-01T04:45:51.369Z",
+                  "publishedAt": "2025-12-01T04:45:51.377Z"
+                }
+              },
+              {
+                "id": 105,
+                "order_number": 2,
+                "first_name": "Diyah",
+                "last_name": "Sasanti R .",
+                "image": {
+                  "id": 28,
+                  "documentId": "pe6ujx3emw2pz40zlfk3dqap",
+                  "name": "Photo.png",
+                  "alternativeText": null,
+                  "caption": null,
+                  "width": 280,
+                  "height": 280,
+                  "formats": {
+                    "thumbnail": {
+                      "ext": ".png",
+                      "url": "http://192.168.10.5:9000/indesso/thumbnail_Photo_c003929887.png",
+                      "hash": "thumbnail_Photo_c003929887",
+                      "mime": "image/png",
+                      "name": "thumbnail_Photo.png",
+                      "path": null,
+                      "size": 11.16,
+                      "width": 156,
+                      "height": 156,
+                      "sizeInBytes": 11159
+                    }
+                  },
+                  "hash": "Photo_c003929887",
+                  "ext": ".png",
+                  "mime": "image/png",
+                  "size": 6.4,
+                  "url": "http://192.168.10.5:9000/indesso/Photo_c003929887.png",
+                  "previewUrl": null,
+                  "provider": "strapi-provider-upload-minio-ce",
+                  "provider_metadata": null,
+                  "createdAt": "2025-12-01T04:48:59.124Z",
+                  "updatedAt": "2025-12-01T04:48:59.124Z",
+                  "publishedAt": "2025-12-01T04:48:59.124Z"
+                },
+                "position": {
+                  "id": 4,
+                  "documentId": "bz6latmiu7b4nosxnfur7nw5",
+                  "name": "Vice Chairman",
+                  "code": "vice-chairman",
+                  "group": "commissioner",
+                  "order_number": 2,
+                  "createdAt": "2025-12-01T04:46:13.369Z",
+                  "updatedAt": "2025-12-01T04:46:14.537Z",
+                  "publishedAt": "2025-12-01T04:46:14.543Z"
+                }
+              },
+              {
+                "id": 106,
+                "order_number": 3,
+                "first_name": "Wien P",
+                "last_name": "Gunawan",
+                "image": {
+                  "id": 28,
+                  "documentId": "pe6ujx3emw2pz40zlfk3dqap",
+                  "name": "Photo.png",
+                  "alternativeText": null,
+                  "caption": null,
+                  "width": 280,
+                  "height": 280,
+                  "formats": {
+                    "thumbnail": {
+                      "ext": ".png",
+                      "url": "http://192.168.10.5:9000/indesso/thumbnail_Photo_c003929887.png",
+                      "hash": "thumbnail_Photo_c003929887",
+                      "mime": "image/png",
+                      "name": "thumbnail_Photo.png",
+                      "path": null,
+                      "size": 11.16,
+                      "width": 156,
+                      "height": 156,
+                      "sizeInBytes": 11159
+                    }
+                  },
+                  "hash": "Photo_c003929887",
+                  "ext": ".png",
+                  "mime": "image/png",
+                  "size": 6.4,
+                  "url": "http://192.168.10.5:9000/indesso/Photo_c003929887.png",
+                  "previewUrl": null,
+                  "provider": "strapi-provider-upload-minio-ce",
+                  "provider_metadata": null,
+                  "createdAt": "2025-12-01T04:48:59.124Z",
+                  "updatedAt": "2025-12-01T04:48:59.124Z",
+                  "publishedAt": "2025-12-01T04:48:59.124Z"
+                },
+                "position": {
+                  "id": 6,
+                  "documentId": "evyu2ehffxkwghkxyzitvhwg",
+                  "name": "Chief Excecutive Officer",
+                  "code": "chief-excecutive-officer",
+                  "group": "director",
+                  "order_number": 1,
+                  "createdAt": "2025-12-01T04:46:41.141Z",
+                  "updatedAt": "2025-12-01T04:46:42.852Z",
+                  "publishedAt": "2025-12-01T04:46:42.858Z"
+                }
+              },
+              {
+                "id": 107,
+                "order_number": 4,
+                "first_name": "Brian ",
+                "last_name": "Chang",
+                "image": {
+                  "id": 28,
+                  "documentId": "pe6ujx3emw2pz40zlfk3dqap",
+                  "name": "Photo.png",
+                  "alternativeText": null,
+                  "caption": null,
+                  "width": 280,
+                  "height": 280,
+                  "formats": {
+                    "thumbnail": {
+                      "ext": ".png",
+                      "url": "http://192.168.10.5:9000/indesso/thumbnail_Photo_c003929887.png",
+                      "hash": "thumbnail_Photo_c003929887",
+                      "mime": "image/png",
+                      "name": "thumbnail_Photo.png",
+                      "path": null,
+                      "size": 11.16,
+                      "width": 156,
+                      "height": 156,
+                      "sizeInBytes": 11159
+                    }
+                  },
+                  "hash": "Photo_c003929887",
+                  "ext": ".png",
+                  "mime": "image/png",
+                  "size": 6.4,
+                  "url": "http://192.168.10.5:9000/indesso/Photo_c003929887.png",
+                  "previewUrl": null,
+                  "provider": "strapi-provider-upload-minio-ce",
+                  "provider_metadata": null,
+                  "createdAt": "2025-12-01T04:48:59.124Z",
+                  "updatedAt": "2025-12-01T04:48:59.124Z",
+                  "publishedAt": "2025-12-01T04:48:59.124Z"
+                },
+                "position": {
+                  "id": 8,
+                  "documentId": "pwy94wchnbrgdtdolte5dypc",
+                  "name": "Vice President Manufacturing",
+                  "code": "vice-president-manufacturing",
+                  "group": "director",
+                  "order_number": 2,
+                  "createdAt": "2025-12-01T04:47:14.479Z",
+                  "updatedAt": "2025-12-01T04:47:20.429Z",
+                  "publishedAt": "2025-12-01T04:47:20.434Z"
+                }
+              },
+              {
+                "id": 108,
+                "order_number": 5,
+                "first_name": "Hanny",
+                "last_name": "Gunawan",
+                "image": {
+                  "id": 28,
+                  "documentId": "pe6ujx3emw2pz40zlfk3dqap",
+                  "name": "Photo.png",
+                  "alternativeText": null,
+                  "caption": null,
+                  "width": 280,
+                  "height": 280,
+                  "formats": {
+                    "thumbnail": {
+                      "ext": ".png",
+                      "url": "http://192.168.10.5:9000/indesso/thumbnail_Photo_c003929887.png",
+                      "hash": "thumbnail_Photo_c003929887",
+                      "mime": "image/png",
+                      "name": "thumbnail_Photo.png",
+                      "path": null,
+                      "size": 11.16,
+                      "width": 156,
+                      "height": 156,
+                      "sizeInBytes": 11159
+                    }
+                  },
+                  "hash": "Photo_c003929887",
+                  "ext": ".png",
+                  "mime": "image/png",
+                  "size": 6.4,
+                  "url": "http://192.168.10.5:9000/indesso/Photo_c003929887.png",
+                  "previewUrl": null,
+                  "provider": "strapi-provider-upload-minio-ce",
+                  "provider_metadata": null,
+                  "createdAt": "2025-12-01T04:48:59.124Z",
+                  "updatedAt": "2025-12-01T04:48:59.124Z",
+                  "publishedAt": "2025-12-01T04:48:59.124Z"
+                },
+                "position": {
+                  "id": 6,
+                  "documentId": "evyu2ehffxkwghkxyzitvhwg",
+                  "name": "Chief Excecutive Officer",
+                  "code": "chief-excecutive-officer",
+                  "group": "director",
+                  "order_number": 1,
+                  "createdAt": "2025-12-01T04:46:41.141Z",
+                  "updatedAt": "2025-12-01T04:46:42.852Z",
+                  "publishedAt": "2025-12-01T04:46:42.858Z"
+                }
+              }
+            ]
+          },
+          {
+            "id": 24,
+            "title": "Board of Directors",
+            "members": [
+              {
+                "id": 109,
+                "order_number": 1,
+                "first_name": "Robby",
+                "last_name": "Gunawan",
+                "image": {
+                  "id": 28,
+                  "documentId": "pe6ujx3emw2pz40zlfk3dqap",
+                  "name": "Photo.png",
+                  "alternativeText": null,
+                  "caption": null,
+                  "width": 280,
+                  "height": 280,
+                  "formats": {
+                    "thumbnail": {
+                      "ext": ".png",
+                      "url": "http://192.168.10.5:9000/indesso/thumbnail_Photo_c003929887.png",
+                      "hash": "thumbnail_Photo_c003929887",
+                      "mime": "image/png",
+                      "name": "thumbnail_Photo.png",
+                      "path": null,
+                      "size": 11.16,
+                      "width": 156,
+                      "height": 156,
+                      "sizeInBytes": 11159
+                    }
+                  },
+                  "hash": "Photo_c003929887",
+                  "ext": ".png",
+                  "mime": "image/png",
+                  "size": 6.4,
+                  "url": "http://192.168.10.5:9000/indesso/Photo_c003929887.png",
+                  "previewUrl": null,
+                  "provider": "strapi-provider-upload-minio-ce",
+                  "provider_metadata": null,
+                  "createdAt": "2025-12-01T04:48:59.124Z",
+                  "updatedAt": "2025-12-01T04:48:59.124Z",
+                  "publishedAt": "2025-12-01T04:48:59.124Z"
+                },
+                "position": {
+                  "id": 6,
+                  "documentId": "evyu2ehffxkwghkxyzitvhwg",
+                  "name": "Chief Excecutive Officer",
+                  "code": "chief-excecutive-officer",
+                  "group": "director",
+                  "order_number": 1,
+                  "createdAt": "2025-12-01T04:46:41.141Z",
+                  "updatedAt": "2025-12-01T04:46:42.852Z",
+                  "publishedAt": "2025-12-01T04:46:42.858Z"
+                }
+              },
+              {
+                "id": 110,
+                "order_number": 2,
+                "first_name": "Tracy",
+                "last_name": "Duong",
+                "image": {
+                  "id": 28,
+                  "documentId": "pe6ujx3emw2pz40zlfk3dqap",
+                  "name": "Photo.png",
+                  "alternativeText": null,
+                  "caption": null,
+                  "width": 280,
+                  "height": 280,
+                  "formats": {
+                    "thumbnail": {
+                      "ext": ".png",
+                      "url": "http://192.168.10.5:9000/indesso/thumbnail_Photo_c003929887.png",
+                      "hash": "thumbnail_Photo_c003929887",
+                      "mime": "image/png",
+                      "name": "thumbnail_Photo.png",
+                      "path": null,
+                      "size": 11.16,
+                      "width": 156,
+                      "height": 156,
+                      "sizeInBytes": 11159
+                    }
+                  },
+                  "hash": "Photo_c003929887",
+                  "ext": ".png",
+                  "mime": "image/png",
+                  "size": 6.4,
+                  "url": "http://192.168.10.5:9000/indesso/Photo_c003929887.png",
+                  "previewUrl": null,
+                  "provider": "strapi-provider-upload-minio-ce",
+                  "provider_metadata": null,
+                  "createdAt": "2025-12-01T04:48:59.124Z",
+                  "updatedAt": "2025-12-01T04:48:59.124Z",
+                  "publishedAt": "2025-12-01T04:48:59.124Z"
+                },
+                "position": {
+                  "id": 16,
+                  "documentId": "wizhx1pexlanegv2kw2q3bko",
+                  "name": "Chief Finance Officer",
+                  "code": "chief-finance-officer",
+                  "group": "director",
+                  "order_number": null,
+                  "createdAt": "2025-12-02T04:12:15.265Z",
+                  "updatedAt": "2025-12-02T04:12:19.843Z",
+                  "publishedAt": "2025-12-02T04:12:19.955Z"
+                }
+              },
+              {
+                "id": 111,
+                "order_number": 3,
+                "first_name": "Efendi",
+                "last_name": null,
+                "image": {
+                  "id": 28,
+                  "documentId": "pe6ujx3emw2pz40zlfk3dqap",
+                  "name": "Photo.png",
+                  "alternativeText": null,
+                  "caption": null,
+                  "width": 280,
+                  "height": 280,
+                  "formats": {
+                    "thumbnail": {
+                      "ext": ".png",
+                      "url": "http://192.168.10.5:9000/indesso/thumbnail_Photo_c003929887.png",
+                      "hash": "thumbnail_Photo_c003929887",
+                      "mime": "image/png",
+                      "name": "thumbnail_Photo.png",
+                      "path": null,
+                      "size": 11.16,
+                      "width": 156,
+                      "height": 156,
+                      "sizeInBytes": 11159
+                    }
+                  },
+                  "hash": "Photo_c003929887",
+                  "ext": ".png",
+                  "mime": "image/png",
+                  "size": 6.4,
+                  "url": "http://192.168.10.5:9000/indesso/Photo_c003929887.png",
+                  "previewUrl": null,
+                  "provider": "strapi-provider-upload-minio-ce",
+                  "provider_metadata": null,
+                  "createdAt": "2025-12-01T04:48:59.124Z",
+                  "updatedAt": "2025-12-01T04:48:59.124Z",
+                  "publishedAt": "2025-12-01T04:48:59.124Z"
+                },
+                "position": {
+                  "id": 8,
+                  "documentId": "pwy94wchnbrgdtdolte5dypc",
+                  "name": "Vice President Manufacturing",
+                  "code": "vice-president-manufacturing",
+                  "group": "director",
+                  "order_number": 2,
+                  "createdAt": "2025-12-01T04:47:14.479Z",
+                  "updatedAt": "2025-12-01T04:47:20.429Z",
+                  "publishedAt": "2025-12-01T04:47:20.434Z"
+                }
+              },
+              {
+                "id": 112,
+                "order_number": 4,
+                "first_name": "Rosalina",
+                "last_name": "Privita",
+                "image": {
+                  "id": 28,
+                  "documentId": "pe6ujx3emw2pz40zlfk3dqap",
+                  "name": "Photo.png",
+                  "alternativeText": null,
+                  "caption": null,
+                  "width": 280,
+                  "height": 280,
+                  "formats": {
+                    "thumbnail": {
+                      "ext": ".png",
+                      "url": "http://192.168.10.5:9000/indesso/thumbnail_Photo_c003929887.png",
+                      "hash": "thumbnail_Photo_c003929887",
+                      "mime": "image/png",
+                      "name": "thumbnail_Photo.png",
+                      "path": null,
+                      "size": 11.16,
+                      "width": 156,
+                      "height": 156,
+                      "sizeInBytes": 11159
+                    }
+                  },
+                  "hash": "Photo_c003929887",
+                  "ext": ".png",
+                  "mime": "image/png",
+                  "size": 6.4,
+                  "url": "http://192.168.10.5:9000/indesso/Photo_c003929887.png",
+                  "previewUrl": null,
+                  "provider": "strapi-provider-upload-minio-ce",
+                  "provider_metadata": null,
+                  "createdAt": "2025-12-01T04:48:59.124Z",
+                  "updatedAt": "2025-12-01T04:48:59.124Z",
+                  "publishedAt": "2025-12-01T04:48:59.124Z"
+                },
+                "position": {
+                  "id": 10,
+                  "documentId": "k7hcx7zhkehxhcg4vs74gdt5",
+                  "name": "Vice President Operations",
+                  "code": "vice-president-operations",
+                  "group": "director",
+                  "order_number": 3,
+                  "createdAt": "2025-12-01T04:47:36.916Z",
+                  "updatedAt": "2025-12-01T04:47:37.654Z",
+                  "publishedAt": "2025-12-01T04:47:37.657Z"
+                }
+              },
+              {
+                "id": 113,
+                "order_number": 5,
+                "first_name": "Leo Seno",
+                "last_name": "Broto",
+                "image": {
+                  "id": 28,
+                  "documentId": "pe6ujx3emw2pz40zlfk3dqap",
+                  "name": "Photo.png",
+                  "alternativeText": null,
+                  "caption": null,
+                  "width": 280,
+                  "height": 280,
+                  "formats": {
+                    "thumbnail": {
+                      "ext": ".png",
+                      "url": "http://192.168.10.5:9000/indesso/thumbnail_Photo_c003929887.png",
+                      "hash": "thumbnail_Photo_c003929887",
+                      "mime": "image/png",
+                      "name": "thumbnail_Photo.png",
+                      "path": null,
+                      "size": 11.16,
+                      "width": 156,
+                      "height": 156,
+                      "sizeInBytes": 11159
+                    }
+                  },
+                  "hash": "Photo_c003929887",
+                  "ext": ".png",
+                  "mime": "image/png",
+                  "size": 6.4,
+                  "url": "http://192.168.10.5:9000/indesso/Photo_c003929887.png",
+                  "previewUrl": null,
+                  "provider": "strapi-provider-upload-minio-ce",
+                  "provider_metadata": null,
+                  "createdAt": "2025-12-01T04:48:59.124Z",
+                  "updatedAt": "2025-12-01T04:48:59.124Z",
+                  "publishedAt": "2025-12-01T04:48:59.124Z"
+                },
+                "position": {
+                  "id": 6,
+                  "documentId": "evyu2ehffxkwghkxyzitvhwg",
+                  "name": "Chief Excecutive Officer",
+                  "code": "chief-excecutive-officer",
+                  "group": "director",
+                  "order_number": 1,
+                  "createdAt": "2025-12-01T04:46:41.141Z",
+                  "updatedAt": "2025-12-01T04:46:42.852Z",
+                  "publishedAt": "2025-12-01T04:46:42.858Z"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "__component": "about-us.research-innovation-section",
+        "id": 11,
+        "eyebrow": "RESEARCH & INNOVATION",
+        "title": "Inspiring Solutions Through Nature",
+        "description": [
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "text": "At Indesso, innovation begins with curiosity and a deep respect for nature. Every exploration we pursue is guided by one essential question that shapes our purpose, which is how we can transform natural resources into solutions that enrich life, support well being, and bring meaningful benefits to people.",
+                "type": "text"
+              }
+            ]
+          }
+        ],
+        "card": [
+          {
+            "id": 53,
+            "title": "Advanced Research Expertise",
+            "text": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Our Research and Innovation Centers combine advanced technology with multidisciplinary strength across chemistry, food science, and sensory analysis.",
+                    "type": "text"
+                  }
+                ]
+              }
+            ],
+            "image": {
+              "id": 29,
+              "documentId": "rq1qn5czffx96ennll5osggw",
+              "name": "Rectangle 5333.png",
+              "alternativeText": null,
+              "caption": null,
+              "width": 392,
+              "height": 480,
+              "formats": {
+                "thumbnail": {
+                  "ext": ".png",
+                  "url": "http://192.168.10.5:9000/indesso/thumbnail_Rectangle_5333_4959d4000e.png",
+                  "hash": "thumbnail_Rectangle_5333_4959d4000e",
+                  "mime": "image/png",
+                  "name": "thumbnail_Rectangle 5333.png",
+                  "path": null,
+                  "size": 44.81,
+                  "width": 127,
+                  "height": 156,
+                  "sizeInBytes": 44814
+                }
+              },
+              "hash": "Rectangle_5333_4959d4000e",
+              "ext": ".png",
+              "mime": "image/png",
+              "size": 85.75,
+              "url": "http://192.168.10.5:9000/indesso/Rectangle_5333_4959d4000e.png",
+              "previewUrl": null,
+              "provider": "strapi-provider-upload-minio-ce",
+              "provider_metadata": null,
+              "createdAt": "2025-11-30T23:58:02.059Z",
+              "updatedAt": "2025-11-30T23:58:02.059Z",
+              "publishedAt": "2025-11-30T23:58:02.060Z"
+            }
+          },
+          {
+            "id": 54,
+            "title": "Science Driven Development",
+            "text": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Our scientists and technologists work side by side to turn ideas into practical solutions, from novel delivery systems and sustainable ingredients to performance focused formulations.",
+                    "type": "text"
+                  }
+                ]
+              }
+            ],
+            "image": {
+              "id": 30,
+              "documentId": "w129rec4fs0gp5htn9t6nuix",
+              "name": "Rectangle 5333 (1).png",
+              "alternativeText": null,
+              "caption": null,
+              "width": 392,
+              "height": 480,
+              "formats": {
+                "thumbnail": {
+                  "ext": ".png",
+                  "url": "http://192.168.10.5:9000/indesso/thumbnail_Rectangle_5333_1_8355bbe983.png",
+                  "hash": "thumbnail_Rectangle_5333_1_8355bbe983",
+                  "mime": "image/png",
+                  "name": "thumbnail_Rectangle 5333 (1).png",
+                  "path": null,
+                  "size": 45.24,
+                  "width": 127,
+                  "height": 156,
+                  "sizeInBytes": 45240
+                }
+              },
+              "hash": "Rectangle_5333_1_8355bbe983",
+              "ext": ".png",
+              "mime": "image/png",
+              "size": 82.45,
+              "url": "http://192.168.10.5:9000/indesso/Rectangle_5333_1_8355bbe983.png",
+              "previewUrl": null,
+              "provider": "strapi-provider-upload-minio-ce",
+              "provider_metadata": null,
+              "createdAt": "2025-11-30T23:58:58.992Z",
+              "updatedAt": "2025-11-30T23:58:58.992Z",
+              "publishedAt": "2025-11-30T23:58:58.992Z"
+            }
+          },
+          {
+            "id": 55,
+            "title": "Collaborative Co Creation",
+            "text": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "We believe great innovation happens through collaboration. Together with our partners, we co create tailored solutions guided by insight, sensory expertise, and technology.",
+                    "type": "text"
+                  }
+                ]
+              }
+            ],
+            "image": {
+              "id": 31,
+              "documentId": "gq9tgvb6yunjg65gwp2h1d77",
+              "name": "Rectangle 5333 (2).png",
+              "alternativeText": null,
+              "caption": null,
+              "width": 392,
+              "height": 480,
+              "formats": {
+                "thumbnail": {
+                  "ext": ".png",
+                  "url": "http://192.168.10.5:9000/indesso/thumbnail_Rectangle_5333_2_df499af4f8.png",
+                  "hash": "thumbnail_Rectangle_5333_2_df499af4f8",
+                  "mime": "image/png",
+                  "name": "thumbnail_Rectangle 5333 (2).png",
+                  "path": null,
+                  "size": 38.35,
+                  "width": 127,
+                  "height": 156,
+                  "sizeInBytes": 38346
+                }
+              },
+              "hash": "Rectangle_5333_2_df499af4f8",
+              "ext": ".png",
+              "mime": "image/png",
+              "size": 65.07,
+              "url": "http://192.168.10.5:9000/indesso/Rectangle_5333_2_df499af4f8.png",
+              "previewUrl": null,
+              "provider": "strapi-provider-upload-minio-ce",
+              "provider_metadata": null,
+              "createdAt": "2025-11-30T23:59:40.739Z",
+              "updatedAt": "2025-11-30T23:59:40.739Z",
+              "publishedAt": "2025-11-30T23:59:40.739Z"
+            }
+          }
+        ]
+      },
+      {
+        "__component": "about-us.scientific-mastery-section",
+        "id": 11,
+        "eyebrow": "SCIENTIFIC MASTERY",
+        "title": "Technology that Brings Nature Closer",
+        "description": [
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "text": "We safeguard the essence of nature so its aroma, flavor, and character remain vivid from harvest to cup. Through decades of research, our systems protect and deliver the delicate qualities of botanicals, tea, coffee, and cocoa in their purest form.",
+                "type": "text"
+              }
+            ]
+          }
+        ],
+        "tabs": [
+          {
+            "id": 41,
+            "label": "Delivery System",
+            "slug": "delivery-system",
+            "left_block_title": "Delivery System that Preserves Freshness",
+            "left_block_text": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Our encapsulation technologies protect sensitive natural compounds until the moment they are released. ",
+                    "type": "text"
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Naturarte Double Encapsulation keeps aroma stable and intact upon contact with water.",
+                    "type": "text"
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": " For tea and herbal infusions, Naturarte BIO attaches encapsulated extracts to tea biomass for smooth dispersion in tea bags or loose leaf blends without separation.",
+                    "type": "text"
+                  }
+                ]
+              }
+            ],
+            "main_image": {
+              "id": 32,
+              "documentId": "lzdyjciynha9vhoevvzrzg36",
+              "name": "Group 5140331.png",
+              "alternativeText": null,
+              "caption": null,
+              "width": 560,
+              "height": 324,
+              "formats": {
+                "small": {
+                  "ext": ".png",
+                  "url": "http://192.168.10.5:9000/indesso/small_Group_5140331_68eed37813.png",
+                  "hash": "small_Group_5140331_68eed37813",
+                  "mime": "image/png",
+                  "name": "small_Group 5140331.png",
+                  "path": null,
+                  "size": 255.81,
+                  "width": 500,
+                  "height": 289,
+                  "sizeInBytes": 255810
+                },
+                "thumbnail": {
+                  "ext": ".png",
+                  "url": "http://192.168.10.5:9000/indesso/thumbnail_Group_5140331_68eed37813.png",
+                  "hash": "thumbnail_Group_5140331_68eed37813",
+                  "mime": "image/png",
+                  "name": "thumbnail_Group 5140331.png",
+                  "path": null,
+                  "size": 72.59,
+                  "width": 245,
+                  "height": 142,
+                  "sizeInBytes": 72589
+                }
+              },
+              "hash": "Group_5140331_68eed37813",
+              "ext": ".png",
+              "mime": "image/png",
+              "size": 80.91,
+              "url": "http://192.168.10.5:9000/indesso/Group_5140331_68eed37813.png",
+              "previewUrl": null,
+              "provider": "strapi-provider-upload-minio-ce",
+              "provider_metadata": null,
+              "createdAt": "2025-12-01T00:02:26.386Z",
+              "updatedAt": "2025-12-01T00:02:26.386Z",
+              "publishedAt": "2025-12-01T00:02:26.387Z"
+            }
+          },
+          {
+            "id": 42,
+            "label": "Extraction",
+            "slug": "extraction",
+            "left_block_title": "Delivery System that Preserves Freshness",
+            "left_block_text": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Our encapsulation technologies protect sensitive natural compounds until the moment they are released. ",
+                    "type": "text"
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Naturarte Double Encapsulation keeps aroma stable and intact upon contact with water.",
+                    "type": "text"
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": " For tea and herbal infusions, Naturarte BIO attaches encapsulated extracts to tea biomass for smooth dispersion in tea bags or loose leaf blends without separation.",
+                    "type": "text"
+                  }
+                ]
+              }
+            ],
+            "main_image": {
+              "id": 32,
+              "documentId": "lzdyjciynha9vhoevvzrzg36",
+              "name": "Group 5140331.png",
+              "alternativeText": null,
+              "caption": null,
+              "width": 560,
+              "height": 324,
+              "formats": {
+                "small": {
+                  "ext": ".png",
+                  "url": "http://192.168.10.5:9000/indesso/small_Group_5140331_68eed37813.png",
+                  "hash": "small_Group_5140331_68eed37813",
+                  "mime": "image/png",
+                  "name": "small_Group 5140331.png",
+                  "path": null,
+                  "size": 255.81,
+                  "width": 500,
+                  "height": 289,
+                  "sizeInBytes": 255810
+                },
+                "thumbnail": {
+                  "ext": ".png",
+                  "url": "http://192.168.10.5:9000/indesso/thumbnail_Group_5140331_68eed37813.png",
+                  "hash": "thumbnail_Group_5140331_68eed37813",
+                  "mime": "image/png",
+                  "name": "thumbnail_Group 5140331.png",
+                  "path": null,
+                  "size": 72.59,
+                  "width": 245,
+                  "height": 142,
+                  "sizeInBytes": 72589
+                }
+              },
+              "hash": "Group_5140331_68eed37813",
+              "ext": ".png",
+              "mime": "image/png",
+              "size": 80.91,
+              "url": "http://192.168.10.5:9000/indesso/Group_5140331_68eed37813.png",
+              "previewUrl": null,
+              "provider": "strapi-provider-upload-minio-ce",
+              "provider_metadata": null,
+              "createdAt": "2025-12-01T00:02:26.386Z",
+              "updatedAt": "2025-12-01T00:02:26.386Z",
+              "publishedAt": "2025-12-01T00:02:26.387Z"
+            }
+          },
+          {
+            "id": 43,
+            "label": "Thermal Process",
+            "slug": "thermal-process",
+            "left_block_title": "Delivery System that Preserves Freshness",
+            "left_block_text": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Our encapsulation technologies protect sensitive natural compounds until the moment they are released. ",
+                    "type": "text"
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Naturarte Double Encapsulation keeps aroma stable and intact upon contact with water.",
+                    "type": "text"
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": " For tea and herbal infusions, Naturarte BIO attaches encapsulated extracts to tea biomass for smooth dispersion in tea bags or loose leaf blends without separation.",
+                    "type": "text"
+                  }
+                ]
+              }
+            ],
+            "main_image": {
+              "id": 32,
+              "documentId": "lzdyjciynha9vhoevvzrzg36",
+              "name": "Group 5140331.png",
+              "alternativeText": null,
+              "caption": null,
+              "width": 560,
+              "height": 324,
+              "formats": {
+                "small": {
+                  "ext": ".png",
+                  "url": "http://192.168.10.5:9000/indesso/small_Group_5140331_68eed37813.png",
+                  "hash": "small_Group_5140331_68eed37813",
+                  "mime": "image/png",
+                  "name": "small_Group 5140331.png",
+                  "path": null,
+                  "size": 255.81,
+                  "width": 500,
+                  "height": 289,
+                  "sizeInBytes": 255810
+                },
+                "thumbnail": {
+                  "ext": ".png",
+                  "url": "http://192.168.10.5:9000/indesso/thumbnail_Group_5140331_68eed37813.png",
+                  "hash": "thumbnail_Group_5140331_68eed37813",
+                  "mime": "image/png",
+                  "name": "thumbnail_Group 5140331.png",
+                  "path": null,
+                  "size": 72.59,
+                  "width": 245,
+                  "height": 142,
+                  "sizeInBytes": 72589
+                }
+              },
+              "hash": "Group_5140331_68eed37813",
+              "ext": ".png",
+              "mime": "image/png",
+              "size": 80.91,
+              "url": "http://192.168.10.5:9000/indesso/Group_5140331_68eed37813.png",
+              "previewUrl": null,
+              "provider": "strapi-provider-upload-minio-ce",
+              "provider_metadata": null,
+              "createdAt": "2025-12-01T00:02:26.386Z",
+              "updatedAt": "2025-12-01T00:02:26.386Z",
+              "publishedAt": "2025-12-01T00:02:26.387Z"
+            }
+          },
+          {
+            "id": 44,
+            "label": "Precision in Every Drop",
+            "slug": "precision-in-every-drop",
+            "left_block_title": "Delivery System that Preserves Freshness",
+            "left_block_text": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Our encapsulation technologies protect sensitive natural compounds until the moment they are released. ",
+                    "type": "text"
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Naturarte Double Encapsulation keeps aroma stable and intact upon contact with water.",
+                    "type": "text"
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": " For tea and herbal infusions, Naturarte BIO attaches encapsulated extracts to tea biomass for smooth dispersion in tea bags or loose leaf blends without separation.",
+                    "type": "text"
+                  }
+                ]
+              }
+            ],
+            "main_image": {
+              "id": 32,
+              "documentId": "lzdyjciynha9vhoevvzrzg36",
+              "name": "Group 5140331.png",
+              "alternativeText": null,
+              "caption": null,
+              "width": 560,
+              "height": 324,
+              "formats": {
+                "small": {
+                  "ext": ".png",
+                  "url": "http://192.168.10.5:9000/indesso/small_Group_5140331_68eed37813.png",
+                  "hash": "small_Group_5140331_68eed37813",
+                  "mime": "image/png",
+                  "name": "small_Group 5140331.png",
+                  "path": null,
+                  "size": 255.81,
+                  "width": 500,
+                  "height": 289,
+                  "sizeInBytes": 255810
+                },
+                "thumbnail": {
+                  "ext": ".png",
+                  "url": "http://192.168.10.5:9000/indesso/thumbnail_Group_5140331_68eed37813.png",
+                  "hash": "thumbnail_Group_5140331_68eed37813",
+                  "mime": "image/png",
+                  "name": "thumbnail_Group 5140331.png",
+                  "path": null,
+                  "size": 72.59,
+                  "width": 245,
+                  "height": 142,
+                  "sizeInBytes": 72589
+                }
+              },
+              "hash": "Group_5140331_68eed37813",
+              "ext": ".png",
+              "mime": "image/png",
+              "size": 80.91,
+              "url": "http://192.168.10.5:9000/indesso/Group_5140331_68eed37813.png",
+              "previewUrl": null,
+              "provider": "strapi-provider-upload-minio-ce",
+              "provider_metadata": null,
+              "createdAt": "2025-12-01T00:02:26.386Z",
+              "updatedAt": "2025-12-01T00:02:26.386Z",
+              "publishedAt": "2025-12-01T00:02:26.387Z"
+            }
+          }
+        ]
+      },
+      {
+        "__component": "about-us.responsible-operations-section",
+        "id": 11,
+        "eyebrow": "Responsible Operations",
+        "title": "Integrity at the Core of Progress",
+        "description": [
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "text": "At Indesso, governance is a commitment to integrity and responsible growth. Guided by our founder’s belief that profit must never harm the environment, we uphold professionalism and purpose in every decision.",
+                "type": "text"
+              }
+            ]
+          }
+        ],
+        "accordion_items": [
+          {
+            "id": 31,
+            "title": "Ethics and Integrity",
+            "description": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Integrity has shaped Indesso from the start. The early drive to turn waste into value reflected our respect for nature and people.",
+                    "type": "text"
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": " We uphold ethical conduct through clear guidelines, fair treatment of stakeholders, and a Code of Conduct that supports responsible behavior. ",
+                    "type": "text"
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "A confidential whistleblowing channel strengthens transparency and accountability across the organization.",
+                    "type": "text"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": 32,
+            "title": "Compliance",
+            "description": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Integrity has shaped Indesso from the start. The early drive to turn waste into value reflected our respect for nature and people.",
+                    "type": "text"
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": " We uphold ethical conduct through clear guidelines, fair treatment of stakeholders, and a Code of Conduct that supports responsible behavior. ",
+                    "type": "text"
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "A confidential whistleblowing channel strengthens transparency and accountability across the organization.",
+                    "type": "text"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": 33,
+            "title": "Sustainability",
+            "description": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Integrity has shaped Indesso from the start. The early drive to turn waste into value reflected our respect for nature and people.",
+                    "type": "text"
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": " We uphold ethical conduct through clear guidelines, fair treatment of stakeholders, and a Code of Conduct that supports responsible behavior. ",
+                    "type": "text"
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "A confidential whistleblowing channel strengthens transparency and accountability across the organization.",
+                    "type": "text"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "seo": {
+      "id": 35,
+      "meta_title": "about us",
+      "meta_description": "about us",
+      "keywords": [
+        {
+          "id": 35,
+          "keywords": "about us"
+        }
+      ]
+    }
+  },
+  "meta": {
+
+  }
+}

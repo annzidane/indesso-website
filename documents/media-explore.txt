@@ -1,0 +1,110 @@
+http://localhost:1337/api/media-explore-insight?pLevel=3
+
+{
+  "data": {
+    "id": 2,
+    "documentId": "qieyggg66x88476myx7w831x",
+    "createdAt": "2025-12-19T10:43:05.187Z",
+    "updatedAt": "2025-12-19T10:43:08.909Z",
+    "publishedAt": "2025-12-19T10:43:09.359Z",
+    "page_info": {
+      "id": 124,
+      "title": "Explore Insights",
+      "slug": "explore-insights",
+      "path": "/media/explore-insights"
+    },
+    "hero_section": {
+      "id": 63,
+      "title": "Explore Insights",
+      "background_image": {
+        "id": 160,
+        "documentId": "ks0wg9gfwkscs1ycaor0ejzc",
+        "name": "Rectangle 2449.webp",
+        "alternativeText": null,
+        "caption": null,
+        "width": 5760,
+        "height": 1920,
+        "formats": {
+          "large": {
+            "ext": ".webp",
+            "url": "https://s3-local.deptechdigital.com/indesso/large_Rectangle_2449_1c25b90171.webp",
+            "hash": "large_Rectangle_2449_1c25b90171",
+            "mime": "image/webp",
+            "name": "large_Rectangle 2449.webp",
+            "path": null,
+            "size": 10.82,
+            "width": 1000,
+            "height": 333,
+            "sizeInBytes": 10818
+          },
+          "small": {
+            "ext": ".webp",
+            "url": "https://s3-local.deptechdigital.com/indesso/small_Rectangle_2449_1c25b90171.webp",
+            "hash": "small_Rectangle_2449_1c25b90171",
+            "mime": "image/webp",
+            "name": "small_Rectangle 2449.webp",
+            "path": null,
+            "size": 4.74,
+            "width": 500,
+            "height": 167,
+            "sizeInBytes": 4744
+          },
+          "medium": {
+            "ext": ".webp",
+            "url": "https://s3-local.deptechdigital.com/indesso/medium_Rectangle_2449_1c25b90171.webp",
+            "hash": "medium_Rectangle_2449_1c25b90171",
+            "mime": "image/webp",
+            "name": "medium_Rectangle 2449.webp",
+            "path": null,
+            "size": 7.68,
+            "width": 750,
+            "height": 250,
+            "sizeInBytes": 7682
+          },
+          "thumbnail": {
+            "ext": ".webp",
+            "url": "https://s3-local.deptechdigital.com/indesso/thumbnail_Rectangle_2449_1c25b90171.webp",
+            "hash": "thumbnail_Rectangle_2449_1c25b90171",
+            "mime": "image/webp",
+            "name": "thumbnail_Rectangle 2449.webp",
+            "path": null,
+            "size": 1.23,
+            "width": 156,
+            "height": 52,
+            "sizeInBytes": 1234
+          }
+        },
+        "hash": "Rectangle_2449_1c25b90171",
+        "ext": ".webp",
+        "mime": "image/webp",
+        "size": 108.61,
+        "url": "https://s3-local.deptechdigital.com/indesso/Rectangle_2449_1c25b90171.webp",
+        "previewUrl": null,
+        "provider": "strapi-provider-upload-tp-minio",
+        "provider_metadata": null,
+        "createdAt": "2025-12-19T10:42:32.316Z",
+        "updatedAt": "2025-12-19T10:42:32.316Z",
+        "publishedAt": "2025-12-19T10:42:32.316Z"
+      }
+    },
+    "media_insight": {
+      "id": 2,
+      "title_filter": "All Topics",
+      "lable_button": "Load More"
+    },
+    "seo": {
+      "id": 101,
+      "meta_title": "Explore Insights",
+      "meta_description": "Explore Insights",
+      "keywords": [
+        {
+          "id": 100,
+          "keywords": "Explore Insights"
+        }
+      ]
+    }
+  },
+  "meta": {
+
+  }
+}

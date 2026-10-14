@@ -1,0 +1,738 @@
+http://localhost:1337/api/our-business?pLevel=5
+
+{
+  "data": {
+    "id": 5,
+    "documentId": "zg4hljdljhwxnnaly2a3aemu",
+    "createdAt": "2025-12-09T08:06:12.765Z",
+    "updatedAt": "2025-12-09T09:43:45.671Z",
+    "publishedAt": "2025-12-09T09:43:45.956Z",
+    "page_info": {
+      "id": 65,
+      "title": "Our Business",
+      "slug": "our-business",
+      "path": "/our-business"
+    },
+    "hero_section": {
+      "id": 33,
+      "title": "Our Business",
+      "background_image": {
+        "id": 94,
+        "documentId": "glm70srfoc0v0u7nf44wlu6t",
+        "name": "Rectangle 5334.png",
+        "alternativeText": null,
+        "caption": null,
+        "width": 1440,
+        "height": 480,
+        "formats": {
+          "large": {
+            "ext": ".png",
+            "url": "http://192.168.10.5:9000/indesso/large_Rectangle_5334_a28157d55c.png",
+            "hash": "large_Rectangle_5334_a28157d55c",
+            "mime": "image/png",
+            "name": "large_Rectangle 5334.png",
+            "path": null,
+            "size": 599.54,
+            "width": 1000,
+            "height": 333,
+            "sizeInBytes": 599542
+          },
+          "small": {
+            "ext": ".png",
+            "url": "http://192.168.10.5:9000/indesso/small_Rectangle_5334_a28157d55c.png",
+            "hash": "small_Rectangle_5334_a28157d55c",
+            "mime": "image/png",
+            "name": "small_Rectangle 5334.png",
+            "path": null,
+            "size": 163.86,
+            "width": 500,
+            "height": 167,
+            "sizeInBytes": 163855
+          },
+          "medium": {
+            "ext": ".png",
+            "url": "http://192.168.10.5:9000/indesso/medium_Rectangle_5334_a28157d55c.png",
+            "hash": "medium_Rectangle_5334_a28157d55c",
+            "mime": "image/png",
+            "name": "medium_Rectangle 5334.png",
+            "path": null,
+            "size": 348.17,
+            "width": 750,
+            "height": 250,
+            "sizeInBytes": 348173
+          },
+          "thumbnail": {
+            "ext": ".png",
+            "url": "http://192.168.10.5:9000/indesso/thumbnail_Rectangle_5334_a28157d55c.png",
+            "hash": "thumbnail_Rectangle_5334_a28157d55c",
+            "mime": "image/png",
+            "name": "thumbnail_Rectangle 5334.png",
+            "path": null,
+            "size": 45.36,
+            "width": 245,
+            "height": 82,
+            "sizeInBytes": 45357
+          }
+        },
+        "hash": "Rectangle_5334_a28157d55c",
+        "ext": ".png",
+        "mime": "image/png",
+        "size": 290.49,
+        "url": "http://192.168.10.5:9000/indesso/Rectangle_5334_a28157d55c.png",
+        "previewUrl": null,
+        "provider": "strapi-provider-upload-minio-ce",
+        "provider_metadata": null,
+        "createdAt": "2025-12-09T09:43:29.469Z",
+        "updatedAt": "2025-12-09T09:43:29.469Z",
+        "publishedAt": "2025-12-09T09:43:29.469Z"
+      }
+    },
+    "sticky_nav": {
+      "id": 5,
+      "product_sub_categories": [
+        {
+          "id": 10,
+          "documentId": "oufbuy5ajkk41bww3w3xqoq0",
+          "title": "Natural Aroma Ingredients & Extracts",
+          "slug": "natural-aroma-ingredients-and-extracts",
+          "createdAt": "2025-12-09T06:58:54.439Z",
+          "updatedAt": "2025-12-09T08:26:02.381Z",
+          "publishedAt": "2025-12-09T08:26:02.538Z",
+          "product_categories": [
+            {
+              "id": 17,
+              "documentId": "popwhqq4503wvoaj72w7g7yx",
+              "name": "Aroma Chemicals",
+              "createdAt": "2025-12-09T06:14:43.490Z",
+              "updatedAt": "2025-12-09T08:08:27.458Z",
+              "publishedAt": "2025-12-09T08:08:27.553Z",
+              "slug": "aroma-chemicals",
+              "description": null
+            },
+            {
+              "id": 14,
+              "documentId": "myh7pcd39c5qui2ewlhnr2y9",
+              "name": "Aromatherapy Blends",
+              "createdAt": "2025-12-09T06:15:17.385Z",
+              "updatedAt": "2025-12-09T06:59:21.163Z",
+              "publishedAt": "2025-12-09T06:59:21.275Z",
+              "slug": "aromatherapy-blends",
+              "description": null
+            },
+            {
+              "id": 15,
+              "documentId": "v1skizdubkadh0zzhbq3gvxt",
+              "name": "Essential Oils",
+              "createdAt": "2025-12-09T06:14:29.923Z",
+              "updatedAt": "2025-12-09T06:59:36.577Z",
+              "publishedAt": "2025-12-09T06:59:36.701Z",
+              "slug": "essential-oils",
+              "description": null
+            },
+            {
+              "id": 16,
+              "documentId": "e2j4cn8ld1wwukrkejmmg6oa",
+              "name": "Functional Extracts",
+              "createdAt": "2025-12-09T06:14:55.774Z",
+              "updatedAt": "2025-12-09T06:59:47.271Z",
+              "publishedAt": "2025-12-09T06:59:47.392Z",
+              "slug": "functional-extracts",
+              "description": null
+            }
+          ],
+          "page_sections": [],
+          "seo": null
+        },
+        {
+          "id": 4,
+          "documentId": "bk2mqgx5wbhctiwerehw1zg0",
+          "title": "Food & Beverage Solutions",
+          "slug": "food-and-beverage-solutions",
+          "createdAt": "2025-12-09T07:00:09.202Z",
+          "updatedAt": "2025-12-09T07:00:10.230Z",
+          "publishedAt": "2025-12-09T07:00:10.322Z",
+          "product_categories": [],
+          "page_sections": [],
+          "seo": null
+        },
+        {
+          "id": 6,
+          "documentId": "rvbslsoopobhfzhh0m2t9dwr",
+          "title": "Taste & Scent",
+          "slug": "taste-and-scent",
+          "createdAt": "2025-12-09T07:00:24.008Z",
+          "updatedAt": "2025-12-09T07:00:25.137Z",
+          "publishedAt": "2025-12-09T07:00:25.221Z",
+          "product_categories": [],
+          "page_sections": [],
+          "seo": null
+        },
+        {
+          "id": 9,
+          "documentId": "j83oolud4l24ld3yz8c0hg3z",
+          "title": "Specialty Food Ingredients",
+          "slug": "specialty-food-ingredients",
+          "createdAt": "2025-12-09T07:00:38.885Z",
+          "updatedAt": "2025-12-09T08:07:49.875Z",
+          "publishedAt": "2025-12-09T08:07:50.023Z",
+          "product_categories": [],
+          "page_sections": [],
+          "seo": null
+        }
+      ]
+    }
+  },
+  "meta": {
+
+  }
+}
+
+http://localhost:1337/api/product-sub-categories?filters[slug][$eq]=natural-aroma-ingredients-and-extracts&pLevel=5
+
+{
+  "data": [
+    {
+      "id": 15,
+      "documentId": "oufbuy5ajkk41bww3w3xqoq0",
+      "title": "Natural Aroma Ingredients & Extracts",
+      "slug": "natural-aroma-ingredients-and-extracts",
+      "createdAt": "2025-12-09T06:58:54.439Z",
+      "updatedAt": "2025-12-10T04:03:27.461Z",
+      "publishedAt": "2025-12-10T04:03:28.223Z",
+      "product_categories": [
+        {
+          "id": 17,
+          "documentId": "popwhqq4503wvoaj72w7g7yx",
+          "name": "Aroma Chemicals",
+          "createdAt": "2025-12-09T06:14:43.490Z",
+          "updatedAt": "2025-12-09T08:08:27.458Z",
+          "publishedAt": "2025-12-09T08:08:27.553Z",
+          "slug": "aroma-chemicals",
+          "description": null
+        },
+        {
+          "id": 14,
+          "documentId": "myh7pcd39c5qui2ewlhnr2y9",
+          "name": "Aromatherapy Blends",
+          "createdAt": "2025-12-09T06:15:17.385Z",
+          "updatedAt": "2025-12-09T06:59:21.163Z",
+          "publishedAt": "2025-12-09T06:59:21.275Z",
+          "slug": "aromatherapy-blends",
+          "description": null
+        },
+        {
+          "id": 15,
+          "documentId": "v1skizdubkadh0zzhbq3gvxt",
+          "name": "Essential Oils",
+          "createdAt": "2025-12-09T06:14:29.923Z",
+          "updatedAt": "2025-12-09T06:59:36.577Z",
+          "publishedAt": "2025-12-09T06:59:36.701Z",
+          "slug": "essential-oils",
+          "description": null
+        },
+        {
+          "id": 16,
+          "documentId": "e2j4cn8ld1wwukrkejmmg6oa",
+          "name": "Functional Extracts",
+          "createdAt": "2025-12-09T06:14:55.774Z",
+          "updatedAt": "2025-12-09T06:59:47.271Z",
+          "publishedAt": "2025-12-09T06:59:47.392Z",
+          "slug": "functional-extracts",
+          "description": null
+        }
+      ],
+      "page_sections": [
+        {
+          "__component": "our-business.business-summary-section",
+          "id": 6,
+          "eyebrow": "Natural Aroma Ingredients & Extracts",
+          "title": "Bring Nature Flavor to Your Senses",
+          "description": "We provide aroma ingredients, plant based extracts, and specialty solutions that enhance flavor and support healthier lifestyles. Our expertise helps brands develop food and beverage products that deliver both enjoyment and purpose.",
+          "icon": {
+            "id": 95,
+            "documentId": "w1o0agcdz8wcjfgy7z1uj0gb",
+            "name": "1 Flavor & Fragrance.png",
+            "alternativeText": null,
+            "caption": null,
+            "width": 80,
+            "height": 80,
+            "formats": null,
+            "hash": "1_Flavor_and_Fragrance_e62861db47",
+            "ext": ".png",
+            "mime": "image/png",
+            "size": 1.15,
+            "url": "http://192.168.10.5:9000/indesso/1_Flavor_and_Fragrance_e62861db47.png",
+            "previewUrl": null,
+            "provider": "strapi-provider-upload-minio-ce",
+            "provider_metadata": null,
+            "createdAt": "2025-12-10T03:43:43.569Z",
+            "updatedAt": "2025-12-10T03:43:43.569Z",
+            "publishedAt": "2025-12-10T03:43:43.569Z"
+          },
+          "slidder": [
+            {
+              "id": 10,
+              "title": "Flavor & Fragrance",
+              "description": "Indesso supports many of the world’s leading brands with natural ingredients that shape the flavors you enjoy every day. Quiet, upstream, and essential, our work helps bring familiar tastes to life in countless products around you.",
+              "Subsidiary_text": null,
+              "image": {
+                "id": 96,
+                "documentId": "mjoi24k59l939q5uqketxgsd",
+                "name": "IMG (3).png",
+                "alternativeText": null,
+                "caption": null,
+                "width": 1240,
+                "height": 520,
+                "formats": {
+                  "large": {
+                    "ext": ".png",
+                    "url": "http://192.168.10.5:9000/indesso/large_IMG_3_b35dd70343.png",
+                    "hash": "large_IMG_3_b35dd70343",
+                    "mime": "image/png",
+                    "name": "large_IMG (3).png",
+                    "path": null,
+                    "size": 741.79,
+                    "width": 1000,
+                    "height": 419,
+                    "sizeInBytes": 741790
+                  },
+                  "small": {
+                    "ext": ".png",
+                    "url": "http://192.168.10.5:9000/indesso/small_IMG_3_b35dd70343.png",
+                    "hash": "small_IMG_3_b35dd70343",
+                    "mime": "image/png",
+                    "name": "small_IMG (3).png",
+                    "path": null,
+                    "size": 199.63,
+                    "width": 500,
+                    "height": 210,
+                    "sizeInBytes": 199625
+                  },
+                  "medium": {
+                    "ext": ".png",
+                    "url": "http://192.168.10.5:9000/indesso/medium_IMG_3_b35dd70343.png",
+                    "hash": "medium_IMG_3_b35dd70343",
+                    "mime": "image/png",
+                    "name": "medium_IMG (3).png",
+                    "path": null,
+                    "size": 431.06,
+                    "width": 750,
+                    "height": 315,
+                    "sizeInBytes": 431063
+                  },
+                  "thumbnail": {
+                    "ext": ".png",
+                    "url": "http://192.168.10.5:9000/indesso/thumbnail_IMG_3_b35dd70343.png",
+                    "hash": "thumbnail_IMG_3_b35dd70343",
+                    "mime": "image/png",
+                    "name": "thumbnail_IMG (3).png",
+                    "path": null,
+                    "size": 56,
+                    "width": 245,
+                    "height": 103,
+                    "sizeInBytes": 55998
+                  }
+                },
+                "hash": "IMG_3_b35dd70343",
+                "ext": ".png",
+                "mime": "image/png",
+                "size": 226.22,
+                "url": "http://192.168.10.5:9000/indesso/IMG_3_b35dd70343.png",
+                "previewUrl": null,
+                "provider": "strapi-provider-upload-minio-ce",
+                "provider_metadata": null,
+                "createdAt": "2025-12-10T03:45:26.946Z",
+                "updatedAt": "2025-12-10T03:45:26.946Z",
+                "publishedAt": "2025-12-10T03:45:26.947Z"
+              },
+              "partner_logo": null,
+              "hot_spot": {
+                "id": 10,
+                "feature_title": "in your favorite ice cream",
+                "feature_desc": "We supply leading food brands with the natural vanilla flavor that brings this taste to life.",
+                "feature_icon": {
+                  "id": 97,
+                  "documentId": "du7svuvfo2k21e75vrbr2u70",
+                  "name": "Group 5140268 (7).png",
+                  "alternativeText": null,
+                  "caption": null,
+                  "width": 72,
+                  "height": 72,
+                  "formats": null,
+                  "hash": "Group_5140268_7_7fb3718572",
+                  "ext": ".png",
+                  "mime": "image/png",
+                  "size": 1.91,
+                  "url": "http://192.168.10.5:9000/indesso/Group_5140268_7_7fb3718572.png",
+                  "previewUrl": null,
+                  "provider": "strapi-provider-upload-minio-ce",
+                  "provider_metadata": null,
+                  "createdAt": "2025-12-10T03:47:41.112Z",
+                  "updatedAt": "2025-12-10T03:47:41.112Z",
+                  "publishedAt": "2025-12-10T03:47:41.112Z"
+                }
+              }
+            },
+            {
+              "id": 11,
+              "title": "Green Energy",
+              "description": "Even essential oils can benefit the green energy industry, as we harness nature’s power to produce biofuel additives. These innovations support cleaner, more efficient energy solutions for a more sustainable future.",
+              "Subsidiary_text": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "Developed through our ",
+                      "type": "text"
+                    },
+                    {
+                      "bold": true,
+                      "text": "Green Fuel Additive",
+                      "type": "text"
+                    },
+                    {
+                      "text": " focused subsidiary",
+                      "type": "text"
+                    }
+                  ]
+                }
+              ],
+              "image": {
+                "id": 98,
+                "documentId": "h36dpmmfp17s511cz48koi9z",
+                "name": "Slider Image.png",
+                "alternativeText": null,
+                "caption": null,
+                "width": 1240,
+                "height": 520,
+                "formats": {
+                  "large": {
+                    "ext": ".png",
+                    "url": "http://192.168.10.5:9000/indesso/large_Slider_Image_1e26b25336.png",
+                    "hash": "large_Slider_Image_1e26b25336",
+                    "mime": "image/png",
+                    "name": "large_Slider Image.png",
+                    "path": null,
+                    "size": 663.51,
+                    "width": 1000,
+                    "height": 419,
+                    "sizeInBytes": 663514
+                  },
+                  "small": {
+                    "ext": ".png",
+                    "url": "http://192.168.10.5:9000/indesso/small_Slider_Image_1e26b25336.png",
+                    "hash": "small_Slider_Image_1e26b25336",
+                    "mime": "image/png",
+                    "name": "small_Slider Image.png",
+                    "path": null,
+                    "size": 176.98,
+                    "width": 500,
+                    "height": 210,
+                    "sizeInBytes": 176975
+                  },
+                  "medium": {
+                    "ext": ".png",
+                    "url": "http://192.168.10.5:9000/indesso/medium_Slider_Image_1e26b25336.png",
+                    "hash": "medium_Slider_Image_1e26b25336",
+                    "mime": "image/png",
+                    "name": "medium_Slider Image.png",
+                    "path": null,
+                    "size": 384.49,
+                    "width": 750,
+                    "height": 315,
+                    "sizeInBytes": 384492
+                  },
+                  "thumbnail": {
+                    "ext": ".png",
+                    "url": "http://192.168.10.5:9000/indesso/thumbnail_Slider_Image_1e26b25336.png",
+                    "hash": "thumbnail_Slider_Image_1e26b25336",
+                    "mime": "image/png",
+                    "name": "thumbnail_Slider Image.png",
+                    "path": null,
+                    "size": 50.95,
+                    "width": 245,
+                    "height": 103,
+                    "sizeInBytes": 50952
+                  }
+                },
+                "hash": "Slider_Image_1e26b25336",
+                "ext": ".png",
+                "mime": "image/png",
+                "size": 242.12,
+                "url": "http://192.168.10.5:9000/indesso/Slider_Image_1e26b25336.png",
+                "previewUrl": null,
+                "provider": "strapi-provider-upload-minio-ce",
+                "provider_metadata": null,
+                "createdAt": "2025-12-10T03:49:37.711Z",
+                "updatedAt": "2025-12-10T03:49:37.711Z",
+                "publishedAt": "2025-12-10T03:49:37.711Z"
+              },
+              "partner_logo": {
+                "id": 99,
+                "documentId": "lfbukclyoqjjvdrh8w8ewpd2",
+                "name": "Culinaroma Logo FINAL-03 1.png",
+                "alternativeText": null,
+                "caption": null,
+                "width": 123,
+                "height": 32,
+                "formats": null,
+                "hash": "Culinaroma_Logo_FINAL_03_1_4e81418652",
+                "ext": ".png",
+                "mime": "image/png",
+                "size": 1.34,
+                "url": "http://192.168.10.5:9000/indesso/Culinaroma_Logo_FINAL_03_1_4e81418652.png",
+                "previewUrl": null,
+                "provider": "strapi-provider-upload-minio-ce",
+                "provider_metadata": null,
+                "createdAt": "2025-12-10T03:50:32.800Z",
+                "updatedAt": "2025-12-10T03:50:32.800Z",
+                "publishedAt": "2025-12-10T03:50:32.800Z"
+              },
+              "hot_spot": {
+                "id": 11,
+                "feature_title": "fuel that runs cleaner",
+                "feature_desc": "Our bio based additives boost efficiency for a more sustainable drive.",
+                "feature_icon": {
+                  "id": 100,
+                  "documentId": "us3a1hmii7viry05myf08ha3",
+                  "name": "Group 5140268 (8).png",
+                  "alternativeText": null,
+                  "caption": null,
+                  "width": 72,
+                  "height": 72,
+                  "formats": null,
+                  "hash": "Group_5140268_8_5ccf92b9a3",
+                  "ext": ".png",
+                  "mime": "image/png",
+                  "size": 1.58,
+                  "url": "http://192.168.10.5:9000/indesso/Group_5140268_8_5ccf92b9a3.png",
+                  "previewUrl": null,
+                  "provider": "strapi-provider-upload-minio-ce",
+                  "provider_metadata": null,
+                  "createdAt": "2025-12-10T03:51:08.737Z",
+                  "updatedAt": "2025-12-10T03:51:08.737Z",
+                  "publishedAt": "2025-12-10T03:51:08.737Z"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "__component": "our-business.business-appliance-section",
+          "id": 4,
+          "eyebrow": "EVERYDAY APPLIANCE",
+          "title": "Shaping Moments in Everyday Life",
+          "description": "Our ingredients support the taste, scent, and functional qualities found in many everyday products, helping create experiences that feel familiar and enjoyable.",
+          "image": {
+            "id": 101,
+            "documentId": "mi3p24p0il43vgzvo2cmbm2g",
+            "name": "IMG (4).png",
+            "alternativeText": null,
+            "caption": null,
+            "width": 600,
+            "height": 640,
+            "formats": {
+              "small": {
+                "ext": ".png",
+                "url": "http://192.168.10.5:9000/indesso/small_IMG_4_b706d802d5.png",
+                "hash": "small_IMG_4_b706d802d5",
+                "mime": "image/png",
+                "name": "small_IMG (4).png",
+                "path": null,
+                "size": 358.53,
+                "width": 469,
+                "height": 500,
+                "sizeInBytes": 358527
+              },
+              "thumbnail": {
+                "ext": ".png",
+                "url": "http://192.168.10.5:9000/indesso/thumbnail_IMG_4_b706d802d5.png",
+                "hash": "thumbnail_IMG_4_b706d802d5",
+                "mime": "image/png",
+                "name": "thumbnail_IMG (4).png",
+                "path": null,
+                "size": 43.4,
+                "width": 146,
+                "height": 156,
+                "sizeInBytes": 43396
+              }
+            },
+            "hash": "IMG_4_b706d802d5",
+            "ext": ".png",
+            "mime": "image/png",
+            "size": 145.57,
+            "url": "http://192.168.10.5:9000/indesso/IMG_4_b706d802d5.png",
+            "previewUrl": null,
+            "provider": "strapi-provider-upload-minio-ce",
+            "provider_metadata": null,
+            "createdAt": "2025-12-10T03:52:36.637Z",
+            "updatedAt": "2025-12-10T03:52:36.637Z",
+            "publishedAt": "2025-12-10T03:52:36.637Z"
+          }
+        },
+        {
+          "__component": "our-business.botanical-source-section",
+          "id": 3,
+          "eyebrow": "BOTANICAL SOURCES",
+          "title": "From Indonesia’s Nature to Global Creations"
+        },
+        {
+          "__component": "our-business.our-catalog-section",
+          "id": 3,
+          "title": "The Foundation Behind Exceptional Products",
+          "eyebrow": "OUR CATALOG",
+          "text": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "Discover natural and nature-derived ingredients refined through advanced expertise. Each one enhances aroma, taste, and performance with consistent, reliable quality.",
+                  "type": "text"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "Our portfolio supports flavor, fragrance, food, and personal care applications with the precision and versatility to bring ideas to life.",
+                  "type": "text"
+                }
+              ]
+            }
+          ],
+          "image": {
+            "id": 102,
+            "documentId": "w8ov0v4jv3yone3t5zrf3555",
+            "name": "freepik__a-single-hero-object-floating-in-midair-casting-a-__65847 1.png",
+            "alternativeText": null,
+            "caption": null,
+            "width": 600,
+            "height": 600,
+            "formats": {
+              "small": {
+                "ext": ".png",
+                "url": "http://192.168.10.5:9000/indesso/small_freepik_a_single_hero_object_floating_in_midair_casting_a_65847_1_2aa5cf401e.png",
+                "hash": "small_freepik_a_single_hero_object_floating_in_midair_casting_a_65847_1_2aa5cf401e",
+                "mime": "image/png",
+                "name": "small_freepik__a-single-hero-object-floating-in-midair-casting-a-__65847 1.png",
+                "path": null,
+                "size": 524.46,
+                "width": 500,
+                "height": 500,
+                "sizeInBytes": 524459
+              },
+              "thumbnail": {
+                "ext": ".png",
+                "url": "http://192.168.10.5:9000/indesso/thumbnail_freepik_a_single_hero_object_floating_in_midair_casting_a_65847_1_2aa5cf401e.png",
+                "hash": "thumbnail_freepik_a_single_hero_object_floating_in_midair_casting_a_65847_1_2aa5cf401e",
+                "mime": "image/png",
+                "name": "thumbnail_freepik__a-single-hero-object-floating-in-midair-casting-a-__65847 1.png",
+                "path": null,
+                "size": 57.51,
+                "width": 156,
+                "height": 156,
+                "sizeInBytes": 57510
+              }
+            },
+            "hash": "freepik_a_single_hero_object_floating_in_midair_casting_a_65847_1_2aa5cf401e",
+            "ext": ".png",
+            "mime": "image/png",
+            "size": 168.24,
+            "url": "http://192.168.10.5:9000/indesso/freepik_a_single_hero_object_floating_in_midair_casting_a_65847_1_2aa5cf401e.png",
+            "previewUrl": null,
+            "provider": "strapi-provider-upload-minio-ce",
+            "provider_metadata": null,
+            "createdAt": "2025-12-10T03:59:07.415Z",
+            "updatedAt": "2025-12-10T03:59:07.415Z",
+            "publishedAt": "2025-12-10T03:59:07.415Z"
+          },
+          "background_image": {
+            "id": 103,
+            "documentId": "n1xbtuubu327539c2zqrh6sp",
+            "name": "indonesia-borobudur 1 (1).png",
+            "alternativeText": null,
+            "caption": null,
+            "width": 1240,
+            "height": 600,
+            "formats": {
+              "large": {
+                "ext": ".png",
+                "url": "http://192.168.10.5:9000/indesso/large_indonesia_borobudur_1_1_169dc59afd.png",
+                "hash": "large_indonesia_borobudur_1_1_169dc59afd",
+                "mime": "image/png",
+                "name": "large_indonesia-borobudur 1 (1).png",
+                "path": null,
+                "size": 1172.95,
+                "width": 1000,
+                "height": 484,
+                "sizeInBytes": 1172947
+              },
+              "small": {
+                "ext": ".png",
+                "url": "http://192.168.10.5:9000/indesso/small_indonesia_borobudur_1_1_169dc59afd.png",
+                "hash": "small_indonesia_borobudur_1_1_169dc59afd",
+                "mime": "image/png",
+                "name": "small_indonesia-borobudur 1 (1).png",
+                "path": null,
+                "size": 294.82,
+                "width": 500,
+                "height": 242,
+                "sizeInBytes": 294815
+              },
+              "medium": {
+                "ext": ".png",
+                "url": "http://192.168.10.5:9000/indesso/medium_indonesia_borobudur_1_1_169dc59afd.png",
+                "hash": "medium_indonesia_borobudur_1_1_169dc59afd",
+                "mime": "image/png",
+                "name": "medium_indonesia-borobudur 1 (1).png",
+                "path": null,
+                "size": 662.33,
+                "width": 750,
+                "height": 363,
+                "sizeInBytes": 662333
+              },
+              "thumbnail": {
+                "ext": ".png",
+                "url": "http://192.168.10.5:9000/indesso/thumbnail_indonesia_borobudur_1_1_169dc59afd.png",
+                "hash": "thumbnail_indonesia_borobudur_1_1_169dc59afd",
+                "mime": "image/png",
+                "name": "thumbnail_indonesia-borobudur 1 (1).png",
+                "path": null,
+                "size": 73.85,
+                "width": 245,
+                "height": 119,
+                "sizeInBytes": 73851
+              }
+            },
+            "hash": "indonesia_borobudur_1_1_169dc59afd",
+            "ext": ".png",
+            "mime": "image/png",
+            "size": 542.69,
+            "url": "http://192.168.10.5:9000/indesso/indonesia_borobudur_1_1_169dc59afd.png",
+            "previewUrl": null,
+            "provider": "strapi-provider-upload-minio-ce",
+            "provider_metadata": null,
+            "createdAt": "2025-12-10T04:03:16.221Z",
+            "updatedAt": "2025-12-10T04:03:16.221Z",
+            "publishedAt": "2025-12-10T04:03:16.222Z"
+          },
+          "button": {
+            "id": 72,
+            "title": "Visit Our Product Catalog",
+            "path": "/"
+          }
+        }
+      ],
+      "seo": null
+    }
+  ],
+  "meta": {
+    "pagination": {
+      "page": 1,
+      "pageSize": 25,
+      "pageCount": 1,
+      "total": 1
+    }
+  }
+}

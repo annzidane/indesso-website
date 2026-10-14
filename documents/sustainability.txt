@@ -1,0 +1,1255 @@
+http://localhost:1337/api/sustainability?locale=en&pLevel=6
+
+{
+  "data": {
+    "id": 7,
+    "documentId": "cagpx7kxexmlvio5akkfekrj",
+    "createdAt": "2025-12-04T08:04:08.863Z",
+    "updatedAt": "2025-12-04T08:21:41.436Z",
+    "publishedAt": "2025-12-04T08:21:42.493Z",
+    "page_info": {
+      "id": 56,
+      "title": "Sustainability",
+      "slug": "sustainability",
+      "path": "/sustainability"
+    },
+    "seo": null,
+    "page_sections": [
+      {
+        "__component": "sustainability.hero-section",
+        "id": 7,
+        "hero": {
+          "id": 27,
+          "title": "Sustainability",
+          "background_image": {
+            "id": 55,
+            "documentId": "u6z97wnqnor1asw1cgzwa0gx",
+            "name": "Rectangle 2448 (1).png",
+            "alternativeText": null,
+            "caption": null,
+            "width": 1440,
+            "height": 480,
+            "formats": {
+              "large": {
+                "ext": ".png",
+                "url": "http://192.168.10.5:9000/indesso/large_Rectangle_2448_1_e86ffb52c8.png",
+                "hash": "large_Rectangle_2448_1_e86ffb52c8",
+                "mime": "image/png",
+                "name": "large_Rectangle 2448 (1).png",
+                "path": null,
+                "size": 678.48,
+                "width": 1000,
+                "height": 333,
+                "sizeInBytes": 678482
+              },
+              "small": {
+                "ext": ".png",
+                "url": "http://192.168.10.5:9000/indesso/small_Rectangle_2448_1_e86ffb52c8.png",
+                "hash": "small_Rectangle_2448_1_e86ffb52c8",
+                "mime": "image/png",
+                "name": "small_Rectangle 2448 (1).png",
+                "path": null,
+                "size": 189.04,
+                "width": 500,
+                "height": 167,
+                "sizeInBytes": 189040
+              },
+              "medium": {
+                "ext": ".png",
+                "url": "http://192.168.10.5:9000/indesso/medium_Rectangle_2448_1_e86ffb52c8.png",
+                "hash": "medium_Rectangle_2448_1_e86ffb52c8",
+                "mime": "image/png",
+                "name": "medium_Rectangle 2448 (1).png",
+                "path": null,
+                "size": 397.35,
+                "width": 750,
+                "height": 250,
+                "sizeInBytes": 397349
+              },
+              "thumbnail": {
+                "ext": ".png",
+                "url": "http://192.168.10.5:9000/indesso/thumbnail_Rectangle_2448_1_e86ffb52c8.png",
+                "hash": "thumbnail_Rectangle_2448_1_e86ffb52c8",
+                "mime": "image/png",
+                "name": "thumbnail_Rectangle 2448 (1).png",
+                "path": null,
+                "size": 51.86,
+                "width": 245,
+                "height": 82,
+                "sizeInBytes": 51855
+              }
+            },
+            "hash": "Rectangle_2448_1_e86ffb52c8",
+            "ext": ".png",
+            "mime": "image/png",
+            "size": 259.56,
+            "url": "http://192.168.10.5:9000/indesso/Rectangle_2448_1_e86ffb52c8.png",
+            "previewUrl": null,
+            "provider": "strapi-provider-upload-minio-ce",
+            "provider_metadata": null,
+            "createdAt": "2025-12-04T08:04:55.565Z",
+            "updatedAt": "2025-12-04T08:04:55.565Z",
+            "publishedAt": "2025-12-04T08:04:55.565Z"
+          }
+        }
+      },
+      {
+        "__component": "sustainability.sustainability-strategy-section",
+        "id": 7,
+        "feature": {
+          "id": 7,
+          "eyebrow": "Sustainability Strategy",
+          "title": "A Bright Future Guided by Responsible Governance",
+          "text": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "We are dedicated to creating long-term value through responsible practices that prioritize environmental stewardship, social impact, and strong governance. Our Environmental, Social, and Governance (ESG) framework reflects this commitment, guiding how we operate, innovate, and engage with our stakeholders.",
+                  "type": "text"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "Below is our long-term strategy, designed to ensure that our actions today contribute to a more sustainable and equitable future.",
+                  "type": "text"
+                }
+              ]
+            }
+          ],
+          "image": {
+            "id": 56,
+            "documentId": "oslt513f59u4dj7cz8pfc6pn",
+            "name": "IMG (2).png",
+            "alternativeText": null,
+            "caption": null,
+            "width": 600,
+            "height": 560,
+            "formats": {
+              "small": {
+                "ext": ".png",
+                "url": "http://192.168.10.5:9000/indesso/small_IMG_2_9a5be5478f.png",
+                "hash": "small_IMG_2_9a5be5478f",
+                "mime": "image/png",
+                "name": "small_IMG (2).png",
+                "path": null,
+                "size": 526.24,
+                "width": 500,
+                "height": 467,
+                "sizeInBytes": 526241
+              },
+              "thumbnail": {
+                "ext": ".png",
+                "url": "http://192.168.10.5:9000/indesso/thumbnail_IMG_2_9a5be5478f.png",
+                "hash": "thumbnail_IMG_2_9a5be5478f",
+                "mime": "image/png",
+                "name": "thumbnail_IMG (2).png",
+                "path": null,
+                "size": 71.64,
+                "width": 167,
+                "height": 156,
+                "sizeInBytes": 71636
+              }
+            },
+            "hash": "IMG_2_9a5be5478f",
+            "ext": ".png",
+            "mime": "image/png",
+            "size": 135.92,
+            "url": "http://192.168.10.5:9000/indesso/IMG_2_9a5be5478f.png",
+            "previewUrl": null,
+            "provider": "strapi-provider-upload-minio-ce",
+            "provider_metadata": null,
+            "createdAt": "2025-12-04T08:07:07.919Z",
+            "updatedAt": "2025-12-04T08:07:07.919Z",
+            "publishedAt": "2025-12-04T08:07:07.919Z"
+          }
+        },
+        "accordion_items": [
+          {
+            "id": 76,
+            "title": "GHG Emission",
+            "description": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "We aim to significantly lower our carbon footprint by cutting our absolute Scope 1 and 2 emissions by 42 percent from the 2023 baseline by 2030. We are also committed to reducing Scope 3 emissions from purchased goods and services by 51.6 percent within the same period. In addition, we target a 30.3 percent reduction in our absolute Scope 3 FLAG emissions by 2030.",
+                    "type": "text"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": 77,
+            "title": "Waste Management",
+            "description": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "We aim to significantly lower our carbon footprint by cutting our absolute Scope 1 and 2 emissions by 42 percent from the 2023 baseline by 2030. We are also committed to reducing Scope 3 emissions from purchased goods and services by 51.6 percent within the same period. In addition, we target a 30.3 percent reduction in our absolute Scope 3 FLAG emissions by 2030.",
+                    "type": "text"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": 78,
+            "title": "Water Usage",
+            "description": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "We aim to significantly lower our carbon footprint by cutting our absolute Scope 1 and 2 emissions by 42 percent from the 2023 baseline by 2030. We are also committed to reducing Scope 3 emissions from purchased goods and services by 51.6 percent within the same period. In addition, we target a 30.3 percent reduction in our absolute Scope 3 FLAG emissions by 2030.",
+                    "type": "text"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": 79,
+            "title": "Gender Equality",
+            "description": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "We aim to significantly lower our carbon footprint by cutting our absolute Scope 1 and 2 emissions by 42 percent from the 2023 baseline by 2030. We are also committed to reducing Scope 3 emissions from purchased goods and services by 51.6 percent within the same period. In addition, we target a 30.3 percent reduction in our absolute Scope 3 FLAG emissions by 2030.",
+                    "type": "text"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": 80,
+            "title": "Employee Safety",
+            "description": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "We aim to significantly lower our carbon footprint by cutting our absolute Scope 1 and 2 emissions by 42 percent from the 2023 baseline by 2030. We are also committed to reducing Scope 3 emissions from purchased goods and services by 51.6 percent within the same period. In addition, we target a 30.3 percent reduction in our absolute Scope 3 FLAG emissions by 2030.",
+                    "type": "text"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": 81,
+            "title": "Policies Socialization",
+            "description": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "We aim to significantly lower our carbon footprint by cutting our absolute Scope 1 and 2 emissions by 42 percent from the 2023 baseline by 2030. We are also committed to reducing Scope 3 emissions from purchased goods and services by 51.6 percent within the same period. In addition, we target a 30.3 percent reduction in our absolute Scope 3 FLAG emissions by 2030.",
+                    "type": "text"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "__component": "sustainability.sustainability-initiative-section",
+        "id": 6,
+        "eyebrow": "Sustainability Initiative",
+        "title": "Building Long Term Value Through Responsible Actions",
+        "description": "A brief look into the initiatives that reflect our commitment to responsible growth. Each step represents our effort to preserve natural resources, empower communities, and create long-term value for future generations.",
+        "card_image": [
+          {
+            "id": 99,
+            "title": "Shifting to Cleaner Energy ",
+            "text": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "We continue to explore solutions to reduce our carbon footprint, including installing large-scale solar panels across our facilities. To complement these efforts, we purchase Renewable Energy Certificates (REC) for the electricity we consume, enabling us to support the generation of renewable energy in regions where direct green alternatives are not yet accessible. 1",
+                    "type": "text"
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "We continue to explore solutions to reduce our carbon footprint, including installing large-scale solar panels across our facilities. To complement these efforts, we purchase Renewable Energy Certificates (REC) for the electricity we consume, enabling us to support the generation of renewable energy in regions where direct green alternatives are not yet accessible. 2",
+                    "type": "text"
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "We continue to explore solutions to reduce our carbon footprint, including installing large-scale solar panels across our facilities. To complement these efforts, we purchase Renewable Energy Certificates (REC) for the electricity we consume, enabling us to support the generation of renewable energy in regions where direct green alternatives are not yet accessible. 3",
+                    "type": "text"
+                  }
+                ]
+              }
+            ],
+            "image": {
+              "id": 58,
+              "documentId": "uy8bes3833jw4grghbxtc6mv",
+              "name": "dc1479a23068153d6c4b7754ad80b5e9248ee964.png",
+              "alternativeText": null,
+              "caption": null,
+              "width": 1024,
+              "height": 1024,
+              "formats": {
+                "large": {
+                  "ext": ".png",
+                  "url": "http://192.168.10.5:9000/indesso/large_dc1479a23068153d6c4b7754ad80b5e9248ee964_3c94a073cc.png",
+                  "hash": "large_dc1479a23068153d6c4b7754ad80b5e9248ee964_3c94a073cc",
+                  "mime": "image/png",
+                  "name": "large_dc1479a23068153d6c4b7754ad80b5e9248ee964.png",
+                  "path": null,
+                  "size": 1724.65,
+                  "width": 1000,
+                  "height": 1000,
+                  "sizeInBytes": 1724645
+                },
+                "small": {
+                  "ext": ".png",
+                  "url": "http://192.168.10.5:9000/indesso/small_dc1479a23068153d6c4b7754ad80b5e9248ee964_3c94a073cc.png",
+                  "hash": "small_dc1479a23068153d6c4b7754ad80b5e9248ee964_3c94a073cc",
+                  "mime": "image/png",
+                  "name": "small_dc1479a23068153d6c4b7754ad80b5e9248ee964.png",
+                  "path": null,
+                  "size": 469.38,
+                  "width": 500,
+                  "height": 500,
+                  "sizeInBytes": 469383
+                },
+                "medium": {
+                  "ext": ".png",
+                  "url": "http://192.168.10.5:9000/indesso/medium_dc1479a23068153d6c4b7754ad80b5e9248ee964_3c94a073cc.png",
+                  "hash": "medium_dc1479a23068153d6c4b7754ad80b5e9248ee964_3c94a073cc",
+                  "mime": "image/png",
+                  "name": "medium_dc1479a23068153d6c4b7754ad80b5e9248ee964.png",
+                  "path": null,
+                  "size": 1031.87,
+                  "width": 750,
+                  "height": 750,
+                  "sizeInBytes": 1031870
+                },
+                "thumbnail": {
+                  "ext": ".png",
+                  "url": "http://192.168.10.5:9000/indesso/thumbnail_dc1479a23068153d6c4b7754ad80b5e9248ee964_3c94a073cc.png",
+                  "hash": "thumbnail_dc1479a23068153d6c4b7754ad80b5e9248ee964_3c94a073cc",
+                  "mime": "image/png",
+                  "name": "thumbnail_dc1479a23068153d6c4b7754ad80b5e9248ee964.png",
+                  "path": null,
+                  "size": 53.64,
+                  "width": 156,
+                  "height": 156,
+                  "sizeInBytes": 53640
+                }
+              },
+              "hash": "dc1479a23068153d6c4b7754ad80b5e9248ee964_3c94a073cc",
+              "ext": ".png",
+              "mime": "image/png",
+              "size": 416.82,
+              "url": "http://192.168.10.5:9000/indesso/dc1479a23068153d6c4b7754ad80b5e9248ee964_3c94a073cc.png",
+              "previewUrl": null,
+              "provider": "strapi-provider-upload-minio-ce",
+              "provider_metadata": null,
+              "createdAt": "2025-12-04T08:11:21.446Z",
+              "updatedAt": "2025-12-04T08:11:21.446Z",
+              "publishedAt": "2025-12-04T08:11:21.446Z"
+            }
+          },
+          {
+            "id": 100,
+            "title": "Using Resources Responsibly ",
+            "text": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "We continue to explore solutions to reduce our carbon footprint, including installing large-scale solar panels across our facilities. To complement these efforts, we purchase Renewable Energy Certificates (REC) for the electricity we consume, enabling us to support the generation of renewable energy in regions where direct green alternatives are not yet accessible. 1",
+                    "type": "text"
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "We continue to explore solutions to reduce our carbon footprint, including installing large-scale solar panels across our facilities. To complement these efforts, we purchase Renewable Energy Certificates (REC) for the electricity we consume, enabling us to support the generation of renewable energy in regions where direct green alternatives are not yet accessible. 2",
+                    "type": "text"
+                  }
+                ]
+              }
+            ],
+            "image": {
+              "id": 59,
+              "documentId": "hitvtapd2euxeud08nax8xxw",
+              "name": "3aa420291ecc3ab42d5f7d6ee9c5dc05d4a820ab.jpg",
+              "alternativeText": null,
+              "caption": null,
+              "width": 4096,
+              "height": 2725,
+              "formats": {
+                "large": {
+                  "ext": ".jpg",
+                  "url": "http://192.168.10.5:9000/indesso/large_3aa420291ecc3ab42d5f7d6ee9c5dc05d4a820ab_687f076032.jpg",
+                  "hash": "large_3aa420291ecc3ab42d5f7d6ee9c5dc05d4a820ab_687f076032",
+                  "mime": "image/jpeg",
+                  "name": "large_3aa420291ecc3ab42d5f7d6ee9c5dc05d4a820ab.jpg",
+                  "path": null,
+                  "size": 53.15,
+                  "width": 1000,
+                  "height": 665,
+                  "sizeInBytes": 53147
+                },
+                "small": {
+                  "ext": ".jpg",
+                  "url": "http://192.168.10.5:9000/indesso/small_3aa420291ecc3ab42d5f7d6ee9c5dc05d4a820ab_687f076032.jpg",
+                  "hash": "small_3aa420291ecc3ab42d5f7d6ee9c5dc05d4a820ab_687f076032",
+                  "mime": "image/jpeg",
+                  "name": "small_3aa420291ecc3ab42d5f7d6ee9c5dc05d4a820ab.jpg",
+                  "path": null,
+                  "size": 20.15,
+                  "width": 500,
+                  "height": 333,
+                  "sizeInBytes": 20149
+                },
+                "medium": {
+                  "ext": ".jpg",
+                  "url": "http://192.168.10.5:9000/indesso/medium_3aa420291ecc3ab42d5f7d6ee9c5dc05d4a820ab_687f076032.jpg",
+                  "hash": "medium_3aa420291ecc3ab42d5f7d6ee9c5dc05d4a820ab_687f076032",
+                  "mime": "image/jpeg",
+                  "name": "medium_3aa420291ecc3ab42d5f7d6ee9c5dc05d4a820ab.jpg",
+                  "path": null,
+                  "size": 35.29,
+                  "width": 750,
+                  "height": 499,
+                  "sizeInBytes": 35291
+                },
+                "thumbnail": {
+                  "ext": ".jpg",
+                  "url": "http://192.168.10.5:9000/indesso/thumbnail_3aa420291ecc3ab42d5f7d6ee9c5dc05d4a820ab_687f076032.jpg",
+                  "hash": "thumbnail_3aa420291ecc3ab42d5f7d6ee9c5dc05d4a820ab_687f076032",
+                  "mime": "image/jpeg",
+                  "name": "thumbnail_3aa420291ecc3ab42d5f7d6ee9c5dc05d4a820ab.jpg",
+                  "path": null,
+                  "size": 7.25,
+                  "width": 235,
+                  "height": 156,
+                  "sizeInBytes": 7246
+                }
+              },
+              "hash": "3aa420291ecc3ab42d5f7d6ee9c5dc05d4a820ab_687f076032",
+              "ext": ".jpg",
+              "mime": "image/jpeg",
+              "size": 429.77,
+              "url": "http://192.168.10.5:9000/indesso/3aa420291ecc3ab42d5f7d6ee9c5dc05d4a820ab_687f076032.jpg",
+              "previewUrl": null,
+              "provider": "strapi-provider-upload-minio-ce",
+              "provider_metadata": null,
+              "createdAt": "2025-12-04T08:11:53.695Z",
+              "updatedAt": "2025-12-04T08:11:53.695Z",
+              "publishedAt": "2025-12-04T08:11:53.695Z"
+            }
+          },
+          {
+            "id": 101,
+            "title": "Championing Gender Equality",
+            "text": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "We continue to explore solutions to reduce our carbon footprint, including installing large-scale solar panels across our facilities. To complement these efforts, we purchase Renewable Energy Certificates (REC) for the electricity we consume, enabling us to support the generation of renewable energy in regions where direct green alternatives are not yet accessible. ",
+                    "type": "text"
+                  }
+                ]
+              }
+            ],
+            "image": {
+              "id": 60,
+              "documentId": "wn47u3ih498w0rug7egm702a",
+              "name": "cd91209ba164c6ccbc63e96fc75f6d2216078734.jpg",
+              "alternativeText": null,
+              "caption": null,
+              "width": 4096,
+              "height": 2731,
+              "formats": {
+                "large": {
+                  "ext": ".jpg",
+                  "url": "http://192.168.10.5:9000/indesso/large_cd91209ba164c6ccbc63e96fc75f6d2216078734_7e4a2e4622.jpg",
+                  "hash": "large_cd91209ba164c6ccbc63e96fc75f6d2216078734_7e4a2e4622",
+                  "mime": "image/jpeg",
+                  "name": "large_cd91209ba164c6ccbc63e96fc75f6d2216078734.jpg",
+                  "path": null,
+                  "size": 69.93,
+                  "width": 1000,
+                  "height": 667,
+                  "sizeInBytes": 69933
+                },
+                "small": {
+                  "ext": ".jpg",
+                  "url": "http://192.168.10.5:9000/indesso/small_cd91209ba164c6ccbc63e96fc75f6d2216078734_7e4a2e4622.jpg",
+                  "hash": "small_cd91209ba164c6ccbc63e96fc75f6d2216078734_7e4a2e4622",
+                  "mime": "image/jpeg",
+                  "name": "small_cd91209ba164c6ccbc63e96fc75f6d2216078734.jpg",
+                  "path": null,
+                  "size": 24.84,
+                  "width": 500,
+                  "height": 333,
+                  "sizeInBytes": 24837
+                },
+                "medium": {
+                  "ext": ".jpg",
+                  "url": "http://192.168.10.5:9000/indesso/medium_cd91209ba164c6ccbc63e96fc75f6d2216078734_7e4a2e4622.jpg",
+                  "hash": "medium_cd91209ba164c6ccbc63e96fc75f6d2216078734_7e4a2e4622",
+                  "mime": "image/jpeg",
+                  "name": "medium_cd91209ba164c6ccbc63e96fc75f6d2216078734.jpg",
+                  "path": null,
+                  "size": 44.81,
+                  "width": 750,
+                  "height": 500,
+                  "sizeInBytes": 44809
+                },
+                "thumbnail": {
+                  "ext": ".jpg",
+                  "url": "http://192.168.10.5:9000/indesso/thumbnail_cd91209ba164c6ccbc63e96fc75f6d2216078734_7e4a2e4622.jpg",
+                  "hash": "thumbnail_cd91209ba164c6ccbc63e96fc75f6d2216078734_7e4a2e4622",
+                  "mime": "image/jpeg",
+                  "name": "thumbnail_cd91209ba164c6ccbc63e96fc75f6d2216078734.jpg",
+                  "path": null,
+                  "size": 8.13,
+                  "width": 234,
+                  "height": 156,
+                  "sizeInBytes": 8126
+                }
+              },
+              "hash": "cd91209ba164c6ccbc63e96fc75f6d2216078734_7e4a2e4622",
+              "ext": ".jpg",
+              "mime": "image/jpeg",
+              "size": 690.8,
+              "url": "http://192.168.10.5:9000/indesso/cd91209ba164c6ccbc63e96fc75f6d2216078734_7e4a2e4622.jpg",
+              "previewUrl": null,
+              "provider": "strapi-provider-upload-minio-ce",
+              "provider_metadata": null,
+              "createdAt": "2025-12-04T08:12:18.866Z",
+              "updatedAt": "2025-12-04T08:12:18.866Z",
+              "publishedAt": "2025-12-04T08:12:18.866Z"
+            }
+          },
+          {
+            "id": 102,
+            "title": "Encouraging Transparency & Integrity ",
+            "text": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "We continue to explore solutions to reduce our carbon footprint, including installing large-scale solar panels across our facilities. To complement these efforts, we purchase Renewable Energy Certificates (REC) for the electricity we consume, enabling us to support the generation of renewable energy in regions where direct green alternatives are not yet accessible. ",
+                    "type": "text"
+                  }
+                ]
+              }
+            ],
+            "image": {
+              "id": 61,
+              "documentId": "yzc1o98autnwvlo8zzixfeta",
+              "name": "66c26869f268e954d71f770d4615597f60301e0d.jpg",
+              "alternativeText": null,
+              "caption": null,
+              "width": 4096,
+              "height": 2734,
+              "formats": {
+                "large": {
+                  "ext": ".jpg",
+                  "url": "http://192.168.10.5:9000/indesso/large_66c26869f268e954d71f770d4615597f60301e0d_933ca8ca13.jpg",
+                  "hash": "large_66c26869f268e954d71f770d4615597f60301e0d_933ca8ca13",
+                  "mime": "image/jpeg",
+                  "name": "large_66c26869f268e954d71f770d4615597f60301e0d.jpg",
+                  "path": null,
+                  "size": 60.76,
+                  "width": 1000,
+                  "height": 667,
+                  "sizeInBytes": 60761
+                },
+                "small": {
+                  "ext": ".jpg",
+                  "url": "http://192.168.10.5:9000/indesso/small_66c26869f268e954d71f770d4615597f60301e0d_933ca8ca13.jpg",
+                  "hash": "small_66c26869f268e954d71f770d4615597f60301e0d_933ca8ca13",
+                  "mime": "image/jpeg",
+                  "name": "small_66c26869f268e954d71f770d4615597f60301e0d.jpg",
+                  "path": null,
+                  "size": 21.09,
+                  "width": 500,
+                  "height": 333,
+                  "sizeInBytes": 21087
+                },
+                "medium": {
+                  "ext": ".jpg",
+                  "url": "http://192.168.10.5:9000/indesso/medium_66c26869f268e954d71f770d4615597f60301e0d_933ca8ca13.jpg",
+                  "hash": "medium_66c26869f268e954d71f770d4615597f60301e0d_933ca8ca13",
+                  "mime": "image/jpeg",
+                  "name": "medium_66c26869f268e954d71f770d4615597f60301e0d.jpg",
+                  "path": null,
+                  "size": 38.74,
+                  "width": 750,
+                  "height": 500,
+                  "sizeInBytes": 38741
+                },
+                "thumbnail": {
+                  "ext": ".jpg",
+                  "url": "http://192.168.10.5:9000/indesso/thumbnail_66c26869f268e954d71f770d4615597f60301e0d_933ca8ca13.jpg",
+                  "hash": "thumbnail_66c26869f268e954d71f770d4615597f60301e0d_933ca8ca13",
+                  "mime": "image/jpeg",
+                  "name": "thumbnail_66c26869f268e954d71f770d4615597f60301e0d.jpg",
+                  "path": null,
+                  "size": 6.74,
+                  "width": 234,
+                  "height": 156,
+                  "sizeInBytes": 6742
+                }
+              },
+              "hash": "66c26869f268e954d71f770d4615597f60301e0d_933ca8ca13",
+              "ext": ".jpg",
+              "mime": "image/jpeg",
+              "size": 544.66,
+              "url": "http://192.168.10.5:9000/indesso/66c26869f268e954d71f770d4615597f60301e0d_933ca8ca13.jpg",
+              "previewUrl": null,
+              "provider": "strapi-provider-upload-minio-ce",
+              "provider_metadata": null,
+              "createdAt": "2025-12-04T08:12:46.281Z",
+              "updatedAt": "2025-12-04T08:12:46.281Z",
+              "publishedAt": "2025-12-04T08:12:46.281Z"
+            }
+          },
+          {
+            "id": 103,
+            "title": "Responsible sourcing for Shared Value",
+            "text": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "We continue to explore solutions to reduce our carbon footprint, including installing large-scale solar panels across our facilities. To complement these efforts, we purchase Renewable Energy Certificates (REC) for the electricity we consume, enabling us to support the generation of renewable energy in regions where direct green alternatives are not yet accessible. ",
+                    "type": "text"
+                  }
+                ]
+              }
+            ],
+            "image": {
+              "id": 62,
+              "documentId": "vd72nka03lz8e1dspjptxsj9",
+              "name": "d38ac49a51f4c460d731682eb70172c6c2db35d2.jpg",
+              "alternativeText": null,
+              "caption": null,
+              "width": 4096,
+              "height": 2731,
+              "formats": {
+                "large": {
+                  "ext": ".jpg",
+                  "url": "http://192.168.10.5:9000/indesso/large_d38ac49a51f4c460d731682eb70172c6c2db35d2_6155a813d7.jpg",
+                  "hash": "large_d38ac49a51f4c460d731682eb70172c6c2db35d2_6155a813d7",
+                  "mime": "image/jpeg",
+                  "name": "large_d38ac49a51f4c460d731682eb70172c6c2db35d2.jpg",
+                  "path": null,
+                  "size": 119.75,
+                  "width": 1000,
+                  "height": 667,
+                  "sizeInBytes": 119751
+                },
+                "small": {
+                  "ext": ".jpg",
+                  "url": "http://192.168.10.5:9000/indesso/small_d38ac49a51f4c460d731682eb70172c6c2db35d2_6155a813d7.jpg",
+                  "hash": "small_d38ac49a51f4c460d731682eb70172c6c2db35d2_6155a813d7",
+                  "mime": "image/jpeg",
+                  "name": "small_d38ac49a51f4c460d731682eb70172c6c2db35d2.jpg",
+                  "path": null,
+                  "size": 39.75,
+                  "width": 500,
+                  "height": 333,
+                  "sizeInBytes": 39753
+                },
+                "medium": {
+                  "ext": ".jpg",
+                  "url": "http://192.168.10.5:9000/indesso/medium_d38ac49a51f4c460d731682eb70172c6c2db35d2_6155a813d7.jpg",
+                  "hash": "medium_d38ac49a51f4c460d731682eb70172c6c2db35d2_6155a813d7",
+                  "mime": "image/jpeg",
+                  "name": "medium_d38ac49a51f4c460d731682eb70172c6c2db35d2.jpg",
+                  "path": null,
+                  "size": 75.27,
+                  "width": 750,
+                  "height": 500,
+                  "sizeInBytes": 75266
+                },
+                "thumbnail": {
+                  "ext": ".jpg",
+                  "url": "http://192.168.10.5:9000/indesso/thumbnail_d38ac49a51f4c460d731682eb70172c6c2db35d2_6155a813d7.jpg",
+                  "hash": "thumbnail_d38ac49a51f4c460d731682eb70172c6c2db35d2_6155a813d7",
+                  "mime": "image/jpeg",
+                  "name": "thumbnail_d38ac49a51f4c460d731682eb70172c6c2db35d2.jpg",
+                  "path": null,
+                  "size": 11.22,
+                  "width": 234,
+                  "height": 156,
+                  "sizeInBytes": 11224
+                }
+              },
+              "hash": "d38ac49a51f4c460d731682eb70172c6c2db35d2_6155a813d7",
+              "ext": ".jpg",
+              "mime": "image/jpeg",
+              "size": 1084,
+              "url": "http://192.168.10.5:9000/indesso/d38ac49a51f4c460d731682eb70172c6c2db35d2_6155a813d7.jpg",
+              "previewUrl": null,
+              "provider": "strapi-provider-upload-minio-ce",
+              "provider_metadata": null,
+              "createdAt": "2025-12-04T08:13:11.678Z",
+              "updatedAt": "2025-12-04T08:13:11.678Z",
+              "publishedAt": "2025-12-04T08:13:11.678Z"
+            }
+          }
+        ]
+      },
+      {
+        "__component": "sustainability.responsible-operations-section",
+        "id": 5,
+        "eyebrow": "Responsible Operations",
+        "title": "Partnering for Positive Impact",
+        "description": [
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "text": "At Indesso, we partner with you to build tailored sourcing programs that promote transparency, strengthen local communities, and minimize environmental impact. These commitments are reflected in our four key sustainable programs below.",
+                "type": "text"
+              }
+            ]
+          }
+        ],
+        "text": "Partner With Us and Create Positive Impact Together",
+        "card_image": [
+          {
+            "id": 104,
+            "title": "Citronella Circular Economy",
+            "text": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Citronella offers strong circular economy potential. Leftover distillation materials can be reused as cow feed or mushroom-growing media, reducing waste while creating added value for local communities.",
+                    "type": "text"
+                  }
+                ]
+              }
+            ],
+            "image": {
+              "id": 63,
+              "documentId": "k9oojcrjuwippc3u0n2qawno",
+              "name": "Rectangle 21 (1).png",
+              "alternativeText": null,
+              "caption": null,
+              "width": 960,
+              "height": 540,
+              "formats": {
+                "small": {
+                  "ext": ".png",
+                  "url": "http://192.168.10.5:9000/indesso/small_Rectangle_21_1_4c1e4c6cdb.png",
+                  "hash": "small_Rectangle_21_1_4c1e4c6cdb",
+                  "mime": "image/png",
+                  "name": "small_Rectangle 21 (1).png",
+                  "path": null,
+                  "size": 348.43,
+                  "width": 500,
+                  "height": 281,
+                  "sizeInBytes": 348434
+                },
+                "medium": {
+                  "ext": ".png",
+                  "url": "http://192.168.10.5:9000/indesso/medium_Rectangle_21_1_4c1e4c6cdb.png",
+                  "hash": "medium_Rectangle_21_1_4c1e4c6cdb",
+                  "mime": "image/png",
+                  "name": "medium_Rectangle 21 (1).png",
+                  "path": null,
+                  "size": 757.3,
+                  "width": 750,
+                  "height": 422,
+                  "sizeInBytes": 757297
+                },
+                "thumbnail": {
+                  "ext": ".png",
+                  "url": "http://192.168.10.5:9000/indesso/thumbnail_Rectangle_21_1_4c1e4c6cdb.png",
+                  "hash": "thumbnail_Rectangle_21_1_4c1e4c6cdb",
+                  "mime": "image/png",
+                  "name": "thumbnail_Rectangle 21 (1).png",
+                  "path": null,
+                  "size": 91.71,
+                  "width": 245,
+                  "height": 138,
+                  "sizeInBytes": 91712
+                }
+              },
+              "hash": "Rectangle_21_1_4c1e4c6cdb",
+              "ext": ".png",
+              "mime": "image/png",
+              "size": 273.78,
+              "url": "http://192.168.10.5:9000/indesso/Rectangle_21_1_4c1e4c6cdb.png",
+              "previewUrl": null,
+              "provider": "strapi-provider-upload-minio-ce",
+              "provider_metadata": null,
+              "createdAt": "2025-12-04T08:14:37.286Z",
+              "updatedAt": "2025-12-04T08:14:37.286Z",
+              "publishedAt": "2025-12-04T08:14:37.287Z"
+            }
+          },
+          {
+            "id": 105,
+            "title": "test",
+            "text": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "apasih",
+                    "type": "text"
+                  }
+                ]
+              }
+            ],
+            "image": {
+              "id": 64,
+              "documentId": "ydeyeldmvg2eibvkfy4a5k9u",
+              "name": "157d82ba8dd7940b34f202a4091b8a3d6eb13ce2.jpg",
+              "alternativeText": null,
+              "caption": null,
+              "width": 4008,
+              "height": 4008,
+              "formats": {
+                "large": {
+                  "ext": ".jpg",
+                  "url": "http://192.168.10.5:9000/indesso/large_157d82ba8dd7940b34f202a4091b8a3d6eb13ce2_44469d716f.jpg",
+                  "hash": "large_157d82ba8dd7940b34f202a4091b8a3d6eb13ce2_44469d716f",
+                  "mime": "image/jpeg",
+                  "name": "large_157d82ba8dd7940b34f202a4091b8a3d6eb13ce2.jpg",
+                  "path": null,
+                  "size": 343.01,
+                  "width": 1000,
+                  "height": 1000,
+                  "sizeInBytes": 343005
+                },
+                "small": {
+                  "ext": ".jpg",
+                  "url": "http://192.168.10.5:9000/indesso/small_157d82ba8dd7940b34f202a4091b8a3d6eb13ce2_44469d716f.jpg",
+                  "hash": "small_157d82ba8dd7940b34f202a4091b8a3d6eb13ce2_44469d716f",
+                  "mime": "image/jpeg",
+                  "name": "small_157d82ba8dd7940b34f202a4091b8a3d6eb13ce2.jpg",
+                  "path": null,
+                  "size": 86.77,
+                  "width": 500,
+                  "height": 500,
+                  "sizeInBytes": 86765
+                },
+                "medium": {
+                  "ext": ".jpg",
+                  "url": "http://192.168.10.5:9000/indesso/medium_157d82ba8dd7940b34f202a4091b8a3d6eb13ce2_44469d716f.jpg",
+                  "hash": "medium_157d82ba8dd7940b34f202a4091b8a3d6eb13ce2_44469d716f",
+                  "mime": "image/jpeg",
+                  "name": "medium_157d82ba8dd7940b34f202a4091b8a3d6eb13ce2.jpg",
+                  "path": null,
+                  "size": 190.15,
+                  "width": 750,
+                  "height": 750,
+                  "sizeInBytes": 190153
+                },
+                "thumbnail": {
+                  "ext": ".jpg",
+                  "url": "http://192.168.10.5:9000/indesso/thumbnail_157d82ba8dd7940b34f202a4091b8a3d6eb13ce2_44469d716f.jpg",
+                  "hash": "thumbnail_157d82ba8dd7940b34f202a4091b8a3d6eb13ce2_44469d716f",
+                  "mime": "image/jpeg",
+                  "name": "thumbnail_157d82ba8dd7940b34f202a4091b8a3d6eb13ce2.jpg",
+                  "path": null,
+                  "size": 8.49,
+                  "width": 156,
+                  "height": 156,
+                  "sizeInBytes": 8492
+                }
+              },
+              "hash": "157d82ba8dd7940b34f202a4091b8a3d6eb13ce2_44469d716f",
+              "ext": ".jpg",
+              "mime": "image/jpeg",
+              "size": 3870.75,
+              "url": "http://192.168.10.5:9000/indesso/157d82ba8dd7940b34f202a4091b8a3d6eb13ce2_44469d716f.jpg",
+              "previewUrl": null,
+              "provider": "strapi-provider-upload-minio-ce",
+              "provider_metadata": null,
+              "createdAt": "2025-12-04T08:15:41.999Z",
+              "updatedAt": "2025-12-04T08:15:41.999Z",
+              "publishedAt": "2025-12-04T08:15:41.999Z"
+            }
+          },
+          {
+            "id": 106,
+            "title": "test 2",
+            "text": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "test 2",
+                    "type": "text"
+                  }
+                ]
+              }
+            ],
+            "image": {
+              "id": 65,
+              "documentId": "z9z45zm2hnsgc9qx566tm44f",
+              "name": "Rectangle 5336.png",
+              "alternativeText": null,
+              "caption": null,
+              "width": 176,
+              "height": 360,
+              "formats": {
+                "thumbnail": {
+                  "ext": ".png",
+                  "url": "http://192.168.10.5:9000/indesso/thumbnail_Rectangle_5336_6de5594221.png",
+                  "hash": "thumbnail_Rectangle_5336_6de5594221",
+                  "mime": "image/png",
+                  "name": "thumbnail_Rectangle 5336.png",
+                  "path": null,
+                  "size": 20.51,
+                  "width": 76,
+                  "height": 156,
+                  "sizeInBytes": 20508
+                }
+              },
+              "hash": "Rectangle_5336_6de5594221",
+              "ext": ".png",
+              "mime": "image/png",
+              "size": 24.89,
+              "url": "http://192.168.10.5:9000/indesso/Rectangle_5336_6de5594221.png",
+              "previewUrl": null,
+              "provider": "strapi-provider-upload-minio-ce",
+              "provider_metadata": null,
+              "createdAt": "2025-12-04T08:16:08.532Z",
+              "updatedAt": "2025-12-04T08:16:08.532Z",
+              "publishedAt": "2025-12-04T08:16:08.532Z"
+            }
+          }
+        ]
+      },
+      {
+        "__component": "sustainability.commitment-section",
+        "id": 4,
+        "eyebrow": "Commitment & Assessments",
+        "title": "Achievements That Strengthen Our Sustainability Journey",
+        "description": "We highlight our sustainability registrations, certifications, awards, and compliance achievements to reflect our commitment to responsible practices and our dedication to continuous improvement across all operations.",
+        "assessments_card": [
+          {
+            "id": 10,
+            "description": "We continue to strengthen our environmental performance, earning a triple B score for Forests, Water, and Climate Change in CDP 2024, along with an A-List for Supplier Engagement. These achievements reflect our commitment to managing environmental risks responsibly and partnering with our suppliers to create meaningful impact. ",
+            "image": {
+              "id": 68,
+              "documentId": "f54nb1kmszgru1nrdlri5fie",
+              "name": "Placeholder Image (1).png",
+              "alternativeText": null,
+              "caption": null,
+              "width": 160,
+              "height": 72,
+              "formats": null,
+              "hash": "Placeholder_Image_1_d861aa49e8",
+              "ext": ".png",
+              "mime": "image/png",
+              "size": 1.44,
+              "url": "http://192.168.10.5:9000/indesso/Placeholder_Image_1_d861aa49e8.png",
+              "previewUrl": null,
+              "provider": "strapi-provider-upload-minio-ce",
+              "provider_metadata": null,
+              "createdAt": "2025-12-04T08:18:15.163Z",
+              "updatedAt": "2025-12-04T08:18:15.163Z",
+              "publishedAt": "2025-12-04T08:18:15.163Z"
+            }
+          },
+          {
+            "id": 11,
+            "description": "Our 2025 EcoVadis Silver rating, accompanied by a score of 76/100, reaffirms our continued progress in embedding Environmental, Social, and Governance (ESG) principles across all aspects of our operations—from environmental performance to responsible and ethical business practices. ",
+            "image": {
+              "id": 67,
+              "documentId": "um41cpw82b8u1ladc2lz6k0p",
+              "name": "Placeholder Image.png",
+              "alternativeText": null,
+              "caption": null,
+              "width": 160,
+              "height": 72,
+              "formats": null,
+              "hash": "Placeholder_Image_7cb3fd6f83",
+              "ext": ".png",
+              "mime": "image/png",
+              "size": 1.73,
+              "url": "http://192.168.10.5:9000/indesso/Placeholder_Image_7cb3fd6f83.png",
+              "previewUrl": null,
+              "provider": "strapi-provider-upload-minio-ce",
+              "provider_metadata": null,
+              "createdAt": "2025-12-04T08:17:41.993Z",
+              "updatedAt": "2025-12-04T08:17:41.993Z",
+              "publishedAt": "2025-12-04T08:17:41.993Z"
+            }
+          },
+          {
+            "id": 12,
+            "description": "By securing approval for our near-term targets from the Science Based Targets initiative, we reaffirm our commitment to reducing emissions in line with global climate science and embedding ESG principles into our business strategy. ",
+            "image": {
+              "id": 69,
+              "documentId": "w94kkettp71i1ow3evk5px61",
+              "name": "Placeholder Image (2).png",
+              "alternativeText": null,
+              "caption": null,
+              "width": 160,
+              "height": 72,
+              "formats": null,
+              "hash": "Placeholder_Image_2_1ca3f1f52a",
+              "ext": ".png",
+              "mime": "image/png",
+              "size": 3.86,
+              "url": "http://192.168.10.5:9000/indesso/Placeholder_Image_2_1ca3f1f52a.png",
+              "previewUrl": null,
+              "provider": "strapi-provider-upload-minio-ce",
+              "provider_metadata": null,
+              "createdAt": "2025-12-04T08:18:35.972Z",
+              "updatedAt": "2025-12-04T08:18:35.972Z",
+              "publishedAt": "2025-12-04T08:18:35.972Z"
+            }
+          }
+        ]
+      },
+      {
+        "__component": "sustainability.sustainability-report-section",
+        "id": 3,
+        "eyebrow": "Sustainability Report",
+        "title": "Our Path of Continuous Improvement",
+        "description": "Explore how our initiatives, results, and on-the-ground efforts over the past year have contributed to positive change for communities and the environment.",
+        "sub_title": "Access our Sustainability Report 2024",
+        "button": "See Our Report",
+        "image": {
+          "id": 70,
+          "documentId": "o7yb9m5obgviackha8o8oxet",
+          "name": "07aa9cab-40ed-4439-826c-db4c35e52257-01 1.png",
+          "alternativeText": null,
+          "caption": null,
+          "width": 576,
+          "height": 486,
+          "formats": {
+            "small": {
+              "ext": ".png",
+              "url": "http://192.168.10.5:9000/indesso/small_07aa9cab_40ed_4439_826c_db4c35e52257_01_1_793f22f619.png",
+              "hash": "small_07aa9cab_40ed_4439_826c_db4c35e52257_01_1_793f22f619",
+              "mime": "image/png",
+              "name": "small_07aa9cab-40ed-4439-826c-db4c35e52257-01 1.png",
+              "path": null,
+              "size": 273.7,
+              "width": 500,
+              "height": 422,
+              "sizeInBytes": 273696
+            },
+            "thumbnail": {
+              "ext": ".png",
+              "url": "http://192.168.10.5:9000/indesso/thumbnail_07aa9cab_40ed_4439_826c_db4c35e52257_01_1_793f22f619.png",
+              "hash": "thumbnail_07aa9cab_40ed_4439_826c_db4c35e52257_01_1_793f22f619",
+              "mime": "image/png",
+              "name": "thumbnail_07aa9cab-40ed-4439-826c-db4c35e52257-01 1.png",
+              "path": null,
+              "size": 43.72,
+              "width": 185,
+              "height": 156,
+              "sizeInBytes": 43715
+            }
+          },
+          "hash": "07aa9cab_40ed_4439_826c_db4c35e52257_01_1_793f22f619",
+          "ext": ".png",
+          "mime": "image/png",
+          "size": 96.91,
+          "url": "http://192.168.10.5:9000/indesso/07aa9cab_40ed_4439_826c_db4c35e52257_01_1_793f22f619.png",
+          "previewUrl": null,
+          "provider": "strapi-provider-upload-minio-ce",
+          "provider_metadata": null,
+          "createdAt": "2025-12-04T08:21:20.219Z",
+          "updatedAt": "2025-12-04T08:21:32.613Z",
+          "publishedAt": "2025-12-04T08:21:20.219Z"
+        }
+      }
+    ]
+  },
+  "meta": {
+
+  }
+}
+
+http://localhost:1337/api/reports?pLevel=2
+
+{
+  "data": [
+    {
+      "id": 2,
+      "documentId": "qe81bcowxvm4i6qva8926n59",
+      "year": "2020",
+      "createdAt": "2025-12-04T08:31:59.794Z",
+      "updatedAt": "2025-12-04T08:32:01.124Z",
+      "publishedAt": "2025-12-04T08:32:01.215Z",
+      "file": {
+        "id": 71,
+        "documentId": "rdu3c4f36mkiimu57n2n8tjv",
+        "name": "Website Brief Indesso 2025.pdf",
+        "alternativeText": null,
+        "caption": null,
+        "width": null,
+        "height": null,
+        "formats": null,
+        "hash": "Website_Brief_Indesso_2025_97236f07f6",
+        "ext": ".pdf",
+        "mime": "application/pdf",
+        "size": 2482.88,
+        "url": "http://192.168.10.5:9000/indesso/Website_Brief_Indesso_2025_97236f07f6.pdf",
+        "previewUrl": null,
+        "provider": "strapi-provider-upload-minio-ce",
+        "provider_metadata": null,
+        "createdAt": "2025-12-04T08:31:51.456Z",
+        "updatedAt": "2025-12-04T08:32:35.437Z",
+        "publishedAt": "2025-12-04T08:31:51.457Z"
+      }
+    },
+    {
+      "id": 4,
+      "documentId": "xg18h0xepa51kckk96cg1yzr",
+      "year": "2021",
+      "createdAt": "2025-12-04T08:32:15.461Z",
+      "updatedAt": "2025-12-04T08:32:16.736Z",
+      "publishedAt": "2025-12-04T08:32:16.819Z",
+      "file": {
+        "id": 71,
+        "documentId": "rdu3c4f36mkiimu57n2n8tjv",
+        "name": "Website Brief Indesso 2025.pdf",
+        "alternativeText": null,
+        "caption": null,
+        "width": null,
+        "height": null,
+        "formats": null,
+        "hash": "Website_Brief_Indesso_2025_97236f07f6",
+        "ext": ".pdf",
+        "mime": "application/pdf",
+        "size": 2482.88,
+        "url": "http://192.168.10.5:9000/indesso/Website_Brief_Indesso_2025_97236f07f6.pdf",
+        "previewUrl": null,
+        "provider": "strapi-provider-upload-minio-ce",
+        "provider_metadata": null,
+        "createdAt": "2025-12-04T08:31:51.456Z",
+        "updatedAt": "2025-12-04T08:32:35.437Z",
+        "publishedAt": "2025-12-04T08:31:51.457Z"
+      }
+    },
+    {
+      "id": 6,
+      "documentId": "iq6ho8k80d9ol8ylbz1wyfiu",
+      "year": "2022",
+      "createdAt": "2025-12-04T08:32:39.587Z",
+      "updatedAt": "2025-12-04T08:32:40.914Z",
+      "publishedAt": "2025-12-04T08:32:40.999Z",
+      "file": {
+        "id": 71,
+        "documentId": "rdu3c4f36mkiimu57n2n8tjv",
+        "name": "Website Brief Indesso 2025.pdf",
+        "alternativeText": null,
+        "caption": null,
+        "width": null,
+        "height": null,
+        "formats": null,
+        "hash": "Website_Brief_Indesso_2025_97236f07f6",
+        "ext": ".pdf",
+        "mime": "application/pdf",
+        "size": 2482.88,
+        "url": "http://192.168.10.5:9000/indesso/Website_Brief_Indesso_2025_97236f07f6.pdf",
+        "previewUrl": null,
+        "provider": "strapi-provider-upload-minio-ce",
+        "provider_metadata": null,
+        "createdAt": "2025-12-04T08:31:51.456Z",
+        "updatedAt": "2025-12-04T08:32:35.437Z",
+        "publishedAt": "2025-12-04T08:31:51.457Z"
+      }
+    },
+    {
+      "id": 8,
+      "documentId": "hv33qgvs5gbm6e6hd52e18qf",
+      "year": "2023",
+      "createdAt": "2025-12-04T08:33:05.329Z",
+      "updatedAt": "2025-12-04T08:33:06.381Z",
+      "publishedAt": "2025-12-04T08:33:06.467Z",
+      "file": {
+        "id": 71,
+        "documentId": "rdu3c4f36mkiimu57n2n8tjv",
+        "name": "Website Brief Indesso 2025.pdf",
+        "alternativeText": null,
+        "caption": null,
+        "width": null,
+        "height": null,
+        "formats": null,
+        "hash": "Website_Brief_Indesso_2025_97236f07f6",
+        "ext": ".pdf",
+        "mime": "application/pdf",
+        "size": 2482.88,
+        "url": "http://192.168.10.5:9000/indesso/Website_Brief_Indesso_2025_97236f07f6.pdf",
+        "previewUrl": null,
+        "provider": "strapi-provider-upload-minio-ce",
+        "provider_metadata": null,
+        "createdAt": "2025-12-04T08:31:51.456Z",
+        "updatedAt": "2025-12-04T08:32:35.437Z",
+        "publishedAt": "2025-12-04T08:31:51.457Z"
+      }
+    },
+    {
+      "id": 10,
+      "documentId": "di2pikk06htplg39rxiw2hdv",
+      "year": "2024",
+      "createdAt": "2025-12-04T08:33:18.473Z",
+      "updatedAt": "2025-12-04T08:33:19.415Z",
+      "publishedAt": "2025-12-04T08:33:19.514Z",
+      "file": {
+        "id": 71,
+        "documentId": "rdu3c4f36mkiimu57n2n8tjv",
+        "name": "Website Brief Indesso 2025.pdf",
+        "alternativeText": null,
+        "caption": null,
+        "width": null,
+        "height": null,
+        "formats": null,
+        "hash": "Website_Brief_Indesso_2025_97236f07f6",
+        "ext": ".pdf",
+        "mime": "application/pdf",
+        "size": 2482.88,
+        "url": "http://192.168.10.5:9000/indesso/Website_Brief_Indesso_2025_97236f07f6.pdf",
+        "previewUrl": null,
+        "provider": "strapi-provider-upload-minio-ce",
+        "provider_metadata": null,
+        "createdAt": "2025-12-04T08:31:51.456Z",
+        "updatedAt": "2025-12-04T08:32:35.437Z",
+        "publishedAt": "2025-12-04T08:31:51.457Z"
+      }
+    }
+  ],
+  "meta": {
+    "pagination": {
+      "page": 1,
+      "pageSize": 25,
+      "pageCount": 1,
+      "total": 5
+    }
+  }
+}

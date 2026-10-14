@@ -1,0 +1,573 @@
+{
+  "data": {
+    "id": 6,
+    "documentId": "oqnaooxtrmkwoh34ylyfrppt",
+    "createdAt": "2025-11-26T03:06:58.429Z",
+    "updatedAt": "2025-12-08T07:47:18.878Z",
+    "publishedAt": "2025-12-08T07:47:19.280Z",
+    "locale": "en",
+    "logo": {
+      "id": 2,
+      "documentId": "zgepbuy5wdzob43ed7lz5ptk",
+      "name": "logo-indesso.png",
+      "alternativeText": null,
+      "caption": null,
+      "width": 179,
+      "height": 64,
+      "formats": null,
+      "hash": "logo_indesso_cf0f9fc36f",
+      "ext": ".png",
+      "mime": "image/png",
+      "size": 1.52,
+      "url": "http://192.168.10.5:9000/indesso/logo_indesso_cf0f9fc36f.png",
+      "previewUrl": null,
+      "provider": "@strapi/provider-upload-aws-s3",
+      "provider_metadata": null,
+      "createdAt": "2025-11-26T03:03:19.162Z",
+      "updatedAt": "2025-11-26T03:03:19.162Z",
+      "publishedAt": "2025-11-26T03:03:19.162Z"
+    },
+    "logo_fullcolor": {
+      "id": 43,
+      "documentId": "dp0rreqpni38cagyy89xtih1",
+      "name": "Frame.png",
+      "alternativeText": null,
+      "caption": null,
+      "width": 179,
+      "height": 64,
+      "formats": null,
+      "hash": "Frame_5ab216ddec",
+      "ext": ".png",
+      "mime": "image/png",
+      "size": 2.44,
+      "url": "http://192.168.10.5:9000/indesso/Frame_5ab216ddec.png",
+      "previewUrl": null,
+      "provider": "strapi-provider-upload-minio-ce",
+      "provider_metadata": null,
+      "createdAt": "2025-12-02T10:30:47.889Z",
+      "updatedAt": "2025-12-02T10:30:47.889Z",
+      "publishedAt": "2025-12-02T10:30:47.890Z"
+    },
+    "lang": [
+      {
+        "id": 16,
+        "title": "EN",
+        "value": "en"
+      },
+      {
+        "id": 17,
+        "title": "ID",
+        "value": "id"
+      },
+      {
+        "id": 18,
+        "title": "CN",
+        "value": "zh"
+      }
+    ],
+    "menus": [
+      {
+        "id": 7,
+        "title": "About Us",
+        "path": "/about-us",
+        "description": "Discover who we are, our journey, and the values that guide how we work and make an impact",
+        "button": "Visit About Us Page",
+        "image": {
+          "id": 74,
+          "documentId": "gjzgi6nnxeqikcpxm1dkwyjf",
+          "name": "Rectangle 21 (2).png",
+          "alternativeText": null,
+          "caption": null,
+          "width": 560,
+          "height": 556,
+          "formats": {
+            "small": {
+              "ext": ".png",
+              "url": "http://192.168.10.5:9000/indesso/small_Rectangle_21_2_7e3dc517e9.png",
+              "hash": "small_Rectangle_21_2_7e3dc517e9",
+              "mime": "image/png",
+              "name": "small_Rectangle 21 (2).png",
+              "path": null,
+              "size": 351.49,
+              "width": 500,
+              "height": 496,
+              "sizeInBytes": 351485
+            },
+            "thumbnail": {
+              "ext": ".png",
+              "url": "http://192.168.10.5:9000/indesso/thumbnail_Rectangle_21_2_7e3dc517e9.png",
+              "hash": "thumbnail_Rectangle_21_2_7e3dc517e9",
+              "mime": "image/png",
+              "name": "thumbnail_Rectangle 21 (2).png",
+              "path": null,
+              "size": 44.47,
+              "width": 157,
+              "height": 156,
+              "sizeInBytes": 44473
+            }
+          },
+          "hash": "Rectangle_21_2_7e3dc517e9",
+          "ext": ".png",
+          "mime": "image/png",
+          "size": 99.23,
+          "url": "http://192.168.10.5:9000/indesso/Rectangle_21_2_7e3dc517e9.png",
+          "previewUrl": null,
+          "provider": "strapi-provider-upload-minio-ce",
+          "provider_metadata": null,
+          "createdAt": "2025-12-08T07:32:22.980Z",
+          "updatedAt": "2025-12-08T07:32:22.980Z",
+          "publishedAt": "2025-12-08T07:32:22.980Z"
+        },
+        "menu_detail": [
+          {
+            "id": 25,
+            "title": "Our Story",
+            "description": "The steps that define our purpose",
+            "button": "Learn More",
+            "slug": null
+          },
+          {
+            "id": 26,
+            "title": "Meet The Boards",
+            "description": "The people behind our innovation",
+            "button": "Learn More",
+            "slug": null
+          },
+          {
+            "id": 27,
+            "title": "Research & Innovation",
+            "description": "Our approach to discovery and progress",
+            "button": "Learn More",
+            "slug": null
+          },
+          {
+            "id": 28,
+            "title": "Scientific Mastery",
+            "description": "Our method for keeping flavors authentic",
+            "button": "Learn More",
+            "slug": null
+          },
+          {
+            "id": 29,
+            "title": "Responsible Operations",
+            "description": "How we ensure integrity across our work",
+            "button": "Learn More",
+            "slug": null
+          }
+        ]
+      },
+      {
+        "id": 8,
+        "title": "Our Business",
+        "path": "/our-business",
+        "description": "Explore how our products and solutions bring natural flavor, wellness, and innovation into everyday life",
+        "button": null,
+        "image": {
+          "id": 75,
+          "documentId": "mkxgix0lvvgxxea4utybejjm",
+          "name": "Rectangle 21 (3).png",
+          "alternativeText": null,
+          "caption": null,
+          "width": 560,
+          "height": 556,
+          "formats": {
+            "small": {
+              "ext": ".png",
+              "url": "http://192.168.10.5:9000/indesso/small_Rectangle_21_3_4eee7fd298.png",
+              "hash": "small_Rectangle_21_3_4eee7fd298",
+              "mime": "image/png",
+              "name": "small_Rectangle 21 (3).png",
+              "path": null,
+              "size": 399.01,
+              "width": 500,
+              "height": 496,
+              "sizeInBytes": 399010
+            },
+            "thumbnail": {
+              "ext": ".png",
+              "url": "http://192.168.10.5:9000/indesso/thumbnail_Rectangle_21_3_4eee7fd298.png",
+              "hash": "thumbnail_Rectangle_21_3_4eee7fd298",
+              "mime": "image/png",
+              "name": "thumbnail_Rectangle 21 (3).png",
+              "path": null,
+              "size": 42.77,
+              "width": 157,
+              "height": 156,
+              "sizeInBytes": 42765
+            }
+          },
+          "hash": "Rectangle_21_3_4eee7fd298",
+          "ext": ".png",
+          "mime": "image/png",
+          "size": 132.42,
+          "url": "http://192.168.10.5:9000/indesso/Rectangle_21_3_4eee7fd298.png",
+          "previewUrl": null,
+          "provider": "strapi-provider-upload-minio-ce",
+          "provider_metadata": null,
+          "createdAt": "2025-12-08T07:35:23.158Z",
+          "updatedAt": "2025-12-08T07:35:23.158Z",
+          "publishedAt": "2025-12-08T07:35:23.158Z"
+        },
+        "menu_detail": [
+          {
+            "id": 30,
+            "title": "Natural Aroma Ingredients & Extracts",
+            "description": "Our way of enriching taste through nature",
+            "button": "Learn More",
+            "slug": null
+          },
+          {
+            "id": 31,
+            "title": "Food & Beverage Solutions",
+            "description": "How we shape comforting taste",
+            "button": "Learn More",
+            "slug": null
+          },
+          {
+            "id": 32,
+            "title": "Taste & Scent",
+            "description": "Bibendum iaculis amet a feugiat interdum",
+            "button": "Learn More",
+            "slug": null
+          }
+        ]
+      },
+      {
+        "id": 9,
+        "title": "Media",
+        "path": "/media",
+        "description": "Stay updated with news, stories, and visuals that showcase our people, products, and journey",
+        "button": null,
+        "image": {
+          "id": 76,
+          "documentId": "dxo3tz5is7g6ji4ev4yepame",
+          "name": "Rectangle 21 (4).png",
+          "alternativeText": null,
+          "caption": null,
+          "width": 560,
+          "height": 556,
+          "formats": {
+            "small": {
+              "ext": ".png",
+              "url": "http://192.168.10.5:9000/indesso/small_Rectangle_21_4_92bada9c59.png",
+              "hash": "small_Rectangle_21_4_92bada9c59",
+              "mime": "image/png",
+              "name": "small_Rectangle 21 (4).png",
+              "path": null,
+              "size": 535.34,
+              "width": 500,
+              "height": 496,
+              "sizeInBytes": 535344
+            },
+            "thumbnail": {
+              "ext": ".png",
+              "url": "http://192.168.10.5:9000/indesso/thumbnail_Rectangle_21_4_92bada9c59.png",
+              "hash": "thumbnail_Rectangle_21_4_92bada9c59",
+              "mime": "image/png",
+              "name": "thumbnail_Rectangle 21 (4).png",
+              "path": null,
+              "size": 59.51,
+              "width": 157,
+              "height": 156,
+              "sizeInBytes": 59508
+            }
+          },
+          "hash": "Rectangle_21_4_92bada9c59",
+          "ext": ".png",
+          "mime": "image/png",
+          "size": 177.7,
+          "url": "http://192.168.10.5:9000/indesso/Rectangle_21_4_92bada9c59.png",
+          "previewUrl": null,
+          "provider": "strapi-provider-upload-minio-ce",
+          "provider_metadata": null,
+          "createdAt": "2025-12-08T07:39:27.667Z",
+          "updatedAt": "2025-12-08T07:39:27.667Z",
+          "publishedAt": "2025-12-08T07:39:27.667Z"
+        },
+        "menu_detail": [
+          {
+            "id": 33,
+            "title": "Press Release",
+            "description": "Official updates from Indesso",
+            "button": "Learn More",
+            "slug": null
+          },
+          {
+            "id": 34,
+            "title": "Stories",
+            "description": "Narrative viewpoints from our community",
+            "button": "Learn More",
+            "slug": null
+          },
+          {
+            "id": 35,
+            "title": "Insight",
+            "description": "Knowledge on markets and products",
+            "button": "Learn More",
+            "slug": null
+          },
+          {
+            "id": 36,
+            "title": "Product Sheets",
+            "description": "Detailed documents for our key products",
+            "button": "Learn More",
+            "slug": null
+          },
+          {
+            "id": 37,
+            "title": "Video",
+            "description": "Visual highlights from Indesso’s journey",
+            "button": "Learn More",
+            "slug": null
+          }
+        ]
+      },
+      {
+        "id": 10,
+        "title": "Career",
+        "path": "/career",
+        "description": "Learn about life at Indesso, the opportunities to grow, and how you can make a meaningful impact",
+        "button": "Visit Career Page",
+        "image": {
+          "id": 77,
+          "documentId": "rj72jnuqyjq8wssu68lkfahn",
+          "name": "Rectangle 21 (5).png",
+          "alternativeText": null,
+          "caption": null,
+          "width": 560,
+          "height": 556,
+          "formats": {
+            "small": {
+              "ext": ".png",
+              "url": "http://192.168.10.5:9000/indesso/small_Rectangle_21_5_b265b29de5.png",
+              "hash": "small_Rectangle_21_5_b265b29de5",
+              "mime": "image/png",
+              "name": "small_Rectangle 21 (5).png",
+              "path": null,
+              "size": 325.22,
+              "width": 500,
+              "height": 496,
+              "sizeInBytes": 325219
+            },
+            "thumbnail": {
+              "ext": ".png",
+              "url": "http://192.168.10.5:9000/indesso/thumbnail_Rectangle_21_5_b265b29de5.png",
+              "hash": "thumbnail_Rectangle_21_5_b265b29de5",
+              "mime": "image/png",
+              "name": "thumbnail_Rectangle 21 (5).png",
+              "path": null,
+              "size": 42.77,
+              "width": 157,
+              "height": 156,
+              "sizeInBytes": 42766
+            }
+          },
+          "hash": "Rectangle_21_5_b265b29de5",
+          "ext": ".png",
+          "mime": "image/png",
+          "size": 89.73,
+          "url": "http://192.168.10.5:9000/indesso/Rectangle_21_5_b265b29de5.png",
+          "previewUrl": null,
+          "provider": "strapi-provider-upload-minio-ce",
+          "provider_metadata": null,
+          "createdAt": "2025-12-08T07:42:14.391Z",
+          "updatedAt": "2025-12-08T07:42:14.391Z",
+          "publishedAt": "2025-12-08T07:42:14.391Z"
+        },
+        "menu_detail": [
+          {
+            "id": 38,
+            "title": "Life at Indesso",
+            "description": "How we work and grow together",
+            "button": "Learn More",
+            "slug": null
+          },
+          {
+            "id": 39,
+            "title": "Join Us",
+            "description": "Discover opportunities to join our journey",
+            "button": "Learn More",
+            "slug": null
+          },
+          {
+            "id": 40,
+            "title": "Voices of Indesso",
+            "description": "Hear how our team makes an impact",
+            "button": "Learn More",
+            "slug": null
+          },
+          {
+            "id": 41,
+            "title": "Growing Together",
+            "description": "Honoring commitment and shared purpose",
+            "button": "Learn More",
+            "slug": null
+          }
+        ]
+      },
+      {
+        "id": 11,
+        "title": "Contact Us",
+        "path": "/contact-us",
+        "description": "Find out how to connect with us, plan a visit, or reach our team for inquiries",
+        "button": "Visit Contact Us Page",
+        "image": {
+          "id": 78,
+          "documentId": "hh3tj3vhzlvbozafazcgot5r",
+          "name": "Rectangle 21 (6).png",
+          "alternativeText": null,
+          "caption": null,
+          "width": 560,
+          "height": 556,
+          "formats": {
+            "small": {
+              "ext": ".png",
+              "url": "http://192.168.10.5:9000/indesso/small_Rectangle_21_6_76a58b387c.png",
+              "hash": "small_Rectangle_21_6_76a58b387c",
+              "mime": "image/png",
+              "name": "small_Rectangle 21 (6).png",
+              "path": null,
+              "size": 388.49,
+              "width": 500,
+              "height": 496,
+              "sizeInBytes": 388493
+            },
+            "thumbnail": {
+              "ext": ".png",
+              "url": "http://192.168.10.5:9000/indesso/thumbnail_Rectangle_21_6_76a58b387c.png",
+              "hash": "thumbnail_Rectangle_21_6_76a58b387c",
+              "mime": "image/png",
+              "name": "thumbnail_Rectangle 21 (6).png",
+              "path": null,
+              "size": 46.17,
+              "width": 157,
+              "height": 156,
+              "sizeInBytes": 46165
+            }
+          },
+          "hash": "Rectangle_21_6_76a58b387c",
+          "ext": ".png",
+          "mime": "image/png",
+          "size": 115.13,
+          "url": "http://192.168.10.5:9000/indesso/Rectangle_21_6_76a58b387c.png",
+          "previewUrl": null,
+          "provider": "strapi-provider-upload-minio-ce",
+          "provider_metadata": null,
+          "createdAt": "2025-12-08T07:44:20.992Z",
+          "updatedAt": "2025-12-08T07:44:20.992Z",
+          "publishedAt": "2025-12-08T07:44:20.993Z"
+        },
+        "menu_detail": [
+          {
+            "id": 42,
+            "title": "Contact Us",
+            "description": "Reach out for inquiries and support",
+            "button": "Learn More",
+            "slug": null
+          },
+          {
+            "id": 43,
+            "title": "Visitor Center",
+            "description": "Plan your visit to see Indesso’s innovation",
+            "button": "Learn More",
+            "slug": null
+          }
+        ]
+      },
+      {
+        "id": 12,
+        "title": "Sustainability",
+        "path": "/sustainability",
+        "description": "See how we act responsibly to create positive impact for communities, nature, and future generations",
+        "button": "Visit Sustainability Page",
+        "image": {
+          "id": 79,
+          "documentId": "vgd9qfahmi3ssogji3gontxm",
+          "name": "Rectangle 21 (7).png",
+          "alternativeText": null,
+          "caption": null,
+          "width": 560,
+          "height": 556,
+          "formats": {
+            "small": {
+              "ext": ".png",
+              "url": "http://192.168.10.5:9000/indesso/small_Rectangle_21_7_694565a9e2.png",
+              "hash": "small_Rectangle_21_7_694565a9e2",
+              "mime": "image/png",
+              "name": "small_Rectangle 21 (7).png",
+              "path": null,
+              "size": 432.36,
+              "width": 500,
+              "height": 496,
+              "sizeInBytes": 432363
+            },
+            "thumbnail": {
+              "ext": ".png",
+              "url": "http://192.168.10.5:9000/indesso/thumbnail_Rectangle_21_7_694565a9e2.png",
+              "hash": "thumbnail_Rectangle_21_7_694565a9e2",
+              "mime": "image/png",
+              "name": "thumbnail_Rectangle 21 (7).png",
+              "path": null,
+              "size": 54.51,
+              "width": 157,
+              "height": 156,
+              "sizeInBytes": 54508
+            }
+          },
+          "hash": "Rectangle_21_7_694565a9e2",
+          "ext": ".png",
+          "mime": "image/png",
+          "size": 115.38,
+          "url": "http://192.168.10.5:9000/indesso/Rectangle_21_7_694565a9e2.png",
+          "previewUrl": null,
+          "provider": "strapi-provider-upload-minio-ce",
+          "provider_metadata": null,
+          "createdAt": "2025-12-08T07:45:37.539Z",
+          "updatedAt": "2025-12-08T07:45:37.539Z",
+          "publishedAt": "2025-12-08T07:45:37.539Z"
+        },
+        "menu_detail": [
+          {
+            "id": 44,
+            "title": "Sustainability Strategy",
+            "description": "Our plan for creating lasting value",
+            "button": "Learn More",
+            "slug": null
+          },
+          {
+            "id": 45,
+            "title": "Sustainability Initiative",
+            "description": "How we care for people and the planet",
+            "button": "Learn More",
+            "slug": null
+          },
+          {
+            "id": 46,
+            "title": "Sustainability Operations",
+            "description": "Actions that reflect our core integrity",
+            "button": "Learn More",
+            "slug": null
+          },
+          {
+            "id": 47,
+            "title": "Commitment & Assessment",
+            "description": "Recognition for sustainable dedication",
+            "button": "Learn More",
+            "slug": null
+          },
+          {
+            "id": 48,
+            "title": "Sustainability Report",
+            "description": "A look at our progress and outcomes",
+            "button": "Learn More",
+            "slug": null
+          }
+        ]
+      }
+    ],
+    "localizations": []
+  },
+  "meta": {
+
+  }
+}

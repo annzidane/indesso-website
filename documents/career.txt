@@ -1,0 +1,493 @@
+http://localhost:1337/api/career?locale=en
+&populate[page_info][populate]=*
+&populate[page_sections][on][career.hero-section][populate][hero][populate]=*
+&populate[page_sections][on][career.life-at-indesso][populate][career_showcase][populate]=*
+&populate[page_sections][on][career.career-joinus][populate]=*
+&populate[page_sections][on][career.testimonial][populate]=testimonials
+&populate[page_sections][on][career.growing-together][populate][growing_together_slide][populate]=*
+&populate[seo][populate]=*
+
+{
+  "data": {
+    "id": 8,
+    "documentId": "xuxk40w4p5wx6s9r4kzyismk",
+    "createdAt": "2025-12-03T04:25:07.752Z",
+    "updatedAt": "2025-12-03T04:39:20.642Z",
+    "publishedAt": "2025-12-03T04:39:21.484Z",
+    "page_info": {
+      "id": 47,
+      "title": "Career",
+      "slug": "career",
+      "path": "/career"
+    },
+    "page_sections": [
+      {
+        "__component": "career.life-at-indesso",
+        "id": 8,
+        "title": "A Workplace that Inspires Better Tomorrows",
+        "eyebrow": "LIFE AT INDESSO",
+        "description": [
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "text": "At Indesso, work is shaped by purpose. We are a community built on integrity, curiosity, and the belief that what we do today can make life better for many tomorrow. From scientists uncovering the secrets of nature to the teams in administration, finance, marketing, and sales who keep our operations moving, every role contributes to something meaningful.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "text": "Behind every breakthrough are people who care deeply about doing things the right way. Whether your day is spent in the lab or managing processes behind the scenes, your work helps unlock nature’s potential and touches lives through the products and solutions we create.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "text": "Here, ideas are encouraged, growth is nurtured, and everyone is trusted to bring their best self to a shared purpose.",
+                "type": "text"
+              }
+            ]
+          }
+        ],
+        "career_showcase": [
+          {
+            "id": 31,
+            "title": "Driven by Curiosity",
+            "description": "We explore ideas that lead to meaningful innovation.",
+            "image": {
+              "id": 48,
+              "documentId": "g54ikl7ve60vhy63npdsivv2",
+              "name": "Group 5140268.png",
+              "alternativeText": null,
+              "caption": null,
+              "width": 72,
+              "height": 72,
+              "formats": null,
+              "hash": "Group_5140268_c5210af8f2",
+              "ext": ".png",
+              "mime": "image/png",
+              "size": 1.03,
+              "url": "http://192.168.10.5:9000/indesso/Group_5140268_c5210af8f2.png",
+              "previewUrl": null,
+              "provider": "strapi-provider-upload-minio-ce",
+              "provider_metadata": null,
+              "createdAt": "2025-12-03T04:31:08.358Z",
+              "updatedAt": "2025-12-03T04:31:08.358Z",
+              "publishedAt": "2025-12-03T04:31:08.359Z"
+            }
+          },
+          {
+            "id": 32,
+            "title": "Integrity in Every Step",
+            "description": "We uphold values that build trust and long term impact.",
+            "image": {
+              "id": 49,
+              "documentId": "ck9c1pkkgs99f1asbqpuwbqq",
+              "name": "Group 5140268 (1).png",
+              "alternativeText": null,
+              "caption": null,
+              "width": 72,
+              "height": 72,
+              "formats": null,
+              "hash": "Group_5140268_1_433774cd7a",
+              "ext": ".png",
+              "mime": "image/png",
+              "size": 1.18,
+              "url": "http://192.168.10.5:9000/indesso/Group_5140268_1_433774cd7a.png",
+              "previewUrl": null,
+              "provider": "strapi-provider-upload-minio-ce",
+              "provider_metadata": null,
+              "createdAt": "2025-12-03T04:31:41.526Z",
+              "updatedAt": "2025-12-03T04:31:41.526Z",
+              "publishedAt": "2025-12-03T04:31:41.526Z"
+            }
+          },
+          {
+            "id": 33,
+            "title": "Collaboration in Action",
+            "description": "We collaborate to achieve meaningful results.",
+            "image": {
+              "id": 50,
+              "documentId": "mxutrndkx0ir64rmi6mkvlk4",
+              "name": "Group 5140268 (2).png",
+              "alternativeText": null,
+              "caption": null,
+              "width": 72,
+              "height": 72,
+              "formats": null,
+              "hash": "Group_5140268_2_bc08347de4",
+              "ext": ".png",
+              "mime": "image/png",
+              "size": 1.01,
+              "url": "http://192.168.10.5:9000/indesso/Group_5140268_2_bc08347de4.png",
+              "previewUrl": null,
+              "provider": "strapi-provider-upload-minio-ce",
+              "provider_metadata": null,
+              "createdAt": "2025-12-03T04:32:18.834Z",
+              "updatedAt": "2025-12-03T04:32:18.834Z",
+              "publishedAt": "2025-12-03T04:32:18.834Z"
+            }
+          },
+          {
+            "id": 34,
+            "title": "Growth with Purpose",
+            "description": "We support development that moves people forward.",
+            "image": {
+              "id": 51,
+              "documentId": "a50maohhu585u3dyincs2yel",
+              "name": "Group 5140268 (3).png",
+              "alternativeText": null,
+              "caption": null,
+              "width": 72,
+              "height": 72,
+              "formats": null,
+              "hash": "Group_5140268_3_3301ab00d1",
+              "ext": ".png",
+              "mime": "image/png",
+              "size": 1,
+              "url": "http://192.168.10.5:9000/indesso/Group_5140268_3_3301ab00d1.png",
+              "previewUrl": null,
+              "provider": "strapi-provider-upload-minio-ce",
+              "provider_metadata": null,
+              "createdAt": "2025-12-03T04:32:46.007Z",
+              "updatedAt": "2025-12-03T04:32:46.007Z",
+              "publishedAt": "2025-12-03T04:32:46.007Z"
+            }
+          }
+        ]
+      },
+      {
+        "__component": "career.career-joinus",
+        "id": 5,
+        "title": "Shape Your Future with Indesso",
+        "description": "We seek passionate people who share our curiosity, courage, and care. At Indesso, you can grow with purpose and contribute to meaningful impact. If this resonates with you, we would be glad to meet you.",
+        "eyebrow": "JOIN US",
+        "image": {
+          "id": 52,
+          "documentId": "v1u3v5gr42vored5k4oixo6n",
+          "name": "indonesia-borobudur 1.png",
+          "alternativeText": null,
+          "caption": null,
+          "width": 1240,
+          "height": 560,
+          "formats": {
+            "large": {
+              "ext": ".png",
+              "url": "http://192.168.10.5:9000/indesso/large_indonesia_borobudur_1_158380020e.png",
+              "hash": "large_indonesia_borobudur_1_158380020e",
+              "mime": "image/png",
+              "name": "large_indonesia-borobudur 1.png",
+              "path": null,
+              "size": 594.89,
+              "width": 1000,
+              "height": 452,
+              "sizeInBytes": 594886
+            },
+            "small": {
+              "ext": ".png",
+              "url": "http://192.168.10.5:9000/indesso/small_indonesia_borobudur_1_158380020e.png",
+              "hash": "small_indonesia_borobudur_1_158380020e",
+              "mime": "image/png",
+              "name": "small_indonesia-borobudur 1.png",
+              "path": null,
+              "size": 156.48,
+              "width": 500,
+              "height": 226,
+              "sizeInBytes": 156475
+            },
+            "medium": {
+              "ext": ".png",
+              "url": "http://192.168.10.5:9000/indesso/medium_indonesia_borobudur_1_158380020e.png",
+              "hash": "medium_indonesia_borobudur_1_158380020e",
+              "mime": "image/png",
+              "name": "medium_indonesia-borobudur 1.png",
+              "path": null,
+              "size": 340.34,
+              "width": 750,
+              "height": 339,
+              "sizeInBytes": 340339
+            },
+            "thumbnail": {
+              "ext": ".png",
+              "url": "http://192.168.10.5:9000/indesso/thumbnail_indonesia_borobudur_1_158380020e.png",
+              "hash": "thumbnail_indonesia_borobudur_1_158380020e",
+              "mime": "image/png",
+              "name": "thumbnail_indonesia-borobudur 1.png",
+              "path": null,
+              "size": 44.87,
+              "width": 245,
+              "height": 111,
+              "sizeInBytes": 44874
+            }
+          },
+          "hash": "indonesia_borobudur_1_158380020e",
+          "ext": ".png",
+          "mime": "image/png",
+          "size": 190.86,
+          "url": "http://192.168.10.5:9000/indesso/indonesia_borobudur_1_158380020e.png",
+          "previewUrl": null,
+          "provider": "strapi-provider-upload-minio-ce",
+          "provider_metadata": null,
+          "createdAt": "2025-12-03T04:34:56.672Z",
+          "updatedAt": "2025-12-03T04:34:56.672Z",
+          "publishedAt": "2025-12-03T04:34:56.673Z"
+        },
+        "button": {
+          "id": 67,
+          "title": "Explore Opportunities",
+          "path": "/"
+        }
+      },
+      {
+        "__component": "career.testimonial",
+        "id": 4,
+        "title": "Stories from Our People",
+        "eyebrow": "TESTIMONIAL",
+        "testimonials": [
+          {
+            "id": 2,
+            "documentId": "gpan6tb926yjnpeqpsm17rn1",
+            "name": "Alya Prameswari",
+            "position": "Research and Innovation",
+            "createdAt": "2025-12-03T04:23:19.528Z",
+            "updatedAt": "2025-12-03T04:23:21.141Z",
+            "publishedAt": "2025-12-03T04:23:21.287Z",
+            "locale": "en",
+            "quote_title": "even the smallest work here contributes to many people’s everyday life",
+            "quote": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Working at Indesso has helped me see how meaningful even simple tasks can be. What feels small in my day often becomes an essential part of something much bigger, whether it supports our partners, strengthens local communities, or enhances the products people use around the world. Realizing that my contribution connects to everyday life gives my work a deeper sense of purpose and motivates me to give my best.",
+                    "type": "text"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": 4,
+            "documentId": "ttsehwy3f8i9o7dzcy19jhse",
+            "name": "Alya Prameswari 2",
+            "position": "Research and Innovation 2",
+            "createdAt": "2025-12-03T04:24:24.661Z",
+            "updatedAt": "2025-12-03T04:24:26.740Z",
+            "publishedAt": "2025-12-03T04:24:26.876Z",
+            "locale": "en",
+            "quote_title": "even the smallest work here contributes to many people’s everyday life 2",
+            "quote": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Working at Indesso has helped me see how meaningful even simple tasks can be. What feels small in my day often becomes an essential part of something much bigger, whether it supports our partners, strengthens local communities, or enhances the products people use around the world. Realizing that my contribution connects to everyday life gives my work a deeper sense of purpose and motivates me to give my best.",
+                    "type": "text"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "__component": "career.growing-together",
+        "id": 3,
+        "title": "Celebrating Every Milestone",
+        "description": [
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "text": "People come to Indesso with different backgrounds and aspirations, united by the purpose to grow meaningfully. Many choose to stay for years, shaping who we are today. Through our ",
+                "type": "text"
+              },
+              {
+                "bold": true,
+                "text": "Wall of Fame",
+                "type": "text"
+              },
+              {
+                "text": ", we honor their commitment and celebrate milestones that reflect a place where people feel valued and inspired to grow together.",
+                "type": "text"
+              }
+            ]
+          }
+        ],
+        "eyebrow": "GROWING TOGETHER",
+        "growing_together_slide": [
+          {
+            "id": 5,
+            "title": "Wall of Fame",
+            "description": "Et urna volutpat sit eget morbi id cursus. Vulputate amet fusce fringilla sit. Proin praesent ornare blandit luctus. Feugiat egestas sit massa cum erat sollicitudin phasellus elementum. Ut in vel neque scelerisque quis. Massa interdum orci tempus arcu.",
+            "image": {
+              "id": 53,
+              "documentId": "n9913qrfrdpvnwvuefa8kc21",
+              "name": "Rectangle 21.png",
+              "alternativeText": null,
+              "caption": null,
+              "width": 1200,
+              "height": 675,
+              "formats": {
+                "large": {
+                  "ext": ".png",
+                  "url": "http://192.168.10.5:9000/indesso/large_Rectangle_21_f20515483c.png",
+                  "hash": "large_Rectangle_21_f20515483c",
+                  "mime": "image/png",
+                  "name": "large_Rectangle 21.png",
+                  "path": null,
+                  "size": 874.64,
+                  "width": 1000,
+                  "height": 563,
+                  "sizeInBytes": 874641
+                },
+                "small": {
+                  "ext": ".png",
+                  "url": "http://192.168.10.5:9000/indesso/small_Rectangle_21_f20515483c.png",
+                  "hash": "small_Rectangle_21_f20515483c",
+                  "mime": "image/png",
+                  "name": "small_Rectangle 21.png",
+                  "path": null,
+                  "size": 211.09,
+                  "width": 500,
+                  "height": 281,
+                  "sizeInBytes": 211092
+                },
+                "medium": {
+                  "ext": ".png",
+                  "url": "http://192.168.10.5:9000/indesso/medium_Rectangle_21_f20515483c.png",
+                  "hash": "medium_Rectangle_21_f20515483c",
+                  "mime": "image/png",
+                  "name": "medium_Rectangle 21.png",
+                  "path": null,
+                  "size": 486,
+                  "width": 750,
+                  "height": 422,
+                  "sizeInBytes": 485995
+                },
+                "thumbnail": {
+                  "ext": ".png",
+                  "url": "http://192.168.10.5:9000/indesso/thumbnail_Rectangle_21_f20515483c.png",
+                  "hash": "thumbnail_Rectangle_21_f20515483c",
+                  "mime": "image/png",
+                  "name": "thumbnail_Rectangle 21.png",
+                  "path": null,
+                  "size": 56.36,
+                  "width": 245,
+                  "height": 138,
+                  "sizeInBytes": 56364
+                }
+              },
+              "hash": "Rectangle_21_f20515483c",
+              "ext": ".png",
+              "mime": "image/png",
+              "size": 303.71,
+              "url": "http://192.168.10.5:9000/indesso/Rectangle_21_f20515483c.png",
+              "previewUrl": null,
+              "provider": "strapi-provider-upload-minio-ce",
+              "provider_metadata": null,
+              "createdAt": "2025-12-03T04:38:18.221Z",
+              "updatedAt": "2025-12-03T04:38:18.221Z",
+              "publishedAt": "2025-12-03T04:38:18.221Z"
+            }
+          },
+          {
+            "id": 6,
+            "title": "Wall of Fame 2",
+            "description": "Et urna volutpat sit eget morbi id cursus. Vulputate amet fusce fringilla sit. Proin praesent ornare blandit luctus. Feugiat egestas sit massa cum erat sollicitudin phasellus elementum. Ut in vel neque scelerisque quis. Massa interdum orci tempus arcu.",
+            "image": {
+              "id": 53,
+              "documentId": "n9913qrfrdpvnwvuefa8kc21",
+              "name": "Rectangle 21.png",
+              "alternativeText": null,
+              "caption": null,
+              "width": 1200,
+              "height": 675,
+              "formats": {
+                "large": {
+                  "ext": ".png",
+                  "url": "http://192.168.10.5:9000/indesso/large_Rectangle_21_f20515483c.png",
+                  "hash": "large_Rectangle_21_f20515483c",
+                  "mime": "image/png",
+                  "name": "large_Rectangle 21.png",
+                  "path": null,
+                  "size": 874.64,
+                  "width": 1000,
+                  "height": 563,
+                  "sizeInBytes": 874641
+                },
+                "small": {
+                  "ext": ".png",
+                  "url": "http://192.168.10.5:9000/indesso/small_Rectangle_21_f20515483c.png",
+                  "hash": "small_Rectangle_21_f20515483c",
+                  "mime": "image/png",
+                  "name": "small_Rectangle 21.png",
+                  "path": null,
+                  "size": 211.09,
+                  "width": 500,
+                  "height": 281,
+                  "sizeInBytes": 211092
+                },
+                "medium": {
+                  "ext": ".png",
+                  "url": "http://192.168.10.5:9000/indesso/medium_Rectangle_21_f20515483c.png",
+                  "hash": "medium_Rectangle_21_f20515483c",
+                  "mime": "image/png",
+                  "name": "medium_Rectangle 21.png",
+                  "path": null,
+                  "size": 486,
+                  "width": 750,
+                  "height": 422,
+                  "sizeInBytes": 485995
+                },
+                "thumbnail": {
+                  "ext": ".png",
+                  "url": "http://192.168.10.5:9000/indesso/thumbnail_Rectangle_21_f20515483c.png",
+                  "hash": "thumbnail_Rectangle_21_f20515483c",
+                  "mime": "image/png",
+                  "name": "thumbnail_Rectangle 21.png",
+                  "path": null,
+                  "size": 56.36,
+                  "width": 245,
+                  "height": 138,
+                  "sizeInBytes": 56364
+                }
+              },
+              "hash": "Rectangle_21_f20515483c",
+              "ext": ".png",
+              "mime": "image/png",
+              "size": 303.71,
+              "url": "http://192.168.10.5:9000/indesso/Rectangle_21_f20515483c.png",
+              "previewUrl": null,
+              "provider": "strapi-provider-upload-minio-ce",
+              "provider_metadata": null,
+              "createdAt": "2025-12-03T04:38:18.221Z",
+              "updatedAt": "2025-12-03T04:38:18.221Z",
+              "publishedAt": "2025-12-03T04:38:18.221Z"
+            }
+          }
+        ]
+      }
+    ],
+    "seo": {
+      "id": 40,
+      "meta_title": "career",
+      "meta_description": "career",
+      "keywords": [
+        {
+          "id": 40,
+          "keywords": "career"
+        }
+      ]
+    }
+  },
+  "meta": {
+
+  }
+}

@@ -1,0 +1,426 @@
+http://localhost:1337/api/articles?locale=en&pLevel=3&filters[slug][$eq]=indesso-aroma-recognized-in-cdp-s-2026-supplier-engagement-a-list
+
+{
+  "data": [
+    {
+      "id": 12,
+      "documentId": "s8dxi4q8hnu2qok5wnlkzwf2",
+      "title": "Indesso Aroma Recognized in CDP's 2026 Supplier Engagement A-List",
+      "slug": "indesso-aroma-recognized-in-cdp-s-2026-supplier-engagement-a-list",
+      "article_category": "Corporate Events",
+      "date": "2025-12-17T10:15:00.000Z",
+      "description": [
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "Ut quis vulputate nulla dictum erat accumsan ipsum tortor proin. Pharetra eget eros varius sapien. Dui ultrices tempor ut nullam nibh. Dignissim eget mauris viverra integer. Accumsan amet fringilla elementum tellus sagittis in odio. Neque massa pulvinar phasellus consectetur urna libero tristique blandit turpis. Porta arcu viverra etiam velit morbi urna amet id sit. Porta imperdiet tincidunt at consectetur massa adipiscing quis risus non. Egestas aliquam nulla consectetur nibh neque. Sit purus sagittis ultrices mauris magnis in arcu fusce malesuada. Eget nulla sapien augue vestibulum. Eu arcu eleifend eleifend morbi eget cras. In faucibus nunc odio sed molestie netus ",
+              "type": "text"
+            },
+            {
+              "url": "https://www.figma.com/design/AHNk8MXXGy4Y9sAK9dCt2W/Indesso?node-id=792-3613&t=ahKj1rl6kqLPwdiM-0",
+              "type": "link",
+              "children": [
+                {
+                  "text": "pellentesque vulputate erat.",
+                  "type": "text"
+                }
+              ]
+            },
+            {
+              "text": "",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "Ut egestas erat facilisi fringilla integer faucibus sodales nulla auctor. Proin nunc mauris in sed adipiscing praesent sit. Ullamcorper pulvinar tincidunt porttitor nullam. In praesent rhoncus enim dui. Velit fringilla eget amet massa. Consectetur ac tincidunt blandit lacus. Neque viverra sagittis et nec sit urna et. Quis sed magna felis odio. Est elit in arcu egestas ipsum natoque arcu. Enim id pulvinar aenean in hac porttitor pretium at. Pellentesque id non amet platea augue et habitasse et neque. In in scelerisque ultricies quam egestas. Sollicitudin pretium convallis ut consequat sed maecenas montes. Cras quis in quam eu proin sed at risus.",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "Fusce erat urna curabitur orci ornare accumsan vel. Proin neque ac ultricies mollis id mattis egestas elementum facilisis. Quis in at eu auctor sit enim. Aliquam pellentesque morbi sed mi. Tortor egestas purus ante a. Eget integer arcu posuere ut pulvinar felis morbi vel. Aenean fusce odio cursus pretium vulputate. Viverra erat egestas nunc neque sed arcu aenean tellus. Vel amet sed eget non duis blandit accumsan felis. Viverra platea consectetur urna elit eleifend sed praesent amet eget. Amet mi tellus cursus ultricies. Diam consectetur risus ultrices arcu nunc mus ultricies.",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "Suspendisse lectus at nisi lacus adipiscing augue facilisi egestas. Volutpat tempus faucibus felis enim sit arcu. Mollis magna euismod elementum vitae tristique imperdiet. Risus egestas phasellus proin risus sit neque velit faucibus. Consectetur elit semper orci dignissim at tristique. Amet vivamus suspendisse purus eget in. Quisque amet mollis leo ut duis. Nibh euismod vulputate augue amet. Proin erat sit praesent sit sed placerat libero neque. Et congue aliquet tellus eget cursus mauris molestie.",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "Ipsum posuere a bibendum ultricies tristique. Elit cras nam porttitor sit eget volutpat tincidunt. Arcu facilisi id mi ut tortor senectus arcu. Tortor eu in commodo at nunc maecenas est. Ac natoque purus ornare lectus ut sem varius. Porttitor pellentesque nunc pretium nunc aliquam diam in quis. Ac adipiscing ullamcorper quis sem amet augue sed.",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "A malesuada id turpis sit eget pellentesque. Vestibulum integer risus feugiat nisl nisl donec. Mattis sit elit eu sit sed donec eu enim varius. Morbi commodo morbi a in pretium feugiat. Sem enim nulla mauris cursus mi felis mi elit pellentesque. Consectetur nulla egestas ante ultrices. Faucibus sed auctor nunc cursus sed. Ac nunc eget ac habitant fermentum amet. Elit ut eu gravida tincidunt. Volutpat ut euismod nunc lobortis commodo duis tempus fames ornare. Donec sed urna aliquam pellentesque. Pretium.",
+              "type": "text"
+            }
+          ]
+        }
+      ],
+      "createdAt": "2025-12-18T02:42:28.826Z",
+      "updatedAt": "2025-12-19T06:43:08.812Z",
+      "publishedAt": "2025-12-19T06:43:09.041Z",
+      "locale": "en",
+      "image": {
+        "id": 134,
+        "documentId": "pmdwz1rt5op1xuio1fm0awid",
+        "name": "IMG (8).webp",
+        "alternativeText": null,
+        "caption": null,
+        "width": 3360,
+        "height": 1888,
+        "formats": {
+          "large": {
+            "ext": ".webp",
+            "url": "https://s3-local.deptechdigital.com/indesso/large_IMG_8_e0c73705fa.webp",
+            "hash": "large_IMG_8_e0c73705fa",
+            "mime": "image/webp",
+            "name": "large_IMG (8).webp",
+            "path": null,
+            "size": 7.62,
+            "width": 1000,
+            "height": 562,
+            "sizeInBytes": 7624
+          },
+          "small": {
+            "ext": ".webp",
+            "url": "https://s3-local.deptechdigital.com/indesso/small_IMG_8_e0c73705fa.webp",
+            "hash": "small_IMG_8_e0c73705fa",
+            "mime": "image/webp",
+            "name": "small_IMG (8).webp",
+            "path": null,
+            "size": 3.46,
+            "width": 500,
+            "height": 281,
+            "sizeInBytes": 3464
+          },
+          "medium": {
+            "ext": ".webp",
+            "url": "https://s3-local.deptechdigital.com/indesso/medium_IMG_8_e0c73705fa.webp",
+            "hash": "medium_IMG_8_e0c73705fa",
+            "mime": "image/webp",
+            "name": "medium_IMG (8).webp",
+            "path": null,
+            "size": 5.36,
+            "width": 750,
+            "height": 421,
+            "sizeInBytes": 5364
+          },
+          "thumbnail": {
+            "ext": ".webp",
+            "url": "https://s3-local.deptechdigital.com/indesso/thumbnail_IMG_8_e0c73705fa.webp",
+            "hash": "thumbnail_IMG_8_e0c73705fa",
+            "mime": "image/webp",
+            "name": "thumbnail_IMG (8).webp",
+            "path": null,
+            "size": 0.96,
+            "width": 156,
+            "height": 88,
+            "sizeInBytes": 964
+          }
+        },
+        "hash": "IMG_8_e0c73705fa",
+        "ext": ".webp",
+        "mime": "image/webp",
+        "size": 34.6,
+        "url": "https://s3-local.deptechdigital.com/indesso/IMG_8_e0c73705fa.webp",
+        "previewUrl": null,
+        "provider": "strapi-provider-upload-tp-minio",
+        "provider_metadata": null,
+        "createdAt": "2025-12-18T04:52:39.548Z",
+        "updatedAt": "2025-12-18T04:52:39.548Z",
+        "publishedAt": "2025-12-18T04:52:39.549Z"
+      },
+      "localizations": []
+    }
+  ],
+  "meta": {
+    "pagination": {
+      "page": 1,
+      "pageSize": 25,
+      "pageCount": 1,
+      "total": 1
+    }
+  }
+}
+
+http://localhost:1337/api/media-detail?pLevel=4
+
+{
+  "data": {
+    "id": 2,
+    "documentId": "adm7g4nsattommd2znwgwjja",
+    "createdAt": "2025-12-19T07:34:45.782Z",
+    "updatedAt": "2025-12-19T07:38:23.937Z",
+    "publishedAt": "2025-12-19T07:38:24.242Z",
+    "page_info": {
+      "id": 122,
+      "title": "Media Detail",
+      "slug": "media-detail",
+      "path": "/media/detail"
+    },
+    "media_detail": {
+      "id": 2,
+      "title_socmed": "Share This!",
+      "title_explore": "Explore More Insights",
+      "background_image": {
+        "id": 147,
+        "documentId": "ahqc5kijloq4awagwtsu8emt",
+        "name": "Rectangle 5332 (1).webp",
+        "alternativeText": null,
+        "caption": null,
+        "width": 1440,
+        "height": 720,
+        "formats": {
+          "large": {
+            "ext": ".webp",
+            "url": "https://s3-local.deptechdigital.com/indesso/large_Rectangle_5332_1_f07c44205a.webp",
+            "hash": "large_Rectangle_5332_1_f07c44205a",
+            "mime": "image/webp",
+            "name": "large_Rectangle 5332 (1).webp",
+            "path": null,
+            "size": 3.83,
+            "width": 1000,
+            "height": 500,
+            "sizeInBytes": 3830
+          },
+          "small": {
+            "ext": ".webp",
+            "url": "https://s3-local.deptechdigital.com/indesso/small_Rectangle_5332_1_f07c44205a.webp",
+            "hash": "small_Rectangle_5332_1_f07c44205a",
+            "mime": "image/webp",
+            "name": "small_Rectangle 5332 (1).webp",
+            "path": null,
+            "size": 1.4,
+            "width": 500,
+            "height": 250,
+            "sizeInBytes": 1398
+          },
+          "medium": {
+            "ext": ".webp",
+            "url": "https://s3-local.deptechdigital.com/indesso/medium_Rectangle_5332_1_f07c44205a.webp",
+            "hash": "medium_Rectangle_5332_1_f07c44205a",
+            "mime": "image/webp",
+            "name": "medium_Rectangle 5332 (1).webp",
+            "path": null,
+            "size": 2.5,
+            "width": 750,
+            "height": 375,
+            "sizeInBytes": 2498
+          },
+          "thumbnail": {
+            "ext": ".webp",
+            "url": "https://s3-local.deptechdigital.com/indesso/thumbnail_Rectangle_5332_1_f07c44205a.webp",
+            "hash": "thumbnail_Rectangle_5332_1_f07c44205a",
+            "mime": "image/webp",
+            "name": "thumbnail_Rectangle 5332 (1).webp",
+            "path": null,
+            "size": 0.32,
+            "width": 156,
+            "height": 78,
+            "sizeInBytes": 320
+          }
+        },
+        "hash": "Rectangle_5332_1_f07c44205a",
+        "ext": ".webp",
+        "mime": "image/webp",
+        "size": 6.99,
+        "url": "https://s3-local.deptechdigital.com/indesso/Rectangle_5332_1_f07c44205a.webp",
+        "previewUrl": null,
+        "provider": "strapi-provider-upload-tp-minio",
+        "provider_metadata": null,
+        "createdAt": "2025-12-19T07:35:12.504Z",
+        "updatedAt": "2025-12-19T07:35:12.504Z",
+        "publishedAt": "2025-12-19T07:35:12.504Z"
+      },
+      "social_media": [
+        {
+          "id": 5,
+          "url": "https://www.facebook.com/",
+          "icon": {
+            "id": 148,
+            "documentId": "szxsn635pu0um88jl4ln7fd2",
+            "name": "Group 6308.webp",
+            "alternativeText": null,
+            "caption": null,
+            "width": 128,
+            "height": 128,
+            "formats": null,
+            "hash": "Group_6308_a86a9fa735",
+            "ext": ".webp",
+            "mime": "image/webp",
+            "size": 2.12,
+            "url": "https://s3-local.deptechdigital.com/indesso/Group_6308_a86a9fa735.webp",
+            "previewUrl": null,
+            "provider": "strapi-provider-upload-tp-minio",
+            "provider_metadata": null,
+            "createdAt": "2025-12-19T07:35:43.901Z",
+            "updatedAt": "2025-12-19T07:35:43.901Z",
+            "publishedAt": "2025-12-19T07:35:43.902Z"
+          }
+        },
+        {
+          "id": 6,
+          "url": "https://x.com/?lang=id",
+          "icon": {
+            "id": 149,
+            "documentId": "uqgbuz5yafxpf506conbiv0g",
+            "name": "Group.webp",
+            "alternativeText": null,
+            "caption": null,
+            "width": 128,
+            "height": 128,
+            "formats": null,
+            "hash": "Group_9eea4c4b16",
+            "ext": ".webp",
+            "mime": "image/webp",
+            "size": 1.33,
+            "url": "https://s3-local.deptechdigital.com/indesso/Group_9eea4c4b16.webp",
+            "previewUrl": null,
+            "provider": "strapi-provider-upload-tp-minio",
+            "provider_metadata": null,
+            "createdAt": "2025-12-19T07:36:24.834Z",
+            "updatedAt": "2025-12-19T07:36:24.834Z",
+            "publishedAt": "2025-12-19T07:36:24.834Z"
+          }
+        },
+        {
+          "id": 7,
+          "url": "https://web.telegram.org/",
+          "icon": {
+            "id": 150,
+            "documentId": "hbqwl65r5kdkmbsk0lq85rqf",
+            "name": "Group 6306 (1).webp",
+            "alternativeText": null,
+            "caption": null,
+            "width": 128,
+            "height": 128,
+            "formats": null,
+            "hash": "Group_6306_1_ad343f51b3",
+            "ext": ".webp",
+            "mime": "image/webp",
+            "size": 2.01,
+            "url": "https://s3-local.deptechdigital.com/indesso/Group_6306_1_ad343f51b3.webp",
+            "previewUrl": null,
+            "provider": "strapi-provider-upload-tp-minio",
+            "provider_metadata": null,
+            "createdAt": "2025-12-19T07:37:06.053Z",
+            "updatedAt": "2025-12-19T07:37:06.053Z",
+            "publishedAt": "2025-12-19T07:37:06.054Z"
+          }
+        },
+        {
+          "id": 8,
+          "url": "https://web.whatsapp.com/",
+          "icon": {
+            "id": 151,
+            "documentId": "u82ybk61ye9b1imnua4rzymx",
+            "name": "Group 6305.webp",
+            "alternativeText": null,
+            "caption": null,
+            "width": 128,
+            "height": 128,
+            "formats": null,
+            "hash": "Group_6305_3e42e9fe25",
+            "ext": ".webp",
+            "mime": "image/webp",
+            "size": 2.15,
+            "url": "https://s3-local.deptechdigital.com/indesso/Group_6305_3e42e9fe25.webp",
+            "previewUrl": null,
+            "provider": "strapi-provider-upload-tp-minio",
+            "provider_metadata": null,
+            "createdAt": "2025-12-19T07:37:35.283Z",
+            "updatedAt": "2025-12-19T07:37:35.283Z",
+            "publishedAt": "2025-12-19T07:37:35.283Z"
+          }
+        }
+      ],
+      "button": {
+        "id": 128,
+        "title": "See More Insights",
+        "path": "/media/insight"
+      }
+    },
+    "seo": {
+      "id": 99,
+      "meta_title": "media detail",
+      "meta_description": "media detail",
+      "keywords": [
+        {
+          "id": 98,
+          "keywords": "media detail"
+        }
+      ]
+    }
+  },
+  "meta": {
+
+  }
+}

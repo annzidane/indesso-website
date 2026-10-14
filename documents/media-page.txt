@@ -1,0 +1,142 @@
+http://localhost:1337/api/media?pLevel=3
+
+{
+  "data": {
+    "id": 3,
+    "documentId": "k65tvbszooxo6j63k6aztocl",
+    "createdAt": "2025-12-18T04:06:30.312Z",
+    "updatedAt": "2025-12-18T06:58:09.773Z",
+    "publishedAt": "2025-12-18T06:58:10.217Z",
+    "page_info": {
+      "id": 111,
+      "title": "Media",
+      "slug": "media",
+      "path": "/media"
+    },
+    "hero_section": {
+      "id": 52,
+      "title": "Media",
+      "background_image": {
+        "id": 142,
+        "documentId": "lsb6xnjlp09f8tgq9mhy14er",
+        "name": "Rectangle 2448 (3).webp",
+        "alternativeText": null,
+        "caption": null,
+        "width": 5760,
+        "height": 1920,
+        "formats": {
+          "large": {
+            "ext": ".webp",
+            "url": "https://s3-local.deptechdigital.com/indesso/large_Rectangle_2448_3_de23461b32.webp",
+            "hash": "large_Rectangle_2448_3_de23461b32",
+            "mime": "image/webp",
+            "name": "large_Rectangle 2448 (3).webp",
+            "path": null,
+            "size": 60.97,
+            "width": 1000,
+            "height": 333,
+            "sizeInBytes": 60966
+          },
+          "small": {
+            "ext": ".webp",
+            "url": "https://s3-local.deptechdigital.com/indesso/small_Rectangle_2448_3_de23461b32.webp",
+            "hash": "small_Rectangle_2448_3_de23461b32",
+            "mime": "image/webp",
+            "name": "small_Rectangle 2448 (3).webp",
+            "path": null,
+            "size": 19.58,
+            "width": 500,
+            "height": 167,
+            "sizeInBytes": 19576
+          },
+          "medium": {
+            "ext": ".webp",
+            "url": "https://s3-local.deptechdigital.com/indesso/medium_Rectangle_2448_3_de23461b32.webp",
+            "hash": "medium_Rectangle_2448_3_de23461b32",
+            "mime": "image/webp",
+            "name": "medium_Rectangle 2448 (3).webp",
+            "path": null,
+            "size": 39.14,
+            "width": 750,
+            "height": 250,
+            "sizeInBytes": 39138
+          },
+          "thumbnail": {
+            "ext": ".webp",
+            "url": "https://s3-local.deptechdigital.com/indesso/thumbnail_Rectangle_2448_3_de23461b32.webp",
+            "hash": "thumbnail_Rectangle_2448_3_de23461b32",
+            "mime": "image/webp",
+            "name": "thumbnail_Rectangle 2448 (3).webp",
+            "path": null,
+            "size": 2.63,
+            "width": 156,
+            "height": 52,
+            "sizeInBytes": 2630
+          }
+        },
+        "hash": "Rectangle_2448_3_de23461b32",
+        "ext": ".webp",
+        "mime": "image/webp",
+        "size": 464.34,
+        "url": "https://s3-local.deptechdigital.com/indesso/Rectangle_2448_3_de23461b32.webp",
+        "previewUrl": null,
+        "provider": "strapi-provider-upload-tp-minio",
+        "provider_metadata": null,
+        "createdAt": "2025-12-18T06:58:03.058Z",
+        "updatedAt": "2025-12-18T06:58:03.058Z",
+        "publishedAt": "2025-12-18T06:58:03.058Z"
+      }
+    },
+    "page_nav": [
+      {
+        "__component": "media.media-page",
+        "id": 11,
+        "title": "Press Release",
+        "article_grid_title": "Older Press Release",
+        "button_label": "Load More"
+      },
+      {
+        "__component": "media.media-page",
+        "id": 12,
+        "title": "Stories",
+        "article_grid_title": "Older Corporate Events",
+        "button_label": "Load More"
+      },
+      {
+        "__component": "media.media-page",
+        "id": 13,
+        "title": "Insights",
+        "article_grid_title": "Older Reports & Insights",
+        "button_label": "See All Insights"
+      },
+      {
+        "__component": "media.media-page",
+        "id": 14,
+        "title": "Product Catalog",
+        "article_grid_title": null,
+        "button_label": "Load More"
+      },
+      {
+        "__component": "media.media-page",
+        "id": 15,
+        "title": "Videos",
+        "article_grid_title": "Video Gallery",
+        "button_label": null
+      }
+    ],
+    "seo": {
+      "id": 89,
+      "meta_title": "media",
+      "meta_description": "media",
+      "keywords": [
+        {
+          "id": 88,
+          "keywords": "media"
+        }
+      ]
+    }
+  },
+  "meta": {
+
+  }
+}

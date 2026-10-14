@@ -1,0 +1,237 @@
+http://localhost:1337/api/homepage?populate[page_sections][populate]=*
+
+http://localhost:1337/api/footer
+?populate[footer_menus][populate][menus]=*
+&populate[contact_phone]=*
+&populate[contact_email]=*
+&populate=*
+
+{
+  "data": {
+    "id": 5,
+    "documentId": "her3pdrean70ghv6fv2f89f0",
+    "createdAt": "2025-11-26T07:41:40.936Z",
+    "updatedAt": "2025-11-27T08:16:17.096Z",
+    "publishedAt": "2025-11-27T08:16:17.135Z",
+    "page_sections": [
+      {
+        "__component": "home-page.hero-section",
+        "id": 5,
+        "title": "CRAFTING NATURES ESSENCE FOR THE WORLD",
+        "button": {
+          "id": 21,
+          "title": "LEARN MORE",
+          "path": "/"
+        },
+        "hero_badge": {
+          "id": 5,
+          "title": "One of Few Company in The World",
+          "description": "mastering The Entire Clove Derivative Spectrum"
+        }
+      },
+      {
+        "__component": "home-page.about-us-section",
+        "id": 5,
+        "title": "ABOUT US",
+        "background_image": {
+          "id": 5,
+          "documentId": "pflribao61czjpjmmf1rlh44",
+          "name": "Rectangle 5332.png",
+          "alternativeText": null,
+          "caption": null,
+          "width": 1440,
+          "height": 836,
+          "formats": {
+            "large": {
+              "ext": ".png",
+              "url": "/uploads/large_Rectangle_5332_26dcbc3688.png",
+              "hash": "large_Rectangle_5332_26dcbc3688",
+              "mime": "image/png",
+              "name": "large_Rectangle 5332.png",
+              "path": null,
+              "size": 455.01,
+              "width": 1000,
+              "height": 581,
+              "sizeInBytes": 455014
+            },
+            "small": {
+              "ext": ".png",
+              "url": "/uploads/small_Rectangle_5332_26dcbc3688.png",
+              "hash": "small_Rectangle_5332_26dcbc3688",
+              "mime": "image/png",
+              "name": "small_Rectangle 5332.png",
+              "path": null,
+              "size": 108.69,
+              "width": 500,
+              "height": 290,
+              "sizeInBytes": 108690
+            },
+            "medium": {
+              "ext": ".png",
+              "url": "/uploads/medium_Rectangle_5332_26dcbc3688.png",
+              "hash": "medium_Rectangle_5332_26dcbc3688",
+              "mime": "image/png",
+              "name": "medium_Rectangle 5332.png",
+              "path": null,
+              "size": 247.52,
+              "width": 750,
+              "height": 435,
+              "sizeInBytes": 247517
+            },
+            "thumbnail": {
+              "ext": ".png",
+              "url": "/uploads/thumbnail_Rectangle_5332_26dcbc3688.png",
+              "hash": "thumbnail_Rectangle_5332_26dcbc3688",
+              "mime": "image/png",
+              "name": "thumbnail_Rectangle 5332.png",
+              "path": null,
+              "size": 28.81,
+              "width": 245,
+              "height": 142,
+              "sizeInBytes": 28810
+            }
+          },
+          "hash": "Rectangle_5332_26dcbc3688",
+          "ext": ".png",
+          "mime": "image/png",
+          "size": 215.67,
+          "url": "/uploads/Rectangle_5332_26dcbc3688.png",
+          "previewUrl": null,
+          "provider": "local",
+          "provider_metadata": null,
+          "createdAt": "2025-11-26T07:58:15.009Z",
+          "updatedAt": "2025-11-26T07:58:15.009Z",
+          "publishedAt": "2025-11-26T07:58:15.009Z"
+        },
+        "feature": {
+          "id": 17,
+          "title": "Specialist in Natural Taste & Aroma Ingredients",
+          "text": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "We create nature based solutions that elevate taste, aroma, and sensory experiences for brands and creators in the food, beverage, and aromatic industries.",
+                  "type": "text"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "",
+                  "type": "text"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "With strong manufacturing expertise rooted in Indonesia and trusted across international markets, we combine scientific excellence with a passion for sustainability to enrich quality of life through the best of nature.",
+                  "type": "text"
+                }
+              ]
+            }
+          ]
+        },
+        "card": {
+          "id": 5,
+          "title": "Since",
+          "number": 1968,
+          "description": "Indonesia’s most experienced natural ingredients company"
+        },
+        "button": {
+          "id": 22,
+          "title": "Learn More \u003E",
+          "path": "/"
+        }
+      },
+      {
+        "__component": "home-page.reason-section",
+        "id": 5,
+        "title": "WHY CHOOSE US",
+        "main_title": "Our Innovation Story in Powerful Numbers",
+        "description": "We create nature based solutions that elevate taste, aroma, and sensory experiences for brands and creators in the food, beverage, and aromatic industries.",
+        "matric_card": {
+          "id": 5,
+          "total_employee": "700+",
+          "title_employee": "Employees",
+          "text_employee": "Powering innovation and excellence",
+          "total_people": "15%",
+          "title_people": "of Our People",
+          "text_people": "Work directly in scientific & technical roles"
+        },
+        "statistic_card": [
+          {
+            "id": 17,
+            "title": "2800+ solar panels across 3 sites",
+            "description": "Pioneering renewable energy in our industry"
+          },
+          {
+            "id": 18,
+            "title": "One of few companies in the world",
+            "description": "Mastering the Entire Clove Derivative Spectrum"
+          },
+          {
+            "id": 19,
+            "title": "150,000 Tonnes of Essential Oils & Aroma",
+            "description": "Ingredients produced - shaping the scent and flavor of billions products"
+          },
+          {
+            "id": 20,
+            "title": "59 Countries Served",
+            "description": "Bringing the essence of nature to global industries"
+          }
+        ],
+        "impact_card": {
+          "id": 5,
+          "opener": "Embracing more than",
+          "number": 100000,
+          "title": "Farmers & Biomass Collectors",
+          "description": "for raw material sourcing, touching people’s lives and enhancing their livelihoods"
+        }
+      },
+      {
+        "__component": "home-page.business-section",
+        "id": 4,
+        "title": "OUR BUSINESS",
+        "main_title": "Shaping Sensory Journeys for Everyday Life",
+        "business_card": [
+          {
+            "id": 17,
+            "title": "Natural Aroma Ingredients & Extracts",
+            "description": "We transform the best of nature into inspiration for broader product innovations, empowering development in Flavor and Fragrance, Food, and the Pharmaceutical industry while helping creators craft products that enrich everyday life.",
+            "title_button": "Learn More \u003E",
+            "path": "/"
+          },
+          {
+            "id": 18,
+            "title": "Food & Beverage Solutions",
+            "description": "We craft experiences that bring joy to every bite, from savory ingredients, meat extracts, and cheese powders to beverages, desserts, and sauces. More than flavor, we aim to season life with delight.",
+            "title_button": "Learn More \u003E",
+            "path": "/"
+          },
+          {
+            "id": 19,
+            "title": "Taste & Scent",
+            "description": "We believe every taste carries a story and every scent stirs a feeling. Through our Taste and Scent solutions, we bring these moments to life, helping brands shape experiences that stay long after the first bite or the first breath.",
+            "title_button": "Learn More \u003E",
+            "path": "/"
+          },
+          {
+            "id": 20,
+            "title": "Specialty Food Ingredients",
+            "description": "Our curated collection of Specialty Ingredients, ranging from natural colors and stevia to stabilizers, dairy ingredients, and nutraceuticals, empowers brands to elevate both product performance and the overall consumer experience.",
+            "title_button": "Learn More \u003E",
+            "path": "/"
+          }
+        ]
+      }
+    ]
+  },
+  "meta": {
+
+  }
+}

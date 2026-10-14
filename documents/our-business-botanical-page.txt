@@ -1,0 +1,1837 @@
+http://localhost:1337/api/our-business-botanical?pLevel=5
+
+{
+  "data": {
+    "id": 7,
+    "documentId": "rziw608u6xzawkvxf1brvmmn",
+    "createdAt": "2025-12-11T04:13:18.733Z",
+    "updatedAt": "2025-12-13T10:18:00.352Z",
+    "publishedAt": "2025-12-13T10:18:00.380Z",
+    "page_info": {
+      "id": 72,
+      "title": "Botanical Origin",
+      "slug": "botanical-origin",
+      "path": "/our-business/botanical-detail/[slug]"
+    },
+    "page_sections": [
+      {
+        "__component": "our-business.hero-section",
+        "id": 5,
+        "hero_section": {
+          "id": 40,
+          "title": "Botanical Origin",
+          "background_image": {
+            "id": 110,
+            "documentId": "v5t9fpc96bbpnxjwjn6s1hlv",
+            "name": "Rectangle 5334 (1).png",
+            "alternativeText": null,
+            "caption": null,
+            "width": 1440,
+            "height": 480,
+            "formats": {
+              "large": {
+                "ext": ".png",
+                "url": "https://s3-local.deptechdigital.com/indesso/large_Rectangle_5334_1_56ea20c36e.png",
+                "hash": "large_Rectangle_5334_1_56ea20c36e",
+                "mime": "image/png",
+                "name": "large_Rectangle 5334 (1).png",
+                "path": null,
+                "size": 812.47,
+                "width": 1000,
+                "height": 333,
+                "sizeInBytes": 812474
+              },
+              "small": {
+                "ext": ".png",
+                "url": "https://s3-local.deptechdigital.com/indesso/small_Rectangle_5334_1_56ea20c36e.png",
+                "hash": "small_Rectangle_5334_1_56ea20c36e",
+                "mime": "image/png",
+                "name": "small_Rectangle 5334 (1).png",
+                "path": null,
+                "size": 215.94,
+                "width": 500,
+                "height": 167,
+                "sizeInBytes": 215936
+              },
+              "medium": {
+                "ext": ".png",
+                "url": "https://s3-local.deptechdigital.com/indesso/medium_Rectangle_5334_1_56ea20c36e.png",
+                "hash": "medium_Rectangle_5334_1_56ea20c36e",
+                "mime": "image/png",
+                "name": "medium_Rectangle 5334 (1).png",
+                "path": null,
+                "size": 470.1,
+                "width": 750,
+                "height": 250,
+                "sizeInBytes": 470097
+              },
+              "thumbnail": {
+                "ext": ".png",
+                "url": "https://s3-local.deptechdigital.com/indesso/thumbnail_Rectangle_5334_1_56ea20c36e.png",
+                "hash": "thumbnail_Rectangle_5334_1_56ea20c36e",
+                "mime": "image/png",
+                "name": "thumbnail_Rectangle 5334 (1).png",
+                "path": null,
+                "size": 54.99,
+                "width": 245,
+                "height": 82,
+                "sizeInBytes": 54993
+              }
+            },
+            "hash": "Rectangle_5334_1_56ea20c36e",
+            "ext": ".png",
+            "mime": "image/png",
+            "size": 337.69,
+            "url": "https://s3-local.deptechdigital.com/indesso/Rectangle_5334_1_56ea20c36e.png",
+            "previewUrl": null,
+            "provider": "strapi-provider-upload-minio-ce",
+            "provider_metadata": null,
+            "createdAt": "2025-12-11T04:19:53.874Z",
+            "updatedAt": "2025-12-11T04:19:53.874Z",
+            "publishedAt": "2025-12-11T04:19:53.876Z"
+          }
+        }
+      },
+      {
+        "__component": "our-business.list-product-section",
+        "id": 4,
+        "title": "This Plant Contains Key Natural Elements",
+        "button": {
+          "id": 79,
+          "title": "Visit Our Product Catalog for More",
+          "path": "/"
+        }
+      },
+      {
+        "__component": "our-business.faq-section",
+        "id": 3,
+        "eyebrow": "Frequently Asked Questions",
+        "title": "Questions Around This Botanical Origin"
+      },
+      {
+        "__component": "our-business.contact-us-section",
+        "id": 2,
+        "contact_us_section": {
+          "id": 2,
+          "eyebrow": "Contact Us",
+          "title": "Connect With Indesso",
+          "button": "Submit",
+          "image": {
+            "id": 118,
+            "documentId": "fkbfeynyes0rrwjpkrlpg4o0",
+            "name": "Placeholder Image (3).png",
+            "alternativeText": null,
+            "caption": null,
+            "width": 560,
+            "height": 736,
+            "formats": {
+              "small": {
+                "ext": ".png",
+                "url": "https://s3-local.deptechdigital.com/indesso/small_Placeholder_Image_3_88573cd26d.png",
+                "hash": "small_Placeholder_Image_3_88573cd26d",
+                "mime": "image/png",
+                "name": "small_Placeholder Image (3).png",
+                "path": null,
+                "size": 305.78,
+                "width": 380,
+                "height": 500,
+                "sizeInBytes": 305781
+              },
+              "thumbnail": {
+                "ext": ".png",
+                "url": "https://s3-local.deptechdigital.com/indesso/thumbnail_Placeholder_Image_3_88573cd26d.png",
+                "hash": "thumbnail_Placeholder_Image_3_88573cd26d",
+                "mime": "image/png",
+                "name": "thumbnail_Placeholder Image (3).png",
+                "path": null,
+                "size": 38.53,
+                "width": 119,
+                "height": 156,
+                "sizeInBytes": 38532
+              }
+            },
+            "hash": "Placeholder_Image_3_88573cd26d",
+            "ext": ".png",
+            "mime": "image/png",
+            "size": 166.49,
+            "url": "https://s3-local.deptechdigital.com/indesso/Placeholder_Image_3_88573cd26d.png",
+            "previewUrl": null,
+            "provider": "strapi-provider-upload-tp-minio",
+            "provider_metadata": null,
+            "createdAt": "2025-12-13T10:12:02.336Z",
+            "updatedAt": "2025-12-13T10:12:02.336Z",
+            "publishedAt": "2025-12-13T10:12:02.338Z"
+          },
+          "field_name": {
+            "id": 5,
+            "title": "Your Name",
+            "placeholder": "Write Your Name"
+          },
+          "field_company_name": {
+            "id": 6,
+            "title": "Company Name",
+            "placeholder": "Write your company name"
+          },
+          "field_email": {
+            "id": 7,
+            "title": "Email",
+            "placeholder": "Write your email"
+          },
+          "field_topic": {
+            "id": 2,
+            "title": "Inquiry Topics",
+            "placeholder": "Choose your inquiry topics",
+            "option": [
+              {
+                "id": 12,
+                "size": "test"
+              },
+              {
+                "id": 13,
+                "size": "test 2"
+              },
+              {
+                "id": 14,
+                "size": "test 3"
+              }
+            ]
+          },
+          "field_note": {
+            "id": 8,
+            "title": "Your Notes",
+            "placeholder": "Write your notes"
+          }
+        }
+      }
+    ]
+  },
+  "meta": {
+
+  }
+}
+
+http://localhost:1337/api/botanicals?filters[slug][$eq]=clove&pLevel=2
+
+{
+  "data": [
+    {
+      "id": 2,
+      "documentId": "glqt312597ibt7xg56hylq1j",
+      "name": "Clove",
+      "content": [
+        {
+          "type": "heading",
+          "level": 5,
+          "children": [
+            {
+              "bold": true,
+              "text": "A Key Player in the Global Spice Trade",
+              "type": "text",
+              "italic": true
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "Clove has long been a fundamental raw material in the global spice trade, contributing to the advancement of various industries, including pharmaceuticals, food and beverages, cosmetics, and personal care. Clove derivatives, such as eugenol, play a crucial role as primary ingredients in these industries.",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "As a leading player in the clove oil industry, Indesso is committed to producing only high-quality clove derivatives. The company ensures excellence in every step of the production process, including supply chain management, to maintain the highest standards.",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 5,
+          "children": [
+            {
+              "bold": true,
+              "text": "What Is Clove?",
+              "type": "text",
+              "italic": true
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "Clove, (Syzygium aromaticum) is an aromatic flower bud spice native to Indonesia and cultivated in tropical regions. The appeal of clove oil lies in its distinct and strong aroma, making it highly sought after in pharmaceuticals, food and beverage products, cosmetics, and self-care items. ",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "Beyond its aroma, clove contains several bioactive compounds, including eugenol and β-caryophyllene, which contribute to its medicinal properties. These key components are widely used in various industries, from Flavor and Fragrance to Pharmaceuticals, marking the important role of clove in the global market.",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 5,
+          "children": [
+            {
+              "bold": true,
+              "text": "Tortor nunc purus amet nam orci diam.",
+              "type": "text",
+              "italic": true
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "Pellentesque augue in donec vehicula urna. Curabitur et porta dui at tellus donec tellus amet morbi. Semper blandit pretium enim diam convallis at at. Nunc vulputate auctor velit urna amet fusce. Praesent dui eget semper blandit. Lacus integer pellentesque ut massa luctus elementum justo.",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "Quis suspendisse nec rhoncus fames leo lobortis risus purus nulla. Amet quam amet semper in aliquet. Pulvinar elementum tortor neque metus. Vitae nulla urna elementum nunc tortor sed. Ornare sit platea eu odio. In nulla justo commodo faucibus. Elit pharetra ut suscipit congue sit vitae libero.",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 5,
+          "children": [
+            {
+              "bold": true,
+              "text": "Tortor nunc purus amet nam orci diam.",
+              "type": "text",
+              "italic": true
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "Pellentesque augue in donec vehicula urna. Curabitur et porta dui at tellus donec tellus amet morbi. Semper blandit pretium enim diam convallis at at. Nunc vulputate auctor velit urna amet fusce. Praesent dui eget semper blandit. Lacus integer pellentesque ut massa luctus elementum justo.",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "Quis suspendisse nec rhoncus fames leo lobortis risus purus nulla. Amet quam amet semper in aliquet. Pulvinar elementum tortor neque metus. Vitae nulla urna elementum nunc tortor sed. Ornare sit platea eu odio. In nulla justo commodo faucibus. Elit pharetra ut suscipit congue sit vitae libero.",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 5,
+          "children": [
+            {
+              "bold": true,
+              "text": "Tortor nunc purus amet nam orci diam.",
+              "type": "text",
+              "italic": true
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "Pellentesque augue in donec vehicula urna. Curabitur et porta dui at tellus donec tellus amet morbi. Semper blandit pretium enim diam convallis at at. Nunc vulputate auctor velit urna amet fusce. Praesent dui eget semper blandit. Lacus integer pellentesque ut massa luctus elementum justo.",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "Quis suspendisse nec rhoncus fames leo lobortis risus purus nulla. Amet quam amet semper in aliquet. Pulvinar elementum tortor neque metus. Vitae nulla urna elementum nunc tortor sed. Ornare sit platea eu odio. In nulla justo commodo faucibus. Elit pharetra ut suscipit congue sit vitae libero.",
+              "type": "text"
+            }
+          ]
+        }
+      ],
+      "createdAt": "2025-12-09T04:24:58.839Z",
+      "updatedAt": "2025-12-09T04:25:01.517Z",
+      "publishedAt": "2025-12-09T04:25:01.698Z",
+      "slug": "clove",
+      "scientific_name": "Syzygium aromaticum",
+      "image_1": {
+        "id": 80,
+        "documentId": "bbqur469igh0cauhz4mholbs",
+        "name": "Group 5140317.png",
+        "alternativeText": null,
+        "caption": null,
+        "width": 600,
+        "height": 560,
+        "formats": {
+          "small": {
+            "ext": ".png",
+            "url": "https://s3-local.deptechdigital.com/indesso/small_Group_5140317_63dc36b303.png",
+            "hash": "small_Group_5140317_63dc36b303",
+            "mime": "image/png",
+            "name": "small_Group 5140317.png",
+            "path": null,
+            "size": 216.97,
+            "width": 500,
+            "height": 467,
+            "sizeInBytes": 216971
+          },
+          "thumbnail": {
+            "ext": ".png",
+            "url": "https://s3-local.deptechdigital.com/indesso/thumbnail_Group_5140317_63dc36b303.png",
+            "hash": "thumbnail_Group_5140317_63dc36b303",
+            "mime": "image/png",
+            "name": "thumbnail_Group 5140317.png",
+            "path": null,
+            "size": 26.59,
+            "width": 167,
+            "height": 156,
+            "sizeInBytes": 26590
+          }
+        },
+        "hash": "Group_5140317_63dc36b303",
+        "ext": ".png",
+        "mime": "image/png",
+        "size": 86.81,
+        "url": "https://s3-local.deptechdigital.com/indesso/Group_5140317_63dc36b303.png",
+        "previewUrl": null,
+        "provider": "strapi-provider-upload-minio-ce",
+        "provider_metadata": null,
+        "createdAt": "2025-12-09T04:23:09.060Z",
+        "updatedAt": "2025-12-09T04:23:09.060Z",
+        "publishedAt": "2025-12-09T04:23:09.060Z"
+      },
+      "image_2": {
+        "id": 81,
+        "documentId": "gh4q1y7kaljla3aiwinvbc0k",
+        "name": "indonesia-borobudur 2.png",
+        "alternativeText": null,
+        "caption": null,
+        "width": 560,
+        "height": 560,
+        "formats": {
+          "small": {
+            "ext": ".png",
+            "url": "https://s3-local.deptechdigital.com/indesso/small_indonesia_borobudur_2_e26f16d2de.png",
+            "hash": "small_indonesia_borobudur_2_e26f16d2de",
+            "mime": "image/png",
+            "name": "small_indonesia-borobudur 2.png",
+            "path": null,
+            "size": 738.05,
+            "width": 500,
+            "height": 500,
+            "sizeInBytes": 738049
+          },
+          "thumbnail": {
+            "ext": ".png",
+            "url": "https://s3-local.deptechdigital.com/indesso/thumbnail_indonesia_borobudur_2_e26f16d2de.png",
+            "hash": "thumbnail_indonesia_borobudur_2_e26f16d2de",
+            "mime": "image/png",
+            "name": "thumbnail_indonesia-borobudur 2.png",
+            "path": null,
+            "size": 78.78,
+            "width": 156,
+            "height": 156,
+            "sizeInBytes": 78779
+          }
+        },
+        "hash": "indonesia_borobudur_2_e26f16d2de",
+        "ext": ".png",
+        "mime": "image/png",
+        "size": 216.23,
+        "url": "https://s3-local.deptechdigital.com/indesso/indonesia_borobudur_2_e26f16d2de.png",
+        "previewUrl": null,
+        "provider": "strapi-provider-upload-minio-ce",
+        "provider_metadata": null,
+        "createdAt": "2025-12-09T04:24:33.210Z",
+        "updatedAt": "2025-12-09T04:24:33.210Z",
+        "publishedAt": "2025-12-09T04:24:33.210Z"
+      },
+      "seo": {
+        "id": 44,
+        "meta_title": "clove",
+        "meta_description": "clove"
+      },
+      "products": [
+        {
+          "id": 6,
+          "documentId": "y1wc6rke86yzzumuzf6qq3jo",
+          "createdAt": "2025-12-09T06:19:43.189Z",
+          "updatedAt": "2025-12-09T06:33:46.203Z",
+          "publishedAt": "2025-12-09T06:33:46.746Z",
+          "name": "Alpha-Caryophyllene 55%"
+        },
+        {
+          "id": 7,
+          "documentId": "ooxlkmb7h4yvo5u9lbvu6lfb",
+          "createdAt": "2025-12-09T06:28:33.631Z",
+          "updatedAt": "2025-12-09T06:34:07.568Z",
+          "publishedAt": "2025-12-09T06:34:07.791Z",
+          "name": "ALPHA CARYOPHYLLENE 900008"
+        },
+        {
+          "id": 9,
+          "documentId": "knp5e5mb8i4vjvjrw7pfik4e",
+          "createdAt": "2025-12-09T06:35:09.722Z",
+          "updatedAt": "2025-12-09T06:35:12.392Z",
+          "publishedAt": "2025-12-09T06:35:12.618Z",
+          "name": "ALPHA CARYOPHYLLENE 900021"
+        },
+        {
+          "id": 11,
+          "documentId": "cjeaidvg23xr7ac79u0l8c9z",
+          "createdAt": "2025-12-09T06:35:46.779Z",
+          "updatedAt": "2025-12-09T06:35:49.165Z",
+          "publishedAt": "2025-12-09T06:35:49.412Z",
+          "name": "BENZYL ISOEUGENOL 903"
+        }
+      ]
+    }
+  ],
+  "meta": {
+    "pagination": {
+      "page": 1,
+      "pageSize": 25,
+      "pageCount": 1,
+      "total": 1
+    }
+  }
+}
+
+http://localhost:1337/api/products?filters[botanical][slug][$eq]=clove&pLevel=2
+
+{
+  "data": [
+    {
+      "id": 6,
+      "documentId": "y1wc6rke86yzzumuzf6qq3jo",
+      "createdAt": "2025-12-09T06:19:43.189Z",
+      "updatedAt": "2025-12-09T06:33:46.203Z",
+      "publishedAt": "2025-12-09T06:33:46.746Z",
+      "name": "Alpha-Caryophyllene 55%",
+      "image": {
+        "id": 93,
+        "documentId": "tj0hg4zrkbmtlhz8ic92yzpy",
+        "name": "990ee282453553b1bb913fdfbe568239a68a5815.jpg",
+        "alternativeText": null,
+        "caption": null,
+        "width": 4096,
+        "height": 2731,
+        "formats": {
+          "large": {
+            "ext": ".jpg",
+            "url": "https://s3-local.deptechdigital.com/indesso/large_990ee282453553b1bb913fdfbe568239a68a5815_de7d269b72.jpg",
+            "hash": "large_990ee282453553b1bb913fdfbe568239a68a5815_de7d269b72",
+            "mime": "image/jpeg",
+            "name": "large_990ee282453553b1bb913fdfbe568239a68a5815.jpg",
+            "path": null,
+            "size": 226.61,
+            "width": 1000,
+            "height": 667,
+            "sizeInBytes": 226608
+          },
+          "small": {
+            "ext": ".jpg",
+            "url": "https://s3-local.deptechdigital.com/indesso/small_990ee282453553b1bb913fdfbe568239a68a5815_de7d269b72.jpg",
+            "hash": "small_990ee282453553b1bb913fdfbe568239a68a5815_de7d269b72",
+            "mime": "image/jpeg",
+            "name": "small_990ee282453553b1bb913fdfbe568239a68a5815.jpg",
+            "path": null,
+            "size": 61.93,
+            "width": 500,
+            "height": 333,
+            "sizeInBytes": 61933
+          },
+          "medium": {
+            "ext": ".jpg",
+            "url": "https://s3-local.deptechdigital.com/indesso/medium_990ee282453553b1bb913fdfbe568239a68a5815_de7d269b72.jpg",
+            "hash": "medium_990ee282453553b1bb913fdfbe568239a68a5815_de7d269b72",
+            "mime": "image/jpeg",
+            "name": "medium_990ee282453553b1bb913fdfbe568239a68a5815.jpg",
+            "path": null,
+            "size": 129,
+            "width": 750,
+            "height": 500,
+            "sizeInBytes": 129004
+          },
+          "thumbnail": {
+            "ext": ".jpg",
+            "url": "https://s3-local.deptechdigital.com/indesso/thumbnail_990ee282453553b1bb913fdfbe568239a68a5815_de7d269b72.jpg",
+            "hash": "thumbnail_990ee282453553b1bb913fdfbe568239a68a5815_de7d269b72",
+            "mime": "image/jpeg",
+            "name": "thumbnail_990ee282453553b1bb913fdfbe568239a68a5815.jpg",
+            "path": null,
+            "size": 16.07,
+            "width": 234,
+            "height": 156,
+            "sizeInBytes": 16070
+          }
+        },
+        "hash": "990ee282453553b1bb913fdfbe568239a68a5815_de7d269b72",
+        "ext": ".jpg",
+        "mime": "image/jpeg",
+        "size": 2414.54,
+        "url": "https://s3-local.deptechdigital.com/indesso/990ee282453553b1bb913fdfbe568239a68a5815_de7d269b72.jpg",
+        "previewUrl": null,
+        "provider": "strapi-provider-upload-minio-ce",
+        "provider_metadata": null,
+        "createdAt": "2025-12-09T06:33:38.986Z",
+        "updatedAt": "2025-12-09T06:33:38.986Z",
+        "publishedAt": "2025-12-09T06:33:38.986Z"
+      },
+      "product_category": {
+        "id": 17,
+        "documentId": "popwhqq4503wvoaj72w7g7yx",
+        "name": "Aroma Chemicals",
+        "createdAt": "2025-12-09T06:14:43.490Z",
+        "updatedAt": "2025-12-09T08:08:27.458Z",
+        "publishedAt": "2025-12-09T08:08:27.553Z",
+        "slug": "aroma-chemicals",
+        "description": null
+      },
+      "botanical": {
+        "id": 2,
+        "documentId": "glqt312597ibt7xg56hylq1j",
+        "name": "Clove",
+        "content": [
+          {
+            "type": "heading",
+            "level": 5,
+            "children": [
+              {
+                "bold": true,
+                "text": "A Key Player in the Global Spice Trade",
+                "type": "text",
+                "italic": true
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "text": "Clove has long been a fundamental raw material in the global spice trade, contributing to the advancement of various industries, including pharmaceuticals, food and beverages, cosmetics, and personal care. Clove derivatives, such as eugenol, play a crucial role as primary ingredients in these industries.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "text": "As a leading player in the clove oil industry, Indesso is committed to producing only high-quality clove derivatives. The company ensures excellence in every step of the production process, including supply chain management, to maintain the highest standards.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "level": 5,
+            "children": [
+              {
+                "bold": true,
+                "text": "What Is Clove?",
+                "type": "text",
+                "italic": true
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "text": "Clove, (Syzygium aromaticum) is an aromatic flower bud spice native to Indonesia and cultivated in tropical regions. The appeal of clove oil lies in its distinct and strong aroma, making it highly sought after in pharmaceuticals, food and beverage products, cosmetics, and self-care items. ",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "text": "Beyond its aroma, clove contains several bioactive compounds, including eugenol and β-caryophyllene, which contribute to its medicinal properties. These key components are widely used in various industries, from Flavor and Fragrance to Pharmaceuticals, marking the important role of clove in the global market.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "level": 5,
+            "children": [
+              {
+                "bold": true,
+                "text": "Tortor nunc purus amet nam orci diam.",
+                "type": "text",
+                "italic": true
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "text": "Pellentesque augue in donec vehicula urna. Curabitur et porta dui at tellus donec tellus amet morbi. Semper blandit pretium enim diam convallis at at. Nunc vulputate auctor velit urna amet fusce. Praesent dui eget semper blandit. Lacus integer pellentesque ut massa luctus elementum justo.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "text": "Quis suspendisse nec rhoncus fames leo lobortis risus purus nulla. Amet quam amet semper in aliquet. Pulvinar elementum tortor neque metus. Vitae nulla urna elementum nunc tortor sed. Ornare sit platea eu odio. In nulla justo commodo faucibus. Elit pharetra ut suscipit congue sit vitae libero.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "level": 5,
+            "children": [
+              {
+                "bold": true,
+                "text": "Tortor nunc purus amet nam orci diam.",
+                "type": "text",
+                "italic": true
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "text": "Pellentesque augue in donec vehicula urna. Curabitur et porta dui at tellus donec tellus amet morbi. Semper blandit pretium enim diam convallis at at. Nunc vulputate auctor velit urna amet fusce. Praesent dui eget semper blandit. Lacus integer pellentesque ut massa luctus elementum justo.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "text": "Quis suspendisse nec rhoncus fames leo lobortis risus purus nulla. Amet quam amet semper in aliquet. Pulvinar elementum tortor neque metus. Vitae nulla urna elementum nunc tortor sed. Ornare sit platea eu odio. In nulla justo commodo faucibus. Elit pharetra ut suscipit congue sit vitae libero.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "level": 5,
+            "children": [
+              {
+                "bold": true,
+                "text": "Tortor nunc purus amet nam orci diam.",
+                "type": "text",
+                "italic": true
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "text": "Pellentesque augue in donec vehicula urna. Curabitur et porta dui at tellus donec tellus amet morbi. Semper blandit pretium enim diam convallis at at. Nunc vulputate auctor velit urna amet fusce. Praesent dui eget semper blandit. Lacus integer pellentesque ut massa luctus elementum justo.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "text": "Quis suspendisse nec rhoncus fames leo lobortis risus purus nulla. Amet quam amet semper in aliquet. Pulvinar elementum tortor neque metus. Vitae nulla urna elementum nunc tortor sed. Ornare sit platea eu odio. In nulla justo commodo faucibus. Elit pharetra ut suscipit congue sit vitae libero.",
+                "type": "text"
+              }
+            ]
+          }
+        ],
+        "createdAt": "2025-12-09T04:24:58.839Z",
+        "updatedAt": "2025-12-09T04:25:01.517Z",
+        "publishedAt": "2025-12-09T04:25:01.698Z",
+        "slug": "clove",
+        "scientific_name": "Syzygium aromaticum"
+      },
+      "organoleptics": [
+        {
+          "id": 14,
+          "documentId": "bu3vn0w4ouv1ciyw5r3z7z4m",
+          "name": "balsamic soft",
+          "slug": "balsamic-soft",
+          "description": null,
+          "createdAt": "2025-12-09T04:44:11.582Z",
+          "updatedAt": "2025-12-09T04:44:12.784Z",
+          "publishedAt": "2025-12-09T04:44:12.864Z"
+        },
+        {
+          "id": 22,
+          "documentId": "ezlui7jyrhcg9siysjcctznq",
+          "name": "light earthy",
+          "slug": "light-earthy",
+          "description": null,
+          "createdAt": "2025-12-09T06:13:00.101Z",
+          "updatedAt": "2025-12-09T06:13:01.202Z",
+          "publishedAt": "2025-12-09T06:13:01.318Z"
+        },
+        {
+          "id": 18,
+          "documentId": "ew48tie9iy6zrf7b5ly12u6c",
+          "name": "metallic airy",
+          "slug": "metallic-airy",
+          "description": null,
+          "createdAt": "2025-12-09T06:12:29.576Z",
+          "updatedAt": "2025-12-09T06:12:30.776Z",
+          "publishedAt": "2025-12-09T06:12:30.856Z"
+        },
+        {
+          "id": 16,
+          "documentId": "lgyp0x1wul1l5hwuaip3qjc0",
+          "name": "mineral fresh",
+          "slug": "mineral-fresh",
+          "description": null,
+          "createdAt": "2025-12-09T04:44:27.851Z",
+          "updatedAt": "2025-12-09T04:44:29.433Z",
+          "publishedAt": "2025-12-09T04:44:29.564Z"
+        },
+        {
+          "id": 12,
+          "documentId": "ewzo6g9bo6wwk7cly8whjd1m",
+          "name": "resinous",
+          "slug": "resinous",
+          "description": null,
+          "createdAt": "2025-12-09T04:43:56.358Z",
+          "updatedAt": "2025-12-09T04:43:58.295Z",
+          "publishedAt": "2025-12-09T04:43:58.365Z"
+        },
+        {
+          "id": 20,
+          "documentId": "fylt6i7zgyfat978wvi8ginc",
+          "name": "subtle herbal",
+          "slug": "subtle-herbal",
+          "description": null,
+          "createdAt": "2025-12-09T06:12:41.895Z",
+          "updatedAt": "2025-12-09T06:12:43.038Z",
+          "publishedAt": "2025-12-09T06:12:43.124Z"
+        }
+      ],
+      "product_format": {
+        "id": 2,
+        "documentId": "gob3wmcwqfzx5gl64f5g2haf",
+        "name": "Liquid",
+        "slug": "liquid",
+        "createdAt": "2025-12-09T06:15:55.275Z",
+        "updatedAt": "2025-12-09T06:15:55.275Z",
+        "publishedAt": "2025-12-09T06:15:55.366Z",
+        "description": null
+      },
+      "industry_categories": [
+        {
+          "id": 2,
+          "documentId": "srlp9fkahtfvo8swusyx2zlo",
+          "name": "Flavor & Fragrance",
+          "slug": "flavor-and-fragrance",
+          "description": null,
+          "createdAt": "2025-12-09T04:37:13.617Z",
+          "updatedAt": "2025-12-09T04:37:15.032Z",
+          "publishedAt": "2025-12-09T04:37:15.135Z"
+        },
+        {
+          "id": 4,
+          "documentId": "rn8f6hjuu95pnaq6n8jsjqdu",
+          "name": "Agriculture",
+          "slug": "agriculture",
+          "description": null,
+          "createdAt": "2025-12-09T04:37:52.197Z",
+          "updatedAt": "2025-12-09T04:37:53.550Z",
+          "publishedAt": "2025-12-09T04:37:53.668Z"
+        }
+      ],
+      "general_information": {
+        "id": 4,
+        "cas_number": "6753-98-6",
+        "inci_name": "-",
+        "moq": "20 Kg",
+        "ec_number": "229-816-7",
+        "shelf_life": "24 Months",
+        "fema_number": "-"
+      }
+    },
+    {
+      "id": 7,
+      "documentId": "ooxlkmb7h4yvo5u9lbvu6lfb",
+      "createdAt": "2025-12-09T06:28:33.631Z",
+      "updatedAt": "2025-12-09T06:34:07.568Z",
+      "publishedAt": "2025-12-09T06:34:07.791Z",
+      "name": "ALPHA CARYOPHYLLENE 900008",
+      "image": {
+        "id": 93,
+        "documentId": "tj0hg4zrkbmtlhz8ic92yzpy",
+        "name": "990ee282453553b1bb913fdfbe568239a68a5815.jpg",
+        "alternativeText": null,
+        "caption": null,
+        "width": 4096,
+        "height": 2731,
+        "formats": {
+          "large": {
+            "ext": ".jpg",
+            "url": "https://s3-local.deptechdigital.com/indesso/large_990ee282453553b1bb913fdfbe568239a68a5815_de7d269b72.jpg",
+            "hash": "large_990ee282453553b1bb913fdfbe568239a68a5815_de7d269b72",
+            "mime": "image/jpeg",
+            "name": "large_990ee282453553b1bb913fdfbe568239a68a5815.jpg",
+            "path": null,
+            "size": 226.61,
+            "width": 1000,
+            "height": 667,
+            "sizeInBytes": 226608
+          },
+          "small": {
+            "ext": ".jpg",
+            "url": "https://s3-local.deptechdigital.com/indesso/small_990ee282453553b1bb913fdfbe568239a68a5815_de7d269b72.jpg",
+            "hash": "small_990ee282453553b1bb913fdfbe568239a68a5815_de7d269b72",
+            "mime": "image/jpeg",
+            "name": "small_990ee282453553b1bb913fdfbe568239a68a5815.jpg",
+            "path": null,
+            "size": 61.93,
+            "width": 500,
+            "height": 333,
+            "sizeInBytes": 61933
+          },
+          "medium": {
+            "ext": ".jpg",
+            "url": "https://s3-local.deptechdigital.com/indesso/medium_990ee282453553b1bb913fdfbe568239a68a5815_de7d269b72.jpg",
+            "hash": "medium_990ee282453553b1bb913fdfbe568239a68a5815_de7d269b72",
+            "mime": "image/jpeg",
+            "name": "medium_990ee282453553b1bb913fdfbe568239a68a5815.jpg",
+            "path": null,
+            "size": 129,
+            "width": 750,
+            "height": 500,
+            "sizeInBytes": 129004
+          },
+          "thumbnail": {
+            "ext": ".jpg",
+            "url": "https://s3-local.deptechdigital.com/indesso/thumbnail_990ee282453553b1bb913fdfbe568239a68a5815_de7d269b72.jpg",
+            "hash": "thumbnail_990ee282453553b1bb913fdfbe568239a68a5815_de7d269b72",
+            "mime": "image/jpeg",
+            "name": "thumbnail_990ee282453553b1bb913fdfbe568239a68a5815.jpg",
+            "path": null,
+            "size": 16.07,
+            "width": 234,
+            "height": 156,
+            "sizeInBytes": 16070
+          }
+        },
+        "hash": "990ee282453553b1bb913fdfbe568239a68a5815_de7d269b72",
+        "ext": ".jpg",
+        "mime": "image/jpeg",
+        "size": 2414.54,
+        "url": "https://s3-local.deptechdigital.com/indesso/990ee282453553b1bb913fdfbe568239a68a5815_de7d269b72.jpg",
+        "previewUrl": null,
+        "provider": "strapi-provider-upload-minio-ce",
+        "provider_metadata": null,
+        "createdAt": "2025-12-09T06:33:38.986Z",
+        "updatedAt": "2025-12-09T06:33:38.986Z",
+        "publishedAt": "2025-12-09T06:33:38.986Z"
+      },
+      "product_category": {
+        "id": 17,
+        "documentId": "popwhqq4503wvoaj72w7g7yx",
+        "name": "Aroma Chemicals",
+        "createdAt": "2025-12-09T06:14:43.490Z",
+        "updatedAt": "2025-12-09T08:08:27.458Z",
+        "publishedAt": "2025-12-09T08:08:27.553Z",
+        "slug": "aroma-chemicals",
+        "description": null
+      },
+      "botanical": {
+        "id": 2,
+        "documentId": "glqt312597ibt7xg56hylq1j",
+        "name": "Clove",
+        "content": [
+          {
+            "type": "heading",
+            "level": 5,
+            "children": [
+              {
+                "bold": true,
+                "text": "A Key Player in the Global Spice Trade",
+                "type": "text",
+                "italic": true
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "text": "Clove has long been a fundamental raw material in the global spice trade, contributing to the advancement of various industries, including pharmaceuticals, food and beverages, cosmetics, and personal care. Clove derivatives, such as eugenol, play a crucial role as primary ingredients in these industries.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "text": "As a leading player in the clove oil industry, Indesso is committed to producing only high-quality clove derivatives. The company ensures excellence in every step of the production process, including supply chain management, to maintain the highest standards.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "level": 5,
+            "children": [
+              {
+                "bold": true,
+                "text": "What Is Clove?",
+                "type": "text",
+                "italic": true
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "text": "Clove, (Syzygium aromaticum) is an aromatic flower bud spice native to Indonesia and cultivated in tropical regions. The appeal of clove oil lies in its distinct and strong aroma, making it highly sought after in pharmaceuticals, food and beverage products, cosmetics, and self-care items. ",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "text": "Beyond its aroma, clove contains several bioactive compounds, including eugenol and β-caryophyllene, which contribute to its medicinal properties. These key components are widely used in various industries, from Flavor and Fragrance to Pharmaceuticals, marking the important role of clove in the global market.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "level": 5,
+            "children": [
+              {
+                "bold": true,
+                "text": "Tortor nunc purus amet nam orci diam.",
+                "type": "text",
+                "italic": true
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "text": "Pellentesque augue in donec vehicula urna. Curabitur et porta dui at tellus donec tellus amet morbi. Semper blandit pretium enim diam convallis at at. Nunc vulputate auctor velit urna amet fusce. Praesent dui eget semper blandit. Lacus integer pellentesque ut massa luctus elementum justo.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "text": "Quis suspendisse nec rhoncus fames leo lobortis risus purus nulla. Amet quam amet semper in aliquet. Pulvinar elementum tortor neque metus. Vitae nulla urna elementum nunc tortor sed. Ornare sit platea eu odio. In nulla justo commodo faucibus. Elit pharetra ut suscipit congue sit vitae libero.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "level": 5,
+            "children": [
+              {
+                "bold": true,
+                "text": "Tortor nunc purus amet nam orci diam.",
+                "type": "text",
+                "italic": true
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "text": "Pellentesque augue in donec vehicula urna. Curabitur et porta dui at tellus donec tellus amet morbi. Semper blandit pretium enim diam convallis at at. Nunc vulputate auctor velit urna amet fusce. Praesent dui eget semper blandit. Lacus integer pellentesque ut massa luctus elementum justo.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "text": "Quis suspendisse nec rhoncus fames leo lobortis risus purus nulla. Amet quam amet semper in aliquet. Pulvinar elementum tortor neque metus. Vitae nulla urna elementum nunc tortor sed. Ornare sit platea eu odio. In nulla justo commodo faucibus. Elit pharetra ut suscipit congue sit vitae libero.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "level": 5,
+            "children": [
+              {
+                "bold": true,
+                "text": "Tortor nunc purus amet nam orci diam.",
+                "type": "text",
+                "italic": true
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "text": "Pellentesque augue in donec vehicula urna. Curabitur et porta dui at tellus donec tellus amet morbi. Semper blandit pretium enim diam convallis at at. Nunc vulputate auctor velit urna amet fusce. Praesent dui eget semper blandit. Lacus integer pellentesque ut massa luctus elementum justo.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "text": "Quis suspendisse nec rhoncus fames leo lobortis risus purus nulla. Amet quam amet semper in aliquet. Pulvinar elementum tortor neque metus. Vitae nulla urna elementum nunc tortor sed. Ornare sit platea eu odio. In nulla justo commodo faucibus. Elit pharetra ut suscipit congue sit vitae libero.",
+                "type": "text"
+              }
+            ]
+          }
+        ],
+        "createdAt": "2025-12-09T04:24:58.839Z",
+        "updatedAt": "2025-12-09T04:25:01.517Z",
+        "publishedAt": "2025-12-09T04:25:01.698Z",
+        "slug": "clove",
+        "scientific_name": "Syzygium aromaticum"
+      },
+      "organoleptics": [
+        {
+          "id": 4,
+          "documentId": "vspqlet6xpwfbfit22sfk1o5",
+          "name": "spicy",
+          "slug": "spicy",
+          "description": null,
+          "createdAt": "2025-12-09T04:42:21.420Z",
+          "updatedAt": "2025-12-09T04:42:22.669Z",
+          "publishedAt": "2025-12-09T04:42:22.761Z"
+        },
+        {
+          "id": 10,
+          "documentId": "rnpitikjmqk8wok07gek2bac",
+          "name": "slightly green",
+          "slug": "slightly-green",
+          "description": null,
+          "createdAt": "2025-12-09T04:43:15.730Z",
+          "updatedAt": "2025-12-09T04:43:16.984Z",
+          "publishedAt": "2025-12-09T04:43:17.046Z"
+        }
+      ],
+      "product_format": {
+        "id": 2,
+        "documentId": "gob3wmcwqfzx5gl64f5g2haf",
+        "name": "Liquid",
+        "slug": "liquid",
+        "createdAt": "2025-12-09T06:15:55.275Z",
+        "updatedAt": "2025-12-09T06:15:55.275Z",
+        "publishedAt": "2025-12-09T06:15:55.366Z",
+        "description": null
+      },
+      "industry_categories": [
+        {
+          "id": 4,
+          "documentId": "rn8f6hjuu95pnaq6n8jsjqdu",
+          "name": "Agriculture",
+          "slug": "agriculture",
+          "description": null,
+          "createdAt": "2025-12-09T04:37:52.197Z",
+          "updatedAt": "2025-12-09T04:37:53.550Z",
+          "publishedAt": "2025-12-09T04:37:53.668Z"
+        }
+      ],
+      "general_information": null
+    },
+    {
+      "id": 9,
+      "documentId": "knp5e5mb8i4vjvjrw7pfik4e",
+      "createdAt": "2025-12-09T06:35:09.722Z",
+      "updatedAt": "2025-12-09T06:35:12.392Z",
+      "publishedAt": "2025-12-09T06:35:12.618Z",
+      "name": "ALPHA CARYOPHYLLENE 900021",
+      "image": {
+        "id": 93,
+        "documentId": "tj0hg4zrkbmtlhz8ic92yzpy",
+        "name": "990ee282453553b1bb913fdfbe568239a68a5815.jpg",
+        "alternativeText": null,
+        "caption": null,
+        "width": 4096,
+        "height": 2731,
+        "formats": {
+          "large": {
+            "ext": ".jpg",
+            "url": "https://s3-local.deptechdigital.com/indesso/large_990ee282453553b1bb913fdfbe568239a68a5815_de7d269b72.jpg",
+            "hash": "large_990ee282453553b1bb913fdfbe568239a68a5815_de7d269b72",
+            "mime": "image/jpeg",
+            "name": "large_990ee282453553b1bb913fdfbe568239a68a5815.jpg",
+            "path": null,
+            "size": 226.61,
+            "width": 1000,
+            "height": 667,
+            "sizeInBytes": 226608
+          },
+          "small": {
+            "ext": ".jpg",
+            "url": "https://s3-local.deptechdigital.com/indesso/small_990ee282453553b1bb913fdfbe568239a68a5815_de7d269b72.jpg",
+            "hash": "small_990ee282453553b1bb913fdfbe568239a68a5815_de7d269b72",
+            "mime": "image/jpeg",
+            "name": "small_990ee282453553b1bb913fdfbe568239a68a5815.jpg",
+            "path": null,
+            "size": 61.93,
+            "width": 500,
+            "height": 333,
+            "sizeInBytes": 61933
+          },
+          "medium": {
+            "ext": ".jpg",
+            "url": "https://s3-local.deptechdigital.com/indesso/medium_990ee282453553b1bb913fdfbe568239a68a5815_de7d269b72.jpg",
+            "hash": "medium_990ee282453553b1bb913fdfbe568239a68a5815_de7d269b72",
+            "mime": "image/jpeg",
+            "name": "medium_990ee282453553b1bb913fdfbe568239a68a5815.jpg",
+            "path": null,
+            "size": 129,
+            "width": 750,
+            "height": 500,
+            "sizeInBytes": 129004
+          },
+          "thumbnail": {
+            "ext": ".jpg",
+            "url": "https://s3-local.deptechdigital.com/indesso/thumbnail_990ee282453553b1bb913fdfbe568239a68a5815_de7d269b72.jpg",
+            "hash": "thumbnail_990ee282453553b1bb913fdfbe568239a68a5815_de7d269b72",
+            "mime": "image/jpeg",
+            "name": "thumbnail_990ee282453553b1bb913fdfbe568239a68a5815.jpg",
+            "path": null,
+            "size": 16.07,
+            "width": 234,
+            "height": 156,
+            "sizeInBytes": 16070
+          }
+        },
+        "hash": "990ee282453553b1bb913fdfbe568239a68a5815_de7d269b72",
+        "ext": ".jpg",
+        "mime": "image/jpeg",
+        "size": 2414.54,
+        "url": "https://s3-local.deptechdigital.com/indesso/990ee282453553b1bb913fdfbe568239a68a5815_de7d269b72.jpg",
+        "previewUrl": null,
+        "provider": "strapi-provider-upload-minio-ce",
+        "provider_metadata": null,
+        "createdAt": "2025-12-09T06:33:38.986Z",
+        "updatedAt": "2025-12-09T06:33:38.986Z",
+        "publishedAt": "2025-12-09T06:33:38.986Z"
+      },
+      "product_category": {
+        "id": 17,
+        "documentId": "popwhqq4503wvoaj72w7g7yx",
+        "name": "Aroma Chemicals",
+        "createdAt": "2025-12-09T06:14:43.490Z",
+        "updatedAt": "2025-12-09T08:08:27.458Z",
+        "publishedAt": "2025-12-09T08:08:27.553Z",
+        "slug": "aroma-chemicals",
+        "description": null
+      },
+      "botanical": {
+        "id": 2,
+        "documentId": "glqt312597ibt7xg56hylq1j",
+        "name": "Clove",
+        "content": [
+          {
+            "type": "heading",
+            "level": 5,
+            "children": [
+              {
+                "bold": true,
+                "text": "A Key Player in the Global Spice Trade",
+                "type": "text",
+                "italic": true
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "text": "Clove has long been a fundamental raw material in the global spice trade, contributing to the advancement of various industries, including pharmaceuticals, food and beverages, cosmetics, and personal care. Clove derivatives, such as eugenol, play a crucial role as primary ingredients in these industries.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "text": "As a leading player in the clove oil industry, Indesso is committed to producing only high-quality clove derivatives. The company ensures excellence in every step of the production process, including supply chain management, to maintain the highest standards.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "level": 5,
+            "children": [
+              {
+                "bold": true,
+                "text": "What Is Clove?",
+                "type": "text",
+                "italic": true
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "text": "Clove, (Syzygium aromaticum) is an aromatic flower bud spice native to Indonesia and cultivated in tropical regions. The appeal of clove oil lies in its distinct and strong aroma, making it highly sought after in pharmaceuticals, food and beverage products, cosmetics, and self-care items. ",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "text": "Beyond its aroma, clove contains several bioactive compounds, including eugenol and β-caryophyllene, which contribute to its medicinal properties. These key components are widely used in various industries, from Flavor and Fragrance to Pharmaceuticals, marking the important role of clove in the global market.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "level": 5,
+            "children": [
+              {
+                "bold": true,
+                "text": "Tortor nunc purus amet nam orci diam.",
+                "type": "text",
+                "italic": true
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "text": "Pellentesque augue in donec vehicula urna. Curabitur et porta dui at tellus donec tellus amet morbi. Semper blandit pretium enim diam convallis at at. Nunc vulputate auctor velit urna amet fusce. Praesent dui eget semper blandit. Lacus integer pellentesque ut massa luctus elementum justo.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "text": "Quis suspendisse nec rhoncus fames leo lobortis risus purus nulla. Amet quam amet semper in aliquet. Pulvinar elementum tortor neque metus. Vitae nulla urna elementum nunc tortor sed. Ornare sit platea eu odio. In nulla justo commodo faucibus. Elit pharetra ut suscipit congue sit vitae libero.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "level": 5,
+            "children": [
+              {
+                "bold": true,
+                "text": "Tortor nunc purus amet nam orci diam.",
+                "type": "text",
+                "italic": true
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "text": "Pellentesque augue in donec vehicula urna. Curabitur et porta dui at tellus donec tellus amet morbi. Semper blandit pretium enim diam convallis at at. Nunc vulputate auctor velit urna amet fusce. Praesent dui eget semper blandit. Lacus integer pellentesque ut massa luctus elementum justo.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "text": "Quis suspendisse nec rhoncus fames leo lobortis risus purus nulla. Amet quam amet semper in aliquet. Pulvinar elementum tortor neque metus. Vitae nulla urna elementum nunc tortor sed. Ornare sit platea eu odio. In nulla justo commodo faucibus. Elit pharetra ut suscipit congue sit vitae libero.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "level": 5,
+            "children": [
+              {
+                "bold": true,
+                "text": "Tortor nunc purus amet nam orci diam.",
+                "type": "text",
+                "italic": true
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "text": "Pellentesque augue in donec vehicula urna. Curabitur et porta dui at tellus donec tellus amet morbi. Semper blandit pretium enim diam convallis at at. Nunc vulputate auctor velit urna amet fusce. Praesent dui eget semper blandit. Lacus integer pellentesque ut massa luctus elementum justo.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "text": "Quis suspendisse nec rhoncus fames leo lobortis risus purus nulla. Amet quam amet semper in aliquet. Pulvinar elementum tortor neque metus. Vitae nulla urna elementum nunc tortor sed. Ornare sit platea eu odio. In nulla justo commodo faucibus. Elit pharetra ut suscipit congue sit vitae libero.",
+                "type": "text"
+              }
+            ]
+          }
+        ],
+        "createdAt": "2025-12-09T04:24:58.839Z",
+        "updatedAt": "2025-12-09T04:25:01.517Z",
+        "publishedAt": "2025-12-09T04:25:01.698Z",
+        "slug": "clove",
+        "scientific_name": "Syzygium aromaticum"
+      },
+      "organoleptics": [
+        {
+          "id": 2,
+          "documentId": "k93574kfghm778xcz1klb8jb",
+          "name": "Woody",
+          "slug": "woody",
+          "description": null,
+          "createdAt": "2025-12-09T04:42:08.471Z",
+          "updatedAt": "2025-12-09T04:42:09.615Z",
+          "publishedAt": "2025-12-09T04:42:09.689Z"
+        }
+      ],
+      "product_format": {
+        "id": 2,
+        "documentId": "gob3wmcwqfzx5gl64f5g2haf",
+        "name": "Liquid",
+        "slug": "liquid",
+        "createdAt": "2025-12-09T06:15:55.275Z",
+        "updatedAt": "2025-12-09T06:15:55.275Z",
+        "publishedAt": "2025-12-09T06:15:55.366Z",
+        "description": null
+      },
+      "industry_categories": [
+        {
+          "id": 4,
+          "documentId": "rn8f6hjuu95pnaq6n8jsjqdu",
+          "name": "Agriculture",
+          "slug": "agriculture",
+          "description": null,
+          "createdAt": "2025-12-09T04:37:52.197Z",
+          "updatedAt": "2025-12-09T04:37:53.550Z",
+          "publishedAt": "2025-12-09T04:37:53.668Z"
+        }
+      ],
+      "general_information": null
+    },
+    {
+      "id": 11,
+      "documentId": "cjeaidvg23xr7ac79u0l8c9z",
+      "createdAt": "2025-12-09T06:35:46.779Z",
+      "updatedAt": "2025-12-09T06:35:49.165Z",
+      "publishedAt": "2025-12-09T06:35:49.412Z",
+      "name": "BENZYL ISOEUGENOL 903",
+      "image": {
+        "id": 93,
+        "documentId": "tj0hg4zrkbmtlhz8ic92yzpy",
+        "name": "990ee282453553b1bb913fdfbe568239a68a5815.jpg",
+        "alternativeText": null,
+        "caption": null,
+        "width": 4096,
+        "height": 2731,
+        "formats": {
+          "large": {
+            "ext": ".jpg",
+            "url": "https://s3-local.deptechdigital.com/indesso/large_990ee282453553b1bb913fdfbe568239a68a5815_de7d269b72.jpg",
+            "hash": "large_990ee282453553b1bb913fdfbe568239a68a5815_de7d269b72",
+            "mime": "image/jpeg",
+            "name": "large_990ee282453553b1bb913fdfbe568239a68a5815.jpg",
+            "path": null,
+            "size": 226.61,
+            "width": 1000,
+            "height": 667,
+            "sizeInBytes": 226608
+          },
+          "small": {
+            "ext": ".jpg",
+            "url": "https://s3-local.deptechdigital.com/indesso/small_990ee282453553b1bb913fdfbe568239a68a5815_de7d269b72.jpg",
+            "hash": "small_990ee282453553b1bb913fdfbe568239a68a5815_de7d269b72",
+            "mime": "image/jpeg",
+            "name": "small_990ee282453553b1bb913fdfbe568239a68a5815.jpg",
+            "path": null,
+            "size": 61.93,
+            "width": 500,
+            "height": 333,
+            "sizeInBytes": 61933
+          },
+          "medium": {
+            "ext": ".jpg",
+            "url": "https://s3-local.deptechdigital.com/indesso/medium_990ee282453553b1bb913fdfbe568239a68a5815_de7d269b72.jpg",
+            "hash": "medium_990ee282453553b1bb913fdfbe568239a68a5815_de7d269b72",
+            "mime": "image/jpeg",
+            "name": "medium_990ee282453553b1bb913fdfbe568239a68a5815.jpg",
+            "path": null,
+            "size": 129,
+            "width": 750,
+            "height": 500,
+            "sizeInBytes": 129004
+          },
+          "thumbnail": {
+            "ext": ".jpg",
+            "url": "https://s3-local.deptechdigital.com/indesso/thumbnail_990ee282453553b1bb913fdfbe568239a68a5815_de7d269b72.jpg",
+            "hash": "thumbnail_990ee282453553b1bb913fdfbe568239a68a5815_de7d269b72",
+            "mime": "image/jpeg",
+            "name": "thumbnail_990ee282453553b1bb913fdfbe568239a68a5815.jpg",
+            "path": null,
+            "size": 16.07,
+            "width": 234,
+            "height": 156,
+            "sizeInBytes": 16070
+          }
+        },
+        "hash": "990ee282453553b1bb913fdfbe568239a68a5815_de7d269b72",
+        "ext": ".jpg",
+        "mime": "image/jpeg",
+        "size": 2414.54,
+        "url": "https://s3-local.deptechdigital.com/indesso/990ee282453553b1bb913fdfbe568239a68a5815_de7d269b72.jpg",
+        "previewUrl": null,
+        "provider": "strapi-provider-upload-minio-ce",
+        "provider_metadata": null,
+        "createdAt": "2025-12-09T06:33:38.986Z",
+        "updatedAt": "2025-12-09T06:33:38.986Z",
+        "publishedAt": "2025-12-09T06:33:38.986Z"
+      },
+      "product_category": {
+        "id": 17,
+        "documentId": "popwhqq4503wvoaj72w7g7yx",
+        "name": "Aroma Chemicals",
+        "createdAt": "2025-12-09T06:14:43.490Z",
+        "updatedAt": "2025-12-09T08:08:27.458Z",
+        "publishedAt": "2025-12-09T08:08:27.553Z",
+        "slug": "aroma-chemicals",
+        "description": null
+      },
+      "botanical": {
+        "id": 2,
+        "documentId": "glqt312597ibt7xg56hylq1j",
+        "name": "Clove",
+        "content": [
+          {
+            "type": "heading",
+            "level": 5,
+            "children": [
+              {
+                "bold": true,
+                "text": "A Key Player in the Global Spice Trade",
+                "type": "text",
+                "italic": true
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "text": "Clove has long been a fundamental raw material in the global spice trade, contributing to the advancement of various industries, including pharmaceuticals, food and beverages, cosmetics, and personal care. Clove derivatives, such as eugenol, play a crucial role as primary ingredients in these industries.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "text": "As a leading player in the clove oil industry, Indesso is committed to producing only high-quality clove derivatives. The company ensures excellence in every step of the production process, including supply chain management, to maintain the highest standards.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "level": 5,
+            "children": [
+              {
+                "bold": true,
+                "text": "What Is Clove?",
+                "type": "text",
+                "italic": true
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "text": "Clove, (Syzygium aromaticum) is an aromatic flower bud spice native to Indonesia and cultivated in tropical regions. The appeal of clove oil lies in its distinct and strong aroma, making it highly sought after in pharmaceuticals, food and beverage products, cosmetics, and self-care items. ",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "text": "Beyond its aroma, clove contains several bioactive compounds, including eugenol and β-caryophyllene, which contribute to its medicinal properties. These key components are widely used in various industries, from Flavor and Fragrance to Pharmaceuticals, marking the important role of clove in the global market.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "level": 5,
+            "children": [
+              {
+                "bold": true,
+                "text": "Tortor nunc purus amet nam orci diam.",
+                "type": "text",
+                "italic": true
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "text": "Pellentesque augue in donec vehicula urna. Curabitur et porta dui at tellus donec tellus amet morbi. Semper blandit pretium enim diam convallis at at. Nunc vulputate auctor velit urna amet fusce. Praesent dui eget semper blandit. Lacus integer pellentesque ut massa luctus elementum justo.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "text": "Quis suspendisse nec rhoncus fames leo lobortis risus purus nulla. Amet quam amet semper in aliquet. Pulvinar elementum tortor neque metus. Vitae nulla urna elementum nunc tortor sed. Ornare sit platea eu odio. In nulla justo commodo faucibus. Elit pharetra ut suscipit congue sit vitae libero.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "level": 5,
+            "children": [
+              {
+                "bold": true,
+                "text": "Tortor nunc purus amet nam orci diam.",
+                "type": "text",
+                "italic": true
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "text": "Pellentesque augue in donec vehicula urna. Curabitur et porta dui at tellus donec tellus amet morbi. Semper blandit pretium enim diam convallis at at. Nunc vulputate auctor velit urna amet fusce. Praesent dui eget semper blandit. Lacus integer pellentesque ut massa luctus elementum justo.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "text": "Quis suspendisse nec rhoncus fames leo lobortis risus purus nulla. Amet quam amet semper in aliquet. Pulvinar elementum tortor neque metus. Vitae nulla urna elementum nunc tortor sed. Ornare sit platea eu odio. In nulla justo commodo faucibus. Elit pharetra ut suscipit congue sit vitae libero.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "level": 5,
+            "children": [
+              {
+                "bold": true,
+                "text": "Tortor nunc purus amet nam orci diam.",
+                "type": "text",
+                "italic": true
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "text": "Pellentesque augue in donec vehicula urna. Curabitur et porta dui at tellus donec tellus amet morbi. Semper blandit pretium enim diam convallis at at. Nunc vulputate auctor velit urna amet fusce. Praesent dui eget semper blandit. Lacus integer pellentesque ut massa luctus elementum justo.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "text": "Quis suspendisse nec rhoncus fames leo lobortis risus purus nulla. Amet quam amet semper in aliquet. Pulvinar elementum tortor neque metus. Vitae nulla urna elementum nunc tortor sed. Ornare sit platea eu odio. In nulla justo commodo faucibus. Elit pharetra ut suscipit congue sit vitae libero.",
+                "type": "text"
+              }
+            ]
+          }
+        ],
+        "createdAt": "2025-12-09T04:24:58.839Z",
+        "updatedAt": "2025-12-09T04:25:01.517Z",
+        "publishedAt": "2025-12-09T04:25:01.698Z",
+        "slug": "clove",
+        "scientific_name": "Syzygium aromaticum"
+      },
+      "organoleptics": [
+        {
+          "id": 6,
+          "documentId": "qmo66rx7492o2wrv9w0m76qy",
+          "name": "clove",
+          "slug": "clove",
+          "description": null,
+          "createdAt": "2025-12-09T04:42:42.579Z",
+          "updatedAt": "2025-12-09T04:42:43.854Z",
+          "publishedAt": "2025-12-09T04:42:43.972Z"
+        },
+        {
+          "id": 8,
+          "documentId": "fo7iqy81rfins9k5joqmf8ip",
+          "name": "oceanic watery",
+          "slug": "oceanic-watery",
+          "description": null,
+          "createdAt": "2025-12-09T04:43:01.006Z",
+          "updatedAt": "2025-12-09T04:43:01.983Z",
+          "publishedAt": "2025-12-09T04:43:02.103Z"
+        }
+      ],
+      "product_format": {
+        "id": 2,
+        "documentId": "gob3wmcwqfzx5gl64f5g2haf",
+        "name": "Liquid",
+        "slug": "liquid",
+        "createdAt": "2025-12-09T06:15:55.275Z",
+        "updatedAt": "2025-12-09T06:15:55.275Z",
+        "publishedAt": "2025-12-09T06:15:55.366Z",
+        "description": null
+      },
+      "industry_categories": [
+        {
+          "id": 4,
+          "documentId": "rn8f6hjuu95pnaq6n8jsjqdu",
+          "name": "Agriculture",
+          "slug": "agriculture",
+          "description": null,
+          "createdAt": "2025-12-09T04:37:52.197Z",
+          "updatedAt": "2025-12-09T04:37:53.550Z",
+          "publishedAt": "2025-12-09T04:37:53.668Z"
+        }
+      ],
+      "general_information": null
+    }
+  ],
+  "meta": {
+    "pagination": {
+      "page": 1,
+      "pageSize": 25,
+      "pageCount": 1,
+      "total": 4
+    }
+  }
+}
+
+http://localhost:1337/api/faq-botanicals?filters[botanical][slug][$eq]=clove&pLevel=1
+
+{
+  "data": [
+    {
+      "id": 2,
+      "documentId": "c5v4f4udv9csmpkhfcazqpz9",
+      "quesion": "Where does clove originate and how is it sourced?",
+      "answer": [
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "Clove originates primarily from the Maluku Islands in Indonesia and is sourced from the dried flower buds of the Syzygium aromaticum tree. The buds are hand harvested at the optimal growth stage, then carefully dried to preserve their aromatic compounds and functional properties.",
+              "type": "text"
+            }
+          ]
+        }
+      ],
+      "createdAt": "2025-12-13T14:39:07.592Z",
+      "updatedAt": "2025-12-13T14:39:09.038Z",
+      "publishedAt": "2025-12-13T14:39:09.045Z",
+      "locale": "en"
+    },
+    {
+      "id": 4,
+      "documentId": "dvmyrf3f3367nmox37ro8ab9",
+      "quesion": "What are the key aromatic and functional characteristics of clove?",
+      "answer": [
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "Clove originates primarily from the Maluku Islands in Indonesia and is sourced from the dried flower buds of the Syzygium aromaticum tree. The buds are hand harvested at the optimal growth stage, then carefully dried to preserve their aromatic compounds and functional properties.",
+              "type": "text"
+            }
+          ]
+        }
+      ],
+      "createdAt": "2025-12-13T14:39:28.132Z",
+      "updatedAt": "2025-12-13T14:39:29.712Z",
+      "publishedAt": "2025-12-13T14:39:29.720Z",
+      "locale": "en"
+    },
+    {
+      "id": 6,
+      "documentId": "wgoxp30vdq72v0pal180md3m",
+      "quesion": "How is clove commonly used in food, beverage, and flavor applications?",
+      "answer": [
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "Clove originates primarily from the Maluku Islands in Indonesia and is sourced from the dried flower buds of the Syzygium aromaticum tree. The buds are hand harvested at the optimal growth stage, then carefully dried to preserve their aromatic compounds and functional properties.",
+              "type": "text"
+            }
+          ]
+        }
+      ],
+      "createdAt": "2025-12-13T14:39:47.475Z",
+      "updatedAt": "2025-12-13T14:39:48.371Z",
+      "publishedAt": "2025-12-13T14:39:48.377Z",
+      "locale": "en"
+    }
+  ],
+  "meta": {
+    "pagination": {
+      "page": 1,
+      "pageSize": 25,
+      "pageCount": 1,
+      "total": 3
+    }
+  }
+}

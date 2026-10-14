@@ -1,0 +1,476 @@
+http://localhost:1337/api/articles
+
+{
+  "data": [
+    {
+      "id": 4,
+      "documentId": "qcb4sxa3cei47iea8ukfguie",
+      "title": "Indesso 2025 Sustainability Report Signals New Phase in ESG and Climate Strategy",
+      "slug": "indesso-2025-sustainability-report-signals-new-phase-in-esg-and-climate-strategy-1",
+      "article_category": "Press Release",
+      "date": "2025-12-17T10:00:00.000Z",
+      "description": [
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "Ut quis vulputate nulla dictum erat accumsan ipsum tortor proin. Pharetra eget eros varius sapien. Dui ultrices tempor ut nullam nibh. Dignissim eget mauris viverra integer. Accumsan amet fringilla elementum tellus sagittis in odio. Neque massa pulvinar phasellus consectetur urna libero tristique blandit turpis. Porta arcu viverra etiam velit morbi urna amet id sit. Porta imperdiet tincidunt at consectetur massa adipiscing quis risus non. Egestas aliquam nulla consectetur nibh neque. Sit purus sagittis ultrices mauris magnis in arcu fusce malesuada. Eget nulla sapien augue vestibulum. Eu arcu eleifend eleifend morbi eget cras. In faucibus nunc odio sed molestie netus pellentesque vulputate erat.",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "Ut egestas erat facilisi fringilla integer faucibus sodales nulla auctor. Proin nunc mauris in sed adipiscing praesent sit. Ullamcorper pulvinar tincidunt porttitor nullam. In praesent rhoncus enim dui. Velit fringilla eget amet massa. Consectetur ac tincidunt blandit lacus. Neque viverra sagittis et nec sit urna et. Quis sed magna felis odio. Est elit in arcu egestas ipsum natoque arcu. Enim id pulvinar aenean in hac porttitor pretium at. Pellentesque id non amet platea augue et habitasse et neque. In in scelerisque ultricies quam egestas. Sollicitudin pretium convallis ut consequat sed maecenas montes. Cras quis in quam eu proin sed at risus.",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "Fusce erat urna curabitur orci ornare accumsan vel. Proin neque ac ultricies mollis id mattis egestas elementum facilisis. Quis in at eu auctor sit enim. Aliquam pellentesque morbi sed mi. Tortor egestas purus ante a. Eget integer arcu posuere ut pulvinar felis morbi vel. Aenean fusce odio cursus pretium vulputate. Viverra erat egestas nunc neque sed arcu aenean tellus. Vel amet sed eget non duis blandit accumsan felis. Viverra platea consectetur urna elit eleifend sed praesent amet eget. Amet mi tellus cursus ultricies. Diam consectetur risus ultrices arcu nunc mus ultricies.",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "Suspendisse lectus at nisi lacus adipiscing augue facilisi egestas. Volutpat tempus faucibus felis enim sit arcu. Mollis magna euismod elementum vitae tristique imperdiet. Risus egestas phasellus proin risus sit neque velit faucibus. Consectetur elit semper orci dignissim at tristique. Amet vivamus suspendisse purus eget in. Quisque amet mollis leo ut duis. Nibh euismod vulputate augue amet. Proin erat sit praesent sit sed placerat libero neque. Et congue aliquet tellus eget cursus mauris molestie.",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "Ipsum posuere a bibendum ultricies tristique. Elit cras nam porttitor sit eget volutpat tincidunt. Arcu facilisi id mi ut tortor senectus arcu. Tortor eu in commodo at nunc maecenas est. Ac natoque purus ornare lectus ut sem varius. Porttitor pellentesque nunc pretium nunc aliquam diam in quis. Ac adipiscing ullamcorper quis sem amet augue sed.",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "A malesuada id turpis sit eget pellentesque. Vestibulum integer risus feugiat nisl nisl donec. Mattis sit elit eu sit sed donec eu enim varius. Morbi commodo morbi a in pretium feugiat. Sem enim nulla mauris cursus mi felis mi elit pellentesque. Consectetur nulla egestas ante ultrices. Faucibus sed auctor nunc cursus sed. Ac nunc eget ac habitant fermentum amet. Elit ut eu gravida tincidunt. Volutpat ut euismod nunc lobortis commodo duis tempus fames ornare. Donec sed urna aliquam pellentesque. Pretium.",
+              "type": "text"
+            }
+          ]
+        }
+      ],
+      "createdAt": "2025-12-18T02:35:06.800Z",
+      "updatedAt": "2025-12-18T02:35:08.586Z",
+      "publishedAt": "2025-12-18T02:35:08.612Z"
+    },
+    {
+      "id": 6,
+      "documentId": "s8dxi4q8hnu2qok5wnlkzwf2",
+      "title": "Indesso Aroma Recognized in CDP's 2026 Supplier Engagement A-List",
+      "slug": "indesso-aroma-recognized-in-cdp-s-2026-supplier-engagement-a-list",
+      "article_category": "Corporate Events",
+      "date": "2025-12-17T10:15:00.000Z",
+      "description": [
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "Ut quis vulputate nulla dictum erat accumsan ipsum tortor proin. Pharetra eget eros varius sapien. Dui ultrices tempor ut nullam nibh. Dignissim eget mauris viverra integer. Accumsan amet fringilla elementum tellus sagittis in odio. Neque massa pulvinar phasellus consectetur urna libero tristique blandit turpis. Porta arcu viverra etiam velit morbi urna amet id sit. Porta imperdiet tincidunt at consectetur massa adipiscing quis risus non. Egestas aliquam nulla consectetur nibh neque. Sit purus sagittis ultrices mauris magnis in arcu fusce malesuada. Eget nulla sapien augue vestibulum. Eu arcu eleifend eleifend morbi eget cras. In faucibus nunc odio sed molestie netus pellentesque vulputate erat.",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "Ut egestas erat facilisi fringilla integer faucibus sodales nulla auctor. Proin nunc mauris in sed adipiscing praesent sit. Ullamcorper pulvinar tincidunt porttitor nullam. In praesent rhoncus enim dui. Velit fringilla eget amet massa. Consectetur ac tincidunt blandit lacus. Neque viverra sagittis et nec sit urna et. Quis sed magna felis odio. Est elit in arcu egestas ipsum natoque arcu. Enim id pulvinar aenean in hac porttitor pretium at. Pellentesque id non amet platea augue et habitasse et neque. In in scelerisque ultricies quam egestas. Sollicitudin pretium convallis ut consequat sed maecenas montes. Cras quis in quam eu proin sed at risus.",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "Fusce erat urna curabitur orci ornare accumsan vel. Proin neque ac ultricies mollis id mattis egestas elementum facilisis. Quis in at eu auctor sit enim. Aliquam pellentesque morbi sed mi. Tortor egestas purus ante a. Eget integer arcu posuere ut pulvinar felis morbi vel. Aenean fusce odio cursus pretium vulputate. Viverra erat egestas nunc neque sed arcu aenean tellus. Vel amet sed eget non duis blandit accumsan felis. Viverra platea consectetur urna elit eleifend sed praesent amet eget. Amet mi tellus cursus ultricies. Diam consectetur risus ultrices arcu nunc mus ultricies.",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "Suspendisse lectus at nisi lacus adipiscing augue facilisi egestas. Volutpat tempus faucibus felis enim sit arcu. Mollis magna euismod elementum vitae tristique imperdiet. Risus egestas phasellus proin risus sit neque velit faucibus. Consectetur elit semper orci dignissim at tristique. Amet vivamus suspendisse purus eget in. Quisque amet mollis leo ut duis. Nibh euismod vulputate augue amet. Proin erat sit praesent sit sed placerat libero neque. Et congue aliquet tellus eget cursus mauris molestie.",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "Ipsum posuere a bibendum ultricies tristique. Elit cras nam porttitor sit eget volutpat tincidunt. Arcu facilisi id mi ut tortor senectus arcu. Tortor eu in commodo at nunc maecenas est. Ac natoque purus ornare lectus ut sem varius. Porttitor pellentesque nunc pretium nunc aliquam diam in quis. Ac adipiscing ullamcorper quis sem amet augue sed.",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "A malesuada id turpis sit eget pellentesque. Vestibulum integer risus feugiat nisl nisl donec. Mattis sit elit eu sit sed donec eu enim varius. Morbi commodo morbi a in pretium feugiat. Sem enim nulla mauris cursus mi felis mi elit pellentesque. Consectetur nulla egestas ante ultrices. Faucibus sed auctor nunc cursus sed. Ac nunc eget ac habitant fermentum amet. Elit ut eu gravida tincidunt. Volutpat ut euismod nunc lobortis commodo duis tempus fames ornare. Donec sed urna aliquam pellentesque. Pretium.",
+              "type": "text"
+            }
+          ]
+        }
+      ],
+      "createdAt": "2025-12-18T02:42:28.826Z",
+      "updatedAt": "2025-12-18T02:42:31.155Z",
+      "publishedAt": "2025-12-18T02:42:31.198Z"
+    },
+    {
+      "id": 8,
+      "documentId": "dwocc66t5q5fli18j4558eyk",
+      "title": "Indesso 2025 Sustainability Report Signals New Phase in ESG and Climate Strategy",
+      "slug": "indesso-2025-sustainability-report-signals-new-phase-in-esg-and-climate-strategy-2",
+      "article_category": "Corporate Events",
+      "date": "2025-12-17T10:00:00.000Z",
+      "description": [
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "Ut quis vulputate nulla dictum erat accumsan ipsum tortor proin. Pharetra eget eros varius sapien. Dui ultrices tempor ut nullam nibh. Dignissim eget mauris viverra integer. Accumsan amet fringilla elementum tellus sagittis in odio. Neque massa pulvinar phasellus consectetur urna libero tristique blandit turpis. Porta arcu viverra etiam velit morbi urna amet id sit. Porta imperdiet tincidunt at consectetur massa adipiscing quis risus non. Egestas aliquam nulla consectetur nibh neque. Sit purus sagittis ultrices mauris magnis in arcu fusce malesuada. Eget nulla sapien augue vestibulum. Eu arcu eleifend eleifend morbi eget cras. In faucibus nunc odio sed molestie netus pellentesque vulputate erat.",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "Ut egestas erat facilisi fringilla integer faucibus sodales nulla auctor. Proin nunc mauris in sed adipiscing praesent sit. Ullamcorper pulvinar tincidunt porttitor nullam. In praesent rhoncus enim dui. Velit fringilla eget amet massa. Consectetur ac tincidunt blandit lacus. Neque viverra sagittis et nec sit urna et. Quis sed magna felis odio. Est elit in arcu egestas ipsum natoque arcu. Enim id pulvinar aenean in hac porttitor pretium at. Pellentesque id non amet platea augue et habitasse et neque. In in scelerisque ultricies quam egestas. Sollicitudin pretium convallis ut consequat sed maecenas montes. Cras quis in quam eu proin sed at risus.",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "Fusce erat urna curabitur orci ornare accumsan vel. Proin neque ac ultricies mollis id mattis egestas elementum facilisis. Quis in at eu auctor sit enim. Aliquam pellentesque morbi sed mi. Tortor egestas purus ante a. Eget integer arcu posuere ut pulvinar felis morbi vel. Aenean fusce odio cursus pretium vulputate. Viverra erat egestas nunc neque sed arcu aenean tellus. Vel amet sed eget non duis blandit accumsan felis. Viverra platea consectetur urna elit eleifend sed praesent amet eget. Amet mi tellus cursus ultricies. Diam consectetur risus ultrices arcu nunc mus ultricies.",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "Suspendisse lectus at nisi lacus adipiscing augue facilisi egestas. Volutpat tempus faucibus felis enim sit arcu. Mollis magna euismod elementum vitae tristique imperdiet. Risus egestas phasellus proin risus sit neque velit faucibus. Consectetur elit semper orci dignissim at tristique. Amet vivamus suspendisse purus eget in. Quisque amet mollis leo ut duis. Nibh euismod vulputate augue amet. Proin erat sit praesent sit sed placerat libero neque. Et congue aliquet tellus eget cursus mauris molestie.",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "Ipsum posuere a bibendum ultricies tristique. Elit cras nam porttitor sit eget volutpat tincidunt. Arcu facilisi id mi ut tortor senectus arcu. Tortor eu in commodo at nunc maecenas est. Ac natoque purus ornare lectus ut sem varius. Porttitor pellentesque nunc pretium nunc aliquam diam in quis. Ac adipiscing ullamcorper quis sem amet augue sed.",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "A malesuada id turpis sit eget pellentesque. Vestibulum integer risus feugiat nisl nisl donec. Mattis sit elit eu sit sed donec eu enim varius. Morbi commodo morbi a in pretium feugiat. Sem enim nulla mauris cursus mi felis mi elit pellentesque. Consectetur nulla egestas ante ultrices. Faucibus sed auctor nunc cursus sed. Ac nunc eget ac habitant fermentum amet. Elit ut eu gravida tincidunt. Volutpat ut euismod nunc lobortis commodo duis tempus fames ornare. Donec sed urna aliquam pellentesque. Pretium.",
+              "type": "text"
+            }
+          ]
+        }
+      ],
+      "createdAt": "2025-12-18T02:42:57.437Z",
+      "updatedAt": "2025-12-18T02:42:59.562Z",
+      "publishedAt": "2025-12-18T02:42:59.636Z"
+    },
+    {
+      "id": 9,
+      "documentId": "wd7uf6z8tu9q9xlsd97miw76",
+      "title": "Indesso 2025 Sustainability Report Signals New Phase in ESG and Climate Strategy",
+      "slug": "indesso-2025-sustainability-report-signals-new-phase-in-esg-and-climate-strategy",
+      "article_category": "Press Release",
+      "date": "2025-12-17T10:15:00.000Z",
+      "description": [
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "Ut quis vulputate nulla dictum erat accumsan ipsum tortor proin. Pharetra eget eros varius sapien. Dui ultrices tempor ut nullam nibh. Dignissim eget mauris viverra integer. Accumsan amet fringilla elementum tellus sagittis in odio. Neque massa pulvinar phasellus consectetur urna libero tristique blandit turpis. Porta arcu viverra etiam velit morbi urna amet id sit. Porta imperdiet tincidunt at consectetur massa adipiscing quis risus non. Egestas aliquam nulla consectetur nibh neque. Sit purus sagittis ultrices mauris magnis in arcu fusce malesuada. Eget nulla sapien augue vestibulum. Eu arcu eleifend eleifend morbi eget cras. In faucibus nunc odio sed molestie ",
+              "type": "text"
+            },
+            {
+              "url": "https://dev-indesso.deptechdigital.com/en/media/video",
+              "type": "link",
+              "children": [
+                {
+                  "text": "netus pellentesque vulputate erat.",
+                  "type": "text"
+                }
+              ]
+            },
+            {
+              "text": "",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "Ut egestas erat facilisi fringilla integer faucibus sodales nulla auctor. Proin nunc mauris in sed adipiscing praesent sit. Ullamcorper pulvinar tincidunt porttitor nullam. In praesent rhoncus enim dui. Velit fringilla eget amet massa. Consectetur ac tincidunt blandit lacus. Neque viverra sagittis et nec sit urna et. Quis sed magna felis odio. Est elit in arcu egestas ipsum natoque arcu. Enim id pulvinar aenean in hac porttitor pretium at. Pellentesque id non amet platea augue et habitasse et neque. In in scelerisque ultricies quam egestas. Sollicitudin pretium convallis ut consequat sed maecenas montes. Cras quis in quam eu proin sed at risus.",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "Fusce erat urna curabitur orci ornare accumsan vel. Proin neque ac ultricies mollis id mattis egestas elementum facilisis. Quis in at eu auctor sit enim. Aliquam pellentesque morbi sed mi. Tortor egestas purus ante a. Eget integer arcu posuere ut pulvinar felis morbi vel. Aenean fusce odio cursus pretium vulputate. Viverra erat egestas nunc neque sed arcu aenean tellus. Vel amet sed eget non duis blandit accumsan felis. Viverra platea consectetur urna elit eleifend sed praesent amet eget. Amet mi tellus cursus ultricies. Diam consectetur risus ultrices arcu nunc mus ultricies.",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "Suspendisse lectus at nisi lacus adipiscing augue facilisi egestas. Volutpat tempus faucibus felis enim sit arcu. Mollis magna euismod elementum vitae tristique imperdiet. Risus egestas phasellus proin risus sit neque velit faucibus. Consectetur elit semper orci dignissim at tristique. Amet vivamus suspendisse purus eget in. Quisque amet mollis leo ut duis. Nibh euismod vulputate augue amet. Proin erat sit praesent sit sed placerat libero neque. Et congue aliquet tellus eget cursus mauris molestie.",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "Ipsum posuere a bibendum ultricies tristique. Elit cras nam porttitor sit eget volutpat tincidunt. Arcu facilisi id mi ut tortor senectus arcu. Tortor eu in commodo at nunc maecenas est. Ac natoque purus ornare lectus ut sem varius. Porttitor pellentesque nunc pretium nunc aliquam diam in quis. Ac adipiscing ullamcorper quis sem amet augue sed.",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "A malesuada id turpis sit eget pellentesque. Vestibulum integer risus feugiat nisl nisl donec. Mattis sit elit eu sit sed donec eu enim varius. Morbi commodo morbi a in pretium feugiat. Sem enim nulla mauris cursus mi felis mi elit pellentesque. Consectetur nulla egestas ante ultrices. Faucibus sed auctor nunc cursus sed. Ac nunc eget ac habitant fermentum amet. Elit ut eu gravida tincidunt. Volutpat ut euismod nunc lobortis commodo duis tempus fames ornare. Donec sed urna aliquam pellentesque. Pretium.",
+              "type": "text"
+            }
+          ]
+        }
+      ],
+      "createdAt": "2025-12-18T02:34:28.811Z",
+      "updatedAt": "2025-12-18T02:43:24.568Z",
+      "publishedAt": "2025-12-18T02:43:24.620Z"
+    }
+  ],
+  "meta": {
+    "pagination": {
+      "page": 1,
+      "pageSize": 25,
+      "pageCount": 1,
+      "total": 4
+    }
+  }
+}

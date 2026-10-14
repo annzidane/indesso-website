@@ -1,0 +1,74 @@
+http://localhost:1337/api/botanicals?fields=name,slug,scientific_name&populate[image_1][fields]=url
+
+{
+  "data": [
+    {
+      "id": 2,
+      "documentId": "glqt312597ibt7xg56hylq1j",
+      "name": "Clove",
+      "slug": "clove",
+      "scientific_name": "Syzygium aromaticum",
+      "image_1": {
+        "id": 80,
+        "documentId": "bbqur469igh0cauhz4mholbs",
+        "url": "http://192.168.10.5:9000/indesso/Group_5140317_63dc36b303.png"
+      }
+    },
+    {
+      "id": 4,
+      "documentId": "zkxcxv2sstphmtaguc3oz9wy",
+      "name": "Patchouli",
+      "slug": "patchouli",
+      "scientific_name": "Sub Description",
+      "image_1": {
+        "id": 82,
+        "documentId": "gk58i1lpqozktiuwbpo21aqk",
+        "url": "http://192.168.10.5:9000/indesso/c95334c082c9fc713d5605fe63d82863b1a4dbb4_ff422bdc34.jpg"
+      }
+    },
+    {
+      "id": 6,
+      "documentId": "buk4beglfdem7qw1cqxn369n",
+      "name": "Citronella",
+      "slug": "citronella",
+      "scientific_name": "Cymbopogon nardus (L.) Rendle",
+      "image_1": {
+        "id": 83,
+        "documentId": "tisybofriar67bm03cwuphmy",
+        "url": "http://192.168.10.5:9000/indesso/9f8b484486d843bac18fae989fc3c56642aff8f0_eabbac8cb8.jpg"
+      }
+    },
+    {
+      "id": 8,
+      "documentId": "ljolzsjsc6g92gnfjultke5a",
+      "name": "Nutmeg",
+      "slug": "nutmeg",
+      "scientific_name": "Myristica fragrans",
+      "image_1": {
+        "id": 84,
+        "documentId": "xclueajq5fdxz79uqvj13dvs",
+        "url": "http://192.168.10.5:9000/indesso/674bac1a8af6f68b1d0b5761c2e180fc0e46d38c_4a1360fa34.jpg"
+      }
+    },
+    {
+      "id": 10,
+      "documentId": "kyn00y3virv5fvetccxrzpf8",
+      "name": "Ginger",
+      "slug": "ginger",
+      "scientific_name": "Zingiber officinale",
+      "image_1": {
+        "id": 85,
+        "documentId": "fkhyb73w52o7qph8o6i8am5n",
+        "url": "http://192.168.10.5:9000/indesso/d1fe1c2e9d41baf3cf61f47ab6e9b02157dcba8d_d969706e1f.jpg"
+      }
+    }
+  ],
+  "meta": {
+    "pagination": {
+      "page": 1,
+      "pageSize": 25,
+      "pageCount": 1,
+      "total": 5
+    }
+  }
+}
